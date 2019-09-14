@@ -8,7 +8,7 @@ Available Commands:
 
 
 
-by @r4v4n4
+by @NeoMatrix90 @kirito6969
 
 """
 
