@@ -8,7 +8,7 @@ Available Commands:
 
 
 
-by Deonnn
+by © Thunder God Raiden
 
 """
 
