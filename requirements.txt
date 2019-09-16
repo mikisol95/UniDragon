@@ -1,4 +1,4 @@
-telethon>=1.10.0
+telethon>=1.10.2
 hastebin.py
 async_generator
 pybase64
