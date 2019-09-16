@@ -48,15 +48,15 @@ async def _(event):
         location = str(e)
     caption = """Detailed Whois:
 
-ID🔖: <code>{}</code>
-Name🤵: <a href='tg://user?id={}'>{}</a>
-Bio✍️: {}
-Data Centre Number🌏: {}
-Number of Profile Pics🖼: {}
-Restricted🔏: {}
-Verified🌐: {}
-Bot🤖: {}
-Groups in Common👥: {}
+🔖ID: <code>{}</code>
+👱Name: <a href='tg://user?id={}'>{}</a>
+✍️Bio: {}
+🗄️Data Centre Number: {}
+🖼 Number of Profile Pics: {}
+🔏Restricted: {}
+✴️Verified: {}
+🤖Bot: {}
+👥Groups in Common: {}
 
 
 List Of Telegram Data Centres:
