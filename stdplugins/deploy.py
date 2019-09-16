@@ -20,7 +20,7 @@ async def _(event):
 
         return
 
-    animation_interval = 10
+    animation_interval = 9
 
     animation_ttl = range(0, 12)
 
@@ -33,8 +33,8 @@ async def _(event):
         animation_chars = [
         
             "**Heroku Connecting To Latest Github Build (Pornhub)**",
-            "**Build started by user** @r4v4n4",
-            "**Deploy** `535a74f0` **by user** @r4v4n4",
+            "**Build started by user** @NeoMatrix90",
+            "**Deploy** `535a74f0` **by user** @NeoMatrix90",
             "**Restarting Heroku Server...**",
             "**State changed from up to starting**",    
             "**Stopping all processes with SIGTERM**",
