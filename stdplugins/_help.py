@@ -64,7 +64,7 @@ async def _(event):
     plugin_name = event.pattern_match.group(1)
     if plugin_name in borg._plugins:
         help_string = borg._plugins[plugin_name].__doc__
-        unload_string = f"Use `.unload {plugin_name}` to remove this plugin.\n           © kirito6969"
+        unload_string = f"Use `.unload {plugin_name}` to remove this plugin.\n           © @NeoMatrix90 @kirito6969"
         if help_string:
             plugin_syntax = f"Syntax for plugin **{plugin_name}**:\n\n{help_string}\n{unload_string}"
         else:
