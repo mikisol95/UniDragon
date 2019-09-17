@@ -86,7 +86,7 @@ if Config.TG_BOT_USER_NAME_BF_HER is not None and tgbot is not None:
         else:
             result = builder.article(
                 "© @UniBorg",
-                text="""@NeoMatrix90 **( Custom Built By** @r4v4n4 **)** 
+                text="""@NeoMatrix90 **( Custom Built By** @NeoMatrix90 **)** 
 **Verified Account:** ✅
 **Official Website:** https://ravanaisdrunk.site.live
 
@@ -96,9 +96,9 @@ if Config.TG_BOT_USER_NAME_BF_HER is not None and tgbot is not None:
 
 **Custom Built Fork:** https://github.com/ravana69/Pornhub""",
                 buttons=[
-                    [custom.Button.url("👤Contact Creator👤", "https://telegram.dog/r4v4n4"), custom.Button.url(
+                    [custom.Button.url("👤Contact Creator👤", "https://telegram.dog/NeoMatrix90"), custom.Button.url(
                         "📼Ravana Audio Memes📼", "https://t.me/tgaudiomemes")],
-                    [custom.Button.url("👨‍💻Source Code👨‍💻", "https://github.com/ravana69/Pornhub"), custom.Button.url(
+                    [custom.Button.url("👨‍💻Source Code👨‍💻", "https://github.com/prono69/Pornhub"), custom.Button.url(
                         "❕❗Deploy Me❗❕", "https://dashboard.heroku.com/new?button-url=https%3A%2F%2Fgithub.com%2Fravana69%2FPornHub%2F&template=https%3A%2F%2Fgithub.com%2Fravana69%2FPornHub%2F")],
                     [custom.Button.url("🔰Update Fork🔰", "tg://need_update_for_some_feature"), custom.Button.url(
                         "✳️Fork Boost✳️", "tg://some_unsupported_feature"), custom.Button.url(
@@ -153,7 +153,7 @@ if Config.TG_BOT_USER_NAME_BF_HER is not None and tgbot is not None:
         reply_pop_up_alert = help_string if help_string is not None else \
             "No DOCSTRING has been setup for {} plugin".format(plugin_name)
         reply_pop_up_alert += "\n\n Use .unload {} to remove this plugin\n\
-            © @r4v4n4".format(plugin_name)
+            © @NeoMatrix90".format(plugin_name)
         await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
 
 
