@@ -61,18 +61,8 @@ class Config(object):
     # specify LOAD and NO_LOAD
     LOAD = []
     # foloowing plugins won't work on Heroku,
-    # ⚡Remove This To Make Them Work But Would Make Bot Unstable AF...⚡
-    NO_LOAD = [
-        "fwd",
-        "antiflood",
-        "blacklist",
-        "filters",
-        "locks",
-        "pmpermit",
-        "snip",
-        "welcome_old",
-        "gban"
-    ]
+    # Remove This To Make Them Work But Would Make Bot Unstable AF...⚡
+    NO_LOAD = []
     # Get your own API key from https://www.remove.bg/ or
     # feel free to use http://telegram.dog/Remove_BGBot
     REM_BG_API_KEY = os.environ.get("REM_BG_API_KEY", None)
