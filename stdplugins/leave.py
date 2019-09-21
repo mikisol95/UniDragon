@@ -2,7 +2,7 @@
 
 """fake leave
 
-.fleave"""
+.fl"""
 
 
 
@@ -23,7 +23,7 @@ import importlib.util
 
 
 
-@borg.on(events.NewMessage(outgoing=True, pattern='^\.(f?f)leave '))
+@borg.on(events.NewMessage(outgoing=True, pattern='^\.(f?f)l '))
 
 async def timer_blankx(e):
 
