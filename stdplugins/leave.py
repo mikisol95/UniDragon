@@ -43,5 +43,5 @@ async def timer_blankx(e):
 
  if e.pattern_match.group(1) == 'f':
 
-  await e.edit("`Legend is leaving this chat.....!` @admin `Goodbye aren't forever..` ")
+  await e.edit("`Legend is leaving this chat.....!` @admin `Goodbye aren't forever. It was a pleasant time with you guys..` ")
 
