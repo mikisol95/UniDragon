@@ -72,19 +72,3 @@ async def _(event):
             cws.f_mesg_id
         )
     )
-
-    @borg.on(admin_cmd(pattern="listwelcome"))  # pylint:disable=E0602
-async def _(event):
-    if event.fwd_from:
-        return
-    cws = get_current_welcome_settings(event.chat_id)
-    rm_welcome_setting(event.chat_id)
-        await event.edit(
-            "Welcome note found. " + \
-        "Your welcome message is `{}`.".format(cws.f_mesg_id)
-    )
-    else:
-        await event.edit(
-            "No Welcome Message found"
-        )
-         
