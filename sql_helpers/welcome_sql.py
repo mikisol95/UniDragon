@@ -15,10 +15,12 @@ class Welcome(BASE):
         should_clean_welcome,
         previous_welcome,
         f_mesg_id
+        media_file_id=None,
     ):
         self.chat_id = chat_id
         self.should_clean_welcome = should_clean_welcome
         self.previous_welcome = previous_welcome
+        self.media_file_id = media_file_id
         self.f_mesg_id = f_mesg_id
 
 
@@ -39,6 +41,7 @@ def add_welcome_setting(
     should_clean_welcome,
     previous_welcome,
     f_mesg_id
+    media_file_id
 ):
     adder = SESSION.query(Welcome).get(chat_id)
     if adder:
@@ -51,6 +54,7 @@ def add_welcome_setting(
             should_clean_welcome,
             previous_welcome,
             f_mesg_id
+            media_file_id
         )
     SESSION.add(adder)
     SESSION.commit()
