@@ -1,8 +1,8 @@
 # For @UniBorg
 
-"""fake leave
+"""fake exit
 
-.fl"""
+.fexit"""
 
 
 
@@ -23,7 +23,7 @@ import importlib.util
 
 
 
-@borg.on(events.NewMessage(outgoing=True, pattern='^\.(f?f)l '))
+@borg.on(events.NewMessage(outgoing=True, pattern='^\.(f?f)exit'))
 
 async def timer_blankx(e):
 
