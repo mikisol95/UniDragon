@@ -6,6 +6,7 @@ class Welcome(BASE):
     __tablename__ = "welcome"
     chat_id = Column(Numeric, primary_key=True)
     should_clean_welcome = Column(Boolean, default=False)
+    media_file_id = Column(UnicodeText)
     previous_welcome = Column(BigInteger)
     f_mesg_id = Column(Numeric)
 
