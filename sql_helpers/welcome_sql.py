@@ -6,7 +6,6 @@ class Welcome(BASE):
     __tablename__ = "welcome"
     chat_id = Column(Numeric, primary_key=True)
     should_clean_welcome = Column(Boolean, default=False)
-    media_file_id = Column(UnicodeText)
     previous_welcome = Column(BigInteger)
     f_mesg_id = Column(Numeric)
 
@@ -15,13 +14,11 @@ class Welcome(BASE):
         chat_id,
         should_clean_welcome,
         previous_welcome,
-        f_mesg_id,
-        media_file_id
+        f_mesg_id
     ):
         self.chat_id = chat_id
         self.should_clean_welcome = should_clean_welcome
         self.previous_welcome = previous_welcome
-        self.media_file_id = media_file_id
         self.f_mesg_id = f_mesg_id
 
 
@@ -42,7 +39,6 @@ def add_welcome_setting(
     should_clean_welcome,
     previous_welcome,
     f_mesg_id
-    media_file_id
 ):
     adder = SESSION.query(Welcome).get(chat_id)
     if adder:
@@ -55,7 +51,6 @@ def add_welcome_setting(
             should_clean_welcome,
             previous_welcome,
             f_mesg_id
-            media_file_id
         )
     SESSION.add(adder)
     SESSION.commit()
