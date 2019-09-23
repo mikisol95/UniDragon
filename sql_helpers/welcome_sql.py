@@ -15,8 +15,8 @@ class Welcome(BASE):
         chat_id,
         should_clean_welcome,
         previous_welcome,
-        f_mesg_id
-        media_file_id=None,
+        f_mesg_id,
+        media_file_id
     ):
         self.chat_id = chat_id
         self.should_clean_welcome = should_clean_welcome
