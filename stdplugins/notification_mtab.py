@@ -21,7 +21,7 @@ PREV_REPLY_MESSAGE = {}
 BAALAJI_TG_USER_BOT = "My Master hasn't approved you to PM."
 TG_COMPANION_USER_BOT = "Please wait for his response and don't spam his PM."
 UNIBORG_USER_BOT_WARN_ZERO = "You are Spamming my Master's PM, So you are blocked by me. \nNow wait, Until my Master Unblocks you."
-UNIBORG_USER_BOT_NO_WARN = "[──▄█▀█▄─────────██ \n▄████████▄───▄▀█▄▄▄▄ \n██▀▼▼▼▼▼─▄▀──█▄▄ \n█████▄▲▲▲─▄▄▄▀───▀▄ \n██████▀▀▀▀─▀────────▀▀] \n\n Bleep Blop! This is a Bot. Don't Freak xD.\n\nMy Master hasn't approved you to PM yet. Please wait for my Great Master to look in, He mostly approves PMs.\n\nUntil then, please don't spam my King's PM, you'll get blocked and reported!"
+UNIBORG_USER_BOT_NO_WARN = "[──▄█▀█▄─────────██ \n▄████████▄───▄▀█▄▄▄▄ \n██▀▼▼▼▼▼─▄▀──█▄▄ \n█████▄▲▲▲─▄▄▄▀───▀▄ \n██████▀▀▀▀─▀────────▀▀] \n\nBleep Blop! This is a Bot. Don't Freak xD.\n\nMy Master hasn't approved you to PM yet. Please wait for my Great Master to look in, He mostly approves PMs.\n\nUntil then, please don't spam my King's PM, you'll get blocked and reported!"
 
 
 @borg.on(admin_cmd(pattern="nccreatedch"))
