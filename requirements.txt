@@ -1,5 +1,6 @@
 telethon>=1.10.5
 pip>=19.2.3
+coffeehouse>=1.0.5
 hastebin.py
 async_generator
 pybase64
