@@ -1,6 +1,6 @@
 """
 
-Let me Google / YouTube / DuckDuckGo / altnews / Xvideo / Xvideos2/ Pornhub / var / log that for you! 
+Let me Google / YouTube / DuckDuckGo / altnews / Xvideo / Xvideos2/ Pornhub / var / log / Dyno that for you! 
 
 Syntax:
 
@@ -21,6 +21,8 @@ Syntax:
  .lmvar <heroku app name>
 
  .lmlog <heroku app name>
+
+ .dyno <type billing>
  
 
 
@@ -460,3 +462,47 @@ async def _(event):
         await event.edit("Something went wrong. Please try again later.")
         
       
+
+
+@borg.on(admin_cmd(pattern="dyno(.*)"))
+
+
+
+async def _(event):
+
+
+
+    if event.fwd_from:
+
+
+
+        return
+
+
+
+    input_str = event.pattern_match.group(1)
+
+
+
+    sample_url = "https://da.gd/s?url=https://dashboard.heroku.com/account/{}".format(input_str.replace(" ","+"))
+
+
+
+    response_api = requests.get(sample_url).text
+
+
+
+    if response_api:
+
+
+
+        await event.edit("Let me **Dyno** that for you:\n👉 [{}]({})\n`Thank me later 😉` ".format(input_str,response_api.rstrip()))
+
+
+
+    else:
+
+
+
+        await event.edit("Something went wrong. Please try again later.")
+
