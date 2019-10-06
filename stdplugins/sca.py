@@ -1,6 +1,17 @@
 """Send Chat Actions
 Syntax: .sca <option> <time in sec>
-        .scaoptions"""
+        sca options: Options for sca 
+
+typing
+contact
+game
+location
+voice
+round
+video
+photo
+document
+cancel"""
 
 import asyncio
 from uniborg.util import admin_cmd
