@@ -8,6 +8,7 @@ cowpy
 cryptg
 emoji
 googletrans
+gitpython
 google_images_download
 google-api-python-client
 google_auth_oauthlib
