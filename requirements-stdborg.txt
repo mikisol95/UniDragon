@@ -4,6 +4,7 @@ aria2p
 beautifulsoup4
 coffeehouse
 cfscrape
+cowpy
 cryptg
 emoji
 googletrans
