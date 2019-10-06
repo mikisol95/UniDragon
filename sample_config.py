@@ -130,6 +130,8 @@ class Config(object):
     REPO_LINK = os.environ.get("REPO_LINK", None)
     # define "repo_link" in conig_vars
     PACKS_CONTENT = os.environ.get("PACKS_CONTENT", None)
+    #
+    RAVANA_LEELA = os.environ.get("RAVANA_LEELA", None)
 
 
 class Production(Config):
