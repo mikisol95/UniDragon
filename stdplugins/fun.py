@@ -27,11 +27,16 @@ RUNSREACTS = [
     "`I Fugged off!`",
 ]
 RAPE_STRINGS = [
-     "`Rape Done Drink The Cum`",
+  "`Rape Done Drink The Cum`",
+     "`EK baat yaad rkhio, Chut ka Chakkar matlab maut se takkar`",
      "`The user has been successfully raped`",
      "`Dekho Bhaiyya esa hai! Izzat bachailo apni warna Gaand maar lenge tumhari`",
      "`Relax your Rear, ders nothing to fear,The Rape train is finally here`",
      "`Rape coming... Raped! haha 😆`",
+     "`Kitni baar Rape krvyega mujhse?`",
+     "`Tu Randi hai Sabko pta hai😂`",
+     "`Don't rape too much bossdk, else problem....`",
+     "`Tu sasti rendi hai Sabko pta hai😂`",
      "`Lodu Andha hai kya Yaha tera rape ho raha hai aur tu abhi tak yahi gaand mara raha hai lulz`",
 ] 
 ABUSE_STRINGS = [
