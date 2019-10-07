@@ -45,7 +45,13 @@ ABUSE_STRINGS = [
            "`You Betichod`",
            "`you are lodu no.1`"
 	   "`Muh Me Lega Bhosdike ?`"
+        "`Kro Gandu giri kam nhi toh Gand Maar lenge tumhari hum😂`",
+           "`Suno Lodu Jyda muh na chalo be muh me lawda pel Diyaa jayega`",
+           "`Sharam aagyi toh aakhe juka lijia land me dam nhi hai apke toh Shilajit kha lijia`",
+           "`Kahe Rahiman Kaviraaj C**t Ki Mahima Aisi,L**d Murjha Jaaye Par Ch**t Waisi Ki Waisi`",
+           "`Chudakkad Raand Ki Ch**T Mein Pele L*Nd Kabeer, Par Aisa Bhi Kya Choda Ki Ban Gaye Fakeer`",
 ]
+
 GEY_STRINGS = [
      "`you gey bsdk`",
      "`you gey`",
@@ -57,7 +63,13 @@ GEY_STRINGS = [
 PRO_STRINGS = [
      "`This gey is pro as phack.`",
      "`Pros here -_- Time to Leave`",
+     "`Proness Lebel: 6969696969`",
+     "`Itna pro banda dekhlia bc, ab to marna hoga.`",
+     "`U iz pro but i iz ur DAD, KeK`",
+     "`What are you Bsdk? Human or Gawd(+_+)`",
+     "`Aye pro , ek baat yaad rakhna, Agar Bharosa khud par ho to ksi ki chut tumhari kamzori nahi bnskti.`",
 ]
+
 INSULT_STRINGS = [ 
     "`Owww ... Such a stupid idiot.`",
     "`BC.. Gaand na fulao, maa chod denge tumhari`",
