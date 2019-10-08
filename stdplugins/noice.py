@@ -247,7 +247,7 @@ ZALG_LIST = [["̖",
               " ͡",
               ]]
 
-RUNSREACTS = [
+RUN_REACTS = [
     "`Runs to Thanos`",
     "`Runs far, far away from earth`",
     "`Running faster than usian bolt coz I'mma Bot`",
@@ -563,12 +563,12 @@ async def shrugger(shg):
         await shg.edit(random.choice(SHGS))
 
 
-@borg.on(admin_cmd(pattern="runs", outgoing=True)) 
+@borg.on(admin_cmd(pattern="run", outgoing=True)) 
 async def runner_lol(run):
     """ Run, run, RUNNN! """
     if not DISABLE_RUN:
         if not run.text[0].isalpha() and run.text[0] not in ("/", "#", "@", "!"):
-            await run.edit(random.choice(RUNSREACTS))
+            await run.edit(random.choice(RUN_REACTS))
 
 
 @borg.on(admin_cmd(pattern="disable runs", outgoing=True)) 
@@ -580,13 +580,13 @@ async def disable_runs(norun):
         await norun.edit("```Disabled .runs !!```")
 
 
-@borg.on(admin_cmd(pattern="enable runs", outgoing=True)) 
+@borg.on(admin_cmd(pattern="enable run", outgoing=True)) 
 async def enable_runs(run):
     """ But some do! """
     if not run.text[0].isalpha() and run.text[0] not in ("/", "#", "@", "!"):
         global DISABLE_RUN
         DISABLE_RUN = False
-        await run.edit("```Enabled .runs !!```")
+        await run.edit("```Enabled .run !!```")
 
 @borg.on(admin_cmd(pattern="10iq", outgoing=True))  
 async def iqless(e):
