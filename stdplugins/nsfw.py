@@ -1,4 +1,4 @@
-"""commands: .k, .kperu,.kthanos,.kchu,.khate,.kface, .kchase \n\nPorted by @NeoMatrix90 \nDON'T COPY WITHOUT CREDIT"""
+"""commands: .k, .kperu,.kthanos,.kchua,.khard,.kfuke,.kface, .kchase \n\nPorted by @NeoMatrix90 \nDON'T COPY WITHOUT CREDIT"""
 
 
 
