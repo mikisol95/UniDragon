@@ -19,7 +19,7 @@ NOOBSTR = [
 
 @borg.on(admin.cmd("peru ?(.*)"))
 async def _(event):
-    if.event.fwd_from:
+    if  event.fwd_from:
                    return
 bro = random.randint(0, len(NOOBSTR) - 1)    
     input_str = event.pattern_match.group(1)
