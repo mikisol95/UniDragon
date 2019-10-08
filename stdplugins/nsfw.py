@@ -41,7 +41,6 @@ async def _(event):
      "`Marzi Ka Sex Pap Nahi Hota.. Piche Se Dalne Wala Kabhi Baap Nahi Hota.. Condom Zarur Lagana Mere Dost Qki.. Sex K Waqt Popat Ke Pass Dimag Nahi Hota.`",
      "`Uss Ne Hothon Se Chhu Kar Lowd* Pe Nasha Kar Diya; Lu*D Ki Baat To Aur Thi, Uss Ne To Jhato* Ko Bhi Khada Kar Diya!`",
       ]
-      
       elif input_str in "chua":
 		    	emoticons = [
      "`Taare hai Asmaan me very very bright jaat na jla bskd dekh le apni hight.`",
