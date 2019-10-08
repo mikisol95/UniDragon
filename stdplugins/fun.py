@@ -127,7 +127,7 @@ INSULT_STRINGS = [
     "`Try bathing with Hydrochloric Acid instead of water.`",
     "`Go Green! Stop inhaling Oxygen.`",
     "`God was searching for you. You should leave to meet him.`",
-  "Give your 100%. Now, go donate blood.",
+  "`Give your 100%. Now, go donate blood.`",
     "`Try jumping from a hundred story building but you can do it only once.`",
     "`Sharam kar bsdwale,kitni bkchodi deta.`",
     "`Chup Madarhox, bilkul chup..`",
