@@ -26,6 +26,7 @@ RUNSREACTS = [
     "`I am just walking off, coz me is too fat.`",
     "`I Fugged off!`",
     "`Will run for sax & gurls.`",
+   "`Will run for Biriyani.`",
     "`I run because I really like food.`",
     "`Running...because dieting is not an option.`",
     "`Wicked fast runnah`",
@@ -128,6 +129,9 @@ INSULT_STRINGS = [
     "`God was searching for you. You should leave to meet him.`",
   "Give your 100%. Now, go donate blood.",
     "`Try jumping from a hundred story building but you can do it only once.`",
+    "`Sharam kar bsdwale,kitni bkchodi deta.`",
+    "`Chup Madarhox, bilkul chup..`",
+    "`Me zindagi me chunotiyo se jyda inn jese Chutiyo se pareshaan hu.`",
     "`You should donate your brain seeing that you never used it.`",
     "`Volunteer for target in an firing range.`",
     "`Head shots are fun. Get yourself one.`",
@@ -151,6 +155,8 @@ INSULT_STRINGS = [
     "`You should Volunteer for target in an firing range.`",
     "`Try playing catch and throw with RDX its fun.`",
     "`People like you are the reason we have middle fingers.`",
+  "`Jaana chodu chad jake land chaat`",
+    "`Yaar ajab tere nkhare,gazab tera style hain, gand dhone ki tameez nahi, haath main mobile hai`",
     "`When your mom dropped you off at the school, she got a ticket for littering.`",
     "`You’re so ugly that when you cry, the tears roll down the back of your head…just to avoid your face.`",
     "`If you’re talking behind my back then you’re in a perfect position to kiss my a**!.`",
@@ -167,6 +173,22 @@ async def _(event):
     reply_text = RUNSREACTS[bro]
     await event.edit(reply_text)
 
+@borg.on(admin_cmd(pattern="disable runs", outgoing=True)) 
+async def disable_runs(norun):
+    """ Some people don't like running... """
+    if not norun.text[0].isalpha() and norun.text[0] not in ("/", "#", "@", "!"):
+        global DISABLE_RUN
+        DISABLE_RUN = True
+        await norun.edit("```Disabled .runs !!```")
+
+
+@borg.on(admin_cmd(pattern="enable runs", outgoing=True)) 
+async def enable_runs(run):
+    """ But some do! """
+    if not run.text[0].isalpha() and run.text[0] not in ("/", "#", "@", "!"):
+        global DISABLE_RUN
+        DISABLE_RUN = False
+        await run.edit("```Enabled .runs !!```")
 
 @borg.on(admin_cmd("metoo ?(.*)"))
 async def _(event):
