@@ -89,6 +89,7 @@ GEY_STRINGS = [
      "`you gey`",
      "`you gey in the house`",
      "`you chakka`",
+     "`Bhago BC! Chakka aya`",
      "`you gey gey gey gey gey gey gey gey`",
      "`you gey go away`",
 ]
