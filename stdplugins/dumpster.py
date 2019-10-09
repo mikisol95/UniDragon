@@ -40,3 +40,12 @@ async def _(event):
       await event.edit(i)
       await asyncio.sleep(0.3)
     
+@borg.on(admin_cmd(pattern="dump gandu ?(.*)"))
+async def _(event):
+    if event.fwd_from:
+        return
+    from extra_util.trashguy import TrashGuy
+    an = TrashGuy(event.pattern_match.group(1))
+    for i in an:
+      await event.edit(i)
+      await asyncio.sleep(2)
