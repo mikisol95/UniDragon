@@ -48,4 +48,4 @@ async def _(event):
     an = TrashGuy(event.pattern_match.group(1))
     for i in an:
       await event.edit(i)
-      await asyncio.sleep(2)
+      await asyncio.sleep(0.3)
