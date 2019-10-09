@@ -15,6 +15,7 @@ gsearch>=1.6.0
 gtts
 hachoir
 Pillow
+pyfiglet
 psycopg2
 pySmartDL
 python-magic
