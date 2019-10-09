@@ -359,7 +359,7 @@ CRI = [
     "༼ ༎ຶ ෴ ༎ຶ༽",
 ]
 
-DISABLE_RUN = False
+DISABLE_ROON = False
 # ===========================================
 
 
@@ -563,30 +563,30 @@ async def shrugger(shg):
         await shg.edit(random.choice(SHGS))
 
 
-@borg.on(admin_cmd(pattern="run", outgoing=True)) 
-async def runner_lol(run):
+@borg.on(admin_cmd(pattern="roon", outgoing=True)) 
+async def runner_lol(roon):
     """ Run, run, RUNNN! """
-    if not DISABLE_RUN:
-        if not run.text[0].isalpha() and run.text[0] not in ("/", "#", "@", "!"):
-            await run.edit(random.choice(RUN_REACTS))
+    if not DISABLE_ROON:
+        if not roon.text[0].isalpha() and roon.text[0] not in ("/", "#", "@", "!"):
+            await roon.edit(random.choice(RUN_REACTS))
 
 
-@borg.on(admin_cmd(pattern="disable runs", outgoing=True)) 
-async def disable_runs(norun):
+@borg.on(admin_cmd(pattern="disable roon", outgoing=True)) 
+async def disable_roon(noroon):
     """ Some people don't like running... """
-    if not norun.text[0].isalpha() and norun.text[0] not in ("/", "#", "@", "!"):
-        global DISABLE_RUN
-        DISABLE_RUN = True
-        await norun.edit("```Disabled .runs !!```")
+    if not noroon.text[0].isalpha() and noroon.text[0] not in ("/", "#", "@", "!"):
+        global DISABLE_ROON
+        DISABLE_ROON = True
+        await noroon.edit("```Disabled .runs !!```")
 
 
-@borg.on(admin_cmd(pattern="enable run", outgoing=True)) 
-async def enable_runs(run):
+@borg.on(admin_cmd(pattern="enable roon", outgoing=True)) 
+async def enable_roon(roon):
     """ But some do! """
-    if not run.text[0].isalpha() and run.text[0] not in ("/", "#", "@", "!"):
-        global DISABLE_RUN
-        DISABLE_RUN = False
-        await run.edit("```Enabled .run !!```")
+    if not roon.text[0].isalpha() and roon.text[0] not in ("/", "#", "@", "!"):
+        global DISABLE_ROON
+        DISABLE_ROON = False
+        await roon.edit("```Enabled .run !!```")
 
 @borg.on(admin_cmd(pattern="10iq", outgoing=True))  
 async def iqless(e):
