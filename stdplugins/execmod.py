@@ -1,4 +1,4 @@
-"""COMMAND : .cpu, .uptime, .suicide, .env, .pip, .neofetch, .date, .coffeehouse, .iwantsex, .telegram, .stdplugins, .fast, .listpip, .figlet"""
+"""COMMAND : .cpu, .uptime, .suicide, .env, .pip, .neofetch, .date, .coffeehouse, .iwantsex, .telegram, .stdplugins, .fast, .listpip, .fuggi"""
 # This Source Code Form is subject to the terms of the Mozilla Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
@@ -578,7 +578,7 @@ async def _(event):
 
 
 
-@borg.on(events.NewMessage(pattern=r"\.figlet", outgoing=True))
+@borg.on(events.NewMessage(pattern=r"\.fuggi", outgoing=True))
 async def _(event):
     if event.fwd_from:
         return
