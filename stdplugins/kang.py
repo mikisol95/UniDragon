@@ -11,6 +11,7 @@ import datetime
 from collections import defaultdict
 import math
 import os
+import random
 import requests
 import zipfile
 from telethon.errors.rpcerrorlist import StickersetInvalidError
@@ -28,6 +29,20 @@ from telethon.tl.types import (
 )
 from uniborg.util import admin_cmd
 
+
+KANGING_STR = [
+    "`Using Witchery to kang this sticker...`",
+    "`Plagiarising hehe...`",
+"`Aaham Brahmassami................`",
+    "`Inviting this sticker over to my pack...`",
+    "`Kanging this sticker...`",
+    "`Hey that's a nice sticker!\nMind if I kang?!..`",
+    "`hehe me stel ur stikér\nhehe.`",
+    "`Ay look over there (☉｡☉)!→\nWhile I kang this...`",
+    "`Roses are red violets are blue, kanging this sticker so my pacc looks cool`",
+    "`Imprisoning this sticker...`",
+    "`Mr.Steal Your Sticker is stealing this sticker...`",
+]
 
 @borg.on(admin_cmd("lund ?(.*)"))
 async def _(event):
@@ -65,7 +80,7 @@ async def _(event):
             sticker.seek(0)
             uploaded_sticker = await borg.upload_file(sticker, file_name=file_ext_ns_ion)
 
-    await event.edit("Aaham Brahmassami................")
+    await event.edit(random.choice(KANGING_STR))
 
     async with borg.conversation("@Stickers") as bot_conv:
         now = datetime.datetime.now()
