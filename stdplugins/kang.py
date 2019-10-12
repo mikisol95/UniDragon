@@ -1,6 +1,6 @@
 """Make / Download Telegram Sticker Packs without installing Third Party applications
 Available Commands:
-.lund [Optional Emoji]
+.kang [Optional Emoji]
 .packinfo
 .loda {for get stickers in a zip file}"""
 from telethon import events
@@ -42,9 +42,12 @@ KANGING_STR = [
     "`Roses are red violets are blue, kanging this sticker so my pacc looks cool`",
     "`Imprisoning this sticker...`",
     "`Mr.Steal Your Sticker is stealing this sticker...`",
+"`I am Stealing your Sticker.....\nGand Marao...`",
+"Why u bullin me.....\nರ╭╮ರ`",
+"`BOOM.... HEADSHOT...\n(ノಠ益ಠ)ノ...\n(⌐■-■)`",
 ]
 
-@borg.on(admin_cmd("lund ?(.*)"))
+@borg.on(admin_cmd("kang ?(.*)"))
 async def _(event):
     if event.fwd_from:
         return
