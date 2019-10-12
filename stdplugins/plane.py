@@ -25,6 +25,6 @@ async def _(event):
     await event.edit("-----------✈--")
     await event.edit("------------✈-")
     await event.edit("-------------✈")
-    await asyncio.sleep(3)
+    await asyncio.sleep()
     await event.delete()
 
