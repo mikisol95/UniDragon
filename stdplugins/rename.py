@@ -1,6 +1,6 @@
 """Rename Telegram Files
 Syntax:
-.rnupload file.name
+.rn file.name
 .rnstreamupload file.name
 .rndlup """
 
@@ -95,7 +95,7 @@ async def _(event):
         await mone.edit("Incorrect URL\n {}".format(input_str))
 
 
-@borg.on(admin_cmd(pattern="rnupload (.*)"))
+@borg.on(admin_cmd(pattern="rn (.*)"))
 async def _(event):
     if event.fwd_from:
         return
