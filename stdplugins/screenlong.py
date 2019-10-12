@@ -1,5 +1,5 @@
 """Take screenshot of any website
-Syntax: .screenlong <Website URL>"""
+Syntax: .long <Website URL>"""
 
 import io
 import traceback
@@ -9,7 +9,7 @@ from telethon import events
 from uniborg.util import admin_cmd
 
 
-@borg.on(admin_cmd("screenlong (.*)"))
+@borg.on(admin_cmd("long (.*)"))
 async def _(event):
     if event.fwd_from:
         return
@@ -46,7 +46,7 @@ async def _(event):
         if event.reply_to_msg_id:
             message_id = event.reply_to_msg_id
         with io.BytesIO(im_png) as out_file:
-            out_file.name = "@UniBorg.ScreenCapture.PNG"
+            out_file.name = "@PepeBot.ScreenCapture.PNG"
             await borg.send_file(
                 event.chat_id,
                 out_file,
