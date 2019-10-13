@@ -165,12 +165,12 @@ INSULT_STRINGS = [
 # ===========================================
                           
 
-@borg.on(admin_cmd("runs ?(.*)"))
+@borg.on(admin_cmd("runs($)"))
 async def _(event):
     if event.fwd_from:
          return
     bro = random.randint(0, len(RUNSREACTS) - 1)    
-    input_str = event.pattern_match.group(1)
+    #input_str = event.pattern_match.group(1)
     reply_text = RUNSREACTS[bro]
     await event.edit(reply_text)
 
@@ -191,57 +191,57 @@ async def enable_runs(run):
         DISABLE_RUN = False
         await run.edit("```Enabled .runs !!```")
 
-@borg.on(admin_cmd("metoo ?(.*)"))
+@borg.on(admin_cmd("metoo($)"))
 async def _(event):
     if event.fwd_from:
          return
     bro = random.randint(0, len(METOOSTR) - 1)    
-    input_str = event.pattern_match.group(1)
+    #input_str = event.pattern_match.group(1)
     reply_text = METOOSTR[bro]
     await event.edit(reply_text)
 
 
-@borg.on(admin_cmd("rape ?(.*)"))
+@borg.on(admin_cmd("rape($)"))
 async def _(event):
     if event.fwd_from:
          return
     bro = random.randint(0, len(RAPE_STRINGS) - 1)    
-    input_str = event.pattern_match.group(1)
+    #input_str = event.pattern_match.group(1)
     reply_text = RAPE_STRINGS[bro]
     await event.edit(reply_text)
 			  
                           
-@borg.on(admin_cmd("insult ?(.*)"))
+@borg.on(admin_cmd("insult($)"))
 async def _(event):
     if event.fwd_from:
          return
     bro = random.randint(0, len(INSULT_STRINGS) - 1)    
-    input_str = event.pattern_match.group(1)
+    #input_str = event.pattern_match.group(1)
     reply_text = INSULT_STRINGS[bro]
     await event.edit(reply_text)
 			  
 			  
-@borg.on(admin_cmd("pro ?(.*)"))
+@borg.on(admin_cmd("pro($)"))
 async def _(event):
     if event.fwd_from:
          return
     bro = random.randint(0, len(PRO_STRINGS) - 1)    
-    input_str = event.pattern_match.group(1)
+    #input_str = event.pattern_match.group(1)
     reply_text = PRO_STRINGS[bro]
     await event.edit(reply_text)
 			  
 			  
-@borg.on(admin_cmd("abuse ?(.*)"))
+@borg.on(admin_cmd("abuse($)"))
 async def _(event):
     if event.fwd_from:
          return
     bro = random.randint(0, len(ABUSE_STRINGS) - 1)    
-    input_str = event.pattern_match.group(1)
+    #input_str = event.pattern_match.group(1)
     reply_text = ABUSE_STRINGS[bro]
     await event.edit(reply_text)
 			  
 			  
-@borg.on(admin_cmd("gey ?(.*)"))
+@borg.on(admin_cmd("gey($)"))
 async def _(event):
     if event.fwd_from:
          return
