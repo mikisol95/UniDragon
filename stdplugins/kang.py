@@ -45,6 +45,8 @@ KANGING_STR = [
 "`I am Stealing your Sticker.....\nGand Marao...`",
 "Why u bullin me.....\nರ╭╮ರ`",
 "`BOOM.... HEADSHOT...\n(ノಠ益ಠ)ノ...\n(⌐■-■)`",
+"`Me is sux with ur GF....\nU can't du nthing...Hehe..\nಠ∀ಠ...(≧▽≦)`",
+
 ]
 
 @borg.on(admin_cmd("kang ?(.*)"))
