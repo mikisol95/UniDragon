@@ -1,7 +1,7 @@
 # BY @Deonnn // Thanks from cHAuHaN
 """
 Game of Thrones Thoughts plugin
-Command .gott
+Command .jon
 """
 from telethon import events
 import asyncio
