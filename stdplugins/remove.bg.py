@@ -13,8 +13,8 @@
 # GNU General Public License for more details.
 #
 """Remove.BG Plugin for @UniBorg
-Syntax: .remove.bg https://link.to/image.extension
-Syntax: .remove.bg as reply to a media"""
+Syntax: .rbg https://link.to/image.extension
+Syntax: .rbg as reply to a media"""
 import asyncio
 from datetime import datetime
 import io
@@ -24,9 +24,9 @@ from telethon import events
 from uniborg.util import progress, admin_cmd
 
 
-@borg.on(admin_cmd("remove\.bg ?(.*)"))
+@borg.on(admin_cmd("rbg ?(.*)"))
 async def _(event):
-    HELP_STR = "`.remove.bg` as reply to a media, or give a link as an argument to this command"
+    HELP_STR = "`.rbg` as reply to a media, or give a link as an argument to this command"
     if event.fwd_from:
         return
     if Config.REM_BG_API_KEY is None:
@@ -39,7 +39,7 @@ async def _(event):
         message_id = event.reply_to_msg_id
         reply_message = await event.get_reply_message()
         # check if media message
-        await event.edit("Downloading this media ...")
+        await event.edit("`Abe Kuch Der Rukja ...`")
         try:
             downloaded_file_name = await borg.download_media(
                 reply_message,
@@ -61,7 +61,7 @@ async def _(event):
     contentType = output_file_name.headers.get("content-type")
     if "image" in contentType:
         with io.BytesIO(output_file_name.content) as remove_bg_image:
-            remove_bg_image.name = "@UniBorg_ReMove.png"
+            remove_bg_image.name = "@PepeBot_ReMove.png"
             await borg.send_file(
                 event.chat_id,
                 remove_bg_image,
@@ -72,7 +72,7 @@ async def _(event):
             )
         end = datetime.now()
         ms = (end - start).seconds
-        await event.edit("Background Removed in {} seconds using ReMove.BG API, powered by @UniBorg".format(ms))
+        await event.edit("Background Removed in {} seconds using ReMove.BG API, powered by @PepeBot".format(ms))
     else:
         await event.edit("ReMove.BG API returned Errors. Please report to @UniBorg\n`{}".format(output_file_name.content.decode("UTF-8")))
 
