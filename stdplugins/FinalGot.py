@@ -5,7 +5,7 @@ import os
 import sys
 import random
 
-@borg.on(events.NewMessage(pattern=r"\.got", outgoing=True))
+@borg.on(events.NewMessage(pattern=r"\.snow", outgoing=True))
 async def _(event):
     if event.fwd_from:
         return
