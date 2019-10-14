@@ -1,6 +1,6 @@
 """Reply to a user to .promote them in the current chat"""
 from telethon import events
-import asyncio
+import asyncio,re
 from datetime import datetime
 from telethon.tl.functions.channels import EditAdminRequest
 from telethon.tl.types import ChatAdminRights
