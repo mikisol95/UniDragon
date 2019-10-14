@@ -160,10 +160,8 @@ INSULT_STRINGS = [
     "`Yaar ajab tere nkhare,gazab tera style hain, gand dhone ki tameez nahi, haath main mobile hai`",
     "`When your mom dropped you off at the school, she got a ticket for littering.`",
     "`You’re so ugly that when you cry, the tears roll down the back of your head…just to avoid your face.`",
-    "`If you’re talking behind my back then you’re in a perfect position to kiss my a**!.`",
+    "`If you’re talking behind my back then you’re in a perfect position to kiss my a**!.`"
 ]
-# ===========================================
-                          
 
 @borg.on(admin_cmd("runs($)"))
 async def _(event):
