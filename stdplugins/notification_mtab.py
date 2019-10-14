@@ -2,7 +2,7 @@
 .nccreatadch
 .nolog
 .dellog
-.approvepm
+.approve
 .blockpm
 .listapprovedpms"""
 
@@ -82,7 +82,7 @@ async def set_no_log_p_m(event):
                 await event.delete()
 
 
-@borg.on(admin_cmd(pattern="approvepm ?(.*)"))
+@borg.on(admin_cmd(pattern="approve ?(.*)"))
 async def approve_p_m(event):
     if event.fwd_from:
         return
