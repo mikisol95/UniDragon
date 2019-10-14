@@ -1,8 +1,9 @@
 """Upload images to Labstack
 .labstack <path_to_image>
 .labstack as reply to media
+\n\nCreated By @s_n_a_p_s
  Ported by © [Eyepatch](http://t.me/NeoMatrix90)
- helping hands @r4v3n4 @amnd33p"""
+ Helping hands @r4v4n4 @amnd33p"""
 from datetime import datetime
 import os
 import requests
