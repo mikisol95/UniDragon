@@ -27,14 +27,14 @@ UNIBORG_USER_BOT_NO_WARN = "[──▄█▀█▄─────────█
 @borg.on(admin_cmd(pattern="nccreatedch"))
 async def create_dump_channel(event):
     if Config.PM_LOGGR_BOT_API_ID is None:
-        result = await borg(functions.channels.CreateChannelRequest(  # pylint:disable=E0602
+        result = await event.client(functions.channels.CreateChannelRequest(  # pylint:disable=E0602
             title=f"UniBorg-{borg.uid}-PM_LOGGR_BOT_API_ID-data",
             about="@UniBorg PM_LOGGR_BOT_API_ID // Do Not Touch",
             megagroup=False
         ))
         logger.info(result)
         created_chat_id = result.chats[0].id
-        result = await borg.edit_admin(  # pylint:disable=E0602
+        result = await event.client.edit_admin(  # pylint:disable=E0602
             entity=created_chat_id,
             user=Config.TG_BOT_USER_NAME_BF_HER,
             is_admin=True,
@@ -43,7 +43,7 @@ async def create_dump_channel(event):
         logger.info(result)
         with io.BytesIO(str.encode(str(created_chat_id))) as out_file:
             out_file.name = "PLEASE.IGNORE.dummy.file"
-            await borg.send_file(
+            await event.client.send_file(
                 created_chat_id,
                 out_file,
                 force_document=True,
@@ -114,7 +114,7 @@ async def approve_p_m(event):
                 pmpermit_sql.disapprove(chat.id)
                 await event.edit("███████▄▄███████████▄  \n▓▓▓▓▓▓█░░░░░░░░░░░░░░█\n▓▓▓▓▓▓█░░░░░░░░░░░░░░█\n▓▓▓▓▓▓█░░░░░░░░░░░░░░█\n▓▓▓▓▓▓█░░░░░░░░░░░░░░█\n▓▓▓▓▓▓█░░░░░░░░░░░░░░█\n▓▓▓▓▓▓███░░░░░░░░░░░░█\n██████▀▀▀█░░░░██████▀  \n░░░░░░░░░█░░░░█  \n░░░░░░░░░░█░░░█  \n░░░░░░░░░░░█░░█  \n░░░░░░░░░░░█░░█  \n░░░░░░░░░░░░▀▀ \n\nFuck Off Bitch, Now You Can't Message Me...")
                 await asyncio.sleep(3)
-                await borg(functions.contacts.BlockRequest(chat.id))
+                await event.client(functions.contacts.BlockRequest(chat.id))
 
 
 @borg.on(admin_cmd(pattern="listapprovedpms"))
@@ -134,7 +134,7 @@ async def approve_p_m(event):
     if len(APPROVED_PMs) > Config.MAX_MESSAGE_SIZE_LIMIT:
         with io.BytesIO(str.encode(APPROVED_PMs)) as out_file:
             out_file.name = "approved.pms.text"
-            await borg.send_file(
+            await event.client.send_file(
                 event.chat_id,
                 out_file,
                 force_document=True,
@@ -170,7 +170,7 @@ async def on_new_private_message(event):
         # https://core.telegram.org/bots/faq#why-doesn-39t-my-bot-see-messages-from-other-bots
         return
 
-    sender = await borg.get_entity(chat_id)
+    sender = await event.client.get_entity(chat_id)
     if chat_id == borg.uid:
         # don't log Saved Messages
         return
@@ -207,7 +207,7 @@ async def on_new_chat_action_message(event):
             the_message += "#MessageActionChatAddUser\n\n"
             the_message += f"[User](tg://user?id={added_by_user}): `{added_by_user}`\n"
             the_message += f"[Private Link](https://t.me/c/{chat_id}/{message_id})\n"
-            await borg.send_message(
+            await event.client.send_message(
                 entity=Config.PM_LOGGR_BOT_API_ID,
                 message=the_message,
                 # reply_to=,
@@ -234,7 +234,7 @@ async def on_new_channel_message(event):
         the_message += "#MessageActionChatAddUser\n\n"
         # the_message += f"[User](tg://user?id={added_by_user}): `{added_by_user}`\n"
         the_message += f"[Private Link](https://t.me/c/{channel_id}/{message_id})\n"
-        await borg.send_message(
+        await event.send_message(
             entity=Config.PM_LOGGR_BOT_API_ID,
             message=the_message,
             # reply_to=,
@@ -268,7 +268,7 @@ async def do_pm_permit_action(chat_id, event):
     if PM_WARNS[chat_id] == Config.MAX_FLOOD_IN_P_M_s:
         r = await event.reply(UNIBORG_USER_BOT_WARN_ZERO)
         await asyncio.sleep(3)
-        await borg(functions.contacts.BlockRequest(chat_id))
+        await event.client(functions.contacts.BlockRequest(chat_id))
         if chat_id in PREV_REPLY_MESSAGE:
             await PREV_REPLY_MESSAGE[chat_id].delete()
         PREV_REPLY_MESSAGE[chat_id] = r
@@ -277,7 +277,7 @@ async def do_pm_permit_action(chat_id, event):
         the_message += f"[User](tg://user?id={chat_id}): {chat_id}\n"
         the_message += f"Message Count: {PM_WARNS[chat_id]}\n"
         # the_message += f"Media: {message_media}"
-        await borg.send_message(
+        await event.client.send_message(
             entity=Config.PM_LOGGR_BOT_API_ID,
             message=the_message,
             # reply_to=,
@@ -300,7 +300,7 @@ async def do_log_pm_action(chat_id, message_text, message_media):
     the_message += f"[User](tg://user?id={chat_id}): {chat_id}\n"
     the_message += f"Message: {message_text}\n"
     # the_message += f"Media: {message_media}"
-    await borg.send_message(
+    await event.client.send_message(
         entity=Config.PM_LOGGR_BOT_API_ID,
         message=the_message,
         # reply_to=,
