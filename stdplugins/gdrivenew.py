@@ -49,7 +49,7 @@ G_DRIVE_DIR_MIME_TYPE = "application/vnd.google-apps.folder"
 async def _(event):
     if event.fwd_from:
         return
-    mone = await event.reply("Processing ...")
+    mone = await event.reply("`Ruk Sale ...`")
     if CLIENT_ID is None or CLIENT_SECRET is None:
         await mone.edit("This module requires credentials from https://da.gd/so63O. Aborting!")
         return
@@ -282,7 +282,7 @@ async def upload_file(http, file_path, file_name, mime_type, event, parent_id):
     media_body = MediaFileUpload(file_path, mimetype=mime_type, resumable=True)
     body = {
         "title": file_name,
-        "description": "Uploaded using @UniBorg gDrive v2",
+        "description": "Uploaded using @PepeBot gDrive v69",
         "mimeType": mime_type,
     }
     if parent_id is not None:
