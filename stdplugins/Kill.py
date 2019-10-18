@@ -40,10 +40,10 @@ async def _(event):
             "------------------>",    
             "------>;(^。^)ノ",
             "(￣ー￣) DED",
-            "**Target killed successfully (°̥̥̥̥̥̥̥̥•̀.̫•́°̥̥̥̥̥̥̥)**",
+            "`**Target killed successfully (°̥̥̥̥̥̥̥̥•̀.̫•́°̥̥̥̥̥̥̥)`**",
         ]
 
         for i in animation_ttl:
 
 
-            await event.edit(animation_chars[i % 103])
+            await event.edit(animation_chars[i % 32])
