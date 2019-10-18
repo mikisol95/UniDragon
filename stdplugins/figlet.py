@@ -8,7 +8,7 @@ from telethon import events, functions
 from uniborg.util import admin_cmd
 import sys
  
-@borg.on(admin_cmd(pattern="figlet ?(.*)", allow_sudo=True))  # pylint:disable=E0602
+@borg.on(admin_cmd(pattern="figlet ?(.*)", allow_sudo=True))
 async def figlet(event):
     if event.fwd_from:
         return
