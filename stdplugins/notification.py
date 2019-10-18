@@ -2,8 +2,9 @@
 .nccreatadch
 .nolog
 .dellog
-.approve
-.blockpm
+.allow
+.blockpm To block pm
+.block To block faking retard nibba
 .listapprovedpms"""
 
 import asyncio
@@ -82,7 +83,7 @@ async def set_no_log_p_m(event):
                 await event.delete()
 
 
-@borg.on(admin_cmd(pattern="approve ?(.*)"))
+@borg.on(admin_cmd(pattern="allow($| )(.*)"))
 async def approve_p_m(event):
     if event.fwd_from:
         return
@@ -102,7 +103,7 @@ async def approve_p_m(event):
                 await event.delete()
 
 
-@borg.on(admin_cmd(pattern="blockpm ?(.*)"))
+@borg.on(admin_cmd(pattern="block($| )(.*)"))
 async def approve_p_m(event):
     if event.fwd_from:
         return
@@ -113,10 +114,24 @@ async def approve_p_m(event):
             if pmpermit_sql.is_approved(chat.id):
                 pmpermit_sql.disapprove(chat.id)
                 await event.edit("███████▄▄███████████▄  \n▓▓▓▓▓▓█░░░░░░░░░░░░░░█\n▓▓▓▓▓▓█░░░░░░░░░░░░░░█\n▓▓▓▓▓▓█░░░░░░░░░░░░░░█\n▓▓▓▓▓▓█░░░░░░░░░░░░░░█\n▓▓▓▓▓▓█░░░░░░░░░░░░░░█\n▓▓▓▓▓▓███░░░░░░░░░░░░█\n██████▀▀▀█░░░░██████▀  \n░░░░░░░░░█░░░░█  \n░░░░░░░░░░█░░░█  \n░░░░░░░░░░░█░░█  \n░░░░░░░░░░░█░░█  \n░░░░░░░░░░░░▀▀ \n\nFuck Off Bitch, Now You Can't Message Me...")
-                await asyncio.sleep(3)
+                await asyncio.sleep(30)
                 await borg(functions.contacts.BlockRequest(chat.id))
+                await.event.edit("`For your irriting Behaviour...\nMy mastor Blocked You..\nNow Go To HELL`")
 
 
+@borg.on(admin_cmd(pattern="blockpm($| )(.*)"))
+async def approve_p_m(event):
+    if event.fwd_from:
+        return
+    reason = event.pattern_match.group(1)
+    chat = await event.get_chat()
+    if Config.PM_LOGGER_BOT_API_ID is not None:
+        if event.is_private:
+            if pmpermit_sql.is_approved(chat.id):
+                pmpermit_sql.disapprove(chat.id):
+                    await event.edit("`Pm Blocked Successfully`")
+                    await asyncio.sleep(37)
+                    
 @borg.on(admin_cmd(pattern="listapprovedpms"))
 async def approve_p_m(event):
     if event.fwd_from:
