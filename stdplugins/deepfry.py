@@ -53,20 +53,20 @@ async def deepfryer(event):
         data = await check_media(reply_message)
 
         if isinstance(data, bool):
-            await event.edit("`I can't deep fry that!`")
+            await event.edit("`I can't deep fry that!...\nCause U faking Nibba Gib Me Some Good Things to Fry...`")
             return
     else:
         await event.edit("`Reply to an image or sticker to deep fry it!`")
         return
 
     # download last photo (highres) as byte array
-    await event.edit("`Downloading media…`")
+    await event.edit("`Downloading Some Good Things to Fry...`")
     image = io.BytesIO()
     await event.client.download_media(data, image)
     image = Image.open(image)
 
     # fry the image
-    await event.edit("`Deep frying media…\nWith Fortune Kacchi Ghani Mustard Oil.`")
+    await event.edit("`Petrol dal ke Phook Rela Hoon...\nWait Bsdk...`")
     for _ in range(frycount):
         image = await deepfry(image)
 
