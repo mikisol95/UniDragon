@@ -45,7 +45,7 @@ KANGING_STR = [
 "`I am Stealing your Sticker.....\nGand Marao...`",
 "Why u bullin me.....\nರ╭╮ರ`",
 "`BOOM.... HEADSHOT...\n(ノಠ益ಠ)ノ...\n(⌐■-■)`",
-"`Me is sux with ur GF....\nU can't du nthing...Hehe..\nಠ∀ಠ...(≧▽≦)`",
+"`Me is having sux with ur GF....\nU can't du nthing...Hehe..\nಠ∀ಠ...(≧▽≦)`",
 
 ]
 
@@ -137,7 +137,7 @@ async def _(event):
             await silently_send_message(bot_conv, sticker_emoji)
             await silently_send_message(bot_conv, "/done")
 
-    await event.edit(f"This Sticker Is Raped! Plox Help this Sticker by Clicking [here](t.me/addstickers/{packshortname})")
+    await event.edit(f"`This Sticker Is Raped! Plox Help this Sticker by Clicking` [Here](t.me/addstickers/{packshortname})")
 
 
 @borg.on(admin_cmd("packinfo"))
