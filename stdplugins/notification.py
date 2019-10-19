@@ -1,5 +1,5 @@
 """Notification Manager for @UniBorg
-.nccreatadch
+.nccreatedch
 .nolog
 .dellog
 .allow
@@ -129,7 +129,7 @@ async def approve_p_m(event):
         if event.is_private:
             if pmpermit_sql.is_approved(chat.id):
                 pmpermit_sql.disapprove(chat.id)
-                await event.edit("`Pm Blocked Successfully`")
+                await event.edit("`PM's Blocked Successfully`")
                 await asyncio.sleep(37)
                     
 @borg.on(admin_cmd(pattern="listapprovedpms"))
