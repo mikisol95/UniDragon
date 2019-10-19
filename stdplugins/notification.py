@@ -2,7 +2,7 @@
 .nccreatedch
 .nolog
 .dellog
-.allow
+.approve
 .blockpm To block pm
 .block To block faking retard nibba
 .listapprovedpms"""
@@ -125,7 +125,7 @@ async def approve_p_m(event):
         return
     reason = event.pattern_match.group(1)
     chat = await event.get_chat()
-    if Config.PM_LOGGER_BOT_API_ID is not None:
+    if Config.PM_LOGGR_BOT_API_ID is not None:
         if event.is_private:
             if pmpermit_sql.is_approved(chat.id):
                 pmpermit_sql.disapprove(chat.id)
