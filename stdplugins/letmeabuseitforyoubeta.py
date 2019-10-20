@@ -1,4 +1,4 @@
-"""command: .ohin , .omal"""
+"""command: .jhin , .jmal"""
 
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
@@ -7,7 +7,7 @@ from telethon import events
 import random
 import asyncio
 
-@borg.on(events.NewMessage(pattern=r"\.o(.*)", outgoing=True))
+@borg.on(events.NewMessage(pattern=r"\.j(.*)", outgoing=True))
 async def _(event):
     if event.fwd_from:
         return
