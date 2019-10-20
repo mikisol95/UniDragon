@@ -1,7 +1,7 @@
   
 """
 AI based Replier Module for Userbot. //lazy af
-cmd: .rep (to any text message)
+cmd: .chat (to any text message)
 usage-tips: Training Data is still not sufficient. so maybe bot wouldnt be that intelligent. But it is good for having some fun.
 			English Language Only.
 By: @Zero_cool7870
@@ -23,7 +23,7 @@ if not bot_trained:
 	bot_trained = True   
 	print("Bot Trained")  
 
-@borg.on(events.NewMessage(pattern=r"\.rep", outgoing=True))
+@borg.on(events.NewMessage(pattern=r"\.chat", outgoing=True))
 async def chat_bot(event):
 	if event.fwd_from:
 		return  
