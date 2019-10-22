@@ -20,8 +20,8 @@ Talethrun {}
 
 **Custom Built Fork**: https://github.com/prono69/PepeBot""".format(
         sys.version,
-        __version__,
-        link_preview=True
+        __version__
+
     )
     tgbotusername = Config.TG_BOT_USER_NAME_BF_HER  # pylint:disable=E0602
     if tgbotusername is not None:
