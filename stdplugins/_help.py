@@ -21,8 +21,7 @@ Talethrun {}
 **Custom Built Fork**: https://github.com/prono69/PepeBot""".format(
         sys.version,
         __version__
-
-    )
+)
     tgbotusername = Config.TG_BOT_USER_NAME_BF_HER  # pylint:disable=E0602
     if tgbotusername is not None:
         results = await borg.inline_query(  # pylint:disable=E0602
