@@ -14,13 +14,14 @@ async def _(event):
         s_help_string = borg._plugins[splugin_name].__doc__
     else:
         s_help_string = "****:"
-    help_string = """@UniBorg ( **Custom Built By** @kirito6969 ) \n**Verified Account**: ✅\n**Official Website**: https://t.me/NeoMatrix90\n
+    help_string = """@UniBorg ( **Custom Built By** @kirito6969 ) \n**Verified Account**: ✅\n**Official Website**: https://apnamodisexy.co.in\n
 Pithun {}
 Talethrun {}
 
 **Custom Built Fork**: https://github.com/prono69/PepeBot""".format(
         sys.version,
-        __version__
+        __version__,
+        link_preview=True
     )
     tgbotusername = Config.TG_BOT_USER_NAME_BF_HER  # pylint:disable=E0602
     if tgbotusername is not None:
