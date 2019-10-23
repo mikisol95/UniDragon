@@ -14,11 +14,11 @@ async def _(event):
         s_help_string = borg._plugins[splugin_name].__doc__
     else:
         s_help_string = "****:"
-    help_string = """@UniBorg ( **Custom Built By** @NeoMatrix90 ) \n**Verified Account**: ✅\n**DESCRIPTION**: [PEPE IZ LUB](https://telegra.ph/file/5b5388c1a96670bd96b5e.png)\n
+    help_string = """@UniBorg ( **Custom Built By** @NeoMatrix90 ) \n**Verified Account**: ✅\n**DESCRIPTION**: **Magical Pepe Will Guide You.Touch the Link.**\n
 Pithun {}
 Talethrun {}
  
-**Custom Built Fork**: github.com/prono69/PepeBot""".format(
+**Custom Built Fork**: https://github.com/prono69/PepeBot""".format(
         sys.version,
         __version__
     )
