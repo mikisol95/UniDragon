@@ -88,13 +88,13 @@ if Config.TG_BOT_USER_NAME_BF_HER is not None and tgbot is not None:
                 "© @UniBorg",
                 text="""@PepeBot **( Custom Built By** @kirito6969 **)** 
 **Verified Account:** ✅
-**Official Website:** https://ravanaisdrunk.site.live [⠀](https://telegra.ph/file/b0604ea53360cd3858ec5.mp4)
+**Official Website:** https://prono69.github.io/PepeBot/
 
 **Pithun 3.7.4 (default, Sep 12 2019, 01:19:52)** 
 **[GCC 7.4.0]**
 **Talethrun 1.10.6**
 
-**Custom Built Fork:** https://github.com/ravana69/Pornhub""",
+**Custom Built Fork:** https://github.com/prono69/Pornhub""",
                 buttons=[
                     [custom.Button.url("👤Contact Creator👤", "https://telegram.dog/r4v4n4"), custom.Button.url(
                         "📼Ravana Audio Memes📼", "https://t.me/tgaudiomemes")],
