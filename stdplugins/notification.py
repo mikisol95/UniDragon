@@ -27,7 +27,7 @@ UNIBORG_USER_BOT_NO_WARN = "[──▄█▀█▄─────────█
 
 @borg.on(admin_cmd(pattern="nccreatedch"))
 async def create_dump_channel(event):
-    if Config.PM_LOGGR_BOT_API_ID is None:
+    if Config.PM_LOGGR_BOT_API_ID is None:# || Config.PM_LOGGR_BOT_API_ID == -100:
         result = await borg(functions.channels.CreateChannelRequest(  # pylint:disable=E0602
             title=f"UniBorg-{borg.uid}-PM_LOGGR_BOT_API_ID-data",
             about="@UniBorg PM_LOGGR_BOT_API_ID // Do Not Touch",
@@ -315,6 +315,7 @@ async def do_log_pm_action(chat_id, message_text, message_media):
     the_message += f"[User](tg://user?id={chat_id}): {chat_id}\n"
     the_message += f"Message: {message_text}\n"
     # the_message += f"Media: {message_media}"
+try:
     await borg.send_message(
         entity=Config.PM_LOGGR_BOT_API_ID,
         message=the_message,
@@ -322,5 +323,7 @@ async def do_log_pm_action(chat_id, message_text, message_media):
         # parse_mode="html",
         link_preview=False,
         file=message_media,
-        silent=True
-    )
+        silent=True)
+except Exception as e:
+print("========= Exception caused by Telethon in LogPM =========")
+
