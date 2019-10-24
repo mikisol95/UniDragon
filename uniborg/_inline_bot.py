@@ -86,7 +86,7 @@ if Config.TG_BOT_USER_NAME_BF_HER is not None and tgbot is not None:
         else:
             result = builder.article(
                 "© @UniBorg",
-                text="""@PepeBot **( Custom Built By** @kirito6969 **)** 
+                text="""@PepeBot **( Custom Built By** @kirito6969 **)
 **Verified Account:** ✅
 **Official Website:** https://prono69.github.io/PepeBot/
 
