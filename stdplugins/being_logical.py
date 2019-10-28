@@ -25,7 +25,7 @@ async def _(event):
 
         return
 
-    await event.edit("Typing...")
+    await event.edit("`Logical.. Huh....`")
 
     await asyncio.sleep(2)
 
