@@ -1,4 +1,6 @@
-
+"""Get anysong u like
+\nJust type .song (song name)
+"""
 from telethon import events
 import subprocess
 from telethon.errors import MessageEmptyError, MessageTooLongError, MessageNotModifiedError
@@ -33,11 +35,11 @@ async def _(event):
     reply_to_id = event.message.id
     if event.reply_to_msg_id:
         reply_to_id = event.reply_to_msg_id
-    await event.edit("ok finding the song")    
+    await event.edit("`Ok finding the Chutiya`")    
     bruh(str(cmd))
     l = glob.glob("*.mp3")
     loa = l[0]
-    await event.edit("sending song")
+    await event.edit("`sending big Lulli`")
     await borg.send_file(
                 event.chat_id,
                 loa,
