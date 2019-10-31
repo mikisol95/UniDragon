@@ -14,7 +14,7 @@ async def _(event):
        return
     reply_message = await event.get_reply_message() 
     if not reply_message.media:
-       await event.edit("```reply to text message```")
+       await event.edit("```Reply to any sticker or pics to destroy..```")
        return
     chat = "@image_deepfrybot"
     sender = reply_message.sender
@@ -28,9 +28,9 @@ async def _(event):
               await borg.forward_messages(chat, reply_message)
               response = await response 
           except YouBlockedUserError: 
-              await event.reply("```Please unblock @sangmatainfo_bot and try again```")
+              await event.reply("```Please Fak Off...```")
               return
           if response.text.startswith("Forward"):
-             await event.edit("```can you kindly disable your forward privacy settings for good?```")
+             await event.edit("```Ur bot is sleeping now.. bye bye..```")
           else: 
-             await borg.forward_messages(event.chat_id, response.message)
+             await borg.forward_messages(event.chat_id, response.message.media)
