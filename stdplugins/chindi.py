@@ -18,7 +18,7 @@ async def _(event):
        return
     chat = "@AudioTubeBot"
     sender = reply_message
-    if reply_message.bot:
+    if reply_message.sender.bot:
        await event.edit("```Reply to actual users message.```")
        return
     await event.edit("```Processing```")
