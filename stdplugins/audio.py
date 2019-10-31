@@ -14,9 +14,9 @@ async def _(event):
        return
     reply_message = await event.get_reply_message() 
     if not reply_message.text:
-       await event.edit("```reply to text message```")
+       await event.edit("```reply to a YouTube link```")
        return
-    chat = "@dwnmp3Bot"
+    chat = "@AudioTubeBot"
     sender = reply_message.sender
     if reply_message.sender.bot:
        await event.edit("```Reply to actual users message.```")
@@ -30,7 +30,7 @@ async def _(event):
           except YouBlockedUserError: 
               await event.reply("```Please unblock @sangmatainfo_bot and try again```")
               return
-          if response.text.startswith("Язык/Language"):
+          if response.text.startswith("🌐"):
              await event.edit("```can you kindly disable your forward privacy settings for good?```")
           else: 
              await borg.send_file(event.chat_id, response.message.media)
