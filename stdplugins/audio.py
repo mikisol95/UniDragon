@@ -5,7 +5,7 @@ from telethon.errors.rpcerrorlist import YouBlockedUserError
 from telethon.tl.functions.account import UpdateNotifySettingsRequest
 from uniborg.util import admin_cmd
 
-@borg.on(admin_cmd("au ?(.*)"))
+@borg.on(admin_cmd("ad ?(.*)"))
 async def _(event):
     if event.fwd_from:
         return 
@@ -16,7 +16,7 @@ async def _(event):
     if not reply_message.media:
        await event.edit("```reply to media message```")
        return
-    chat = "@AudioTubeBot"
+    chat = "@dwnmp3Bot"
     sender = reply_message.sender
     if reply_message.sender.bot:
        await event.edit("```Reply to actual users message.```")
