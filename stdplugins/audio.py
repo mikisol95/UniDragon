@@ -16,7 +16,7 @@ async def _(event):
     if not reply_message.text:
        await event.edit("```reply to a YouTube link```")
        return
-    chat = "@AudioTubeBot"
+    chat = "@dwnmp3Bot"
     sender = reply_message.sender
     if reply_message.sender.bot:
        await event.edit("```Reply to actual users message.```")
@@ -30,7 +30,7 @@ async def _(event):
           except YouBlockedUserError: 
               await event.reply("```Please unblock @sangmatainfo_bot and try again```")
               return
-          if response.text.startswith("🌐"):
+          if response.text.startswith("Forward"):
              await event.edit("```can you kindly disable your forward privacy settings for good?```")
           else: 
              await borg.forward_messages(event.chat_id, response.message.media)
