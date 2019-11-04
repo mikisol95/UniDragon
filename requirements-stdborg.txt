@@ -36,3 +36,4 @@ httplib2
 humanize
 patool
 remotezip
+spotify_token
