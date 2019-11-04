@@ -135,6 +135,13 @@ class Config(object):
     PACKS_CONTENT = os.environ.get("PACKS_CONTENT", None)
     #
     RAVANA_LEELA = os.environ.get("RAVANA_LEELA", None)
+    # spotify stuff
+    DEFAULT_BIO = os.environ.get("DEFAULT_BIO",None)
+    SPOTIFY_BIO_PREFIX = os.environ.get("SPOTIFY_BIO_PREFIX",None)
+    SPOTIFY_PASS = os.environ.get("SPOTIFY_PASS",None)
+    SPOTIFY_USERNAME = os.environ.get("SPOTIFY_USERNAME",None)
+    #mongo_db
+    MONGO_URI = os.environ.get("MONGO_URI" , None)
 
 
 class Production(Config):
