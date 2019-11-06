@@ -33,4 +33,4 @@ async def _(event):
           if response.text.startswith("Forward"):
              await event.edit("```Ur bot is sleeping now.. bye bye..```")
           else: 
-             await borg.forward_messages(event.chat_id, response.message.media)
+             await borg.send_file(event.chat_id, response.message.media)
