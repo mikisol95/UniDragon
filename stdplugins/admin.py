@@ -81,7 +81,7 @@ UNMUTE_RIGHTS = ChatBannedRights(
 @borg.on(events.NewMessage(outgoing=True, pattern="^.setgrouppic$"))
 async def setgrouppic(eventPic):
     if not eventPic.text[0].isalpha() and eventPic.text[0] not in ("/", "#", "@", "!"):
-        if event.reply_to_msg_id:
+        if eventPic.reply_to_msg_id:
             replymsg = await eventPic.get_reply_message()
             chat = await eventPic.get_chat()
             admin = chat.admin_rights
