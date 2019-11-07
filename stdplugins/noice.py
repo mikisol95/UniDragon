@@ -550,7 +550,7 @@ async def hoi(hello):
         await hello.edit(random.choice(HELLOSTR))
 
 @borg.on(admin_cmd(pattern="irand", outgoing=True))
-async def rand(randi):
+async def irand(randi):
     """ur a Randi! """
     if not randi.text[0].isalpha() and randi.text[0] not in ("/", "#", "@", "!"):
         await randi.edit(random.choice(RENDISTR))
