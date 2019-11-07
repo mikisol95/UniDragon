@@ -140,6 +140,7 @@ class Config(object):
     SPOTIFY_BIO_PREFIX = os.environ.get("SPOTIFY_BIO_PREFIX",None)
     SPOTIFY_PASS = os.environ.get("SPOTIFY_PASS",None)
     SPOTIFY_USERNAME = os.environ.get("SPOTIFY_USERNAME",None)
+    DEFAULT_NAME = os.environ.get("DEFAULT_NAME", None)
 
 
 class Production(Config):
