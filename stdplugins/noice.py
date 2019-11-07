@@ -504,7 +504,7 @@ async def stretch(stret):
 
 
 @borg.on(admin_cmd(pattern="izal(?: |$)(.*)", outgoing=True)) 
-async def zal(zgfy):
+async def izal(zgfy):
     """ Invoke the feeling of chaos. """
     if not zgfy.text[0].isalpha() and zgfy.text[0] not in ("/", "#", "@", "!"):
         reply_text = list()
