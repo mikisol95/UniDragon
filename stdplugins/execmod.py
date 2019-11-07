@@ -15,7 +15,7 @@ if not os.path.isdir("./SAVED"):
 if not os.path.isdir(Config.TMP_DOWNLOAD_DIRECTORY):
      os.makedirs(Config.TMP_DOWNLOAD_DIRECTORY)
 
-@borg.on(events.NewMessage(pattern=r"\.cpu", outgoing=True))
+@borg.on(admin_cmd(pattern="cpu"))
 async def _(event):
     if event.fwd_from:
         return
@@ -54,7 +54,7 @@ async def _(event):
 #    else:
 #        await event.edit("Unknown Command")
 
-@borg.on(events.NewMessage(pattern=r"\.uptime", outgoing=True))
+@borg.on(admin_cmd(pattern="uptime"))
 async def _(event):
     if event.fwd_from:
         return
@@ -94,7 +94,7 @@ async def _(event):
 #        await event.edit("Unknown Command")
 
 
-@borg.on(events.NewMessage(pattern=r"\.suicide", outgoing=True))
+@borg.on(admin_cmd(pattern="suicide"))
 async def _(event):
     if event.fwd_from:
         return
@@ -134,7 +134,7 @@ async def _(event):
 #        await event.edit("Unknown Command")
 
 
-@borg.on(events.NewMessage(pattern=r"\.stdplugins", outgoing=True))
+@borg.on(admin_cmd(pattern="stdplugins"))
 async def _(event):
     if event.fwd_from:
         return
@@ -174,7 +174,7 @@ async def _(event):
 #        await event.edit("Unknown Command")
 
 
-@borg.on(events.NewMessage(pattern=r"\.pip", outgoing=True))
+@borg.on(admin_cmd(pattern="pip"))
 async def _(event):
     if event.fwd_from:
         return
