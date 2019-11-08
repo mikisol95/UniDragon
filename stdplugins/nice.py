@@ -21,6 +21,7 @@ async def _(event):
     if reply_message.sender.bot:
        await event.edit("```Reply to actual users message.```")
        return
+
     await event.edit("```Processing```")
     async with borg.conversation(chat) as conv:
           try:     
@@ -33,4 +34,5 @@ async def _(event):
           if response.text.startswith("Forward"):
              await event.edit("```Ur bot is sleeping now.. bye bye..```")
           else: 
+             await event.delete()
              await borg.send_file(event.chat_id, response.message.media)
