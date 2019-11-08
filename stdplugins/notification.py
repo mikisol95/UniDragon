@@ -2,9 +2,9 @@
 .nccreatedch
 .nolog
 .dellog
-.approve
-.blockpm To block pm
-.block To block faking retard nibba
+.apm
+.bpm To block pm
+.blk To block faking retard nibba
 .listapprovedpms"""
 
 import asyncio
@@ -83,7 +83,7 @@ async def set_no_log_p_m(event):
                 await event.delete()
 
 
-@borg.on(admin_cmd(pattern="approve($| )(.*)"))
+@borg.on(admin_cmd(pattern="apm($| )(.*)"))
 async def approve_p_m(event):
     if event.fwd_from:
         return
@@ -103,7 +103,7 @@ async def approve_p_m(event):
                 await event.delete()
 
 
-@borg.on(admin_cmd(pattern="block($| )(.*)"))
+@borg.on(admin_cmd(pattern="blk($| )(.*)"))
 async def approve_p_m(event):
     if event.fwd_from:
         return
@@ -119,7 +119,7 @@ async def approve_p_m(event):
                 await event.edit("`For your Irriting Behaviour...\nMy mastor Blocked You..\nNow Go To HELL`")
 
 
-@borg.on(admin_cmd(pattern="blockpm($| )(.*)"))
+@borg.on(admin_cmd(pattern="bpm($| )(.*)"))
 async def approve_p_m(event):
     if event.fwd_from:
         return
