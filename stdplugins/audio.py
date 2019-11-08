@@ -30,4 +30,5 @@ async def _(event):
           except YouBlockedUserError: 
               await event.reply("```Please unblock @AudioTubeBot and try again```")
               return
+          await event.delete()
           await borg.send_file(event.chat_id, response.message.media)
