@@ -40,6 +40,7 @@ async def _(event):
     l = glob.glob("*.mp3")
     loa = l[0]
     await event.edit("`sending big Lulli`")
+    await event.delete()
     await borg.send_file(
                 event.chat_id,
                 loa,
