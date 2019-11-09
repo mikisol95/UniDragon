@@ -8,7 +8,7 @@ async def _(event):
     if event.fwd_from:
         return
     start = datetime.now()
-    await event.edit("🇵 🇴 🇳 🇬 👇")
+    lul = await event.reply("🇵 🇴 🇳 🇬 👇")
     end = datetime.now()
     ms = (end - start).microseconds / 1000
-    await event.edit("`🇵 🇴 🇳 🇬 👇`\n`{}ms`".format(ms))
+    await lul.edit("`🇵 🇴 🇳 🇬 👇`\n`{}ms`".format(ms))
