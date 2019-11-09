@@ -144,8 +144,6 @@ class Config(object):
     #MongoDB
     MONGO_URI = os.environ.get("MONGO_URI", None)
 
-
-
 class Production(Config):
     LOGGER = False
 
