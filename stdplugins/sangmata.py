@@ -33,7 +33,6 @@ async def _(event):
           if response.text.startswith("Forward"):
              await event.edit("```can you kindly disable your forward privacy settings for good?```")
           else:
-             await event.delete()
              await event.edit(f"{response.message.message}")
 
 
@@ -66,8 +65,7 @@ async def _(event):
               return
           if response.text.startswith("send"):
              await event.edit("```can you kindly disable your forward privacy settings for good?```")
-          else: 
-             await event.delete()
+          else:
              await event.edit(f"{response.message.message}")
 
 
