@@ -46,6 +46,7 @@ KANGING_STR = [
 "Why u bullin me.....\nರ╭╮ರ`",
 "`BOOM.... HEADSHOT...\n(ノಠ益ಠ)ノ...\n(⌐■-■)`",
 "`Me is having sux with ur GF....\nU can't du nthing...Hehe..\nಠ∀ಠ...(≧▽≦)`",
+    "`Aise tukur tukur kahe Dekh raha hain`",
 
 ]
 
@@ -63,6 +64,7 @@ async def _(event):
         sticker_emoji = input_str
 
     me = borg.me
+    name = me.username
     userid = event.from_id
     packname = f"@NeoMatrix90 nikal lawde part2"
     packshortname = f"brattysis_gengbeng{userid}"  # format: Uni_Borg_userid
