@@ -138,9 +138,9 @@ async def rm_deletedacc(show):
     await show.delete()
 
 
-    if PRIVATE_GROUP_BOT_API_ID:
+    if Config.G_BAN_LOGGER_GROUP is not None:
         await show.client.send_message(
-            PRIVATE_GROUP_BOT_API_ID, "#CLEANUP\n"
+            Config.G_BAN_LOGGER_GROUP, "#CLEANUP\n"
             f"Cleaned **{del_u}** deleted account(s) !!\
             \nCHAT: {show.chat.title}(`{show.chat_id}`)")
 
