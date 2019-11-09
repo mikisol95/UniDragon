@@ -37,3 +37,4 @@ humanize
 patool
 remotezip
 spotify_token
+dnspython
