@@ -10,30 +10,30 @@ async def _(event):
     if event.fwd_from:
         return 
     if not event.reply_to_msg_id:
-       lul = await event.reply("```Reply to any user message.```")
+       await event.reply("```Reply to any user message.```")
        return
     reply_message = await event.get_reply_message() 
     if not reply_message.text:
-       await lul.edit("```reply to text message```")
+       await event.edit("```reply to text message```")
        return
     chat = "@SangMataInfo_bot"
     sender = reply_message.sender
     if reply_message.sender.bot:
-       await lul.edit("```Reply to actual users message.```")
+       await event.edit("```Reply to actual users message.```")
        return
-    await lul.edit("```Processing```")
+    await event.edit("```Processing```")
     async with borg.conversation(chat) as conv:
           try:     
               response = conv.wait_event(events.NewMessage(incoming=True,from_users=461843263))
               await borg.forward_messages(chat, reply_message)
               response = await response 
           except YouBlockedUserError: 
-              await lul.reply("```Please unblock @sangmatainfo_bot and try again```")
+              await event.reply("```Please unblock @sangmatainfo_bot and try again```")
               return
           if response.text.startswith("Forward"):
-             await lul.edit("```can you kindly disable your forward privacy settings for good?```")
+             await event.edit("```can you kindly disable your forward privacy settings for good?```")
           else:
-             await lul.edit(f"{response.message.message}")
+             await event.edit(f"{response.message.message}")
 
 
 
