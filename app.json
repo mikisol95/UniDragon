@@ -158,6 +158,7 @@
     },
     "AUTH_TOKEN_DATA": {
       "description": "This is required for gdrive to work. This might help: https://da.gd/authtoken ",
+      "value": "lololol",
       "required": false
     },
     "DATA_DIRECTORY": {
