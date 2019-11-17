@@ -41,7 +41,7 @@ from telethon.tl.functions.channels import (EditAdminRequest,
 from telethon.tl.functions.messages import UpdatePinnedMessageRequest
 from telethon.tl.types import (ChannelParticipantsAdmins, ChatAdminRights,
                                ChatBannedRights, MessageEntityMentionName,
-                               MessageMediaPhoto)
+                               MessageMediaPhoto, PeerChat)
 ENABLE_LOG = True
 LOGGING_CHATID = Config.PRIVATE_CHANNEL_BOT_API_ID
 BANNED_RIGHTS = ChatBannedRights(
@@ -78,7 +78,7 @@ UNMUTE_RIGHTS = ChatBannedRights(
     send_messages=False
 )
 
-@borg.on(events.NewMessage(outgoing=True, pattern="^.setgrouppic$"))
+@borg.on(events.NewMessage(outgoing=True, pattern="^.setgic$"))
 async def setgrouppic(eventPic):
     if not eventPic.text[0].isalpha() and eventPic.text[0] not in ("/", "#", "@", "!"):
         if eventPic.reply_to_msg_id:
@@ -247,6 +247,42 @@ async def ban(eventBan):
             )
 
 
+@borg.on(events.NewMessage(outgoing=True, pattern="^.bots$"))
+async def listbots(eventListBots):
+    info = await eventListBots.client.get_entity(eventListBots.chat_id)
+    title = info.title if info.title else "this chat"
+    mentions = f'<b>Bots in {title}:</b>\n'
+    try:
+        if isinstance(eventListBots.to_id, PeerChat):
+            await eventListBots.edit("`Only Supergroups can have bots.`")
+            return
+        else:
+            async for user in eventListBots.client.iter_participants(
+                    eventListBots.chat_id, filter=ChannelParticipantsBots):
+                if not user.deleted:
+                    link = f"<a href=\"tg://user?id={user.id}\">{user.first_name}</a>"
+                    userid = f"<code>{user.id}</code>"
+                    mentions += f"\n{link} {userid}"
+                else:
+                    mentions += f"\n<code>{user.id}</code>(Bot deleted by owner)"
+    except ChatAdminRequiredError as err:
+        mentions += " " + str(err) + "\n"
+    try:
+        await eventListBots.edit(mentions, parse_mode="html")
+    except MessageTooLongError:
+        await eventListBots.edit(
+            "This group is filled with bots as hell. Uploading bots list as file.")
+        file = open("botlist.txt", "w+")
+        file.write(mentions)
+        file.close()
+        await eventListBots.client.send_file(
+            eventListBots.chat_id,
+            "botlist.txt",
+            caption='Bots in {}'.format(title),
+            reply_to=eventListBots.id,
+        )
+        remove("botlist.txt")
+            
 @borg.on(events.NewMessage(outgoing=True, pattern="^.iunban(?: |$)(.*)"))
 async def unban(eventUnban):
     if not eventUnban.text[0].isalpha() and eventUnban.text[0] \
