@@ -7,7 +7,6 @@ from uniborg.util import admin_cmd
 
 @borg.on(admin_cmd(pattern="slet (.*)"))
 async def sticklet(event):
-
     sticktext = event.pattern_match.group(1)
     
     if not sticktext:
@@ -18,8 +17,6 @@ async def sticklet(event):
     if not sticktext:
         await event.edit("`I need text to sticklet!`")
         return
-
-
 
     sticktext = textwrap.wrap(sticktext, width=10)
     sticktext = '\n'.join(sticktext)
