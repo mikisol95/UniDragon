@@ -1,6 +1,6 @@
-""" command: .unzip
+""" command: .untar
 coded by @By_Azade
-code rewritten my SnapDragon7410
+code rewritten by SnapDragon7410
 """
 
 import asyncio
@@ -96,7 +96,7 @@ async def _(event):
                     await borg.send_file(
                         event.chat_id,
                         single_file,
-                        caption=f"UnZipped `{caption_rts}`",
+                        caption=f"UnTarred by `{caption_rts}`",
                         force_document=force_document,
                         supports_streaming=supports_streaming,
                         allow_cache=False,
