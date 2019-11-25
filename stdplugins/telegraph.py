@@ -1,7 +1,7 @@
 """@telegraph Utilities
 Available Commands:
-.telegraph media as reply to a media
-.telegraph text as reply to a large text"""
+.tg m as reply to a media
+.tg t as reply to a large text"""
 from telethon import events
 import os
 from PIL import Image
@@ -14,7 +14,7 @@ r = telegraph.create_account(short_name=Config.TELEGRAPH_SHORT_NAME)
 auth_url = r["auth_url"]
 
 
-@borg.on(admin_cmd("telegraph (media|text) ?(.*)"))
+@borg.on(admin_cmd("tg (m|t) ?(.*)"))
 async def _(event):
     if event.fwd_from:
         return
