@@ -38,3 +38,6 @@ patool
 remotezip
 spotify_token
 dnspython
+fast.com
+names
+random_cli
