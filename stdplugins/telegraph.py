@@ -14,7 +14,7 @@ r = telegraph.create_account(short_name=Config.TELEGRAPH_SHORT_NAME)
 auth_url = r["auth_url"]
 
 
-@borg.on(admin_cmd("tg (m|t) ?(.*)"))
+@borg.on(admin_cmd(pattern="tg (m|t) ?(.*)"))
 async def _(event):
     if event.fwd_from:
         return
