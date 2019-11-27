@@ -1,5 +1,5 @@
 """COMMAND : .cpu, .uptime, .suicide, .env, .pip, .neofetch, .date, .coffeehouse, .iwantsex, .telegram, .stdplugins, .fast, .listpip, .fuggi, .names, .password .dadjoke, .quite, .fakeid, .fortune
-**CREDITS** : ©[RAVANA](t.me/r4v4n4)"""
+\n**CREDITS** : ©[RAVANA](t.me/r4v4n4)"""
 # This Source Code Form is subject to the terms of the Mozilla Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
