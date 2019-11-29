@@ -28,7 +28,7 @@ aria2 = aria2p.API(
 	)
 
 
-@borg.on(events.NewMessage(pattern=r"\.addmagnet", outgoing=True))
+@borg.on(events.NewMessage(pattern=r"\.imagnet", outgoing=True))
 async def magnet_download(event):
 	if event.fwd_from:
 		return
@@ -52,7 +52,7 @@ async def magnet_download(event):
 	
 
 
-@borg.on(events.NewMessage(pattern=r"\.addtor", outgoing=True))
+@borg.on(events.NewMessage(pattern=r"\.itor", outgoing=True))
 async def torrent_download(event):
 	if event.fwd_from:
 		return
@@ -68,7 +68,7 @@ async def torrent_download(event):
 	gid = download.gid
 	await progress_status(gid=gid,event=event,previous=None)
 
-@borg.on(events.NewMessage(pattern=r"\.addurl", outgoing=True))
+@borg.on(events.NewMessage(pattern=r"\.iurl", outgoing=True))
 async def magnet_download(event):
 	if event.fwd_from:
 		return
