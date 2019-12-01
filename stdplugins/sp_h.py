@@ -22,7 +22,7 @@ EPIC_MEME = (
  
 @borg.on(events.NewMessage(pattern=r"^h$"))
 async def on_h(event):
-    await borg.reply(file="CAADAQADpgIAAna32gVJ62JcFcDnqwI")
+    await event.edit(file="CAADAQADpgIAAna32gVJ62JcFcDnqwI")
  
     async def del_filter(del_event):
         if del_event.chat_id and del_event.chat_id != event.chat_id:
