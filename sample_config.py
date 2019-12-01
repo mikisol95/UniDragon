@@ -135,6 +135,10 @@ class Config(object):
     # define "repo_link" in conig_vars
     PACKS_CONTENT = os.environ.get("PACKS_CONTENT", None)
     #
+    #MIRRORACE STUFF
+    MIRROR_ACE_API_KEY = os.environ.get("MIRROR_ACE_API_KEY", None)
+    MIRROR_ACE_API_TOKEN = os.environ.get("MIRROR_ACE_API_TOKEN", None)
+    #
     RAVANA_LEELA = os.environ.get("RAVANA_LEELA", None)
     # spotify stuff
     DEFAULT_BIO = os.environ.get("DEFAULT_BIO",None)
