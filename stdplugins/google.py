@@ -34,12 +34,12 @@ async def _(event):
         url = result.get("url")
         description = result.get("description")
         image = result.get("image")
-        **output_str** += " 👉🏻  [{}]({}) \n\n".format(text, url)
+        output_str += " 👉🏻  [{}]({}) \n\n".format(text, url)
     end = datetime.now()
     ms = (end - start).seconds
     await event.edit("searched Google for {} in {} seconds. \n{}".format(input_str, ms, output_str), link_preview=False)
     await asyncio.sleep(5)
-    await event.edit("Google: {}\n{}".format(input_str, output_str), link_preview=False)
+    await event.edit("**Google: {}\n{}**".format(input_str, output_str), link_preview=False)
 
 
 @borg.on(admin_cmd(pattern="gi (.*)"))
