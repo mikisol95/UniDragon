@@ -46,3 +46,4 @@ dadjokes-cli
 jotquote
 csvfaker
 pytube
+gitpython
