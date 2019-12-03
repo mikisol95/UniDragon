@@ -56,8 +56,8 @@ async def _(event):
             if os.path.exists(single_file):
                 # https://stackoverflow.com/a/678242/4723940
                 caption_rts = os.path.basename(single_file)
-                force_document = True
-                supports_streaming = False
+                force_document = False
+                supports_streaming = True
                 document_attributes = []
                 width = 0
                 height = 0
@@ -156,8 +156,8 @@ async def _(event):
         await borg.send_file(
             event.chat_id,
             input_str,
-            force_document=True,
-            supports_streaming=False,
+            force_document=False,
+            supports_streaming=True,
             allow_cache=False,
             reply_to=event.message.id,
             thumb=thumb,
