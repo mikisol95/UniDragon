@@ -47,3 +47,4 @@ jotquote
 csvfaker
 pytube
 gitpython
+heroku3
