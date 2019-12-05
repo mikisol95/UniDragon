@@ -48,3 +48,4 @@ csvfaker
 pytube
 gitpython
 heroku3
+heroku
