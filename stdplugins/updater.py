@@ -38,6 +38,14 @@ import sys
 import asyncio
 
 # -- Constants -- #
+
+async def generate_change_log(git_repo, diff_marker):
+    out_put_str = ""
+    d_form = "%d/%m/%y"
+    for repo_change in git_repo.iter_commits(diff_marker):
+        out_put_str += f"•[{repo_change.committed_datetime.strftime(d_form)}]: {repo_change.summary} <{repo_change.author}>\n"
+    return out_put_str
+
 IS_SELECTED_DIFFERENT_BRANCH = (
     "looks like a custom branch {branch_name} "
     "is being used:\n"
@@ -114,7 +122,7 @@ async def updater(message):
     if len(message_one) > 4095:
         with open("change.log", "w+", encoding="utf8") as out_file:
             out_file.write(str(message_one))
-        await tgbot.send_message(
+        await borg.send_message(
             message.chat_id,
             document="change.log",
             caption=message_two
@@ -124,7 +132,7 @@ async def updater(message):
         await message.edit(message_one)
 
     temp_upstream_remote.fetch(active_branch_name)
-    repo.git.reset("--hard", "FETCH_HEAD")
+   # repo.git.reset("--hard", "FETCH_HEAD")
 
     if Config.HEROKU_API_KEY is not None:
         import heroku3
