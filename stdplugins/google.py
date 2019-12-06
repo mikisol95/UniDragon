@@ -34,7 +34,7 @@ async def _(event):
         url = result.get("url")
         description = result.get("description")
         image = result.get("image")
-        output_str += " 👉🏻  [{}]({})\n`{}` \n\n".format(text, url, description)
+        output_str += " 👉🏻  [{}]({})\n`{}`\n\n".format(text, url, description)
     end = datetime.now()
     ms = (end - start).seconds
     await event.edit("searched Google for {} in {} seconds. \n{}".format(input_str, ms, output_str), link_preview=False)
