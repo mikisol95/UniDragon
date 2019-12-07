@@ -21,7 +21,7 @@ from uniborg.util import admin_cmd
 langi = "en"
 
 #kanged from Blank-x ;---;
-@borg.on(admin_cmd(pattern="imdb ?(.*)")) 
+@borg.on(admin_cmd(pattern="imdb (.*)")) 
 async def imdb(e):
  sticktext = e.pattern_match.group(1)
  
