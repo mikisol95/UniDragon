@@ -9,7 +9,7 @@ from re import findall
 from uniborg.util import admin_cmd
 
 
-@borg.on(admin_cmd("img ?(.*)"))
+@borg.on(admin_cmd(pattern="img ?(.*)"))
 async def img_sampler(event):
     await event.edit("Processing...")
     query = event.pattern_match.group(1)
