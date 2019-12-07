@@ -32,7 +32,7 @@ async def _(event):
     for result in response["results"]:
         text = result.get("title")
         url = result.get("url")
-        description = result.get("`description`")
+        description = result.get("description")
         image = result.get("image")
         output_str += " 👉🏻  [{}]({})\n {} \n\n".format(text, url, description)
     end = datetime.now()
@@ -127,8 +127,8 @@ async def _(event):
         img_size = img_size_div.find_all("div")
         end = datetime.now()
         ms = (end - start).seconds
-        OUTPUT_STR = """`{img_size}`
-**Possible Related Search**: <a href="{prs_url}">{prs_text}</a>
+        OUTPUT_STR = """{img_size}
+*Possible Related Search*: <a href="{prs_url}">{prs_text}</a>
 
-`More Info: Open this` <a href="{the_location}">Link</a> `in` {ms} `seconds`""".format(**locals())
+More Info: Open this <a href="{the_location}">Link</a> in {ms} seconds""".format(**locals())
     await event.edit(OUTPUT_STR, parse_mode="HTML", link_preview=False)
