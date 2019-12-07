@@ -34,12 +34,12 @@ async def _(event):
         url = result.get("url")
         description = result.get("description")
         image = result.get("image")
-        output_str += " 👉🏻  [{}]({})\n {} \n\n".format(text, url, description)
+        output_str += " 👉🏻  [{}]({}) \n\n".format(text, url)
     end = datetime.now()
     ms = (end - start).seconds
     await event.edit("searched Google for {} in {} seconds. \n{}".format(input_str, ms, output_str), link_preview=False)
     await asyncio.sleep(5)
-    await event.edit("**Google: {}\n{}**".format(input_str, output_str), parse_mode="MARKDOWN", link_preview=False)
+    await event.edit("**Google: {}\n{}**".format(input_str, output_str), link_preview=False)
 
 
 @borg.on(admin_cmd(pattern="gi (.*)"))
@@ -130,5 +130,5 @@ async def _(event):
         OUTPUT_STR = """{img_size}
 *Possible Related Search*: <a href="{prs_url}">{prs_text}</a>
 
-More Info: Open this <a href="{the_location}">Link</a> in {ms} seconds""".format(**locals())
+More Info: Open this <a href="{the_location}">LINK</a> in {ms} seconds""".format(**locals())
     await event.edit(OUTPUT_STR, parse_mode="HTML", link_preview=False)
