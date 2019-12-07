@@ -39,7 +39,7 @@ async def _(event):
     ms = (end - start).seconds
     await event.edit("searched Google for {} in {} seconds. \n{}".format(input_str, ms, output_str), link_preview=False)
     await asyncio.sleep(5)
-    await event.edit("**Google: {}\n{}**".format(input_str, parse_mode="MARKDOWN", output_str), link_preview=False)
+    await event.edit("**Google: {}\n{}**".format(input_str, output_str), parse_mode="MARKDOWN", link_preview=False)
 
 
 @borg.on(admin_cmd(pattern="gi (.*)"))
