@@ -29,7 +29,7 @@ async def imdb(e):
     	get = await e.get_reply_message()
     	sticktext = get.text
 
- await event.delete()
+ await e.delete()
  if not sticktext:
     	await e.edit("`I need text to sticklet!`")
     	return
