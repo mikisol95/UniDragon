@@ -24,7 +24,7 @@ langi = "en"
 async def imdb(e):
  sticktext = e.pattern_match.group(1)
  
-    if not sticktext:
+ if not sticktext:
     	get = await e.get_reply_message()
     	sticktext = get.text
  try:
