@@ -20,7 +20,7 @@ from uniborg.util import admin_cmd
 langi = "en"
 
 #kanged from Blank-x ;---;
-@borg.on(admin_cmd("imdb (.*)", outgoing=True)) 
+@borg.on(admin_cmd(pattern="imdb (.*)", outgoing=True)) 
 async def imdb(e):
  try:
     movie_name = e.pattern_match.group(1)
@@ -86,7 +86,7 @@ async def imdb(e):
     	mov_rating = 'Not available'
     await e.edit('<a href='+poster+'>&#8203;</a>'
     			'<b>Title : </b><code>'+mov_title+
-    			'</code>\n<code>'+mov_details+
+    			'</code>\n<b>Details : </b><code>'+mov_details+
     			'</code>\n<b>Rating : </b><code>'+mov_rating+
     			'</code>\n<b>Country : </b><code>'+mov_country[0]+
     			'</code>\n<b>Language : </b><code>'+mov_language[0]+
