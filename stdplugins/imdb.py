@@ -22,8 +22,13 @@ langi = "en"
 #kanged from Blank-x ;---;
 @borg.on(admin_cmd(pattern="imdb (.*)", outgoing=True)) 
 async def imdb(e):
+ sticktext = e.pattern_match.group(1)
+ 
+    if not sticktext:
+    	get = await e.get_reply_message()
+    	sticktext = get.text
  try:
-    movie_name = e.pattern_match.group(1)
+    movie_name = sticktext
     remove_space = movie_name.split(' ')
     final_name = '+'.join(remove_space)
     page = requests.get("https://www.imdb.com/find?ref_=nv_sr_fn&q="+final_name+"&s=all")
@@ -36,6 +41,7 @@ async def imdb(e):
     soup = bs4.BeautifulSoup(page1.content,'lxml')
     if soup.find('div','poster'):
     	poster = soup.find('div','poster').img['src']
+
     else:
     	poster = ''
     if soup.find('div','title_wrapper'):
