@@ -21,13 +21,18 @@ from uniborg.util import admin_cmd
 langi = "en"
 
 #kanged from Blank-x ;---;
-@borg.on(admin_cmd(pattern="imdb (.)", outgoing=True)) 
+@borg.on(admin_cmd(pattern="imdb ?(.*)")) 
 async def imdb(e):
  sticktext = e.pattern_match.group(1)
  
  if not sticktext:
     	get = await e.get_reply_message()
     	sticktext = get.text
+
+ await event.delete()
+ if not sticktext:
+    	await e.edit("`I need text to sticklet!`")
+    	return
  try:
     movie_name = sticktext
     remove_space = movie_name.split(' ')
