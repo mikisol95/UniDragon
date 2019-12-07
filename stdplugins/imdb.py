@@ -29,10 +29,6 @@ async def imdb(e):
     	get = await e.get_reply_message()
     	sticktext = get.text
 
- await e.delete()
- if not sticktext:
-    	await e.edit("`I need text to sticklet!`")
-    	return
  try:
     movie_name = sticktext
     remove_space = movie_name.split(' ')
