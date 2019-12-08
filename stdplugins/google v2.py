@@ -35,7 +35,7 @@ async def gsearch(q_event):
     msg = ""
     i = 1
     
-    for i in range(10):
+    for i in range(11):
         try:
             title = gresults["titles"][i]
             link = gresults["links"][i]
