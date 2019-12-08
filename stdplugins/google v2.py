@@ -41,8 +41,7 @@ async def gsearch(q_event):
             msg += f"{i}. [{title}]({link})\n`{desc}`\n\n"
         except IndexError:
             break
-
-       i += 1
+            i += 1
 
     await q_event.edit("**Search Query:**\n`" + match + "`\n\n**Results:**\n" +
                        msg,
