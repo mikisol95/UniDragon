@@ -33,7 +33,7 @@ async def gsearch(q_event):
     gsearch = GoogleSearch()
     gresults = await gsearch.async_search(*search_args)
     msg = ""
-    for i in range(11):
+    for i in range(10):
         try:
             title = gresults["titles"][i]
             link = gresults["links"][i]
@@ -41,6 +41,9 @@ async def gsearch(q_event):
             msg += f"{i}. [{title}]({link})\n`{desc}`\n\n"
         except IndexError:
             break
+
+       i += 1
+
     await q_event.edit("**Search Query:**\n`" + match + "`\n\n**Results:**\n" +
                        msg,
                        link_preview=False)
