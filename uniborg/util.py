@@ -7,6 +7,7 @@ import math
 import os
 import time
 
+from typing import List
 from telethon import events
 from telethon.tl.functions.messages import GetPeerDialogsRequest
 
