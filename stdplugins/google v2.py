@@ -18,18 +18,24 @@ import asyncio
 from telethon import events
 from uniborg.util import admin_cmd
 
-@borg.on(admin_cmd(pattern="google (.*)"))
+@borg.on(admin_cmd(pattern="google ?(.*)"))
 async def gsearch(q_event):
     """ For .google command, do a Google search. """
-    match = q_event.pattern_match.group(1)
-    page = findall(r"page=\d+", match)
+    reply = await q_event.get_reply_message()
+    if q_event.pattern_match.group(1):
+        url = q_event.pattern_match.group(1)
+    elif reply is not None:
+        url = reply.message
+    else:
+        return
+    page = findall(r"page=\d+", url)
     try:
         page = page[0]
         page = page.replace("page=", "")
-        match = match.replace("page=" + page[0], "")
+        url = url.replace("page=" + page[0], "")
     except IndexError:
         page = 1
-    search_args = (str(match), int(page))
+    search_args = (str(url), int(page))
     gsearch = GoogleSearch()
     gresults = await gsearch.async_search(*search_args)
     msg = ""
@@ -46,6 +52,6 @@ async def gsearch(q_event):
             
             i += 1
 
-    await q_event.edit("**Search Query:**\n`" + match + "`\n\n**Results:**\n" +
+    await q_event.edit("**Search Query:**\n`" + url + "`\n\n**Results:**\n" +
                        msg,
                        link_preview=False)
