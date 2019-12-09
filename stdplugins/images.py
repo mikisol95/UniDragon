@@ -11,15 +11,22 @@ from uniborg.util import admin_cmd
 
 @borg.on(admin_cmd(pattern="img ?(.*)"))
 async def img_sampler(event):
-    await event.edit("Processing...")
-    query = event.pattern_match.group(1)
+    await event.edit("`Processing Bsdk..`")
+    reply = await event.get_reply_message()
+    if event.pattern_match.group(1):
+        query = event.pattern_match.group(1)
+    elif reply:
+        query = reply.message
+    else:
+        return
+    
     lim = findall(r"lim=\d+", query)
     try:
         lim = lim[0]
         lim = lim.replace("lim=", "")
         query = query.replace("lim=" + lim[0], "")
     except IndexError:
-        lim = 2
+        lim = 5
     response = google_images_download.googleimagesdownload()
 
     # creating list of arguments
