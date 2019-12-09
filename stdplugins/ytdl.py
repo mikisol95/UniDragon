@@ -4,7 +4,7 @@
 Audio and video downloader using Youtube-dl
 .yta To Download in mp3 format
 .ytv To Download in mp4 format
-\nImproved by @fukri and snapdragon
+\nImproved by @furki and snapdragon
 """
 
 import os
