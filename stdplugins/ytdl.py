@@ -4,10 +4,12 @@
 Audio and video downloader using Youtube-dl
 .yta To Download in mp3 format
 .ytv To Download in mp4 format
+\nImproved by @fukri and snapdragon
 """
 
 import os
 import time
+import re
 import math
 import asyncio
 from youtube_dl import YoutubeDL
@@ -93,6 +95,7 @@ async def download_video(v_url):
         url = v_url.pattern_match.group(2)
     elif reply is not None:
         url = reply.message
+        url = re.findall(r'\bhttps?://.*\.\S+', reply.message)[0]
     else:
         return
     type = v_url.pattern_match.group(1).lower() if v_url.pattern_match.group(1) is not None else "a"
