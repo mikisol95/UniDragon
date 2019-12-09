@@ -1,5 +1,6 @@
 """Download & Upload Images on Telegram
-Syntax: .img <Name>"""
+Syntax: .ig <any number> <name>
+\nPorted by © @NeoMatrix90"""
 
 
 from google_images_download import google_images_download
@@ -9,7 +10,7 @@ from re import findall
 from uniborg.util import admin_cmd
 
 
-@borg.on(admin_cmd(pattern="alam ?(\d+)? ?(.*)?"))
+@borg.on(admin_cmd(pattern="ig ?(\d+)? ?(.*)?"))
 async def img_sampler(event):
     await event.edit("`Processing...Bsdk..`")
     reply = await event.get_reply_message()
