@@ -1,7 +1,7 @@
 #kanged from AbhiNash Reddy's PPE (THX)
 
 """it will search youtube videos using Api
-\n`Type .yt (anynumber(maximum 50)) {ur query}`
+\n`Type .iko (anynumber(maximum 50)) {ur query}`
 \nAll thanks goes to **SNAPDRAGON** . Thnaks a lot Bruh..
 \nPorted by © [EYEPATCH](t.me/neomatrix90)
 \n`Don't Copy Without Credits.`"""
