@@ -9,6 +9,7 @@ import time
 from re import findall, match
 
 from typing import List
+from uniborg import Uniborg
 from telethon import events
 from telethon.tl.functions.messages import GetPeerDialogsRequest
 from telethon.events import NewMessage
