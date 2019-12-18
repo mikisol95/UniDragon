@@ -150,7 +150,7 @@ class Config(object):
     MONGO_URI = os.environ.get("MONGO_URI", None)
     # define the "types" that should be uplaoded as streamable
     TL_VID_STREAM_TYPES = ("MP4", "WEBM")
-    TL_MUS_STREAM_TYPES = ("MP3", "WAV", "FLAC")
+    TL_MUS_STREAM_TYPES = ("MP3", "WAV", "FLAC", "M4A")
    #Uthob
     YOUTUBE_API_KEY = os.environ.get("YOUTUBE_API_KEY", None)
  
