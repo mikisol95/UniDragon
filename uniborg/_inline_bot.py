@@ -45,7 +45,6 @@ async def _(event):
 async def _(event):
     if event.fwd_from:
         return
-
     bot_username = event.pattern_match.group(1)
     i_plus_oneth_result = event.pattern_match.group(2)
     search_query = event.pattern_match.group(3)
