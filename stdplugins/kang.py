@@ -67,7 +67,7 @@ async def _(event):
     name = me.username
     userid = event.from_id
     packname = f"@{name}'s lawde Part3"
-    packshortname = f"brattysis_gengbeng{userid}"  # format: Uni_Borg_userid
+    packshortname = f"puretaboo_gengbeng{userid}"  # format: Uni_Borg_userid
 
     is_a_s = is_it_animated_sticker(reply_message)
     file_ext_ns_ion = "chutiya_Sticker.png"
