@@ -2,7 +2,7 @@ import random
 import requests
 from uniborg.util import admin_cmd
 
-@borg.on(admin_cmd(pattern="quote ?(.*)"))
+@borg.on(admin_cmd(pattern="hquote ?(.*)"))
 async def quote_search(event):
     if event.fwd_from:
         return
