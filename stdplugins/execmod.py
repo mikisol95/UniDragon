@@ -1,4 +1,4 @@
-"""COMMAND : .cpu, .uptime, .suicide, .env, .pip, .neofetch, .date, .coffeehouse, .iwantsex, .telegram, .stdplugins, .fast, .listpip, .fuggi, .names, .password .dadjoke, .quite, .fakeid, .fortune
+"""COMMAND : .cpu, .uptime, .suicide, .env, .pip, .neofetch, .date, .coffeehouse, .iwantsex, .telegram, .stdplugins, .fast, .listpip, .fuggi, .names, .password .dadjoke, .qquite, .fakeid, .fortune, .lsapp
 \n**CREDITS** : ©[RAVANA](t.me/r4v4n4)"""
 # This Source Code Form is subject to the terms of the Mozilla Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -818,7 +818,7 @@ async def _(event):
 #    else:
 #        await event.edit("Unknown Command")
 
-@borg.on(admin_cmd(pattern="quite"))
+@borg.on(admin_cmd(pattern="qquite"))
 async def _(event):
     if event.fwd_from:
         return
