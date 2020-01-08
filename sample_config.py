@@ -153,6 +153,8 @@ class Config(object):
     TL_MUS_STREAM_TYPES = ("MP3", "WAV", "FLAC", "M4A")
    #Uthob
     YOUTUBE_API_KEY = os.environ.get("YOUTUBE_API_KEY", None)
+    #For Lol
+    API_TOKEN = os.environ.get("API_TOKEN", None)
  
 
 class Production(Config):
