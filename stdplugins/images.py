@@ -1,5 +1,6 @@
 """Download & Upload Images on Telegram
-Syntax: .img <Name>"""
+Syntax: `.img <Name>` or `.img (replied message)`
+\n Upgraded by @NeoMatrix90"""
 
 
 from google_images_download import google_images_download
