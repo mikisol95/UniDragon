@@ -12,13 +12,8 @@
          ***🔴 DON'T COPY WITHOUT CREDIT***
          """
    
-import asyncio
 from telethon import events
 from cowpy import cow
-from uniborg.util import admin_cmd
-
-
-
 
 @borg.on(events.NewMessage(pattern=r"^.(\w+)say (.*)", outgoing=True))
 async def univsaye(event):
