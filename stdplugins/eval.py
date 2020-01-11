@@ -1,5 +1,6 @@
 """Evaluate Python Code inside Telegram
-Syntax: .eval PythonCode"""
+Syntax: `.eval {PythonCode}`
+"""
 # This Source Code Form is subject to the terms of the Mozilla Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
@@ -49,7 +50,7 @@ async def _(event):
     else:
         evaluation = "Success"
 
-    final_output = "⚪**EVAL**: `{}` \n\n⚪**OUTPUT**: \n`{}` \n".format(cmd, evaluation)
+    final_output = "⚪**EVAL**: `{}` \n\n⚪**Result**: \n`{}` \n".format(cmd, evaluation)
 
     if len(final_output) > Config.MAX_MESSAGE_SIZE_LIMIT:
         with io.BytesIO(str.encode(final_output)) as out_file:
