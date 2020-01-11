@@ -3,7 +3,9 @@
 .labstack as reply to media
 \n\nCreated By @s_n_a_p_s
  Ported by © [Eyepatch](http://t.me/NeoMatrix90)
- Helping hands @r4v4n4 @amnd33p"""
+ Helping hands @r4v4n4 @amnd33p
+"""
+
 from datetime import datetime
 import os
 import requests
@@ -16,11 +18,11 @@ from telethon import events
 from telethon.tl.types import ChannelParticipantsAdmins
 from uniborg.util import admin_cmd
 
-@borg.on(admin_cmd("labstack ?(.*)"))
+@borg.on(admin_cmd(pattern="labstack ?(.*)"))
 async def labstack(event):
     if event.fwd_from:
         return
-    await event.edit("Processing...")
+    await event.edit("`Upload iz ho Raha Hain...`")
     input_str = event.pattern_match.group(1)
     reply = await event.get_reply_message()
     if input_str:
