@@ -12,7 +12,9 @@ import asyncio
 import sys
 import io
 from uniborg.util import admin_cmd
-
+import logging
+logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
+                    level=logging.WARN)
 
 @borg.on(admin_cmd(pattern="eval"))
 async def _(event):
