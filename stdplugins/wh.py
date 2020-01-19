@@ -3,25 +3,15 @@ Syntax: .wh @username/userid
 \n Credits @Refundisillegal
 """
 
-
-
-
 import os
 import html
-
 from telethon.tl.functions.photos import GetUserPhotosRequest
 from telethon.utils import get_input_location
 from telethon.tl.functions.users import GetFullUserRequest
 from telethon.tl.types import MessageEntityMentionName
 from uniborg.util import admin_cmd
 
-
-
-
 TMP_DOWNLOAD_DIRECTORY = "./"
-
-
-
 @borg.on(admin_cmd(pattern="wh ?(.*)", allow_sudo=True))
 async def _(event):
     if event.fwd_from:
@@ -31,17 +21,11 @@ async def _(event):
         os.makedirs(TMP_DOWNLOAD_DIRECTORY)
 
     replied_user = await get_user(event)
-
     caption = await fetch_info(replied_user, event)
-
     message_id_to_reply = event.message.reply_to_msg_id
-
     if not message_id_to_reply:
         message_id_to_reply = None
-
     await event.reply(caption, parse_mode="HTML")
-
-
 async def get_user(event):
     """ Get the user from argument or replied message. """
     if event.reply_to_msg_id:
@@ -50,17 +34,13 @@ async def get_user(event):
             GetFullUserRequest(previous_message.from_id))
     else:
         user = event.pattern_match.group(1)
-
         if user.isnumeric():
             user = int(user)
-
         if not user:
             self_user = await event.client.get_me()
             user = self_user.id
-
         if event.message.entities is not None:
             probable_user_mention_entity = event.message.entities[0]
-
             if isinstance(probable_user_mention_entity,
                           MessageEntityMentionName):
                 user_id = probable_user_mention_entity.user_id
@@ -73,9 +53,7 @@ async def get_user(event):
         except (TypeError, ValueError) as err:
             await event.edit(str(err))
             return None
-
     return replied_user
-
 async def fetch_info(replied_user, event):
     """ Get details from the User object. """
     replied_user_profile_photos = await event.client(
@@ -132,20 +110,3 @@ async def fetch_info(replied_user, event):
     caption += f"<b>Bio</b>: \n<code>{user_bio}</code> \n"
 
     return caption
-    
-    
-    
-    
-   
-    
-    
-
-
-
-    
-    
-
-    
-    
-
-    
