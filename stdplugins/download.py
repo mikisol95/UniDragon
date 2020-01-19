@@ -17,7 +17,9 @@ from telethon.tl.types import DocumentAttributeVideo
 from uniborg.util import admin_cmd, humanbytes, progress, time_formatter
 
 from sample_config import Config
-
+import logging
+logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
+                    level=logging.WARN)
 
 @borg.on(admin_cmd(pattern="download ?(.*)", allow_sudo=True))
 async def _(event):
