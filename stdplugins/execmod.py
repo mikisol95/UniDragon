@@ -13,6 +13,9 @@ import os
 import sys
 from telethon import events, functions, __version__
 from uniborg.util import admin_cmd 
+import logging
+logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
+                    level=logging.WARN)
 
 if not os.path.isdir("./SAVED"):
      os.makedirs("./SAVED")
