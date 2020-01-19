@@ -14,6 +14,9 @@ import requests
 from bs4 import BeautifulSoup
 from humanize import naturalsize
 from telethon import events
+import logging
+logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
+                    level=logging.WARN)
 
 
 
