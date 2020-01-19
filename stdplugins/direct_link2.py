@@ -20,7 +20,9 @@ from telethon.tl import functions, types
 from uniborg.util import admin_cmd
 
 from humanize import naturalsize
-
+import logging
+logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
+                    level=logging.WARN)
 
 @borg.on(events.NewMessage(pattern=r"^.direct(?: |$)([\s\S]*)", outgoing=True))
 async def direct_link_generator(request):
