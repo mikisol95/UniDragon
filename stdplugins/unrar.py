@@ -8,27 +8,16 @@ logging.basicConfig(format='[%(levelname) 5s/%(asctime)s] %(name)s: %(message)s'
 import asyncio
 import os
 import time
-
 from datetime import datetime
-
 import patoolib
 import subprocess
-
 from pySmartDL import SmartDL
 from telethon import events
 from telethon.tl.types import DocumentAttributeAudio, DocumentAttributeVideo
-
 from uniborg.util import admin_cmd, humanbytes, progress, time_formatter
-
 from hachoir.metadata import extractMetadata
 from hachoir.parser import createParser
 from sample_config import Config
-
-
-
-
-
-
 
 @borg.on(admin_cmd(pattern="unrar"))
 async def _(event):
@@ -119,12 +108,6 @@ async def _(event):
                 os.remove(single_file)
         os.remove(downloaded_file_name)
 
-
-
-
-
-
-
 def get_lst_of_files(input_directory, output_lst):
     filesinfolder = os.listdir(input_directory)
     for file_name in filesinfolder:
@@ -132,7 +115,4 @@ def get_lst_of_files(input_directory, output_lst):
         if os.path.isdir(current_file_name):
             return get_lst_of_files(current_file_name, output_lst)
         output_lst.append(current_file_name)
-    return output_lst
-
-        
-            
+    return output_lst   
