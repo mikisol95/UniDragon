@@ -11,19 +11,13 @@ import time
 import zipfile
 from datetime import datetime
 from zipfile import ZipFile
-
 from pySmartDL import SmartDL
 from telethon import events
 from telethon.tl.types import DocumentAttributeAudio, DocumentAttributeVideo
-
 from uniborg.util import admin_cmd, humanbytes, progress, time_formatter
-
 from hachoir.metadata import extractMetadata
 from hachoir.parser import createParser
 from sample_config import Config
-
-
-
 
 @borg.on(admin_cmd(pattern="unzip"))
 async def _(event):
@@ -114,13 +108,6 @@ async def _(event):
                     continue
                 os.remove(single_file)
         os.remove(downloaded_file_name)
-
-
-
-
-
-
-
 
 def get_lst_of_files(input_directory, output_lst):
     filesinfolder = os.listdir(input_directory)
