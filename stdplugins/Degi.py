@@ -1,15 +1,13 @@
-"""Fun pligon...
-\nCode by @kirito6969
-type .degi and ...
+"""Fun pligon...for @PepeB0t
+\nCode by @kirito6969 , ©[Eyepatch](https://t.me/NeoMatrix90)
+type `.degi` and `.nehi` to see the fun.
 """
-
 import random, re
 from uniborg.util import admin_cmd
-import asyncio 
+import asyncio
+from telethon import events
 
-
-
-@borg.on(admin_cmd("degi ?(.*)"))
+@borg.on(admin_cmd(pattern="degi ?(.*)"))
 async def _(event):
      if not event.text[0].isalpha() and event.text[0] not in ("/", "#", "@", "!"):
         await event.edit("Wo")
@@ -29,3 +27,10 @@ async def _(event):
         await event.edit("Dekho")
         await asyncio.sleep(1)
         await event.edit("`Wo Degi Tum Ekbar Mang Kar toh Dekho`")
+
+@borg.on(events.NewMessage(pattern=r"\.nehi", outgoing=True))
+async def _(event):
+    if event.fwd_from:
+        return
+    await event.edit("`Wo PaKkA DeGi Tu ManG KaR ToH DekH`")
+    await asyncio.sleep(999)
