@@ -4,6 +4,9 @@ from telethon import events
 import os
 from PIL import Image, ImageColor
 from uniborg.util import admin_cmd
+import logging
+logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
+                    level=logging.WARN)
 
 
 @borg.on(admin_cmd("color (.*)"))
