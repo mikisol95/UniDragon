@@ -8,12 +8,15 @@ import urbandict
 from uniborg.util import admin_cmd
 
 
-@borg.on(admin_cmd(pattern="ud (.*)"))
+@borg.on(admin_cmd(pattern="ud ?(.*)"))
 async def _(event):
     if event.fwd_from:
         return
     await event.edit("processing...")
     str = event.pattern_match.group(1)
+    if not str:
+    	get = await event.get_reply_message()
+    	str = get.text
     try:
         mean = urbandict.define(str)
         if len(mean) > 0:
