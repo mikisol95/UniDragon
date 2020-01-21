@@ -54,7 +54,7 @@ async def _(event):
     qr_contents = soup.find_all("pre")[0].text
     end = datetime.now()
     ms = (end - start).seconds
-    await event.edit("Obtained QRCode contents in {} seconds.\n{}".format(ms, qr_contents))
+    await event.edit("Obtained QRCode contents in {} seconds.\n`{}`".format(ms, qr_contents))
     await asyncio.sleep(5)
     await event.edit(qr_contents)
  
