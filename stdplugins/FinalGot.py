@@ -1,8 +1,6 @@
 # BY @STARKTM1
 from telethon import events
 import asyncio
-import os
-import sys
 import random
 
 @borg.on(events.NewMessage(pattern=r"\.snow", outgoing=True))
