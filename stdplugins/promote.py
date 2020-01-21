@@ -33,7 +33,7 @@ async def _(event):
     except (Exception) as exc:
         await event.edit(str(exc))
     else:
-        await event.edit("OO you are Successfully premoted")
+        await event.edit("OwO , `You are Successfully premoted`")
 
 @borg.on(admin_cmd(pattern="demote ?(.*)"))
 async def _(event):
@@ -61,7 +61,7 @@ async def _(event):
     except (Exception) as exc:
         await event.edit(str(exc))
     else:
-        await event.edit("Successfully Demoted")
+        await event.edit("｡:ﾟ(;´∩`;)ﾟ:｡ , `Successfully Demoted`")
 
         
 @borg.on(admin_cmd(pattern="prankpremote ?(.*)"))
@@ -85,4 +85,4 @@ async def _(event):
     except (Exception) as exc:
         await event.edit(str(exc))
     else:
-        await event.edit("admins has Successfully premoted Madanyu{}")
+        await event.edit("Admins has Successfully premoted Madanyu{}")
