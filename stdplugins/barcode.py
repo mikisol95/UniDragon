@@ -47,7 +47,6 @@ async def _(event):
         await borg.send_file(
             event.chat_id,
             filename,
-            caption=message,
             reply_to=reply_msg_id,
         )
         os.remove(filename)
