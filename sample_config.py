@@ -155,7 +155,8 @@ class Config(object):
     YOUTUBE_API_KEY = os.environ.get("YOUTUBE_API_KEY", None)
     #For Lol
     API_TOKEN = os.environ.get("API_TOKEN", None)
- 
+    #BOTLOG
+    BOTLOG = os.environ.get("BOTLOG", None)
 
 class Production(Config):
     LOGGER = False
