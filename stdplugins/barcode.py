@@ -1,5 +1,5 @@
 """BarCode Generator
-Command .barcode (your text)
+Command `.bar (your text) or reply to a message`
 By @snappy101
 """
 import asyncio
