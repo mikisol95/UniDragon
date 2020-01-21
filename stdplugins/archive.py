@@ -1,14 +1,8 @@
 """
 usage: reply with file : .rar , .7z  create archived file
-
 unzip usage: reply with zipped file .unzipper
-
 Coded by @furki
-
 """
-
-
-
 import asyncio
 import os
 import shutil
@@ -21,14 +15,8 @@ from uniborg.util import admin_cmd, humanbytes, progress, time_formatter
 import subprocess
 import patoolib
 
-
 extracted = Config.TMP_DOWNLOAD_DIRECTORY + "extracted/"
 thumb_image_path = Config.TMP_DOWNLOAD_DIRECTORY + "/thumb_image.jpg"
-
-
-
-
-
 @borg.on(admin_cmd(pattern=("rar ?(.*)")))
 async def _(event):
     if event.fwd_from:
@@ -76,9 +64,6 @@ async def _(event):
         
         await event.edit("Local file compressed to `{}`".format(directory_name + ".rar"))
 
-
-
-
 @borg.on(admin_cmd(pattern=("7z ?(.*)")))
 async def _(event):
     if event.fwd_from:
@@ -125,7 +110,6 @@ async def _(event):
         directory_name = input_str
         
         await event.edit("Local file compressed to `{}`".format(directory_name + ".7z"))
-
 
 @borg.on(admin_cmd(pattern=("unzipper ?(.*)")))
 async def _(event):
