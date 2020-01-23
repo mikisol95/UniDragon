@@ -1,4 +1,13 @@
-"""COMMAND : .info, .dc, .nigga"""
+"""**Know Your UniBorg**
+◇ list of all loaded plugins
+◆ `.info`\n
+◇ to know Data Center
+◆ `.dc`\n
+◇ powered by
+◆ `.config`\n
+◇ to know syntax
+◆ `.nigga` <plugin name>
+"""
 
 import sys
 from telethon import events, functions, __version__
