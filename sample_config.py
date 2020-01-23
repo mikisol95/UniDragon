@@ -20,7 +20,7 @@ class Config(object):
     SCREEN_SHOT_LAYER_ACCESS_KEY = os.environ.get("SCREEN_SHOT_LAYER_ACCESS_KEY", None)
     # Send .get_id in any group to fill this value.
     PRIVATE_GROUP_BOT_API_ID = int(os.environ.get("PRIVATE_GROUP_BOT_API_ID", -100123456789))
-    # Send .get_id in any channel to fill this value. ReQuired for @Manuel15 inspiration to work!
+    # Send .g_id in any channel to fill this value. ReQuired for @Manuel15 inspiration to work!
     PRIVATE_CHANNEL_BOT_API_ID = int(os.environ.get("PRIVATE_CHANNEL_BOT_API_ID", -100123456789))
     # This is required for the plugins involving the file system.
     TMP_DOWNLOAD_DIRECTORY = os.environ.get("TMP_DOWNLOAD_DIRECTORY", "./DOWNLOADS/")
@@ -135,6 +135,9 @@ class Config(object):
     # define "repo_link" in conig_vars
     PACKS_CONTENT = os.environ.get("PACKS_CONTENT", None)
     #
+    PACK_NAME = os.environ.get("PACK_NAME", None)
+    # define "pack_name" in config_vars
+    ANIM_PACK_NAME = os.environ.get("ANIM_PACK_NAME", None)
     #MIRRORACE STUFF
     MIRROR_ACE_API_KEY = os.environ.get("MIRROR_ACE_API_KEY", None)
     MIRROR_ACE_API_TOKEN = os.environ.get("MIRROR_ACE_API_TOKEN", None)
