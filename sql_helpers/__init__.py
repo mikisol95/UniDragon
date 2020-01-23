@@ -9,8 +9,8 @@ ENV = bool(os.environ.get("ENV", False))
 if ENV:
     from sample_config import Config
 else:
-    if os.path.exists("config.py"):
-        from config import Development as Config
+    if os.path.exists("sample_config.py"):
+        from sample_config import Development as Config
 
 
 def start() -> scoped_session:
@@ -20,5 +20,12 @@ def start() -> scoped_session:
     return scoped_session(sessionmaker(bind=engine, autoflush=False))
 
 
-BASE = declarative_base()
-SESSION = start()
+try:
+    BASE = declarative_base()
+    SESSION = start()
+except AttributeError as e:
+    # this is a dirty way for the work-around required for #23
+    print("DB_URI is not configured. Features depending on the database might have issues.")
+    print(str(e))
+ 
+ 
