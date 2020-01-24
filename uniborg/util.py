@@ -14,13 +14,6 @@ from telethon import events
 from telethon.tl.functions.messages import GetPeerDialogsRequest
 from telethon.events import NewMessage
 from telethon.tl.custom import Message
-from telethon.tl.functions.channels import GetFullChannelRequest
-from telethon.tl.functions.messages import GetFullChatRequest
-from telethon.tl.functions.users import GetFullUserRequest
-from telethon.tl.types import (MessageEntityMentionName,
-                               ChannelParticipantsAdmins,
-                               ChannelParticipantsBots, MessageEntityMention, InputPeerChannel, InputPeerChat)
-
 
 # the secret configuration specific things
 ENV = bool(os.environ.get("ENV", False))
