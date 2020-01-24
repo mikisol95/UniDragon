@@ -5,7 +5,7 @@ Available Commands:
 .eye
 .netflix
 .cry
-.🍎"""
+.🍎 to print a stack of 🍎"""
 
 from telethon import events
 import asyncio
