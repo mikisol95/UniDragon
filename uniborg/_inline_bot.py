@@ -83,7 +83,7 @@ if Config.TG_BOT_USER_NAME_BF_HER is not None and tgbot is not None:
                 buttons=[],
                 link_preview=True
             )
-         elif query.startswith("repo"):
+        elif query.startswith("repo"):
             result = builder.article(
                 "@r4v4n4: yeh hai button deploy kar le",
                 text=f"Ganja Sutta on the floor",
@@ -92,7 +92,7 @@ if Config.TG_BOT_USER_NAME_BF_HER is not None and tgbot is not None:
                 ],
                 link_preview=True
             )  
-         elif query.startswith("bhoot"):
+        elif query.startswith("bhoot"):
             result = builder.article(
                 "@kirito6969: Bhagwaan Sabko GF De",
                 text=f"[Bhoot](https://telegra.ph/file/019a2eab3d66d39c92a75.mp4)",
