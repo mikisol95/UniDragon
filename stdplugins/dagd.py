@@ -1,14 +1,12 @@
 """COMMAND : .dns , .link, .unshort , .myip , .myisp , .myhead , .mywho , .myup"""
 
-
 from telethon import events
 import os
 import requests
 import json
 from uniborg.util import admin_cmd
 
-
-@borg.on(admin_cmd("dns (.*)"))
+@borg.on(admin_cmd(pattern="dns (.*)"))
 async def _(event):
     if event.fwd_from:
         return
@@ -20,8 +18,7 @@ async def _(event):
     else:
         await event.edit("i can't seem to find {} on the internet".format(input_str))
 
-
-@borg.on(admin_cmd("link (.*)"))
+@borg.on(admin_cmd(pattern="link (.*)"))
 async def _(event):
     if event.fwd_from:
         return
@@ -33,8 +30,7 @@ async def _(event):
     else:
         await event.edit("something is wrong. please try again later.")
 
-
-@borg.on(admin_cmd("unshort (.*)"))
+@borg.on(admin_cmd(pattern="unshort (.*)"))
 async def _(event):
     if event.fwd_from:
         return
@@ -47,8 +43,7 @@ async def _(event):
     else:
         await event.edit("Input URL {} returned status_code {}".format(input_str, r.status_code))
 
-
-@borg.on(admin_cmd("myip(.*)"))
+@borg.on(admin_cmd(pattern="myip(.*)"))
 async def _(event):
     if event.fwd_from:
         return
@@ -60,8 +55,7 @@ async def _(event):
     else:
         await event.edit("i can't seem to find {} on the internet".format(input_str))
 
-
-@borg.on(admin_cmd("myisp(.*)"))
+@borg.on(admin_cmd(pattern="myisp(.*)"))
 async def _(event):
     if event.fwd_from:
         return
@@ -73,7 +67,7 @@ async def _(event):
     else:
         await event.edit("i can't seem to find {} on the internet".format(input_str))
 
-@borg.on(admin_cmd("mywho (.*)"))
+@borg.on(admin_cmd(pattern="mywho (.*)"))
 async def _(event):
     if event.fwd_from:
         return
@@ -85,7 +79,7 @@ async def _(event):
     else:
         await event.edit("i can't seem to find {} on the internet".format(input_str))
 
-@borg.on(admin_cmd("myhead (.*)"))
+@borg.on(admin_cmd(pattern="myhead (.*)"))
 async def _(event):
     if event.fwd_from:
         return
@@ -97,7 +91,7 @@ async def _(event):
     else:
         await event.edit("i can't seem to find {} on the internet".format(input_str))
 
-@borg.on(admin_cmd("myup (.*)"))
+@borg.on(admin_cmd(pattern="myup (.*)"))
 async def _(event):
     if event.fwd_from:
         return
@@ -109,7 +103,7 @@ async def _(event):
     else:
         await event.edit("i can't seem to find {} on the internet".format(input_str))
 
-@borg.on(admin_cmd("fast(.*)"))
+@borg.on(admin_cmd(pattern="fast(.*)"))
 async def _(event):
     if event.fwd_from:
         return
