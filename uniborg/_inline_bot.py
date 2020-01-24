@@ -71,7 +71,7 @@ if Config.TG_BOT_USER_NAME_BF_HER is not None and tgbot is not None:
             buttons = paginate_help(0, borg._plugins, "helpme")
             result = builder.article(
                 "© @UniBorg",
-                text="{}\nℂ𝕦𝕣𝕣𝕖𝕟𝕥𝕝𝕪 𝕃𝕠𝕒𝕕𝕖𝕕 ℙ𝕝𝕦𝕘𝕚𝕟𝕤: {}".format(
+                text="{}\n`ℂurrent ℙlugins`: {}".format(
                     query, len(borg._plugins)),
                 buttons=buttons,
                 link_preview=True
@@ -79,10 +79,26 @@ if Config.TG_BOT_USER_NAME_BF_HER is not None and tgbot is not None:
         elif query.startswith("tb_btn"):
             result = builder.article(
                 "Button Parser © @UniBorg",
-                text=f"powered by @UniBorg",
+                text=f"powered by @PepeB0t",
                 buttons=[],
                 link_preview=True
             )
+         elif query.startswith("repo"):
+            result = builder.article(
+                "@r4v4n4: yeh hai button deploy kar le",
+                text=f"Ganja Sutta on the floor",
+                buttons=[
+                    [custom.Button.url("👤Click on the button to deploy PepeBot repo👤", "https://github.com/prono69/PepeBot")],
+                ],
+                link_preview=True
+            )  
+         elif query.startswith("bhoot"):
+            result = builder.article(
+                "@kirito6969: Bhagwaan Sabko GF De",
+                text=f"[Bhoot](https://telegra.ph/file/019a2eab3d66d39c92a75.mp4)",
+                buttons=[],
+                link_preview=True
+            )   
         else:
             result = builder.article(
                 "© @UniBorg",
