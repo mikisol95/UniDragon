@@ -1,6 +1,7 @@
 """Get Administrators of any Chat*
 Syntax: .userlist"""
 from telethon import events
+import os
 from telethon.tl.types import ChannelParticipantsAdmins, ChannelParticipantAdmin, ChannelParticipantCreator
 from uniborg.util import admin_cmd
 from telethon.errors.rpcerrorlist import (UserIdInvalidError,
@@ -45,4 +46,4 @@ async def get_users(show):
                 caption='Users in {}'.format(title),
                 reply_to=show.id,
             )
-            remove("userslist.txt")
+            os.remove("userslist.txt")
