@@ -4,34 +4,21 @@ Available Commands:
 .nikita
 .eye
 .netflix
-.cry"""
+.cry
+.🍎"""
 
 from telethon import events
-
 import asyncio
 
-
-
-
-
 @borg.on(events.NewMessage(pattern=r"\.(.*)", outgoing=True))
-
 async def _(event):
-
     if event.fwd_from:
-
         return
-
     animation_interval = 0.3
-
     animation_ttl = range(0, 30)
-
     input_str = event.pattern_match.group(1)
-
     if input_str == "kirito":
-
         await event.edit(input_str)
-
         animation_chars = [
 
             "😈kirito, Eyepatch😈😈kirito, Eyepatch😈😈kirito, Eyepatch😈😈kirito, Eyepatch😈😈kirito, Eyepatch😈\n😈kirito, Eyepatch😈😈kirito, Eyepatch😈😈kirito, Eyepatch😈😈kirito, Eyepatch😈😈kirito, Eyepatch😈\n😈kirito, Eyepatch😈😈kirito, Eyepatch😈😈kirito, Eyepatch😈😈kirito, Eyepatch😈😈kirito, Eyepatch😈\n😈kirito, Eyepatch😈😈kirito, Eyepatch😈😈kirito, Eyepatch😈😈kirito, Eyepatch😈😈kirito, Eyepatch😈\n😈kirito, Eyepatch😈😈kirito, Eyepatch😈😈kirito, Eyepatch😈😈kirito, Eyepatch😈😈kirito, Eyepatch😈",
@@ -96,31 +83,19 @@ async def _(event):
         ]
 
         for i in animation_ttl:
-
             await asyncio.sleep(animation_interval)
-
             await event.edit(animation_chars[i % 30])
 
-  
 @borg.on(events.NewMessage(pattern=r"\.(.*)", outgoing=True))
- 
-async def _(event):
- 
-    if event.fwd_from:
- 
-        return
- 
-    animation_interval = 2
- 
-    animation_ttl = range(0, 11)
- 
-    input_str = event.pattern_match.group(1)
- 
-    if input_str == "netflix":
- 
-        await event.edit(input_str)
- 
-        animation_chars = [
+ async def _(event):
+     if event.fwd_from:
+         return
+     animation_interval = 2
+     animation_ttl = range(0, 11)
+     input_str = event.pattern_match.group(1)
+     if input_str == "netflix":
+         await event.edit(input_str)
+         animation_chars = [
         
             "`Cracking some Netflix account.....`",
            
@@ -138,31 +113,19 @@ async def _(event):
         ]
  
         for i in animation_ttl:
- 
-            await asyncio.sleep(animation_interval)
- 
-            await event.edit(animation_chars[i % 11])
- 
+             await asyncio.sleep(animation_interval)
+             await event.edit(animation_chars[i % 11])
  
 @borg.on(events.NewMessage(pattern=r"\.(.*)", outgoing=True))
- 
-async def _(event):
- 
-    if event.fwd_from:
- 
-        return
- 
-    animation_interval = 0.3
- 
-    animation_ttl = range(0, 30)
- 
-    input_str = event.pattern_match.group(1)
- 
-    if input_str == "nikita":
- 
-        await event.edit(input_str)
- 
-        animation_chars = [
+ async def _(event):
+     if event.fwd_from:
+         return
+     animation_interval = 0.3
+     animation_ttl = range(0, 30)
+     input_str = event.pattern_match.group(1)
+     if input_str == "nikita":
+         await event.edit(input_str)
+         animation_chars = [
  
             "👑Nikita👑👑👑👑Nikita👑👑Nikita👑👑Nikita👑\n👑Nikita👑👑Nikita👑👑Nikita👑👑Nikita👑👑Nikita👑\n👑Nikita👑👑Nikita👑👑Nikita👑👑Nikita👑👑Nikita👑\n👑Nikita👑👑Nikita👑👑Nikita👑👑Nikita👑👑Nikita👑\n👑Nikita👑👑Nikita👑👑Nikita👑👑Nikita👑👑Nikita👑",
  
@@ -227,30 +190,19 @@ async def _(event):
         ]
  
         for i in animation_ttl:
- 
-            await asyncio.sleep(animation_interval)
- 
-            await event.edit(animation_chars[i % 31])
+             await asyncio.sleep(animation_interval)
+             await event.edit(animation_chars[i % 31])
     
     
 @borg.on(events.NewMessage(pattern=r"\.(.*)", outgoing=True))
-
 async def _(event):
-
     if event.fwd_from:
-
         return
-
     animation_interval = 2
-
     animation_ttl = range(0, 100)
-
     input_str = event.pattern_match.group(1)
-
     if input_str == "eye":
-
         await event.edit(input_str)
-
         animation_chars = [
 
             "👁👁\n  👄  =====> Abey Ja Na Gandu",
@@ -266,32 +218,19 @@ async def _(event):
         ]
 
         for i in animation_ttl:
-
             await asyncio.sleep(animation_interval)
-
             await event.edit(animation_chars[i % 9])
             
             
 @borg.on(events.NewMessage(pattern=r"\.(.*)", outgoing=True))
-
 async def _(event):
-
     if event.fwd_from:
-
         return
-
     animation_interval = 1
-
-    
-
     animation_ttl = range(0, 103)
-
     input_str = event.pattern_match.group(1)
-
     if input_str == "cry":
-
         await event.edit(input_str)
-
         animation_chars = [
 
             ";__",
@@ -329,5 +268,24 @@ async def _(event):
         ]
 
         for i in animation_ttl:
-
             await event.edit(animation_chars[i % 15])
+
+@borg.on(events.NewMessage(pattern=r"\.(.*)", outgoing=True))
+async def _(event):
+    if event.fwd_from:
+        return
+    input_str = event.pattern_match.group(1)
+    if input_str == "🍎":
+        animation_chars = [
+                        " ‏‏‎ ",
+                        "                🍎",
+                        "            🍎 🍎",
+                        "        🍎 🍎 🍎",
+                        "    🍎 🍎 🍎 🍎",
+                        "🍎 🍎 🍎 🍎 🍎"
+                    ]
+        msg = ""
+        for s in animation_chars:
+            msg += s+"\n"
+            await event.edit(msg)
+            await asyncio.sleep(0.5)
