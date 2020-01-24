@@ -13,7 +13,7 @@ import logging
 logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
                     level=logging.WARN)
 
-@borg.on(admin_cmd("scan ?(.*)"))
+@borg.on(admin_cmd(pattern="scan ?(.*)"))
 async def _(event):
     if event.fwd_from:
         return 
