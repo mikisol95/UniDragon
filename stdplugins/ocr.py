@@ -5,6 +5,7 @@ Available Languages: `.ocrlangs`"""
 from telethon import events
 import json
 import os
+from PIL import Image
 import requests
 from uniborg.util import admin_cmd
 
@@ -126,15 +127,8 @@ async def parse_ocr_space_api(event):
     await event.edit(ParsedText)
 
 def conv_image(image):
-
     im = Image.open(image)
-
     im.save(image, "PNG")
-
     new_file_name = image + ".png"
-
     os.rename(image, new_file_name)
-
     return new_file_name
-
-     
