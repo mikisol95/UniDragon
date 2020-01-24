@@ -8,7 +8,8 @@ Available Commands:
 .round
 .heart
 .anim
-.fnl"""
+.fnl
+.monkey"""
 
 from telethon import events
 import asyncio
@@ -212,7 +213,7 @@ async def _(event):
              await event.edit(animation_chars[i % 6])
  
 @borg.on(events.NewMessage(pattern=r"\.(.*)", outgoing=True))
- async def _(event):
+async def _(event):
      if event.fwd_from:
          return
      animation_interval = 2
