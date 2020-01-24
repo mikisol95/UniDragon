@@ -3,8 +3,7 @@
 from io import BytesIO
 from uniborg import util
 from telethon import types
-from telethon.errors import
-PhotoInvalidDimensionsError
+from telethon.errors import PhotoInvalidDimensionsError
 from telethon.tl.functions.messages import SendMediaRequest
 
 @borg.on(util.admin_cmd(r"1"))
