@@ -4,8 +4,6 @@
 """
 from telethon import events
 import asyncio
-import os
-import sys
 import random
 
 @borg.on(events.NewMessage(pattern=r"\.logic", outgoing=True))
