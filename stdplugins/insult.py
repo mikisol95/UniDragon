@@ -7,7 +7,7 @@ from uniborg.util import admin_cmd
 import asyncio
 from telethon.tl import functions, types
 import random
-from sql_helpers.global_variables_sql import LOGGER, SUDO_USERS,
+from sql_helpers.global_variables_sql import LOGGER, SUDO_USERS
 import sys
 import time
 
