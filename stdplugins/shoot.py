@@ -1,9 +1,6 @@
 """Reply to any message (.shoot) to kill that fuking user.Created by @NeoMatrix90 .Don't fucking edit this, Otherwise u r geyyy."""
-import sys
-from telethon import events, functions, __version__
-from uniborg.util import admin_cmd
-import asyncio
 
+from uniborg.util import admin_cmd
 
 @borg.on(admin_cmd(pattern="shoot$ ?(.*)", allow_sudo=True))  # pylint:disable=E0602
 async def killing (killed):
