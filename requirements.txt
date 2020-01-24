@@ -7,7 +7,5 @@ zalgo_text
 pyfiglet
 lxml
 selenium
-aria2p 
-chatterbot
-chatterbot_corpus
+aria2p
 -r ./requirements-stdborg.txt
