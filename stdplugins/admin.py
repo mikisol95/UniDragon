@@ -1,4 +1,4 @@
-""".setgrouppic
+""".setgpic
 Usage: Reply to an Image to set it as group's icon.
 \n.promote
 Usage: Reply to someone's message with .promote to promote them.
