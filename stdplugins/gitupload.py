@@ -4,8 +4,6 @@ Instructions:- Set GITHUB_ACCESS_TOKEN and GIT_REPO_NAME Variables in Heroku var
 usage:- .commit reply_to_any_plugin //can be any type of file too. but for plugin must be in .py 
 
 """
-
-
 from github import Github
 import aiohttp
 import asyncio
@@ -15,7 +13,6 @@ from datetime import datetime
 from telethon import events
 from telethon.tl.types import DocumentAttributeVideo
 from uniborg.util import admin_cmd, humanbytes, progress, time_formatter
-
 
 GIT_TEMP_DIR = "./temp/"
 @borg.on(admin_cmd(pattern="commit ?(.*)", allow_sudo=True))
