@@ -1,6 +1,6 @@
 """Emoji
 Available Command:
-.testing"""
+.tost"""
 
 from telethon import events
 import asyncio
@@ -12,7 +12,7 @@ async def _(event):
     animation_interval = 0.5
     animation_ttl = range(0, 25)
     input_str = event.pattern_match.group(1)
-    if input_str == "test":
+    if input_str == "tost":
         await event.edit(input_str)
         animation_chars = [
         
