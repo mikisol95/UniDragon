@@ -1,4 +1,5 @@
-
+"""Type `.df` reply to a photo or sticker
+"""
 import datetime
 from telethon import events
 from telethon.errors.rpcerrorlist import YouBlockedUserError
@@ -26,7 +27,7 @@ async def _(event):
     async with borg.conversation(chat) as conv:
           try:     
               response = conv.wait_event(events.NewMessage(incoming=True,from_users=432858024))
-              await borg.forward_messages(chat, reply_message)
+              await event.client.forward_messages(chat, reply_message)
               response = await response 
           except YouBlockedUserError: 
               await event.reply("```Please Fak Off...```")
@@ -35,4 +36,4 @@ async def _(event):
              await event.edit("```Ur bot is sleeping now.. bye bye..```")
           else: 
              await event.delete()
-             await borg.send_file(event.chat_id, response.message.media)
+             await event.client.send_file(event.chat_id, response.message.media)
