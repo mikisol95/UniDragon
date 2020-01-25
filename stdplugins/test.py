@@ -4,4 +4,4 @@ from telethon import events
 async def test(event):
     if event.fwd_from:
         return 
-    await event.edit("Test Successfull")      
+    await event.edit("`Test Successfull`")      
