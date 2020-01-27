@@ -5,7 +5,7 @@ cmds: Magnet link : .magnet magnetLink
 	  Torrent file from local: .tor file_path
 	  Show Downloads: .show
            Download : .iul
-	  Remove All Downloads: .ariaRM
+	  Remove All Downloads: .iariaRE
 	  
 By:- @Zero_cool7870	   
 
@@ -91,7 +91,7 @@ async def magnet_download(event):
 		new_gid = await check_metadata(gid)
 		await progress_status(gid=new_gid,event=event,previous=None)
 
-@borg.on(events.NewMessage(pattern=r"\.ariaRM", outgoing=True))
+@borg.on(events.NewMessage(pattern=r"\.iariaRE", outgoing=True))
 async def remove_all(event):
 	if event.fwd_from:
 		return
