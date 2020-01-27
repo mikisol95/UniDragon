@@ -4,6 +4,7 @@ A Torrent Client Plugin Based On Aria2 for Userbot
 cmds: Magnet link : .magnet magnetLink
 	  Torrent file from local: .tor file_path
 	  Show Downloads: .show
+           Download : .iul
 	  Remove All Downloads: .ariaRM
 	  
 By:- @Zero_cool7870	   
@@ -70,7 +71,7 @@ async def torrent_download(event):
 	gid = download.gid
 	await progress_status(gid=gid,event=event,previous=None)
 
-@borg.on(events.NewMessage(pattern=r"\.url", outgoing=True))
+@borg.on(events.NewMessage(pattern=r"\.iul", outgoing=True))
 async def magnet_download(event):
 	if event.fwd_from:
 		return
