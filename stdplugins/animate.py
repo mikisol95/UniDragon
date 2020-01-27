@@ -2,7 +2,7 @@
 
 Available Commands:
 
-.load
+`.load
 .square
 .up
 .round
@@ -10,7 +10,7 @@ Available Commands:
 .anim
 .fnl
 .monkey
-.server
+.lerver
 .fgdrive
 .hack
 .deploy
@@ -32,7 +32,7 @@ Available Commands:
 .sclock
 .netflix
 .cry
-.herber"""
+.herber`"""
 
 from telethon import events
 
@@ -428,7 +428,7 @@ async def _(event):
 
     input_str = event.pattern_match.group(1)
 
-    if input_str == "server":
+    if input_str == "lerver":
 
         await event.edit(input_str)
 
