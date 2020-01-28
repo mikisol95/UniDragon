@@ -85,7 +85,7 @@ if Config.TG_BOT_USER_NAME_BF_HER is not None and tgbot is not None:
             )
         elif query.startswith("repo"):
             result = builder.article(
-                "@r4v4n4: yeh hai button deploy kar le",
+                "NeoMatrix90: yeh hai button deploy kar le",
                 text=f"Ganja Sutta on the floor",
                 buttons=[
                     [custom.Button.url("👤Click on the button to deploy PepeBot repo👤", "https://github.com/prono69/PepeBot")],
@@ -102,13 +102,13 @@ if Config.TG_BOT_USER_NAME_BF_HER is not None and tgbot is not None:
         else:
             result = builder.article(
                 "© @UniBorg",
-                text="""@PepeBot **( Custom Built By** @kirito6969 **)
+                text="""@PepeB0t **( Custom Built By** @kirito6969 **)
 **Verified Account:** ✅
 **Official Website:** https://prono69.github.io/PepeBot/
 
-**Pithun 3.7.4 (default, Sep 12 2019, 01:19:52)** 
+**Pithun 3.8.1 (default, Sep 12 2019, 01:19:52)** 
 **[GCC 7.4.0]**
-**Talethrun 1.10.6**
+**Talethrun 1.10.10**
 
 **Custom Built Fork:** https://github.com/prono69/Pornhub""",
                 buttons=[
