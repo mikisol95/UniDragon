@@ -33,7 +33,7 @@ from telethon.tl.functions.photos import GetUserPhotosRequest
 from telethon.tl.functions.users import GetFullUserRequest
 from telethon.tl.types import MessageEntityMentionName
 from telethon.utils import get_input_location
-
+import asyncio
 logger = logging.getLogger(__name__)
 
 
@@ -42,7 +42,7 @@ if 1 == 1:
     name = "Profile Photos"
     client = borg
 
-    @borg.on(admin_cmd(pattern="poto (.*)"))
+    @borg.on(admin_cmd(pattern="poto ?(.*)"))
     async def potocmd(event):
         """Gets the profile photos of replied users, channels or chats"""
         id = "".join(event.raw_text.split(maxsplit=2)[1:])
@@ -50,26 +50,36 @@ if 1 == 1:
         chat = event.input_chat
         if user:
             photos = await event.client.get_profile_photos(user.sender)
+            u = True
         else:
             photos = await event.client.get_profile_photos(chat)
+            u = False
         if id.strip() == "":
-            try:
+            if len(photos) > 0:
                 await event.client.send_file(event.chat_id, photos)
-            except a:
-                photo = await event.client.download_profile_photo(chat)
-                await borg.send_file(event.chat_id, photo)
+            else:
+                try:
+                    if u is True:
+                        photo = await event.client.download_profile_photo(user.sender)
+                    else:
+                        photo = await event.client.download_profile_photo(event.input_chat)
+                    await event.client.send_file(event.chat_id, photo)
+                except a:
+                    await event.edit("**This user has no photos.\nGEYYYY!**")
+                    return
         else:
             try:
                 id = int(id)
                 if id <= 0:
-                    await event.edit("`ID number you entered is invalid`")
+                    await event.edit("```ID number Invalid!``` **Are you Comedy Me ?**")
                     return
             except:
-                 await event.edit("`Are you Comedy Me ?`")
+                 await event.edit("`Are you comedy me ?`")
                  return
             if int(id) <= (len(photos)):
                 send_photos = await event.client.download_media(photos[id - 1])
-                await borg.send_file(event.chat_id, send_photos)
+                await event.client.send_file(event.chat_id, send_photos)
             else:
-                await event.edit("`No photo found of that Nigga , now u Die`")
+                await event.edit("```No photo found of this NIBBA / NIBBI. Now u Die!```")
+                await asyncio.sleep(8)
                 return
