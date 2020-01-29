@@ -1,7 +1,7 @@
 """Warn Module for PepeBot
 Commands:
 	`.iwarn to warn
-	.get_warns
+	.g_warns
 	.r_warns`"""
 	
 import asyncio
@@ -37,7 +37,7 @@ async def _(event):
     await event.edit(reply, parse_mode="html")
 
 
-@borg.on(admin_cmd(pattern="get_warns"))
+@borg.on(admin_cmd(pattern="g_warns"))
 async def _(event):
     if event.fwd_from:
         return
