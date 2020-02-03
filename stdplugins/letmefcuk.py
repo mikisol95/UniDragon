@@ -539,7 +539,7 @@ async def _(event):
 
 
 
-        await event.edit("Let me **Indiankanoon.com : Place** that for you:\n👉 [{}]({})\n`Thank me later 😉` ".format(input_str,response_api.rstrip()))
+        await event.edit("Let me **Indiankanoon.com :** that for you:\n👉 [{}]({})\n`Thank me later 😉` ".format(input_str,response_api.rstrip()))
 
 
 
