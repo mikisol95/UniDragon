@@ -16,7 +16,7 @@ async def _(event):
     if event.fwd_from:
         return
     input = event.pattern_match.group(1) #get input
-    exp = "Given expression is " + input #report back input
+    exp = "`Given expression is` " + input #report back input
     #lazy workaround to add support for two digits
     final_input = tuple(input)
     term1part1 = final_input[0]
@@ -32,14 +32,14 @@ async def _(event):
     if input == "help":
         await event.edit("Syntax .calc <term1><operator><term2>\nFor eg .calc 02*02 or 99*99 (the zeros are important) (two terms and two digits max)")
     elif operator == "*":
-        await event.edit("Solution -->\n" + exp + "\n" + str(final_term1 * final_term2))
+        await event.edit("**Solution** -->\n" + exp + "\n" + str(final_term1 * final_term2))
     elif operator == "-":
-        await event.edit("Solution -->\n" + exp + "\n" + str(final_term1 - final_term2))
+        await event.edit("**Solution** -->\n" + exp + "\n" + str(final_term1 - final_term2))
     elif operator == "+":
-        await event.edit("Solution -->\n" + exp + "\n" + str(final_term1 + final_term2))
+        await event.edit("**Solution** -->\n" + exp + "\n" + str(final_term1 + final_term2))
     elif operator == "/":
-        await event.edit("Solution -->\n" + exp + "\n" + str(final_term1 / final_term2))
+        await event.edit("**Solution** -->\n" + exp + "\n" + str(final_term1 / final_term2))
     elif operator == "%":
-        await event.edit("Solution -->\n" + exp + "\n" + str(final_term1 % final_term2))
+        await event.edit("**Solution** -->\n" + exp + "\n" + str(final_term1 % final_term2))
     else:
         await event.edit("use .calc help")
