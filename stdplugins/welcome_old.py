@@ -1,7 +1,7 @@
 """Greetings
 Commands:
-.clearwelcome
-.savewelcome <Welcome Message>"""
+.iclearwelcome
+.isavewelcome <Welcome Message>"""
 from telethon import events
  
 borg.storage.WELCOME = {}
@@ -32,21 +32,21 @@ async def welcome(event):
                 borg.storage.last_welcome[event.chat_id] = await event.reply(current_saved_welcome_message.format(mention=mention))
  
  
-@borg.on(events.MessageEdited(pattern=r"\.savewelcome (.*)", outgoing=True))
-@borg.on(events.NewMessage(pattern=r"\.savewelcome (.*)", outgoing=True))
+@borg.on(events.MessageEdited(pattern=r"\.isavewelcome (.*)", outgoing=True))
+@borg.on(events.NewMessage(pattern=r"\.isavewelcome (.*)", outgoing=True))
 async def _(event):
     if event.fwd_from:
         return
     input_str = event.pattern_match.group(1)
     borg.storage.WELCOME[event.chat_id] = input_str
-    await event.edit("Welcome note saved. ")
+    await event.edit("`Welcome Note Saved.` ")
  
  
-@borg.on(events.MessageEdited(pattern=r"\.clearwelcome", outgoing=True))
-@borg.on(events.NewMessage(pattern=r"\.clearwelcome", outgoing=True))
+@borg.on(events.MessageEdited(pattern=r"\.iclearwelcome", outgoing=True))
+@borg.on(events.NewMessage(pattern=r"\.iclearwelcome", outgoing=True))
 async def _(event):
     if event.fwd_from:
         return
     input_str = borg.storage.WELCOME[event.chat_id]
     del borg.storage.WELCOME[event.chat_id]
-    await event.edit("Welcome note cleared. The previous welcome message was `{}`.".format(input_str))
+    await event.edit("`Welcome Note Cleared. The Previous Welcome Message Was`. `{}`.".format(input_str))
