@@ -15,7 +15,7 @@ async def _(event):
     animation_interval = 0.1
     animation_ttl = range(0, 101)
     input_str = event.pattern_match.group(1)
-    if input_str == "guthub":
+    if input_str == "gutthub":
         await event.edit(input_str)
         animation_chars = [
             "https://github.com/prono69/PornHub",
