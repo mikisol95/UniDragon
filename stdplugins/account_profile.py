@@ -6,12 +6,14 @@
 to delete ur profile pic.
 .username <name>
 to change ur username."""
+
 import os
 from telethon.tl import functions
 from uniborg.util import admin_cmd
 from telethon.errors import ImageProcessFailedError, PhotoCropSizeSmallError
 from telethon.errors.rpcerrorlist import (PhotoExtInvalidError,
-                                          UsernameOccupiedError)
+                                          UsernameOccupiedError,
+                                          UsernameInvalidError)
 from telethon.tl.functions.account import (UpdateProfileRequest,
                                            UpdateUsernameRequest)
 from telethon.tl.functions.photos import (DeletePhotosRequest,
@@ -31,7 +33,7 @@ async def _(event):
         await borg(functions.account.UpdateProfileRequest(  # pylint:disable=E0602
             about=bio
         ))
-        await event.edit("Succesfully changed my profile bio")
+        await event.edit("`Succesfully changed My Profile bio`")
     except Exception as e:  # pylint:disable=C0103,W0703
         await event.edit(str(e))
 
@@ -50,7 +52,7 @@ async def _(event):
             first_name=first_name,
             last_name=last_name
         ))
-        await event.edit("My name was changed successfully")
+        await event.edit("`My name was changed successfully`")
     except Exception as e:  # pylint:disable=C0103,W0703
         await event.edit(str(e))
 
@@ -73,7 +75,7 @@ async def _(event):
         await event.edit(str(e))
     else:
         if photo:
-            await event.edit("now, Uploading to @Telegram ...")
+            await event.edit("Making Profile pic for U, Nibba.")
             file = await borg.upload_file(photo)  # pylint:disable=E0602
             try:
                 await borg(functions.photos.UploadProfilePhotoRequest(  # pylint:disable=E0602
@@ -82,7 +84,7 @@ async def _(event):
             except Exception as e:  # pylint:disable=C0103,W0703
                 await event.edit(str(e))
             else:
-                await event.edit("My profile picture was succesfully changed")
+                await event.edit("`My Profile Picture was Succesfully Changed...KEK`")
     try:
         os.remove(photo)
     except Exception as e:  # pylint:disable=C0103,W0703
@@ -122,4 +124,6 @@ async def update_username(username):
         await username.client(UpdateUsernameRequest(newusername))
         await username.edit("```Your username was succesfully changed.```")
     except UsernameOccupiedError:
-        await username.edit("```This username is already taken by a faking Nibba.```")        
+        await username.edit("```This username is already taken by a Faking Nibba.```")   
+    except UsernameInvalidError:
+        await username.edit("```This Username is Invalid, U Brainless Creature```")     
