@@ -66,8 +66,8 @@ async def _(event):
     cws = get_current_welcome_settings(event.chat_id)
     rm_welcome_setting(event.chat_id)
     await event.edit(
-        "Welcome note cleared. " + \
-        "[This](https://t.me/c/{}/{}) was your previous welcome message.".format(
+        "`Welcome Note Cleared.` " + \
+        "[THIS](https://t.me/c/{}/{}) `Was Your Previous Welcome Message.`".format(
             str(Config.PRIVATE_CHANNEL_BOT_API_ID)[4:],
             cws.f_mesg_id
         )
