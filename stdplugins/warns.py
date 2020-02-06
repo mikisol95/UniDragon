@@ -30,7 +30,7 @@ async def _(event):
             logger.info("TODO: ban user")
             reply = "{} warnings, <u><a href='tg://user?id={}'>user</a></u> has been banned!".format(limit, reply_message.from_id)
     else:
-        reply = "<u><a href='tg://user?id={}'>user</a></u> has {}/{} warnings... watch out!".format(reply_message.from_id, num_warns, limit)
+        reply = "<u><a href='tg://user?id={}'>USER</a></u> has {}/{} warnings... watch out!".format(reply_message.from_id, num_warns, limit)
         if warn_reason:
             reply += "\nReason for last warn:\n{}".format(html.escape(warn_reason))
     #
@@ -47,7 +47,7 @@ async def _(event):
         num_warns, reasons = result
         limit, soft_warn = sql.get_warn_setting(event.chat_id)
         if reasons:
-            text = "This user has {}/{} warnings, for the following reasons:".format(num_warns, limit)
+            text = "`This User has {}/{} warnings, for the following reasons:`".format(num_warns, limit)
             text += "\r\n"
             text += reasons
             await event.edit(text)
