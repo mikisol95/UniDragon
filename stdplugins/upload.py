@@ -170,7 +170,9 @@ async def _(event):
         end = datetime.now()
         # os.remove(input_str)
         ms = (end - start).seconds
-        await mone.edit("Uploaded in {} seconds.".format(ms))
+        a = await mone.edit("Uploaded in {} seconds.".format(ms))
+        await asyncio.sleep(4)
+        await a.delete()
     else:
         await mone.edit("404: File Not Found")
 
