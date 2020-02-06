@@ -1,7 +1,8 @@
 """Greetings
 Commands:
 .cwelcome
-.swelcome <Welcome Message>"""
+.swelcome
+"""
 
 from telethon import events, utils
 from telethon.tl import types
@@ -56,7 +57,7 @@ async def _(event):
             silent=True
         )
         add_welcome_setting(event.chat_id, True, 0, msg_o.id)
-        await event.edit("Welcome note saved. ")
+        await event.edit("`Welcome note saved.` ")
 
 
 @borg.on(admin_cmd(pattern="cwelcome"))  # pylint:disable=E0602
