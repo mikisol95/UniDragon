@@ -19,15 +19,15 @@ async def doc_search(e):
 
     await e.edit(f"Searching Docs For `{lib}`...")
     if requests.get(python_url).status_code == 200:
-        response = f"[Python {version} documentation for {lib}]({python_url})"
+        response = f"[Python {version} Documentation for {lib}]({python_url})"
         await e.edit(response)
     elif requests.get(pip_url).status_code == 200:
         readthedocs_url = f"https://readthedocs.org/projects/{lib}/"
         if requests.get(readthedocs_url).status_code == 200:
-            response = f"[Documentation for {lib} on Read the Docs]({readthedocs_url})"
+            response = f"[Documentation for {lib} on Read The Docs]({readthedocs_url})"
             await e.edit(response)
     else:
-        fak = await e.edit(f"No docs found for `{lib}`...")
+        fak = await e.edit(f"No Docs Found for `{lib}`...")
         await asyncio.sleep(3)
         await fak.delete()
 
