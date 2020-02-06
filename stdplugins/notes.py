@@ -1,7 +1,13 @@
 # For UniBorg
 # By Priyam Kalra
 # Based on the note module made by RaphielGang (https://da.gd/X4Mnf)
-# Syntax (.save <notename>, .get <notename>, .clear <notename>, .clearall)
+
+"""Syntax: 
+`.save <notename>
+.get <notename>
+.clear <notename>
+.clearall`
+"""
 
 from sql_helpers.global_variables_sql import LOGGER, SYNTAX
 from sql_helpers.notes_sql import get_notes, rm_note, add_note, rm_all_notes
@@ -20,6 +26,7 @@ notes: \
 \nUsage: Deletes the note with name <notename>.\
 \n\n```.notes```\
 \nUsage: Prints the list of notes saved in the current chat.
+
 """
 
 @borg.on(admin_cmd(pattern="notes ?(.*)"))
