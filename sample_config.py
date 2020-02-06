@@ -150,12 +150,14 @@ class Config(object):
     # define the "types" that should be uplaoded as streamable
     TL_VID_STREAM_TYPES = ("MP4", "WEBM")
     TL_MUS_STREAM_TYPES = ("MP3", "WAV", "FLAC", "M4A")
-   #Uthob
+    #Uthob
     YOUTUBE_API_KEY = os.environ.get("YOUTUBE_API_KEY", None)
     #For Lol
     API_TOKEN = os.environ.get("API_TOKEN", None)
     #BOTLOG
     BOTLOG = os.environ.get("BOTLOG", None)
+    #For a Shitty Module
+    KUTT_IT_API_KEY = os.environ.get("KUTT_IT_API_KEY", None)
 
 class Production(Config):
     LOGGER = False
