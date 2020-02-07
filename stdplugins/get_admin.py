@@ -23,7 +23,7 @@ async def _(event):
     if not input_str:
         chat = to_write_chat
     else:
-        mentions_heading = "Admins Of {} Group: \n".format(input_str)
+        mentions_heading = "Admins Of {} Group: \n\n".format(input_str)
         mentions = mentions_heading
         try:
             chat = await borg.get_entity(input_str)
