@@ -127,3 +127,23 @@ async def update_username(username):
         await username.edit("```This username is already taken by a Faking Nibba.```")   
     except UsernameInvalidError:
         await username.edit("```This Username is Invalid, U Brainless Creature```")     
+
+@borg.on(admin_cmd(pattern="photo ?(.*)"))  # pylint:disable=E0602
+async def _(event):
+    """getting user profile photo last changed time"""
+    if event.fwd_from:
+        return
+    
+    p_number = event.pattern_match.group(1)
+    print(p_number)
+    chat = await event.get_chat()
+    entity = await borg.get_entity(event.chat_id)
+    try:
+        a = await event.edit("getting profile pic changed or added date")
+        photos = await borg.get_profile_photos(entity)
+        print(photos[int(p_number)].date)
+        msg = photos[int(p_number)].date
+        msg = "Last profile photo changed: \n👉 `{}` UTC+3".format(str(msg))
+        await a.edit(msg)
+    except :
+        pass
