@@ -1,4 +1,4 @@
-"""COMMAND : .dns , .link, .unshort , .myip , .myisp , .myhead , .mywho , .myup"""
+"""COMMAND : .dns , .link, .unshort , .myip , .myisp , .myhead , .mywho , .myup , .iifast"""
 
 from telethon import events
 import os
@@ -14,9 +14,9 @@ async def _(event):
     sample_url = "https://da.gd/dns/{}".format(input_str)
     response_api = requests.get(sample_url).text
     if response_api:
-        await event.edit("DNS records of {} are \n{}".format(input_str, response_api))
+        await event.edit("DNS Records of {} are \n{}".format(input_str, response_api))
     else:
-        await event.edit("i can't seem to find {} on the internet".format(input_str))
+        await event.edit("I can't seem to Find {} on the internet".format(input_str))
 
 @borg.on(admin_cmd(pattern="link (.*)"))
 async def _(event):
@@ -28,7 +28,7 @@ async def _(event):
     if response_api:
         await event.edit("Generated {} for {}.".format(response_api, input_str))
     else:
-        await event.edit("something is wrong. please try again later.")
+        await event.edit("Something is Wrong. Please try Again Later.")
 
 @borg.on(admin_cmd(pattern="unshort (.*)"))
 async def _(event):
@@ -51,9 +51,9 @@ async def _(event):
     sample_url = "https://da.gd/ip".format(input_str)
     response_api = requests.get(sample_url).text
     if response_api:
-        await event.edit("**Ip Of My Userbot**{}\n{}".format(input_str, response_api))
+        await event.edit("**Ip Of My Userbot:**{}\n{}".format(input_str, response_api))
     else:
-        await event.edit("i can't seem to find {} on the internet".format(input_str))
+        await event.edit("I can't seem to find {} on the internet".format(input_str))
 
 @borg.on(admin_cmd(pattern="myisp(.*)"))
 async def _(event):
@@ -63,9 +63,9 @@ async def _(event):
     sample_url = "https://da.gd/isp".format(input_str)
     response_api = requests.get(sample_url).text
     if response_api:
-        await event.edit("**My Current ISP**{}\n{}".format(input_str, response_api))
+        await event.edit("**My Current ISP:**{}\n{}".format(input_str, response_api))
     else:
-        await event.edit("i can't seem to find {} on the internet".format(input_str))
+        await event.edit("I can't seem to find {} on the internet".format(input_str))
 
 @borg.on(admin_cmd(pattern="mywho (.*)"))
 async def _(event):
@@ -75,9 +75,9 @@ async def _(event):
     sample_url = "https://da.gd/w/{}".format(input_str)
     response_api = requests.get(sample_url).text
     if response_api:
-        await event.edit("**Whois**\n{}\n{}".format(input_str, response_api))
+        await event.edit("**Whois:**\n{}\n{}".format(input_str, response_api))
     else:
-        await event.edit("i can't seem to find {} on the internet".format(input_str))
+        await event.edit("I can't seem to find {} on the internet".format(input_str))
 
 @borg.on(admin_cmd(pattern="myhead (.*)"))
 async def _(event):
@@ -87,7 +87,7 @@ async def _(event):
     sample_url = "https://da.gd/headers/{}".format(input_str)
     response_api = requests.get(sample_url).text
     if response_api:
-        await event.edit("**Header**\n{}\n{}".format(input_str, response_api))
+        await event.edit("**Header:**\n{}\n{}".format(input_str, response_api))
     else:
         await event.edit("i can't seem to find {} on the internet".format(input_str))
 
@@ -99,11 +99,11 @@ async def _(event):
     sample_url = "https://da.gd/up/{}".format(input_str)
     response_api = requests.get(sample_url).text
     if response_api:
-        await event.edit("**Is Website Up????**\n{}\n{}".format(input_str, response_api))
+        await event.edit("`Is Website Up????`\n ☞ {}\n\n\nAns: `{}`".format(input_str, response_api))
     else:
-        await event.edit("i can't seem to find {} on the internet".format(input_str))
+        await event.edit("I can't seem to find {} on the internet".format(input_str))
 
-@borg.on(admin_cmd(pattern="fast(.*)"))
+@borg.on(admin_cmd(pattern="iifast(.*)"))
 async def _(event):
     if event.fwd_from:
         return
@@ -111,6 +111,6 @@ async def _(event):
     sample_url = "https://tools.keycdn.com/geo".format(input_str)
     response_api = requests.get(sample_url).text
     if response_api:
-        await event.edit("**Is Website Up????**\n{}\n{}".format(input_str, response_api))
+        await event.edit("`Here's What I Found:`\n{}\n{}".format(input_str, response_api))
     else:
-        await event.edit("i can't seem to find {} on the internet".format(input_str))
+        await event.edit("I can't seem to find {} on the internet".format(input_str))
