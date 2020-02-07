@@ -16,7 +16,7 @@ async def _(event):
     if not input_str:
         chat = to_write_chat
     else:
-        mentions = "Bots in {} channel: \n".format(input_str)
+        mentions = "Bots in {} channel: \n\n".format(input_str)
         try:
             chat = await borg.get_entity(input_str)
         except Exception as e:
