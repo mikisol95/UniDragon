@@ -16,7 +16,7 @@ async def _(event):
     if event.reply_to_msg_id:
         previous_message = await event.get_reply_message()
         text = previous_message.message
-        lan = input_str or "ml"
+        lan = input_str or "en"
     elif "|" in input_str:
         lan, text = input_str.split("|")
     else:
@@ -30,8 +30,9 @@ async def _(event):
         after_tr_text = translated.text
         # TODO: emojify the :
         # either here, or before translation
-        output_str = """**TRANSLATED** from {} to {}
-{}""".format(
+        output_str = """**Text:** {}\n**Detected Language:** {}\n\n**TRANSLATED To** `{}`:\n{}
+""".format(
+            previous_message.message,
             translated.src,
             lan,
             after_tr_text
