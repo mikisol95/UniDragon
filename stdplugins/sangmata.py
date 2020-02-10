@@ -145,12 +145,15 @@ async def _(event):
 async def _(event):
     if event.fwd_from:
         return 
+    bsdk = event.pattern_match.group(1)
     if not event.reply_to_msg_id:
        await event.edit("```Reply to any user message.```")
        return
+    if not bsdk:
     reply_message = await event.get_reply_message() 
-    if not reply_message.text:
-       await event.edit("```reply to text message```")
+    bsdk = reply_message.text
+    if not bsdk:
+       await event.edit("```Reply to a Text message```")
        return
     chat = "@UrbanDictionaryBot"
     sender = reply_message.sender
@@ -164,9 +167,9 @@ async def _(event):
               await borg.forward_messages(chat, reply_message)
               response = await response 
           except YouBlockedUserError: 
-              await event.reply("```nikal gendu```")
+              await event.reply("```Nikal Gendu```")
               return
           if response.text.startswith("Hello,"):
-             await event.edit("```can you kindly disable your forward privacy settings for good?```")
+             await event.edit("```Can you Kindly disable your forward privacy settings for good?```")
           else: 
              await event.edit(f"{response.message.message}")
