@@ -15,7 +15,7 @@ async def _(event):
        return
     reply_message = await event.get_reply_message() 
     if not reply_message.text:
-       await event.edit("```reply to text message```")
+       await event.edit("```Reply to text message```")
        return
     chat = "@SangMataInfo_bot"
     sender = reply_message.sender
@@ -132,7 +132,7 @@ async def _(event):
               await borg.forward_messages(chat, reply_message)
               response = await response 
           except YouBlockedUserError: 
-              await event.reply("```nikal gendu```")
+              await event.reply("```Nikal Gendu```")
               return
           if response.text.startswith("Hello,"):
              await event.edit("```can you kindly disable your forward privacy settings for good?```")
