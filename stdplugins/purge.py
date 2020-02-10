@@ -19,6 +19,9 @@ async def _(event):
         msgs = []
         from_user = None
         input_str = event.pattern_match.group(1)
+    if not event.reply_to_msg_id:
+       await event.edit("`I Need a Mesasge to Start Purging From. U Dumb..`")
+        return
         if input_str:
             from_user = await borg.get_entity(input_str)
             logger.info(from_user)
