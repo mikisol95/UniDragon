@@ -58,10 +58,10 @@ async def purgeme(delme):
         delme.chat_id,
         "`Purge complete!` Purged " + str(count) + " messages.",
     )
-    await asyncio.sleep(5)
+    await asyncio.sleep(3)
     await smsg.delete()
     
-@borg.on(admin_cmd(pattern="sd ?(.*)"))
+@borg.on(admin_cmd(pattern="isd ?(.*)"))
 async def selfdestruct(destroy):
     """ For .sd command, make seflf-destructable messages. """
     message = destroy.text
