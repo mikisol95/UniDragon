@@ -32,9 +32,9 @@ async def _(event):
         # either here, or before translation
         source_lan = LANGUAGES[f'{translated.src.lower()}']
         transl_lan = LANGUAGES[f'{translated.dest.lower()}']
-        output_str = """**Text:** {}\n**Detected Language:** `{}`\n\n**TRANSLATED To** `{}`:\n{}
+        output_str = """**Detected Language:** `{}`\n\n**TRANSLATED To** `{}`:\n{}
 """.format(
-            previous_message.message,
+            #previous_message.message,
             source_lan.title(),
             transl_lan.title(),
             after_tr_text
