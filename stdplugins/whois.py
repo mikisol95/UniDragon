@@ -99,7 +99,7 @@ async def permalink(event):
     if custom:
         await event.edit(f"[{custom}](tg://user?id={user.id})")
     else:
-        tag = user.first_name.replace("\u2060",
+        tag = user.user.first_name.replace("\u2060",
                                       "") if user.first_name else user.username
         await event.edit(f"[{tag}](tg://user?id={user.id})")
 
