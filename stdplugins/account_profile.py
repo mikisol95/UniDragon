@@ -5,7 +5,8 @@
 .delpfp <number or all> 
 to delete ur profile pic.
 .username <name>
-to change ur username."""
+to change ur username.
+.photo <number>"""
 
 import os
 from telethon.tl import functions
@@ -143,7 +144,7 @@ async def _(event):
         photos = await borg.get_profile_photos(entity)
         print(photos[int(p_number)].date)
         msg = photos[int(p_number)].date
-        msg = "Last profile photo changed: No.{} \n👉 `{}` UTC+05".format(p_number, str(msg))
+        msg = "Last profile photo changed: Pic.{} \n👉 `{}` UTC+05".format(p_number, str(msg))
         await a.edit(msg)
     except :
         pass
