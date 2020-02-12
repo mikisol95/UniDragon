@@ -139,11 +139,11 @@ async def _(event):
     chat = await event.get_chat()
     entity = await borg.get_entity(event.chat_id)
     try:
-        a = await event.edit("getting profile pic changed or added date")
+        a = await event.edit("```Getting profile Pic Changed or added Date```")
         photos = await borg.get_profile_photos(entity)
         print(photos[int(p_number)].date)
         msg = photos[int(p_number)].date
-        msg = "Last profile photo changed: \n👉 `{}` UTC+3".format(str(msg))
+        msg = "Last profile photo changed: No.{} \n👉 `{}` UTC+05".format(p_number, str(msg))
         await a.edit(msg)
     except :
         pass
