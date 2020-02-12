@@ -12,11 +12,12 @@ import sys
 import time
 
 """
-insult: "\
-**Requested Module --> insult**\
-\n\n**Detailed usage of fuction(s):**\
-\n\n```.insult <optional_number_of_insults>``` [optionally as a reply to target user][default = 5]\
-\nUsage: Insults target user.\ """
+insult: 
+**Requested Module --> insult**
+\n\n**Detailed usage of fuction(s):**
+\n\n```.insult <optional_number_of_insults>``` [optionally as a reply to target user][default = 5]
+\nUsage: Insults target user. 
+"""
 
 @borg.on(admin_cmd(pattern="insult ?(.*)"))
 async def _(event):
