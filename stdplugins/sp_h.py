@@ -27,7 +27,7 @@ async def on_h(event):
     async def del_filter(del_event):
         if del_event.chat_id and del_event.chat_id != event.chat_id:
             return False
-        return del_event.deleted_id == message.id
+        return del_event.deleted_id == del_event.id
     fut = borg.await_event(events.MessageDeleted, del_filter)
  
     try:
