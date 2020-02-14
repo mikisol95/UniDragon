@@ -15,7 +15,7 @@ async def _(event):
     elif reply:
         quote = reply
     else:
-    	await event.edit("```Plz Reply to a TEXT messageor Input TEXT.```")
+    	await event.edit("```Plz Reply to a TEXT message or Input TEXT.```")
         return
     bot = "@QuotLyBot"
     await event.edit(f"```Making a Quote...```")
