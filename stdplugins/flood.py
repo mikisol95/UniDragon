@@ -1,4 +1,6 @@
-"""COMMAND : .floodwarn"""
+"""COMMAND : .floodwarn
+\nThis is the Most dangours plugin. This can RIPPED ur UserBot.
+"""
 
 from telethon import events
 import asyncio
