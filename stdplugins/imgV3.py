@@ -12,7 +12,7 @@ from uniborg.util import admin_cmd
 
 @borg.on(admin_cmd(pattern="ig ?(\d+)? ?(.*)?"))
 async def img_sampler(event):
-    await event.edit("`Processing...Bsdk..`")
+    await event.edit("`Processing Bsdk..`")
     reply = await event.get_reply_message()
     if event.pattern_match.group(2):
         query = event.pattern_match.group(2)
