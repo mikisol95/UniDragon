@@ -11,4 +11,4 @@ async def _(event):
         if event.fwd_from:
             return
         input = event.pattern_match.group(1)
-        await event.edit("[ㅤㅤㅤㅤㅤㅤㅤ](" + input + ")")
+        await event.edit("[HERE U GO..](" + input + ")")
