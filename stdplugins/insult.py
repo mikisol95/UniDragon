@@ -7,7 +7,7 @@ from uniborg.util import admin_cmd
 import asyncio
 from telethon.tl import functions, types
 import random
-from sql_helpers.global_variables_sql import LOGGER, SUDO_USERS
+from sql_helpers.global_variables_sql import SUDO_USERS
 import sys
 import time
 
@@ -66,9 +66,15 @@ async def _(event):
         else:
             await event.edit(insult)
             time.sleep(2)
-        await borg.send_message(
-            LOGGER,
-            f"Insulted [{user_id}] with:\n\n{log_insults}"
-       )
+            status = f"Insulted [{user_id}] with:\n\n{log_insults}"
+            await log(status)
+            
+async def log(text):
+    LOGGER = Config.PRIVATE_GROUP_BOT_API_ID
+    await event.client.send_message(LOGGER , text)
+
+
+            
+
        
        
