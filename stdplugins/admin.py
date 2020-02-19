@@ -26,7 +26,7 @@ Usage: Reply to message to pin it in the group.
 Usage: Retrieves all admins in a chat.
 \n.bots
 Usage: Retrieves all bots in a chat.
-\n.userslist or .userslist <name>
+\n.users or .users <name>
 Usage: Retrieves all users in a chat.
 \n.undlt
 Usage: Sends the last deleted message in group."
@@ -710,8 +710,8 @@ async def kick(eventKickUser):
             )
 
 
-@borg.on(admin_cmd(pattern=f"{borg.me.id}iuserslist ?(.*)", allow_sudo=True))
-@borg.on(events.NewMessage(outgoing=True, pattern="^.iuserslist ?(.*)"))
+@borg.on(admin_cmd(pattern=f"{borg.me.id}users ?(.*)", allow_sudo=True))
+@borg.on(events.NewMessage(outgoing=True, pattern="^.users ?(.*)"))
 async def list_users(eventListUsers):
     if not eventListUsers.text[0].isalpha() and eventListUsers.text[0] not in ("/", "#", "@", "!"):
         if not eventListUsers.is_group:
