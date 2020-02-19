@@ -2,8 +2,8 @@
 
 """
 Audio and video downloader using Youtube-dl
-.yta To Download in mp3 format
-.ytv To Download in mp4 format
+.ytdla To Download in mp3 format
+.ytdlv To Download in mp4 format
 \nImproved by @furki and snapdragon
 """
 
@@ -87,7 +87,7 @@ def time_formatter(milliseconds: int) -> str:
         ((str(milliseconds) + " millisecond(s), ") if milliseconds else "")
     return tmp[:-2]
 
-@borg.on(admin_cmd(pattern="yt(a|v) ?(.*)"))
+@borg.on(admin_cmd(pattern="ytdl(a|v) ?(.*)"))
 async def download_video(v_url):
     """ For .ytdl command, download media from YouTube and many other sites. """
     reply = await v_url.get_reply_message()
