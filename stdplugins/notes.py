@@ -73,7 +73,7 @@ async def _(fltr):
     await fltr.edit(message)
 
 
-@borg.on(admin_cmd(pattern="get ?(.*)"))
+@borg.on(admin_cmd(pattern="iget ?(.*)"))
 async def _(getnt):
     if getnt.fwd_from:
         return
