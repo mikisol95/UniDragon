@@ -90,19 +90,6 @@ async def _(event):
     )
     await event.delete()
 
-@borg.on(admin_cmd(pattern="permalink(?: |$)(.*)"))
-async def permalink(event):
-    """ For .link command, generates a link to the user's PM with a custom text. """
-    replied_user, custom = await get_full_user(event)
-    if not replied_user:
-        return
-    if custom:
-        await event.edit(f"[{custom}](tg://user?id={replied_user.user.id})")
-    else:
-        tag = replied_user.user.first_name.replace("\u2060",
-                                      "") if replied_user.user.first_name else replied_user.user.username
-        await event.edit(f"[{tag}](tg://user?id={replied_user.user.id})")
-
 
 async def get_full_user(event):
     if event.reply_to_msg_id:
