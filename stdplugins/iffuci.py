@@ -50,6 +50,6 @@ async def _(event):
     ms = (end - start).seconds
     if r["isUrl"]:
         nurl = f"https://iffuci.tk/v/{r['key']}"
-        await event.edit("code is pasted to {} in {} seconds. GoTo Original URL: {}".format(url, ms, nurl))
+        await event.edit("Code is Pasted to {} in {} seconds. **GoTo Original URL:** {}".format(url, ms, nurl))
     else:
-        await event.edit("code is pasted to {} in {} seconds".format(url, ms))
+        await event.edit("Code is Pasted to {} in {} seconds".format(url, ms))
