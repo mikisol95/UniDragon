@@ -16,7 +16,7 @@ async def gbun(event):
     mentions = "`Warning!! User Gbanned By Admin...\n`"
     no_reason = "__Reason: Potential Porn Addict. __"
     await event.edit("**Summoning out le Gungnir ❗️⚜️☠️**")
-    asyncio.sleep(3.5)
+    await asyncio.sleep(3.5)
     chat = await event.get_input_chat()
     async for x in borg.iter_participants(chat, filter=ChannelParticipantsAdmins):
         mentions += f""
