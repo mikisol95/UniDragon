@@ -32,4 +32,4 @@ async def batch_upload(event):
 	else:
 		await event.edit("Directory Not Found.")
 		return		
-	await event.edit("Successfull.")	
+	await event.edit("Successfullllll.")	
