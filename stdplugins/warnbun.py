@@ -125,7 +125,7 @@ async def _(event):
 async def _(event):
     if event.fwd_from:
         return
-    mentions = "**Warning..\n\nBattery Below 10%, Please Charge Your Phone**"
+    mentions = "**Warning..\n\nYour Battery is Below 10%, Please Charge Your Phone**"
     chat = await event.get_input_chat()
     async for x in borg.iter_participants(chat, filter=ChannelParticipantsAdmins):
         mentions += f""
