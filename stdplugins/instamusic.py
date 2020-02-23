@@ -1,10 +1,9 @@
 """Get anysong u like
 \nJust type .song (song name)
 """
-from telethon import events
+
 import subprocess
 from telethon.errors import MessageEmptyError, MessageTooLongError, MessageNotModifiedError
-import io
 import asyncio
 import time
 from uniborg.util import admin_cmd
