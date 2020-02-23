@@ -24,7 +24,7 @@ from requests import get
 from telethon import events
 from uniborg.util import admin_cmd
 
-@borg.on(admin_cmd(pattern="yt ?(\d+)? ?(.*)?"))
+@borg.on(admin_cmd(pattern="yts ?(\d+)? ?(.*)?"))
 async def yt_search(video_q):
     """ For .yt command, do a YouTube search from Telegram. """
     reply = await video_q.get_reply_message()
