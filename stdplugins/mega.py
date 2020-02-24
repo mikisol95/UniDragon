@@ -15,7 +15,6 @@ from subprocess import PIPE, Popen
 from urllib.error import HTTPError
 
 from pySmartDL import SmartDL
-from uniborg.events import register
 from uniborg.util import admin_cmd, humanbytes
 
 
