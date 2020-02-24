@@ -1,5 +1,10 @@
 # Copyright (C) 2020 Adek Maulana.
 # All rights reserved.
+# Kanged from HitaloKun
+
+"""Type .mega <reply_to_a_mega_link> to download .
+\nOnly works on **FILE** not for Folder.
+"""
 
 import json
 import os
