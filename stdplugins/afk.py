@@ -127,7 +127,7 @@ async def on_afk(event):
                 afk_since = f"`{int(seconds)} secondes ago`"
         msg = None
         message_to_reply = f"`Currently I iz not Here` " + \
-            f"`I iz Offline Now. Cause` **{reason}**\n\n(Since: **{afk_since}**)"\
+            f"`I iz Offline Now. Cause` **{reason}** (Since: **{afk_since}**)"\
             if reason \
             else f"RIP.....\n\n**Important Notice**\n\n[Sorry ! But My Mastor Ded Forever...Sed...Very Sed...](https://telegra.ph//file/a53fa950ff31781d5930a.jpg)"
         msg = await event.reply(message_to_reply)
