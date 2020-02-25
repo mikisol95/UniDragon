@@ -4,6 +4,7 @@ from asyncio import create_subprocess_shell as asyncrunapp
 from asyncio.subprocess import PIPE as asyncPIPE
 from platform import python_version, uname
 from os import remove
+from telethon import version
 
 """Type:
 \n.permalink
