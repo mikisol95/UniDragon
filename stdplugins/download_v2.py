@@ -10,7 +10,7 @@ import math
 import os
 import time
 from datetime import datetime
-from bin.fasttelethon import download_file
+from bin.fastelethon import download_file
 import aiohttp
 from pySmartDL import SmartDL
 from telethon import events
