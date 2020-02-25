@@ -10,7 +10,6 @@ import math
 import os
 import time
 from datetime import datetime
-from bin.fastelethon import download_file
 import aiohttp
 from pySmartDL import SmartDL
 from telethon import events
@@ -19,6 +18,7 @@ from telethon.tl.types import DocumentAttributeVideo
 from uniborg.util import admin_cmd, humanbytes, progress, time_formatter
 
 from sample_config import Config
+from bin.fast import download_file
 
 
 @borg.on(admin_cmd(pattern="downloda ?(.*)", allow_sudo=True))
