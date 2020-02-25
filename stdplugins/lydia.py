@@ -11,7 +11,8 @@ This Module also Needs DB_URI For Storage of Some Data So make sure you have tha
 
 
 import coffeehouse as cf
-
+from coffeehouse.lydia import LydiaAI
+from coffeehouse.api import API
 import asyncio
 import io
 from sql_helpers.lydia_ai_sql import get_s, get_all_s, add_s, remove_s
@@ -19,9 +20,9 @@ from time import time
 from uniborg.util import admin_cmd
 
 if Config.LYDIA_API is not None:
-    api_key = Config.LYDIA_API
+    api_key = API(Config.LYDIA_API)
     # Initialise client
-    api_client = cf.API(api_key)
+    api_client = LydiaAI(api_key)
 
 
 @borg.on(admin_cmd(pattern="(e|d|l)ai", allow_sudo=True))
@@ -36,7 +37,7 @@ async def lydia_disable_enable(event):
         reply_msg = await event.get_reply_message()
         user_id = reply_msg.from_id
         chat_id = event.chat_id
-        await event.edit("hm")
+        await event.edit("hmmm")
         if input_str == "e":
             session = api_client.create_session()
             logger.info(session)
