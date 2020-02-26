@@ -25,6 +25,7 @@ regex
 requests
 PyGithub
 speedtest-cli
+selenium
 sqlalchemy
 telegraph
 urbandict
