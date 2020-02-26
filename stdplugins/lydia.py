@@ -10,7 +10,6 @@ This Module also Needs DB_URI For Storage of Some Data So make sure you have tha
 """
 
 
-import coffeehouse as cf
 from coffeehouse.lydia import LydiaAI
 from coffeehouse.api import API
 import asyncio
@@ -20,9 +19,11 @@ from time import time
 from uniborg.util import admin_cmd
 
 if Config.LYDIA_API is not None:
-    api_key = API(Config.LYDIA_API)
-    # Initialise client
-    api_client = LydiaAI(api_key)
+    api_key = Config.LYDIA_API
+    # Create the coffeehouse API
+    coffeehouse_api = API(api_key)
+    # Create Lydia instance
+    lydia = LydiaAI(coffeehouse_api)
 
 
 @borg.on(admin_cmd(pattern="(e|d|l)ai", allow_sudo=True))
@@ -39,8 +40,13 @@ async def lydia_disable_enable(event):
         chat_id = event.chat_id
         await event.edit("hmmm")
         if input_str == "e":
-            session = api_client.create_session()
+            # Create a new chat session (Like a conversation)
+            session = lydia.create_session()
             logger.info(session)
+            # logger.info("Session ID: {0}".format(session.id))
+            # logger.info("Session Available: {0}".format(str(session.available)))
+            # logger.info("Session Language: {0}".format(str(session.language)))
+            # logger.info("Session Expires: {0}".format(str(session.expires)))
             logger.info(add_s(user_id, chat_id, session.id, session.expires))
             await event.edit(f"hmm")
         elif input_str == "d":
@@ -99,7 +105,7 @@ async def on_new_message(event):
             # then there's an issue with the API, Auth or Server.
             if session_expires < time():
                 # re-generate session
-                session = api_client.create_session()
+                session = lydia.create_session()
                 logger.info(session)
                 session_id = session.id
                 session_expires = session.expires
@@ -108,7 +114,7 @@ async def on_new_message(event):
             try:
                 async with event.client.action(event.chat_id, "typing"):
                     await asyncio.sleep(5)
-                    output = api_client.think_thought(session_id, query)
+                    output = lydia.think_thought(session_id, query)
                     await event.reply(output)
             except cf.exception.CoffeeHouseError as e:
                 logger.info(str(e))
