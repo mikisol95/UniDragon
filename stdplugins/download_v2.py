@@ -18,7 +18,7 @@ from telethon.tl.types import DocumentAttributeVideo
 from uniborg.util import admin_cmd, humanbytes, progress, time_formatter
 
 from sample_config import Config
-from bin.fast import download_file
+from uniborg.fast import download_file
 
 
 @borg.on(admin_cmd(pattern="downloda ?(.*)", allow_sudo=True))
