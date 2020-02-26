@@ -2,7 +2,4 @@
 https://github.com/LonamiWebs/Telethon/archive/master.zip
 pip>=19.3.1
 pyfiglet
-lxml
-selenium
-aria2p
 -r ./requirements-stdborg.txt
