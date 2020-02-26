@@ -17,7 +17,6 @@ from urllib.error import HTTPError
 from pySmartDL import SmartDL
 from uniborg.util import admin_cmd, humanbytes
 
-LOGS = logger.info
 
 def subprocess_run(cmd):
     reply = ''
@@ -79,7 +78,7 @@ async def mega_download(url, megadl):
             downloader.start(blocking=False)
         except HTTPError as e:
             await megadl.edit("`" + str(e) + "`")
-            LOGS.info(str(e))
+            logger.info(str(e))
             return
         while not downloader.isFinished():
             status = downloader.get_status().capitalize()
@@ -106,7 +105,7 @@ async def mega_download(url, megadl):
                         await megadl.edit(current_message)
                         display_message = current_message
             except Exception as e:
-                LOGS.info(str(e))
+                logger.info(str(e))
         if downloader.isSuccessful():
             download_time = downloader.get_dl_time(human=True)
             if exists(temp_file_name):
@@ -118,7 +117,7 @@ async def mega_download(url, megadl):
         else:
             await megadl.edit("Failed to download...")
             for e in downloader.get_errors():
-                LOGS.info(str(e))
+                logger.info(str(e))
     return
 
 
