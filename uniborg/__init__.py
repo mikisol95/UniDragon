@@ -6,7 +6,7 @@ from .uniborg import *
 from sample_config import Config
 
 # add modules to this list
-MODULE_LIST = []
+MODULE = []
 # add syntax to this dictionary using SYNTAX.update
 SYNTAX = {}
 BUILD = "USER-43x01"
