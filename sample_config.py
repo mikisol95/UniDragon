@@ -156,8 +156,12 @@ class Config(object):
     API_TOKEN = os.environ.get("API_TOKEN", None)
     #BOTLOG
     BOTLOG = os.environ.get("BOTLOG", None)
+    if BOTLOG:
+        BOTLOG = int(BOTLOG)
     #For a Shitty Module
     KUTT_IT_API_KEY = os.environ.get("KUTT_IT_API_KEY", None)
+    #lyrics plugin
+    GApi = os.environ.get("GENIUS_API_TOKEN", 'None')
 
 class Production(Config):
     LOGGER = False
