@@ -14,6 +14,7 @@ google_auth_oauthlib
 gsearch>=1.6.0
 gtts
 hachoir
+lyricsgenius
 pathlib
 Pillow
 psycopg2
