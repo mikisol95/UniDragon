@@ -14,6 +14,7 @@ from uniborg.util import admin_cmd
 import os
 from telethon.tl.types import DocumentAttributeFilename, MessageMediaPhoto
 from uniborg import MODULE, SYNTAX
+import random
 
 """Genius(lyrics) staff"""
 GApi = Config.GENIUS
@@ -98,7 +99,7 @@ async def pressf(f):
 
 SYNTAX.update({
 	"lyrics":
-	"**Usage:** `provide artist and song name to find lyrics`\n"
+	"**Usage:** `provide artist and song name to find lyrics`\n\n"
 	"For multiple-word artist name use * (Exmpl: .`lyrics Валентин*Стрыкало Все решено`)"
 })
 
