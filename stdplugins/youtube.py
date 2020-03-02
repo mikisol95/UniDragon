@@ -13,13 +13,11 @@ from html import unescape
 from re import findall
 from shutil import rmtree
 from urllib.error import HTTPError
+import urllib.parse
 
 from emoji import get_emoji_regexp
 from googleapiclient.discovery import build
 from googleapiclient.errors import HttpError
-from gtts import gTTS
-from pytube import YouTube
-from pytube.helpers import safe_filename
 from requests import get
 from telethon import events
 from uniborg.util import admin_cmd
