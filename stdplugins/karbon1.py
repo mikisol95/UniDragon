@@ -63,7 +63,7 @@ async def carbon_api(e):
          e.chat_id,
          file,
          caption="Karbon1 by [@NeoMatrix90](https://www.github.com/prono69/PepeBot)",
-         force_document=True,
+         force_document=False,
          reply_to=e.message.reply_to_msg_id,
          )
 
