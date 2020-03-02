@@ -5,6 +5,7 @@ import random, re
 from uniborg.util import admin_cmd
 
 METOOSTR = [
+    "`Hm`",
     "`Me too thanks`",
     "`Haha yes, me too`",
     "`Same lol`",
@@ -14,6 +15,7 @@ METOOSTR = [
     "`Same pinch bsdk`",
 ]
 RUNSREACTS = [
+    "`Hm`",
     "`Runs to Thanos`",
     "`Runs to Modiji For Achey Din`",
     "`Runs far, far away from earth`",
@@ -26,7 +28,7 @@ RUNSREACTS = [
     "`I am just walking off, coz me is too fat.`",
     "`I Fugged off!`",
     "`Will run for sax & gurls.`",
-   "`Will run for Biriyani.`",
+    "`Will run for Biriyani.`",
     "`I run because I really like food.`",
     "`Running...because dieting is not an option.`",
     "`Wicked fast runnah`",
@@ -37,7 +39,8 @@ RUNSREACTS = [
     "`Running a marathon...there's an app for that.`",
 ]
 RAPE_STRINGS = [
-  "`Rape Done Drink The Cum`",
+     "`Bsdk`",
+     "`Rape Done Drink The Cum`",
      "`EK baat yaad rkhio, Chut ka Chakkar matlab maut se takkar`",
      "`The user has been successfully raped`",
      "`Dekho Bhaiyya esa hai! Izzat bachailo apni warna Gaand maar lenge tumhari`",
@@ -50,7 +53,8 @@ RAPE_STRINGS = [
      "`Lodu Andha hai kya Yaha tera rape ho raha hai aur tu abhi tak yahi gaand mara raha hai lulz`",
 ] 
 ABUSE_STRINGS = [
-       "`Madharchod`",
+           "`Lawde`",
+           "`Madharchod`",
 	   "`Gaandu`",
 	   "`Chutiya he rah jaye ga`",
 	   "`Ja be Gaandu`",
@@ -59,7 +63,7 @@ ABUSE_STRINGS = [
            "`You Betichod`",
            "`you are lodu no.1`"
 	   "`Muh Me Lega Bhosdike ?`"
-        "`Kro Gandu giri kam nhi toh Gand Maar lenge tumhari hum😂`",
+           "`Kro Gandu giri kam nhi toh Gand Maar lenge tumhari hum😂`",
            "`Suno Lodu Jyda muh na chalo be muh me lawda pel Diyaa jayega`",
            "`Sharam aagyi toh aakhe juka lijia land me dam nhi hai apke toh Shilajit kha lijia`",
            "`Kahe Rahiman Kaviraaj C**t Ki Mahima Aisi,L**d Murjha Jaaye Par Ch**t Waisi Ki Waisi`",
@@ -85,6 +89,7 @@ ABUSE_STRINGS = [
 ]
 
 GEY_STRINGS = [
+     "`Nu Bsdk`",
      "`you gey bsdk`",
      "`you gey`",
      "`you gey in the house`",
@@ -94,6 +99,7 @@ GEY_STRINGS = [
      "`you gey go away`",
 ]
 PRO_STRINGS = [
+     "LOL",
      "`This gey is pro as phack.`",
      "`Pros here -_- Time to Leave`",
      "`Proness Lebel: 6969696969`",
@@ -104,6 +110,7 @@ PRO_STRINGS = [
 ]
 
 INSULT_STRINGS = [ 
+    "Ik right",
     "`Owww ... Such a stupid idiot.`",
     "`BC.. Gaand na fulao, maa chod denge tumhari`",
     "`Don't drink and type.`",
@@ -128,7 +135,7 @@ INSULT_STRINGS = [
     "`Try bathing with Hydrochloric Acid instead of water.`",
     "`Go Green! Stop inhaling Oxygen.`",
     "`God was searching for you. You should leave to meet him.`",
-  "`Give your 100%. Now, go donate blood.`",
+    "`Give your 100%. Now, go donate blood.`",
     "`Try jumping from a hundred story building but you can do it only once.`",
     "`Sharam kar bsdwale,kitni bkchodi deta.`",
     "`Chup Madarhox, bilkul chup..`",
@@ -156,7 +163,7 @@ INSULT_STRINGS = [
     "`You should Volunteer for target in an firing range.`",
     "`Try playing catch and throw with RDX its fun.`",
     "`People like you are the reason we have middle fingers.`",
-  "`Jaana chodu chad jake land chaat`",
+    "`Jaana chodu chad jake land chaat`",
     "`Yaar ajab tere nkhare,gazab tera style hain, gand dhone ki tameez nahi, haath main mobile hai`",
     "`When your mom dropped you off at the school, she got a ticket for littering.`",
     "`You’re so ugly that when you cry, the tears roll down the back of your head…just to avoid your face.`",
