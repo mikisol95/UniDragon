@@ -10,7 +10,6 @@ Lyrics Plugin Syntax:
 	.lyrics <aritst name, song nane>
 
 """
-MODULE.append("lyrics")
 from uniborg.util import admin_cmd
 import os
 from telethon.tl.types import DocumentAttributeFilename, MessageMediaPhoto
