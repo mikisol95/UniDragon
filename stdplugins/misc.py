@@ -12,6 +12,7 @@ from telethon import version
 .pip
 .on
 """
+plugs = len(borg._plugins)
 
 @borg.on(admin_cmd(pattern="permalink(?: |$)(.*)"))
 async def permalink(mention):
@@ -149,6 +150,7 @@ async def amireallyalive(alive):
                      "My bot is running \n\n"
                      f"Telethon version: {version.__version__} \n"
                      f"Python: {python_version()} \n"
-                     f"User: Kirito"
+                     f"User: Kirito \n"
+                     f"Plugins: {plugs}
                      "`")
             
