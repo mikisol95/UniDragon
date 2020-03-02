@@ -49,7 +49,7 @@ pytuneteller
 dadjokes-cli
 jotquote
 csvfaker
-pytube
+pytube3
 gitpython
 search-engine-parser>=0.4.2
 wget
