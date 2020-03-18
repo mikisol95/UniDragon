@@ -79,9 +79,8 @@ async def spammer(e):
 
 
 SYNTAX.update({
-    "spam",
-    "Fun",
-    "Your spam is your death wish.",
+    "Spam/Fun":
+    "**Your spam is your death wish.**"
     """
 .cspam <text>\
 \nUsage: Spam the text letter by letter.\
