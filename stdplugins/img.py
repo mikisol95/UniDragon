@@ -7,7 +7,6 @@ Syntax: `.img <Name>` or `.img (replied message)`
 
 import os
 import shutil
-
 from uniborg.util import admin_cmd
 from userbot.utils.google_images_download import googleimagesdownload
 
@@ -29,7 +28,7 @@ async def img_sampler(event):
 	 		lim = lim[0]
 	 		lim = lim.replace("lim=", "")
 	 		query = query.replace("lim=" + lim[0], "")
-	 	except indexerror:
+	 	except IndexError:
 	 		lim = 6
 	 		response = googleimagesdownload()
 	 		
