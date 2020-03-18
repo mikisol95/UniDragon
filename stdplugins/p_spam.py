@@ -78,7 +78,7 @@ async def spammer(e):
             "DelaySpam was executed successfully")
 
 
-SYNYAX.update({
+SYNTAX.update({
     "spam",
     "Fun",
     "Your spam is your death wish.",
