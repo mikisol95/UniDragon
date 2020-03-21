@@ -55,3 +55,4 @@ search-engine-parser>=0.4.2
 wget
 hurry.filesize
 pymongo
+covid
