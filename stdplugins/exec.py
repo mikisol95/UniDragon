@@ -16,7 +16,7 @@ logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s
 
 @borg.on(admin_cmd(pattern="exec ?(.*)"))
 async def _(event):
-    if event.fwd_from:
+    if event.fwd_from or event.via_bot_id:
         return
     DELAY_BETWEEN_EDITS = 0.3
     PROCESS_RUN_TIME = 100
