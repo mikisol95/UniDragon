@@ -33,8 +33,7 @@ urbandict
 wikipedia
 youtube-dl
 lxml
-git+https://github.com/LonamiWebs/Telethon
-git+https://github.com/ahupp/python-magic
+python-magic
 oauth2client
 httplib2==0.15.0
 humanize
