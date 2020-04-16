@@ -21,6 +21,8 @@ psycopg2
 pySmartDL
 python-barcode
 python-magic
+pip>=19.3.1
+pyfiglet
 qrcode
 regex
 requests
