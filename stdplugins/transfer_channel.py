@@ -5,10 +5,10 @@ Available Commands:
 import telethon.password as pwd_mod
 # https://t.me/TelethonChat/140200
 from telethon.tl import functions, types
-from uniborg import util
+from uniborg.util import admin_cmd
  
  
-@borg.on(util.admin_cmd("otransfer (.*)"))  # pylint:disable=E0602
+@borg.on(admin_cmd(pattern="otransfer (.*)"))  # pylint:disable=E0602
 async def _(event):
     if event.fwd_from:
         return

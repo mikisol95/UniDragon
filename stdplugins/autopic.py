@@ -21,7 +21,7 @@ import shutil
 
 FONT_FILE_TO_USE = "/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf"
 
-@borg.on(admin_cmd("autopp ?(.*)"))
+@borg.on(admin_cmd(pattern="autopp ?(.*)"))
 async def autopic(event):
     downloaded_file_name = "./ravana/original_pic.png"
     downloader = SmartDL(Config.RAVANA_LEELA, downloaded_file_name, progress_bar=True)
