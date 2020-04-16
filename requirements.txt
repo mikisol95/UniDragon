@@ -1,5 +1,2 @@
 git+https://github.com/LonamiWebs/Telethon
-#https://github.com/LonamiWebs/Telethon/archive/master.zip
-pip>=19.3.1
-pyfiglet
 -r ./requirements-stdborg.txt
