@@ -170,7 +170,7 @@ INSULT_STRINGS = [
     "`If you’re talking behind my back then you’re in a perfect position to kiss my a**!.`"
 ]
 
-@borg.on(admin_cmd("runs($)"))
+@borg.on(admin_cmd(pattern="runs($)"))
 async def _(event):
     if event.fwd_from:
          return
@@ -196,7 +196,7 @@ async def enable_runs(run):
         DISABLE_RUN = False
         await run.edit("```Enabled .runs !!```")
 
-@borg.on(admin_cmd("metoo($)"))
+@borg.on(admin_cmd(pattern="metoo($)"))
 async def _(event):
     if event.fwd_from:
          return
@@ -206,7 +206,7 @@ async def _(event):
     await event.edit(reply_text)
 
 
-@borg.on(admin_cmd("rape($)"))
+@borg.on(admin_cmd(pattern="rape($)"))
 async def _(event):
     if event.fwd_from:
          return
@@ -216,7 +216,7 @@ async def _(event):
     await event.edit(reply_text)
 			  
                           
-@borg.on(admin_cmd("inkut($)"))
+@borg.on(admin_cmd(pattern="inkut($)"))
 async def _(event):
     if event.fwd_from:
          return
@@ -226,7 +226,7 @@ async def _(event):
     await event.edit(reply_text)
 			  
 			  
-@borg.on(admin_cmd("pro($)"))
+@borg.on(admin_cmd(pattern="pro($)"))
 async def _(event):
     if event.fwd_from:
          return
@@ -236,7 +236,7 @@ async def _(event):
     await event.edit(reply_text)
 			  
 			  
-@borg.on(admin_cmd("abuse($)"))
+@borg.on(admin_cmd(pattern="abuse($)"))
 async def _(event):
     if event.fwd_from:
          return
@@ -246,7 +246,7 @@ async def _(event):
     await event.edit(reply_text)
 			  
 			  
-@borg.on(admin_cmd("gey($)"))
+@borg.on(admin_cmd(pattern="gey($)"))
 async def _(event):
     if event.fwd_from:
          return
