@@ -38,7 +38,7 @@ def admin_cmd(pattern=None, allow_sudo=False, **args):
 
 async def is_read(borg, entity, message, is_out=None):
     """
-    Returns True if the given message (or id) has been read
+    Returns True if the given message (or ids) has been read
     if a id is given, is_out needs to be a bool
     """
     is_out = getattr(message, "out", is_out)
