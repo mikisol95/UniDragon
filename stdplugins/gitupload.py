@@ -2,8 +2,11 @@
 GITHUB File Uploader Plugin for userbot. Heroku Automation should be Enabled. Else u r not that lazy // For lazy people
 Instructions:- Set GITHUB_ACCESS_TOKEN and GIT_REPO_NAME Variables in Heroku vars First
 usage:- .commit reply_to_any_plugin //can be any type of file too. but for plugin must be in .py 
+By:- @Zero_cool7870 
 
 """
+
+
 from github import Github
 import aiohttp
 import asyncio
@@ -14,7 +17,9 @@ from telethon import events
 from telethon.tl.types import DocumentAttributeVideo
 from uniborg.util import admin_cmd, humanbytes, progress, time_formatter
 
+
 GIT_TEMP_DIR = "./temp/"
+BRANCH = "master"
 @borg.on(admin_cmd(pattern="commit ?(.*)", allow_sudo=True))
 async def download(event):
 	if event.fwd_from:
@@ -66,16 +71,16 @@ async def git_commit(file_name,mone):
 	for i in content_list:
 		create_file = True
 		if i == 'ContentFile(path="'+file_name+'")':
-			return await mone.edit("`File Already Exists`")
+			return await mone.edit("`File Already Exists Nibba`")
 			create_file = False
 	file_name = "stdplugins/"+file_name		
 	if create_file == True:
 		file_name = file_name.replace("./temp/","")
 		print(file_name)
 		try:
-			repo.create_file(file_name, "Uploaded New Plugin", commit_data, branch="master")
+			repo.create_file(file_name, "Uploaded New Plugin", commit_data, branch=BRANCH)
 			print("Committed File")
-			await mone.edit("`Committed on Your Github Repo.`\n\n░░░░░░░░░░░█▀▀░░█░░░░░░\n░░░░░░▄▀▀▀▀░░░░░█▄▄░░░░\n░░░░░░█░█░░░░░░░░░░▐░░░ \n░░░░░░▐▐░░░░░░░░░▄░▐░░░\n░░░░░░█░░░░░░░░▄▀▀░▐░░░ \n░░░░▄▀░░░░░░░░▐░▄▄▀░░░░ \n░░▄▀░░░▐░░░░░█▄▀░▐░░░░░ \n░░█░░░▐░░░░░░░░▄░█░░░░░ \n░░░█▄░░▀▄░░░░▄▀▐░█░░░░░ \n░░░█▐▀▀▀░▀▀▀▀░░▐░█░░░░░ \n░░▐█▐▄░░▀░░░░░░▐░█▄▄░░░ \n░░░▀▀░▄[Stdplugins](https://github.com/prono69/PepeBot/blob/master/stdplugins)░▐▄▄▄▀░░░\n░░░░░░░░░░░░░░░░░░░░░░░ ")
+			await mone.edit("`Committed on Your Github Repo.\nCheck from` [HERE](https://github.com/prono69/PepeBot/blob/master/stdplugins)")
 		except:
 			print("Cannot Create Plugin")
 			await mone.edit("Cannot Upload Plugin")

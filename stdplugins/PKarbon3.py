@@ -1,5 +1,5 @@
 """Carbon Scraper Plugin for Userbot. //text in creative way.
-usage: .ikar3 //as a reply to any text message
+usage: .kar3 //as a reply to any text message
 
 Thanks to @r4v4n4 for vars"""
 
@@ -15,7 +15,7 @@ from uniborg.util import admin_cmd
 import asyncio
 import os
 
-@borg.on(admin_cmd(pattern="ikar3 ?(.*)", allow_sudo=True))
+@borg.on(admin_cmd(pattern="kar3 ?(.*)", allow_sudo=True))
 async def carbon_api(e):
  if not e.text[0].isalpha() and e.text[0] not in ("/", "#", "@", "!"):
    """ A Wrapper for carbon.now.sh """
