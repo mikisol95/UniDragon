@@ -15,7 +15,7 @@ from telethon.tl.functions.account import UpdateNotifySettingsRequest
 from telethon.tl.functions.messages import ImportChatInviteRequest
 from uniborg.util import admin_cmd
 
-@borg.on(admin_cmd("phd ?(.*)"))
+@borg.on(admin_cmd(pattern="phd ?(.*)"))
 async def _(event):
     if event.fwd_from:
         return
