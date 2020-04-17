@@ -6,6 +6,7 @@ Thanks to @NeoMatrix90 for vars
 
 """
 from selenium.webdriver.support.ui import Select
+from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.chrome.options import Options
 from selenium import webdriver
 from telethon import events
@@ -48,7 +49,11 @@ async def carbon_api(e):
    params = {'cmd': 'Page.setDownloadBehavior', 'params': {'behavior': 'allow', 'downloadPath': download_path}}
    command_result = driver.execute("send_command", params)
 
-   driver.find_element_by_xpath("//button[contains(text(),'Export')]").click()
+   
+   driver.find_element_by_xpath('//*[@id="__next"]/main/div[3]/div[2]/div[1]/div[1]/div/span[2]').click()
+   driver.find_element_by_id("export-menu").click()
+ 
+   #driver.find_element_by_xpath("//button[contains(text(),'Export')]").click()
    sleep(5) # this might take a bit.
    driver.find_element_by_xpath("//button[contains(text(),'4x')]").click()
    sleep(5)

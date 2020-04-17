@@ -8,6 +8,7 @@ Type : .kar00
 
 """
 from selenium.webdriver.support.ui import Select
+from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.chrome.options import Options
 from selenium import webdriver
 from telethon import events
@@ -67,7 +68,9 @@ async def carbon_api(e):
         }
     }
     command_result = driver.execute("send_command", params)
-    driver.find_element_by_xpath("//button[contains(text(),'Export')]").click()
+    driver.find_element_by_xpath('//*[@id="__next"]/main/div[3]/div[2]/div[1]/div[1]/div/span[2]').click()
+    driver.find_element_by_id("export-menu").click()
+    #driver.find_element_by_xpath("//button[contains(text(),'Export')]").click()
     driver.find_element_by_xpath("//button[contains(text(),'4x')]").click()
     driver.find_element_by_xpath("//button[contains(text(),'PNG')]").click()
     await e.edit("`Processing..\n75%`")
