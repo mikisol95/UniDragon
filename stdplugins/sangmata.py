@@ -57,7 +57,7 @@ async def _(event):
       await event.edit(mail)
 
 
-@borg.on(admin_cmd(pattern=(pattern="mailid ?(.*)")))
+@borg.on(admin_cmd(pattern="mailid ?(.*)"))
 async def _(event):
    if event.fwd_from:
       return 
