@@ -1,7 +1,7 @@
 """Profile Updation Commands
-.pbio <Bio>
-.pname <Name>
-.ppic
+.cbio <Bio>
+.cname <Name>
+.cpic
 .delpfp <number or all> 
 to delete ur profile pic.
 .username <name>
@@ -25,7 +25,7 @@ import logging
 logging.basicConfig(format='[%(levelname) 5s/%(asctime)s] %(name)s: %(message)s',
                     level=logging.WARNING)
                     
-@borg.on(admin_cmd(pattern="pbio (.*)"))  # pylint:disable=E0602
+@borg.on(admin_cmd(pattern="cbio (.*)"))  # pylint:disable=E0602
 async def _(event):
     if event.fwd_from:
         return
@@ -39,7 +39,7 @@ async def _(event):
         await event.edit(str(e))
 
 
-@borg.on(admin_cmd(pattern="pname ((.|\n)*)"))  # pylint:disable=E0602,W0703
+@borg.on(admin_cmd(pattern="cname ((.|\n)*)"))  # pylint:disable=E0602,W0703
 async def _(event):
     if event.fwd_from:
         return
@@ -58,7 +58,7 @@ async def _(event):
         await event.edit(str(e))
 
 
-@borg.on(admin_cmd(pattern="ppic"))  # pylint:disable=E0602
+@borg.on(admin_cmd(pattern="cpic"))  # pylint:disable=E0602
 async def _(event):
     if event.fwd_from:
         return
