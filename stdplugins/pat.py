@@ -28,7 +28,7 @@ async def lastfm(event):
     resp = requests.get("http://headp.at/js/pats.json")
     pats = resp.json()
     pat = BASE_URL.format(parse.quote(choice(pats)))
-    await event.delete()
+    #await event.delete()
     with open(PAT_IMAGE,'wb') as f:
         f.write(requests.get(pat).content)
     if username:

@@ -15,7 +15,7 @@ from uniborg.util import admin_cmd
 
 
 
-@borg.on(admin_cmd("(.*)"))
+@borg.on(admin_cmd(pattern="(.*)"))
 
 async def _(event):
 
@@ -52,7 +52,7 @@ async def _(event):
             await event.edit(animation_chars[i % 9])
             await asyncio.sleep(animation_interval)
             
-@borg.on(admin_cmd("(.*)"))
+@borg.on(admin_cmd(pattern="(.*)"))
 
 async def _(event):
 
@@ -89,7 +89,7 @@ async def _(event):
             await event.edit(animation_chars[i % 9])
             await asyncio.sleep(animation_interval) 
             
-@borg.on(admin_cmd("(.*)"))
+@borg.on(admin_cmd(pattern="(.*)"))
 
 async def _(event):
 
@@ -125,7 +125,7 @@ async def _(event):
             await event.edit(animation_chars[i % 8])
             await asyncio.sleep(animation_interval)  
             
-@borg.on(admin_cmd("(.*)"))
+@borg.on(admin_cmd(pattern="(.*)"))
 
 async def _(event):
 
