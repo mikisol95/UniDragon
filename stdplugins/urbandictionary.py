@@ -3,7 +3,6 @@
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 """Urban Dictionary
 Syntax: .ud Query"""
-from telethon import events
 import urbandict
 from uniborg.util import admin_cmd
 
