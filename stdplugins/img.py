@@ -1,8 +1,8 @@
 # Adapted from OpenUserBot for Uniborg
 
 """Download & Upload Images on Telegram\n
-Syntax: `.img <Name>` or `.img (replied message)`
-\n Upgraded and Google Image Error Fixed by @NeoMatrix90 aka @kirito6969
+Syntax: `.img <number> <Name>` or `.img <number> (replied message)`
+\n Upgraded and Google Image Error Fixed by @kirito6969
 """
 
 from userbot.utils.google_images_download import googleimagesdownload
@@ -12,12 +12,12 @@ from re import findall
 from uniborg.util import admin_cmd
 
 
-@borg.on(admin_cmd(pattern="img ?(.*)"))
+@borg.on(admin_cmd(pattern="img ?(\d+)? ?(.*)?"))
 async def img_sampler(event):
     await event.edit("`Processing Bsdk..`")
     reply = await event.get_reply_message()
-    if event.pattern_match.group(1):
-        query = event.pattern_match.group(1)
+    if event.pattern_match.group(2):
+        query = event.pattern_match.group(2)
     elif reply:
         query = reply.message
     else:
@@ -25,7 +25,7 @@ async def img_sampler(event):
     	return
         
     lim = findall(r"lim=\d+", query)
-    # lim = event.pattern_match.group(1)
+    lim = event.pattern_match.group(1)
     try:
         lim = lim[0]
         lim = lim.replace("lim=", "")
