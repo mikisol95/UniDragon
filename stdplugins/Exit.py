@@ -2,16 +2,7 @@
 
 """fake exit
 \n.fexit"""
-
-
-
 from telethon import events
-from datetime import datetime
-from uniborg.util import admin_cmd
-import importlib.util
-import asyncio
-import random
-import importlib.util
 
 @borg.on(events.NewMessage(outgoing=True, pattern='^\.(f?f)exit'))
 async def timer_blankx(e):

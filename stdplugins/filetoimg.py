@@ -1,12 +1,12 @@
 """COMMAND : .1"""
 
 from io import BytesIO
-from uniborg import util
+from uniborg.util import admin_cmd
 from telethon import types
 from telethon.errors import PhotoInvalidDimensionsError
 from telethon.tl.functions.messages import SendMediaRequest
 
-@borg.on(util.admin_cmd(r"1"))
+@borg.on(admin_cmd(pattern="1"))
 async def on_file_to_photo(event):
     await event.delete()
     target = await event.get_reply_message()
@@ -15,7 +15,7 @@ async def on_file_to_photo(event):
     except AttributeError:
         return
     if not image.mime_type.startswith('image/'):
-        return  # This isn't an image
+        return  
     if image.mime_type == 'image/webp':
         return  # Telegram doesn't let you directly send stickers as photos
     if image.size > 10 * 1024 * 1024:

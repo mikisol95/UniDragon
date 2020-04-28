@@ -1,6 +1,7 @@
 from telethon import events
 import asyncio
 from uniborg.util import admin_cmd
+from telethon.errors.rpcerrorlist import MessageIdInvalidError
 
 
 @borg.on(admin_cmd(pattern="dump ?(.*)"))
@@ -25,7 +26,7 @@ async def _(message):
             await asyncio.sleep(0.3)
             try:
                 await message.edit(something_else)
-            except errors.MessageIdInvalidError:
+            except MessageIdInvalidError:
                 await message.edit("u dun goofed m8")
                 return
 

@@ -17,6 +17,7 @@ hachoir
 lyricsgenius
 pathlib
 Pillow
+psutil
 psycopg2
 pySmartDL
 python-barcode

@@ -178,7 +178,7 @@ if 1 == 1:
             "Markdown": get_markdown(reply),
             "ReplyUsername": reply_username,
             "ReplyText": reply_text,
-            "Date": date,
+            #"Date": date,
             "Template": args[0] if len(args) > 0 else "default",
             "APIKey": config["api_token"]
         })

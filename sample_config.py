@@ -45,8 +45,6 @@ class Config(object):
     # Telegram BOT Token from @BotFather
     TG_BOT_TOKEN_BF_HER = os.environ.get("TG_BOT_TOKEN_BF_HER", None)
     TG_BOT_USER_NAME_BF_HER = os.environ.get("TG_BOT_USER_NAME_BF_HER", None)
-    #
-    #
     # DO NOT EDIT BELOW THIS LINE IF YOU DO NOT KNOW WHAT YOU ARE DOING
     # TG API limit. A message can have maximum 4096 characters!
     MAX_MESSAGE_SIZE_LIMIT = 4095
@@ -161,7 +159,9 @@ class Config(object):
     #For a Shitty Module
     KUTT_IT_API_KEY = os.environ.get("KUTT_IT_API_KEY", None)
     #lyrics plugin
-    GENIUS = os.environ.get("GENIUS_API_TOKEN", 'None')
+    GENIUS = os.environ.get("GENIUS_API_TOKEN", None)
+    #
+    USER = os.environ.get("USER", None)
 
 class Production(Config):
     LOGGER = False
