@@ -15,6 +15,10 @@ DIS DEPLOY BUTTON...........
 
 ![](https://telegra.ph/file/e9aabcb9ead09a6387a51.mp4)
 
+#### Code Quality
+
+[![CodeFactor](https://www.codefactor.io/repository/github/prono69/pepebot/badge)](https://www.codefactor.io/repository/github/prono69/pepebot)
+
 #### The Legacy Way
 Simply clone the repository and run the main file:
 ```sh
