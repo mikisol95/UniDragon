@@ -10,7 +10,7 @@ from telethon import events
 from uniborg.util import admin_cmd
 
 
-@borg.on(admin_cmd("siteshot (.*)"))
+@borg.on(admin_cmd(pattern="siteshot (.*)"))
 async def _(event):
     if event.fwd_from:
         return

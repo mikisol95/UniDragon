@@ -1,7 +1,3 @@
-import asyncio
-import datetime
-from telethon import events
-from telethon.tl import functions, types
 from uniborg.util import admin_cmd
 
 deploylink = Config.HEROKU_LINK

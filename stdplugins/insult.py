@@ -2,7 +2,6 @@
 # By Priyam Kalra
 # Based on the insult module made by Hackintosh for friendly telegram bot (https://da.gd/RG2hfe)
 # Syntax (.insult <no_of_times_to_insult>)
-from telethon import events
 from uniborg.util import admin_cmd
 import asyncio
 from telethon.tl import functions, types

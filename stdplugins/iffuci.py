@@ -1,8 +1,6 @@
 """iffuci.tk pastebin site
 Code written by @loxxi {iffuci}
 Syntax: .iffuci"""
-from telethon import events
-import asyncio
 from datetime import datetime
 import os
 import requests

@@ -2,7 +2,6 @@
 # By Priyam Kalra
 # Syntax (.say <text_to_print>)
 from uniborg.util import admin_cmd
-from telethon.tl import functions, types
 import time
 
 
