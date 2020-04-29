@@ -72,7 +72,7 @@ if Config.TG_BOT_USER_NAME_BF_HER is not None and tgbot is not None:
                 text="{}\nCurrently Loaded Plugins: {}".format(
                     query, len(borg._plugins)),
                 buttons=buttons,
-                link_preview=False
+                link_preview=True
             )
         elif query.startswith("tb_btn"):
             result = builder.article(
@@ -112,7 +112,7 @@ if Config.TG_BOT_USER_NAME_BF_HER is not None and tgbot is not None:
                     # throw error
                     result = builder.article(
                         "YTDL Errors © @UniBorg",
-                        text=f"{error_message} Powered by @UniBorg",
+                        text=f"{error_message} Powered by @PepeBot",
                         link_preview=False
                     )
                 elif t_response:
