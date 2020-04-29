@@ -3,11 +3,11 @@
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
 from .uniborg import *
-from sample_config import Config
+
 
 # add modules to this list
 MODULE = []
 # add syntax to this dictionary using SYNTAX.update
 SYNTAX = {}
-BUILD = "USER-43x01"
+
 
