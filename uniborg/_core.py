@@ -65,7 +65,7 @@ async def send_plug_in(event):
     )
     end = datetime.now()
     time_taken_in_ms = (end - start).seconds
-    await event.edit("Betihod Uploaded {} in {} seconds".format(input_str, time_taken_in_ms))
+    await event.edit("Ok, BTC Uploaded {} in {} seconds".format(input_str, time_taken_in_ms))
     await asyncio.sleep(DELETE_TIMEOUT)
     await event.delete()
 
@@ -82,7 +82,7 @@ async def install_plug_in(event):
             )
             if "(" not in downloaded_file_name:
                 borg.load_plugin_from_file(downloaded_file_name)   
-                await event.edit("Bhosdike Installed Plugin `{}`".format(os.path.basename(downloaded_file_name)))
+                await event.edit("Bsdk Installed Plugin `{}`".format(os.path.basename(downloaded_file_name)))
             else:
                 os.remove(downloaded_file_name)
                 await event.edit("`Abe Sale ! Plugin already exists, Can't instll`")
