@@ -50,7 +50,7 @@ async def kang(args):
         if not user.username:
             user.username = user.first_name
         message = await args.get_reply_message()
-        input_str = event.pattern_match.group(1)
+        input_str = args.pattern_match.group(1)
         photo = None
         emojibypass = False
         is_anim = False
