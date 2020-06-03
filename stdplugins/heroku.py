@@ -137,3 +137,26 @@ async def _(event):
                            f"     •  `{hours}`**h**  `{minutes}`**m**  "
                            f"**|**  [`{percentage}`**%**]"
                            )
+
+                           
+                           
+@borg.on(admin_cmd(pattern="logs"))
+async def _(dyno):        
+        try:
+             Heroku = heroku3.from_key(Config.HEROKU_API_KEY)                         
+             app = Heroku.app(Config.HEROKU_APP_NAME)
+        except:
+  	       return await dyno.reply(" Please make sure your Heroku API Key, Your App name are configured correctly in the heroku var please check https://t.me/IndianBot_Official/55?single")
+        await dyno.edit("Getting Logs....")
+        with open('logs.txt', 'w') as log:
+            log.write(app.get_log())
+        await dyno.client.send_file(
+            dyno.chat_id,
+            "logs.txt",
+            reply_to=dyno.id,
+            caption="logs of 100+ lines",
+        )
+        await dyno.edit("`Sending in Progress.....`")
+        await asyncio.sleep(5)
+        await dyno.delete()
+        return os.remove('logs.txt')                           
