@@ -12,6 +12,8 @@ from telethon import events
 from telethon.tl.functions.messages import GetPeerDialogsRequest
 from telethon.events import NewMessage
 from telethon.tl.custom import Message
+from telethon.tl.functions.channels import GetParticipantRequest
+from telethon.tl.types import ChannelParticipantAdmin, ChannelParticipantCreator
 
 # the secret configuration specific things
 ENV = bool(os.environ.get("ENV", False))
@@ -173,3 +175,25 @@ def parse_arguments(message: str, valid: List[str]) -> (dict, str):
             message = message.replace(f"{key}:{value}", '')
  
     return options, message.strip()        
+
+async def is_admin(chat_id, user_id):
+    req_jo = await borg(GetParticipantRequest(
+        channel=chat_id,
+        user_id=user_id
+    ))
+    chat_participant = req_jo.participant
+    if isinstance(chat_participant, ChannelParticipantCreator) or isinstance(chat_participant, ChannelParticipantAdmin):
+        return True
+    return False
+
+
+# Not that Great but it will fix sudo reply
+async def edit_or_reply(client, user_id, text):
+    if user_id in Config.SUDO_USERS:
+      reply_to = await client.get_reply_message()
+      if reply_to:
+        return await reply_to.reply(text)
+      else:
+        return await client.reply(text)
+    else:
+        return await client.edit(text)
