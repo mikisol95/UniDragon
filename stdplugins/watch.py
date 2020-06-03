@@ -71,7 +71,7 @@ async def _(event):
     if event.fwd_from:
         return
     query = event.pattern_match.group(1)
-    await event.edit("Finding Sites...")
+    await event.edit("`Finding Sites...`")
     streams = get_stream_data(query)
     title = streams['title']
     thumb_link = streams['movie_thumb']
@@ -104,5 +104,7 @@ async def _(event):
             link = link.replace(" ","%20")
         output_ += f"[{pretty(provider)}]({link})\n"
     
-    await borg.send_file(event.chat_id, caption=output_, file=thumb_link,force_document=False,allow_cache=False, silent=True)
+    await event.client.send_file(event.chat_id, caption=output_, file=thumb_link,force_document=False,allow_cache=False, silent=True)
     await event.delete()
+    else:
+    	await event.edit("`Nothing Found..."`)
