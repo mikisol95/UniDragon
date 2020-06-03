@@ -162,6 +162,8 @@ class Config(object):
     GENIUS = os.environ.get("GENIUS_API_TOKEN", None)
     #
     USER = os.environ.get("USER", None)
+    #For watch module
+    WATCH_COUNTRY = os.environ.get("WATCH_COUNTRY", None)
 
 class Production(Config):
     LOGGER = False
