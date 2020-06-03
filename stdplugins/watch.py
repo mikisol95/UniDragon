@@ -106,5 +106,3 @@ async def _(event):
     
     await event.client.send_file(event.chat_id, caption=output_, file=thumb_link,force_document=False,allow_cache=False, silent=True)
     await event.delete()
-    else:
-    	await event.edit("`Nothing Found..."`)
