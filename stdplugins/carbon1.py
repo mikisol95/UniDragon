@@ -7,13 +7,9 @@ Thanks to @NeoMatrix90 for vars
 Type : .kar00
 
 """
-from selenium.webdriver.support.ui import Select
-from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.chrome.options import Options
 from selenium import webdriver
-from telethon import events
 from urllib.parse import quote_plus
-from urllib.error import HTTPError
 import asyncio
 import os
 from uniborg.util import admin_cmd

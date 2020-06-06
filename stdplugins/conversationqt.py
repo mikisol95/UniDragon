@@ -6,8 +6,6 @@ conversation starter questions...
 """
 from telethon import events
 import asyncio
-import os
-import sys
 import random
 
 @borg.on(events.NewMessage(pattern=r"\.qt", outgoing=True))

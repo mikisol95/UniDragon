@@ -3,7 +3,6 @@
 
 
 from telethon import events
-import asyncio
 import requests
 
 

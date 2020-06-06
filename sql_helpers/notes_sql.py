@@ -1,7 +1,7 @@
 # By RaphielGang (https://da.gd/HlfJ)
 
 from sql_helpers import SESSION, BASE
-from sqlalchemy import Column, String, UnicodeText, Boolean, Integer, distinct, func
+from sqlalchemy import Column, String, UnicodeText
 
 
 class Notes(BASE):

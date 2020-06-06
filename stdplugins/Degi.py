@@ -2,7 +2,6 @@
 \nCode by @kirito6969 , ©[Eyepatch](https://t.me/NeoMatrix90)
 type `.degi` and `.nehi` to see the fun.
 """
-import random, re
 from uniborg.util import admin_cmd
 import asyncio
 from telethon import events

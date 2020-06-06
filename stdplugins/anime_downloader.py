@@ -6,7 +6,6 @@ By:- @Zero_cool7870
 
 """
 from telethon import events
-import asyncio
 from bs4 import BeautifulSoup as bs 
 import requests
 import os

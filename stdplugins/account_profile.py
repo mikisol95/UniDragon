@@ -11,16 +11,12 @@ to change ur username.
 import os
 from telethon.tl import functions
 from uniborg.util import admin_cmd
-from telethon.errors import ImageProcessFailedError, PhotoCropSizeSmallError
-from telethon.errors.rpcerrorlist import (PhotoExtInvalidError,
-                                          UsernameOccupiedError,
+from telethon.errors.rpcerrorlist import (UsernameOccupiedError,
                                           UsernameInvalidError)
-from telethon.tl.functions.account import (UpdateProfileRequest,
-                                           UpdateUsernameRequest)
+from telethon.tl.functions.account import (UpdateUsernameRequest)
 from telethon.tl.functions.photos import (DeletePhotosRequest,
-                                          GetUserPhotosRequest,
-                                          UploadProfilePhotoRequest)
-from telethon.tl.types import InputPhoto, MessageMediaPhoto, User, Chat, Channel
+                                          GetUserPhotosRequest)
+from telethon.tl.types import InputPhoto
 import logging
 logging.basicConfig(format='[%(levelname) 5s/%(asctime)s] %(name)s: %(message)s',
                     level=logging.WARNING)

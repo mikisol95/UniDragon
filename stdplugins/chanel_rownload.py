@@ -8,8 +8,6 @@ from telethon import events
 import asyncio
 import os
 import subprocess
-import sys
-from uniborg.util import admin_cmd, humanbytes, progress, time_formatter
 import logging
 from telethon.errors import FloodWaitError
 logging.basicConfig(format='[%(levelname) 5s/%(asctime)s] %(name)s: %(message)s',
@@ -37,7 +35,7 @@ async def get_media(event):
     	f.write(str(msgs))
     for msg in msgs:
        if msg.media is not None:
-	        await borg.download_media(
+         await borg.download_media(
                 msg,dir)
     ps = subprocess.Popen(('ls', 'temp'), stdout=subprocess.PIPE)
     output = subprocess.check_output(('wc', '-l'), stdin=ps.stdout)

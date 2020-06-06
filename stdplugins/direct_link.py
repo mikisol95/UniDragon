@@ -4,9 +4,6 @@
 # you may not use this file except in compliance with the License.
 #
 """ Userbot module containing various sites direct links generators"""
-
-import asyncio
-import datetime
 import json
 import re
 import urllib.parse
@@ -16,8 +13,6 @@ from random import choice
 import requests
 from bs4 import BeautifulSoup
 from telethon import events
-from telethon.tl import functions, types
-from uniborg.util import admin_cmd
 
 from humanize import naturalsize
 import logging

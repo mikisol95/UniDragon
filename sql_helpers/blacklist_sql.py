@@ -1,6 +1,6 @@
 import threading
 
-from sqlalchemy import func, distinct, Column, String, UnicodeText, Unicode
+from sqlalchemy import func, distinct, Column, String, Unicode
 
 from sql_helpers import SESSION, BASE
 

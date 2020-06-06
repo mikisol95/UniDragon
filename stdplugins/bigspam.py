@@ -1,5 +1,4 @@
 from telethon import events
-import time
 
 """Command: .bigspam <number> DO NOT TRY THIS WITH YOUR ACCOUNT
 

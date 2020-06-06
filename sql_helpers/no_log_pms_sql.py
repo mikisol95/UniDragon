@@ -1,4 +1,4 @@
-from sqlalchemy import Column, String, Numeric
+from sqlalchemy import Column, Numeric
 from sql_helpers import SESSION, BASE
 
 

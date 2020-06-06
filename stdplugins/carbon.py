@@ -5,15 +5,11 @@ usage: .carbon //as a reply to any text message
 Thanks to @NeoMatrix90 for vars
 
 """
-from selenium.webdriver.support.ui import Select
-from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.chrome.options import Options
 from selenium import webdriver
 from telethon import events
 from urllib.parse import quote_plus
-from urllib.error import HTTPError
 from time import sleep
-import asyncio
 import os
 
 @borg.on(events.NewMessage(pattern=r"\.carbon", outgoing=True))
