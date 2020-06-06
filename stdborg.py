@@ -5,9 +5,7 @@
 import logging
 import os
 import sys
-from pathlib import Path
 from uniborg import Uniborg
-from uniborg.storage import Storage
 from telethon.sessions import StringSession
 
 

@@ -1,10 +1,9 @@
 # For UniBorg
 # Syntax .alive
 import sys
-import os
 import platform
 import psutil
-from telethon import events, functions, __version__
+from telethon import __version__
 from uniborg.util import admin_cmd
 from sql_helpers.global_variables_sql import SYNTAX, BUILD
 

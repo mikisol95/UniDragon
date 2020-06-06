@@ -24,7 +24,7 @@ from telethon.tl import functions
 from uniborg.util import admin_cmd
 import asyncio
 import shutil 
-import random, re
+import random
 
 
 FONT_FILE_TO_USE = "/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf"

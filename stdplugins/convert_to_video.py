@@ -10,15 +10,11 @@ import os
 import subprocess
 import time
 from datetime import datetime
-import re
-import telethon
 from telethon import *
 from telethon.tl.types import *
 
 from hachoir.metadata import extractMetadata
 from hachoir.parser import createParser
-# https://stackoverflow.com/a/37631799/4723940
-from PIL import Image
 from sample_config import Config
 from uniborg.util import *
 from uniborg.util import admin_cmd, humanbytes, progress, time_formatter

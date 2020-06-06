@@ -1,6 +1,5 @@
 """Color Plugin for @UniBorg
 Syntax: .color <color_code>"""
-from telethon import events
 import os
 from PIL import Image, ImageColor
 from uniborg.util import admin_cmd

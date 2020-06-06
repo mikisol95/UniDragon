@@ -1,7 +1,7 @@
 """Create Private Groups
 Available Commands:
 .create (b|g|c(Chanel)) GroupName/Chanel name"""
-from telethon.tl import functions, types
+from telethon.tl import functions
 from uniborg import util
 
 

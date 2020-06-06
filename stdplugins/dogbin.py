@@ -1,7 +1,6 @@
 """IX.IO pastebin like site
 Syntax: .paste
         .getp <to get the dogbin content>"""
-import asyncio
 from datetime import datetime
 import os
 import requests

@@ -1,7 +1,4 @@
-from telethon import events
-import os
 import requests
-import json
 from uniborg.util import admin_cmd
 
 @borg.on(admin_cmd(pattern="deez (.*)"))

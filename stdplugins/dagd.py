@@ -1,9 +1,5 @@
 """COMMAND : .dns , .link, .unshort , .myip , .myisp , .myhead , .mywho , .myup , .iifast"""
-
-from telethon import events
-import os
 import requests
-import json
 from uniborg.util import admin_cmd
 
 @borg.on(admin_cmd(pattern="dns (.*)"))

@@ -8,13 +8,7 @@ cmd is .ver"""
 
 from asyncio import create_subprocess_shell as asyncrunapp
 from asyncio.subprocess import PIPE as asyncPIPE
-from platform import python_version, uname
-from shutil import which, rmtree
-from telethon import version
-from os import remove, execle, path, makedirs, getenv, environ
-from git import Repo
-from git.exc import GitCommandError, InvalidGitRepositoryError, NoSuchPathError
-import distutils
+from shutil import which
 from uniborg.util import admin_cmd
 
 
