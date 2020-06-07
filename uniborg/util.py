@@ -10,8 +10,6 @@ from re import findall, match
 from typing import List
 from telethon import events
 from telethon.tl.functions.messages import GetPeerDialogsRequest
-from telethon.events import NewMessage
-from telethon.tl.custom import Message
 from telethon.tl.functions.channels import GetParticipantRequest
 from telethon.tl.types import ChannelParticipantAdmin, ChannelParticipantCreator
 

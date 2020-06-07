@@ -1,12 +1,9 @@
 """ command: .compress """
-
-from telethon import events
 import asyncio
 import zipfile
-from pySmartDL import SmartDL
 import time
 import os
-from uniborg.util import admin_cmd, humanbytes, progress, time_formatter
+from uniborg.util import admin_cmd, progress
 
 
 @borg.on(admin_cmd(pattern="compress"))

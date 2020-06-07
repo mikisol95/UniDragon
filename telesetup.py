@@ -3,8 +3,6 @@
 
 import telethon.sync
 from telethon import TelegramClient, events
-from telethon.tl import types, functions
-import os
 from config import Development as Config
 
 
