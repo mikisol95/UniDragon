@@ -6,6 +6,7 @@ coffeehouse>=2.1.0
 cfscrape
 cowpy
 cryptg
+deezloader
 emoji
 googletrans
 google_images_download

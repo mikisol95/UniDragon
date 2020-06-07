@@ -164,6 +164,8 @@ class Config(object):
     USER = os.environ.get("USER", None)
     #For watch module
     WATCH_COUNTRY = os.environ.get("WATCH_COUNTRY", None)
+    # Deeer ARL Token
+    DEEZER_ARL_TOKEN = os.environ.get("DEEZER_ARL_TOKEN", None)
 
 class Production(Config):
     LOGGER = False
