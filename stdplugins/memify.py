@@ -8,7 +8,6 @@
 from telethon.errors.rpcerrorlist import YouBlockedUserError
 import asyncio
 from uniborg.util import admin_cmd
-import datetime
 
 import os
 from telethon.tl.types import (

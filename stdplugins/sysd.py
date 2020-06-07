@@ -1,12 +1,8 @@
 """Get the info your system. Using .neofetch then .sysd"""
 from asyncio import create_subprocess_shell as asyncrunapp
 from asyncio.subprocess import PIPE as asyncPIPE
-from platform import python_version, uname
-from shutil import which
 
 from telethon import events
-import asyncio
-from collections import deque
 
 
 @borg.on(events.NewMessage(pattern=r"\.sysd", outgoing=True))

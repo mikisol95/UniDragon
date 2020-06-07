@@ -4,28 +4,17 @@
 # you may not use this file except in compliance with the License.
 #
 
-import asyncio
-import datetime
 import io
 import math
 import os
-import zipfile
-from collections import defaultdict
-from io import BytesIO
 import random
 import urllib.request
-import requests
 from PIL import Image
-from telethon import events
-from telethon.errors import MessageNotModifiedError
-from telethon.errors.rpcerrorlist import StickersetInvalidError
-from telethon.tl.functions.account import UpdateNotifySettingsRequest
 from telethon.tl.functions.messages import GetStickerSetRequest
 from telethon.tl.types import (DocumentAttributeFilename,
                                DocumentAttributeSticker,
-                               InputMediaUploadedDocument,
-                               InputPeerNotifySettings, InputStickerSetID,
-                               InputStickerSetShortName, MessageMediaPhoto)
+                               InputStickerSetID,
+                               MessageMediaPhoto)
 
 from uniborg.util import admin_cmd
 

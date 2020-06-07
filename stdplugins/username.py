@@ -4,7 +4,7 @@ Available Commands:
 
 
 from uniborg.util import admin_cmd
-from telethon.errors.rpcerrorlist import UsernameOccupiedError, UsernameInvalidError
+from telethon.errors.rpcerrorlist import UsernameOccupiedError
 from telethon.tl.functions.account import UpdateUsernameRequest
 
 

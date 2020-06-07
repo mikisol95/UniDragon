@@ -1,7 +1,6 @@
 """Command: .tagall optional_text_to_tag_in
 You can use it in reply to a message or directly in a new message.
   © [cHAuHaN](http://t.me/amnd33p)"""
-from telethon import events
 from uniborg.util import admin_cmd
 
 @borg.on(admin_cmd(pattern="tagall($| .*)"))

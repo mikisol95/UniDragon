@@ -5,13 +5,9 @@ usage : reply file and .tar
 import asyncio
 import os
 import shutil
-import tarfile
 import time
-
-from pySmartDL import SmartDL
 from sample_config import Config
-from telethon import events
-from uniborg.util import admin_cmd, humanbytes, progress, time_formatter
+from uniborg.util import admin_cmd, progress
 
 
 @borg.on(admin_cmd(pattern=("tar ?(.*)")))

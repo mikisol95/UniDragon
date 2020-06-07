@@ -6,7 +6,6 @@ import io
 import traceback
 from datetime import datetime
 from selenium import webdriver
-from telethon import events
 from uniborg.util import admin_cmd
 
 

@@ -2,10 +2,7 @@
 # By Priyam Kalra
 # Syntax (.spam <number of msgs> <text>)
 
-from asyncio import wait
 from uniborg.util import admin_cmd
-import asyncio
-from telethon.tl import functions, types
 from time import sleep
 
 

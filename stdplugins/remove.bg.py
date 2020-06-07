@@ -15,13 +15,11 @@
 """Remove.BG Plugin for @UniBorg
 Syntax: .rbg https://link.to/image.extension
 Syntax: .rbg as reply to a media"""
-import asyncio
 from datetime import datetime
 import io
 import os
 import requests
-from telethon import events
-from uniborg.util import progress, admin_cmd
+from uniborg.util import admin_cmd
 
 
 @borg.on(admin_cmd(pattern="rbg ?(.*)"))

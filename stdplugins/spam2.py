@@ -5,7 +5,7 @@
 #
 
 import asyncio
-from asyncio import wait, sleep
+from asyncio import sleep
 from uniborg import SYNTAX
 from uniborg.util import admin_cmd
 

@@ -2,10 +2,7 @@
 Syntax: .userlist"""
 from telethon import events
 import os
-from telethon.tl.types import ChannelParticipantsAdmins, ChannelParticipantAdmin, ChannelParticipantCreator
-from uniborg.util import admin_cmd
-from telethon.errors.rpcerrorlist import (UserIdInvalidError,
-                                          MessageTooLongError)
+from telethon.errors.rpcerrorlist import (MessageTooLongError)
                                           
 @borg.on(events.NewMessage(pattern=r"\.userlist ?(.*)", outgoing=True))
 async def get_users(show):

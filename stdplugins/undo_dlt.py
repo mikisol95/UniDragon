@@ -1,4 +1,3 @@
-from telethon import events
 from uniborg.util import admin_cmd
 import asyncio
 
