@@ -1,5 +1,3 @@
-from telethon import events
-import random, re
 from uniborg.util import admin_cmd
 import asyncio 
 

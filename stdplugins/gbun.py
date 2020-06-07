@@ -1,6 +1,5 @@
 # This is a troll indeed ffs *facepalm*
 import asyncio
-from telethon import events
 from telethon.tl.functions.users import GetFullUserRequest
 from telethon.tl.types import ChannelParticipantsAdmins
 from uniborg.util import admin_cmd

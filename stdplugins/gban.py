@@ -3,8 +3,6 @@ Group Administrations bots where you are SUDO
 Available Commands:
 .gban REASON
 .ungban REASON"""
-from telethon import events
-import asyncio
 from uniborg.util import admin_cmd
 
 

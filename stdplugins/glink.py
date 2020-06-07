@@ -1,14 +1,6 @@
 """Upload link to gDrive
 Syntax:
 .glink"""
-
-# The entire code given below is verbatim copied from
-# https://github.com/cyberboysumanjay/Gdrivedownloader/blob/master/gdrive_upload.py
-# there might be some changes made to suit the needs for this repository
-# Licensed under MIT License
-
-
-import aiohttp
 import asyncio
 import math
 import os
@@ -18,14 +10,11 @@ from telethon import events
 from datetime import datetime
 from googleapiclient.discovery import build
 from apiclient.http import MediaFileUpload
-from apiclient.errors import ResumableUploadError
 from oauth2client.client import OAuth2WebServerFlow
 from oauth2client.file import Storage
-from oauth2client import file, client, tools
 from mimetypes import guess_type
 import httplib2
-import subprocess
-from uniborg.util import admin_cmd, progress, humanbytes, time_formatter
+from uniborg.util import admin_cmd, progress, humanbytes
 
 
 # Path to token json file, it should be in same directory as script

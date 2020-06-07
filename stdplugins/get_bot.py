@@ -1,6 +1,5 @@
 """ Get the Bots in any chat*
 Syntax: .g_bot"""
-from telethon import events
 from telethon.tl.types import ChannelParticipantAdmin, ChannelParticipantsBots
 from uniborg.util import admin_cmd
 

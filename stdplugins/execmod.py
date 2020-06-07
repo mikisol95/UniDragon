@@ -4,14 +4,11 @@
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 from telethon import events
-import subprocess
-from telethon.errors import MessageEmptyError, MessageTooLongError, MessageNotModifiedError
 import io
 import asyncio
 import time
 import os
-import sys
-from telethon import events, functions, __version__
+from telethon import events, __version__
 from uniborg.util import admin_cmd 
 import logging
 logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',

@@ -3,8 +3,6 @@
 # Based on the insult module made by Hackintosh for friendly telegram bot (https://da.gd/RG2hfe)
 # Syntax (.insult <no_of_times_to_insult>)
 from uniborg.util import admin_cmd
-import asyncio
-from telethon.tl import functions, types
 import random
 from sql_helpers.global_variables_sql import SUDO_USERS
 import sys

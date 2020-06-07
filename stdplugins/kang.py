@@ -3,7 +3,6 @@ Available Commands:
 .kang [Optional Emoji]
 .packinfo
 .loda {for get stickers in a zip file}"""
-from telethon import events
 from io import BytesIO
 from PIL import Image
 import asyncio
@@ -12,17 +11,12 @@ from collections import defaultdict
 import math
 import os
 import random
-import requests
 import zipfile
 from telethon.errors.rpcerrorlist import StickersetInvalidError
 from telethon.errors import MessageNotModifiedError
-from telethon.tl.functions.account import UpdateNotifySettingsRequest
 from telethon.tl.functions.messages import GetStickerSetRequest
 from telethon.tl.types import (
-    DocumentAttributeFilename,
     DocumentAttributeSticker,
-    InputMediaUploadedDocument,
-    InputPeerNotifySettings,
     InputStickerSetID,
     InputStickerSetShortName,
     MessageMediaPhoto

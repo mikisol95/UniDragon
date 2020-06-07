@@ -1,7 +1,6 @@
 """Enable Seen Counter in any message,
 to know how many users have seen your message
 Syntax: .hmm as reply to any message"""
-from telethon import events
 from uniborg.util import admin_cmd
 
 

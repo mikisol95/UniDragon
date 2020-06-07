@@ -3,7 +3,6 @@ command: .url
 
 """
 import aria2p
-from telethon import events
 import asyncio
 import os
 from uniborg.util import admin_cmd
