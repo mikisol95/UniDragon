@@ -2,16 +2,11 @@
 Pornhub downloader by @anubisxx
 **Syntax:** `.phd link`
 """
-import datetime
 import asyncio
 import requests
 from bs4 import BeautifulSoup
-import os
-from pySmartDL import SmartDL
-from telethon import events 
 from telethon.tl.functions.channels import JoinChannelRequest
 from telethon.errors.rpcerrorlist import YouBlockedUserError, UserAlreadyParticipantError
-from telethon.tl.functions.account import UpdateNotifySettingsRequest
 from telethon.tl.functions.messages import ImportChatInviteRequest
 from uniborg.util import admin_cmd
 

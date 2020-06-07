@@ -4,7 +4,6 @@
 \nImproved by @amnd33p"""
 from telethon import events
 import random
-import asyncio
 @borg.on(events.NewMessage(pattern=r"\.x(.*)", outgoing=True))
 async def _(event):
     if event.fwd_from:
@@ -35,7 +34,7 @@ async def _(event):
                         "`Uss Ne Hothon Se Chhu Kar Lowd* Pe Nasha Kar Diya; Lu*D Ki Baat To Aur Thi, Uss Ne To Jhato* Ko Bhi Khada Kar Diya!`",
                         ]
     elif input_str in "chua":
-		    emoticons = [
+      emoticons = [
                         "`Taare hai Asmaan me very very bright`\n`Jhaat na jla bskd dekh le apni height.`",
                         "`Zindagi ki na toote lari`\n`Iski lulli hoti nhi khadi`",
                         "`Kbhi kbhi meri dil me khyaal ata hai`\n`Aise chutiyo ko kon paida kr jata hai😂.`",

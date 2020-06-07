@@ -2,16 +2,10 @@
 usage: .rgbk2 //as a reply to any text message
 
 Thanks to @r4v4n4 for vars,,, Random RGB feature by @PhycoNinja13b"""
-
-from selenium.webdriver.common.keys import Keys
-from selenium.webdriver.support.ui import Select
 from selenium.webdriver.chrome.options import Options
 from selenium import webdriver
-from telethon import events
 from urllib.parse import quote_plus
-from urllib.error import HTTPError
 from time import sleep
-import asyncio
 import os
 import random
 from uniborg.util import admin_cmd

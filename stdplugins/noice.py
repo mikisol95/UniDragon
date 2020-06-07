@@ -1,43 +1,10 @@
 """Available Commands 
 Read code in noice.py """ 
-
-# .cowsay cow which says things.\
-# :/Usage: Check yourself
-# -_- Ok...
-# ;_; Like `-_-` but crying.
-# .cp Copypasta the famous meme
-# .vapor Vaporize everything!
-# .str Stretch it.
-# .10iq You retard !!
-# .zal Invoke the feeling of chaos.
-#  nOof Ooooof
-# .hi Greet everyone!
-# .owo UwU
-# .cry y u du dis, i cri.
-# .shrug Shrug at it !!
-# .runs Run, run, RUNNN! [`.disable runs`: disable | `.enable runs`: enable]\
-# .metoo Haha yes
-# .mock Do it and find the real fun.
-# .clap Praise people!
-# .f <emoji/character> Pay Respects.
-# .bt Believe me, you will find this useful.
-# .smk <text/reply>A shit module for ツ , who cares. 
-# .lgfy Let me Google that for you real quick !!
-# Thanks to 🅱️ottom🅱️ext🅱️ot (@NotAMemeBot) for some of these.
-
-
-
-import asyncio
 import random
 import re
 import time
 
-from collections import deque
-
 import requests
-
-from telethon.tl.functions.users import GetFullUserRequest
-from telethon.tl.types import MessageEntityMentionName
 from telethon import events
 
 from uniborg.util import admin_cmd

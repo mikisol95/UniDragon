@@ -31,23 +31,7 @@ Syntax:
 
 
 
-
-
-
-
-from telethon import events
-
-
-
-import os
-
-
-
 import requests
-
-
-
-import json
 
 
 

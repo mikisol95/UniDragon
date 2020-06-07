@@ -10,7 +10,6 @@ from random import choice
 from urllib import parse
 from os import remove
 import requests
-import asyncio
 
 
 BASE_URL = "https://headp.at/pats/{}"

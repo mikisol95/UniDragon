@@ -6,8 +6,6 @@ By : - @Zero_cool7870
 """
 from telethon import events
 import asyncio
-import os
-import sys
 
 
 @borg.on(events.NewMessage(pattern=r"\.mememe", outgoing=True))

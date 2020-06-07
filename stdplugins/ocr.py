@@ -1,8 +1,6 @@
 """Optical Character Recognition by OCR.Space
 Syntax: `.ocr <LangCode>`
 Available Languages: `.ocrlangs`"""
-
-from telethon import events
 import json
 import os
 from PIL import Image

@@ -6,34 +6,12 @@
 """
 
 from telethon.errors.rpcerrorlist import YouBlockedUserError
-
-from io import BytesIO
-from PIL import Image
 import asyncio
-import time
-from datetime import datetime
-from hachoir.metadata import extractMetadata
-from hachoir.parser import createParser
-from pySmartDL import SmartDL
-from telethon.tl.types import DocumentAttributeVideo
-from uniborg.util import progress, humanbytes, time_formatter, admin_cmd
+from uniborg.util import admin_cmd
 import datetime
-from collections import defaultdict
 
 import os
-
-
-from telethon.errors.rpcerrorlist import StickersetInvalidError
-from telethon.errors import MessageNotModifiedError
-from telethon.tl.functions.account import UpdateNotifySettingsRequest
-from telethon.tl.functions.messages import GetStickerSetRequest
 from telethon.tl.types import (
-DocumentAttributeFilename,
-DocumentAttributeSticker,
-InputMediaUploadedDocument,
-InputPeerNotifySettings,
-InputStickerSetID,
-InputStickerSetShortName,
 MessageMediaPhoto
 )
 

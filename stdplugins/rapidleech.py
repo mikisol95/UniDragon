@@ -10,8 +10,6 @@
 """RapidLeech plugin: Inspired by @SjProjects"""
 
 import aiohttp
-import asyncio
-import json
 import re
 from bs4 import BeautifulSoup
 from telethon.utils import get_inner_text

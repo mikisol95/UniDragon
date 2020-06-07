@@ -1,17 +1,6 @@
-import asyncio
-import os
 import re
-import time
-import zipfile
-from datetime import datetime
-from zipfile import ZipFile
-
-from pySmartDL import SmartDL
 from remotezip import RemoteZip
 from telethon import events
-from telethon.tl.types import DocumentAttributeAudio, DocumentAttributeVideo
-
-from uniborg.util import admin_cmd, humanbytes, progress, time_formatter
 
 from sample_config import Config
 

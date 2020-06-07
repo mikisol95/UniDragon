@@ -5,9 +5,7 @@ logging.basicConfig(format='[%(levelname) 5s/%(asctime)s] %(name)s: %(message)s'
                     level=logging.WARNING)
 
 import os
-import asyncio
 import requests
-from telethon import events
 from datetime import datetime
 from uniborg.util import admin_cmd
 

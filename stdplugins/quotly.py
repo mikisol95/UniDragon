@@ -1,7 +1,6 @@
 """QuotLy: Avaible commands: .qbot
 """
 from telethon import events
-from telethon.tl import functions, types
 from uniborg.util import admin_cmd
 
 @borg.on(admin_cmd(pattern="qbot ?(.*)"))
