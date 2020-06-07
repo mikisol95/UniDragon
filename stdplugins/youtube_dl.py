@@ -9,9 +9,8 @@ import asyncio
 import json
 import os
 import re
-import time
 from datetime import datetime
-from telethon import custom, events
+from telethon import events
 
 
 # pylint:disable=E0602

@@ -5,21 +5,10 @@
 \nAll thanks goes to **SNAPDRAGON** . Thnaks a lot Bruh..
 \nPorted by © [EYEPATCH](t.me/neomatrix90)
 \n`Don't Copy Without Credits.`"""
-
-import os
-import aiohttp
-import asyncio
 from html import unescape
-from re import findall
-from shutil import rmtree
-from urllib.error import HTTPError
 import urllib.parse
-
-from emoji import get_emoji_regexp
 from googleapiclient.discovery import build
 from googleapiclient.errors import HttpError
-from requests import get
-from telethon import events
 from uniborg.util import admin_cmd
 
 @borg.on(admin_cmd(pattern="yts ?(\d+)? ?(.*)?"))

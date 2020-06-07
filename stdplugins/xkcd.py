@@ -1,8 +1,5 @@
 """XKCD Search
 Syntax: .xkcd <search>"""
-from telethon import events
-import asyncio
-import json
 import requests
 from urllib.parse import quote
 from uniborg.util import admin_cmd

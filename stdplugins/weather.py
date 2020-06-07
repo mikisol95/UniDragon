@@ -6,7 +6,6 @@ Syntax: `.weather <Location>`
 import aiohttp
 import io
 import time
-from datetime import tzinfo, datetime
 from uniborg.util import admin_cmd
  
  

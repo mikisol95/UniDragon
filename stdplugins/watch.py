@@ -3,8 +3,6 @@
 # All rights reserved.
 
 """Syntax: .watch Movie/TV Show"""
-from telethon import events
-import requests
 from uniborg.util import admin_cmd
 from justwatch import JustWatch
 
