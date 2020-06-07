@@ -8,7 +8,6 @@
 """
 
 from asyncio import sleep
-from telethon.errors import rpcbaseerrors
 from uniborg.util import admin_cmd
 
 @borg.on(admin_cmd(pattern="ipurg ?(.*)"))

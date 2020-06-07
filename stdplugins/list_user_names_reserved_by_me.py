@@ -1,7 +1,7 @@
 # For @UniBorg
 # (c) Shrimadhav U K
 
-from telethon import events, functions, types
+from telethon import events, functions
 
 @borg.on(events.NewMessage(pattern=r"\-listnames", outgoing=True))
 async def _(event):

@@ -1,6 +1,4 @@
 """ Command: .porn """
-
-from telethon import events
 from datetime import datetime
 from uniborg.util import admin_cmd
 

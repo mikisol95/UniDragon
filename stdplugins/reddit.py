@@ -3,8 +3,6 @@ import re
 from telethon import events
 from telethon.errors import MessageNotModifiedError
 
-from uniborg.util import admin_cmd
-
 REDDIT_REGEX = r"(?:^|\s+)(\/?r\/\S+)"
 
 

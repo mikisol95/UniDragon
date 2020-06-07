@@ -3,7 +3,6 @@
 # modified by @authoritydmc
 # Syntax (.modules)
 from uniborg.util import admin_cmd
-from telethon.tl import functions, types
 from uniborg import MODULE
 
 

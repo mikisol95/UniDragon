@@ -5,7 +5,6 @@
 
 from telethon import events
 import random
-import asyncio
 
 @borg.on(events.NewMessage(pattern=r"\.mx(.*)", outgoing=True))
 async def _(event):

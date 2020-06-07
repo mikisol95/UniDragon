@@ -1,9 +1,6 @@
 """Mention/Tag Replied Users\n
 `.mention` <text>
 """
-# By: @INF1N17Y
-
-import html
 from uniborg.util import admin_cmd
 
 

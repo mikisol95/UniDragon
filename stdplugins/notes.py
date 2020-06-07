@@ -9,12 +9,10 @@
 .clearall`
 """
 
-from sql_helpers.global_variables_sql import LOGGER, SYNTAX
+from sql_helpers.global_variables_sql import LOGGER
 from sql_helpers.notes_sql import get_notes, rm_note, add_note, rm_all_notes
-from telethon import events
 from uniborg.util import admin_cmd
-import asyncio, time
-from telethon.tl import functions, types
+import time
 
 """
 notes: \

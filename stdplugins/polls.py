@@ -1,7 +1,5 @@
 """Get Poll Info on non supported clients
 Syntax: .get_poll"""
-from telethon import events
-import asyncio
 from uniborg.util import admin_cmd
 
 

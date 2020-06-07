@@ -4,22 +4,17 @@ usage: .kapp
 Don't u dare edit this section!!!
 
 Thanks to @r4v4n4 (noodz lover) for vars,,, RGB Karbon PP feature by @PhycoNinja13b (Legend) """
-
-from selenium.webdriver.support.ui import Select
 from selenium.webdriver.chrome.options import Options
 from selenium import webdriver
 from telethon import events
 from urllib.parse import quote_plus
-from urllib.error import HTTPError
 from time import sleep
 import asyncio
 import os
 import random
 from datetime import datetime
 from telethon.tl import functions
-from uniborg.util import admin_cmd
-import shutil
-from PIL import Image, ImageDraw, ImageFont
+from PIL import Image
 
 @borg.on(events.NewMessage(pattern=r"\.kapp", outgoing=True))
 async def carbon_api(e):

@@ -12,8 +12,7 @@ Lyrics Plugin Syntax:
 """
 from uniborg.util import admin_cmd
 import os
-from telethon.tl.types import DocumentAttributeFilename, MessageMediaPhoto
-from uniborg import MODULE, SYNTAX
+from uniborg import SYNTAX
 import random
 
 """Genius(lyrics) staff"""

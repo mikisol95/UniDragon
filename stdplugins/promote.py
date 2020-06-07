@@ -1,6 +1,4 @@
 """Reply to a user to .premote / .demote / .prankpremote them in the current chat"""
-from telethon import events
-import asyncio
 from datetime import datetime
 from telethon.tl.functions.channels import EditAdminRequest
 from telethon.tl.types import ChatAdminRights

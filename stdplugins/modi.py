@@ -1,8 +1,4 @@
-import sys
-import asyncio
 import random
-from telethon import events
-import re
 from uniborg.util import admin_cmd
 
 @borg.on(admin_cmd(pattern="modi ?(.*)", allow_sudo=True))

@@ -5,17 +5,10 @@
  Ported by © [Eyepatch](http://t.me/NeoMatrix90)
  Helping hands @r4v4n4 @amnd33p
 """
-
-from datetime import datetime
 import os
 import requests
 import subprocess
-import time
 import json
-import sys
-import asyncio
-from telethon import events
-from telethon.tl.types import ChannelParticipantsAdmins
 from uniborg.util import admin_cmd
 
 @borg.on(admin_cmd(pattern="labstack ?(.*)"))
