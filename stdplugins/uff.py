@@ -6,8 +6,6 @@ Available Commands:
 
 from telethon import events
 
-import asyncio
-
 
 
 

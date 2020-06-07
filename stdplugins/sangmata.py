@@ -1,9 +1,7 @@
 
-import datetime
 import asyncio
 from telethon import events
 from telethon.errors.rpcerrorlist import YouBlockedUserError
-from telethon.tl.functions.account import UpdateNotifySettingsRequest
 from uniborg.util import admin_cmd
 
 @borg.on(admin_cmd(pattern="sg ?(.*)", allow_sudo=True))
@@ -150,7 +148,7 @@ async def _(event):
        await event.edit("```Reply to any user message.```")
        return
     if not bsdk:
-   	 reply_message = await event.get_reply_message() 
+     reply_message = await event.get_reply_message() 
     bsdk = reply_message.text
     if not bsdk:
        await event.edit("```Reply to a Text message```")

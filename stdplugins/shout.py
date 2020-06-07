@@ -2,11 +2,7 @@
 usage: .shout message
 originaly from : @corsicanu_bot
 """
-
-import sys
-from telethon import events, functions
-from uniborg.util import admin_cmd
-import random
+from telethon import events
 
 
 @borg.on(events.NewMessage(pattern=r"\.shout", outgoing=True))

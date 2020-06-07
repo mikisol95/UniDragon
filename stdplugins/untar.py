@@ -8,15 +8,11 @@ logging.basicConfig(format='[%(levelname) 5s/%(asctime)s] %(name)s: %(message)s'
 import asyncio
 import os
 import time
-import zipfile
 from datetime import datetime
 import tarfile
+from telethon.tl.types import DocumentAttributeVideo
 
-from pySmartDL import SmartDL
-from telethon import events
-from telethon.tl.types import DocumentAttributeAudio, DocumentAttributeVideo
-
-from uniborg.util import admin_cmd, humanbytes, progress, time_formatter
+from uniborg.util import admin_cmd, progress
 
 from hachoir.metadata import extractMetadata
 from hachoir.parser import createParser

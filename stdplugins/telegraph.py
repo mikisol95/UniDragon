@@ -2,7 +2,6 @@
 Available Commands:
 .tg m as reply to a media
 .tg t as reply to a large text"""
-from telethon import events
 import os
 from PIL import Image
 from datetime import datetime

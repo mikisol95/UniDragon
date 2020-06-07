@@ -1,8 +1,4 @@
 """ commands: .tspam text """
-
-import asyncio
-import time
-from asyncio import wait
 from uniborg.util import admin_cmd
 
 @borg.on(admin_cmd(pattern="tspam"))

@@ -1,7 +1,5 @@
 """Restrict Users
 Available Commands: .ban, .unban, .mute """
-from telethon import events
-import asyncio
 from datetime import datetime
 from telethon.tl.functions.channels import EditBannedRequest
 from telethon.tl.types import ChatBannedRights

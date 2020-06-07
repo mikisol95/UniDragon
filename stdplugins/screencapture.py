@@ -3,7 +3,6 @@ Syntax: .cap <Website URL>"""
 
 import io
 import requests
-from telethon import events
 from uniborg.util import admin_cmd
 
 

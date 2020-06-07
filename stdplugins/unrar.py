@@ -10,11 +10,8 @@ import os
 import time
 from datetime import datetime
 import patoolib
-import subprocess
-from pySmartDL import SmartDL
-from telethon import events
-from telethon.tl.types import DocumentAttributeAudio, DocumentAttributeVideo
-from uniborg.util import admin_cmd, humanbytes, progress, time_formatter
+from telethon.tl.types import DocumentAttributeVideo
+from uniborg.util import admin_cmd, progress
 from hachoir.metadata import extractMetadata
 from hachoir.parser import createParser
 from sample_config import Config

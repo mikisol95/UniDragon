@@ -11,16 +11,12 @@
 \nPorted by © @NeoMatrix90"""
 
 import io
-import asyncio
 import os
 import urllib
-from urllib.request import urlopen
 import requests
 from bs4 import BeautifulSoup
 import re
-from telethon.tl.types import MessageMediaPhoto
 from PIL import Image
-from telethon import events
 from uniborg.util import admin_cmd
 
 opener = urllib.request.build_opener()

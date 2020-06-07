@@ -8,8 +8,6 @@ By:-@Zero_cool7870
 from bs4 import BeautifulSoup as bs 
 import requests
 from uniborg.util import admin_cmd
-import asyncio
-import json
 
 
 

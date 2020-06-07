@@ -13,7 +13,7 @@ import math
 import os
 from pySmartDL import SmartDL
 from telethon.tl.types import DocumentAttributeVideo
-from uniborg.util import progress, humanbytes, time_formatter, admin_cmd
+from uniborg.util import progress, humanbytes, admin_cmd
 
 
 thumb_image_path = Config.TMP_DOWNLOAD_DIRECTORY + "/thumb_image.jpg"

@@ -1,9 +1,6 @@
 """Count the Number of Dialogs you have in your Telegram Account
 Syntax: .stat"""
-from telethon import events
-import asyncio
 from datetime import datetime
-from telethon.tl.types import User, Chat, Channel
 from uniborg.util import admin_cmd
 
 

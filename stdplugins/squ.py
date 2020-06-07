@@ -1,8 +1,6 @@
 # BY @STARKTM1
 from telethon import events
 import asyncio
-import os
-import sys
 
 
 @borg.on(events.NewMessage(pattern=r"\.squ", outgoing=True))
