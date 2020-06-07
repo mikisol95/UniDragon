@@ -23,7 +23,6 @@ from telethon.tl.types import DocumentAttributeVideo
 from uniborg.util import admin_cmd, humanbytes, progress, time_formatter
 from hachoir.metadata import extractMetadata
 from hachoir.parser import createParser
-from telethon.tl.types import DocumentAttributeAudio
 from uniborg.util import admin_cmd
 from sample_config import Config
 import shutil
