@@ -1,4 +1,4 @@
-"""command: .sex"""
+"""command: .sux"""
 
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
@@ -6,7 +6,7 @@
 from telethon import events
 import random
 
-@borg.on(events.NewMessage(pattern=r"\.se(.*)", outgoing=True))
+@borg.on(events.NewMessage(pattern=r"\.su(.*)", outgoing=True))
 async def _(event):
     if event.fwd_from:
         return
