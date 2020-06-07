@@ -4,11 +4,7 @@ Animate How To Google
 Command .ggl Search Query
 By @loxxi
 """
-
-from telethon import events
-import os
 import requests
-import json
 from uniborg.util import admin_cmd
 
 

@@ -8,10 +8,6 @@ from telethon import events
 
 import asyncio
 
-import os
-
-import sys
-
 import random
 
 

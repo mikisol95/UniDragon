@@ -4,9 +4,6 @@ Syntax: .hp
     orginal author : AlenPaulVarghese(@STARKTM1)
 """
 from telethon import events
-import asyncio
-import os
-import sys
 import random
 
 

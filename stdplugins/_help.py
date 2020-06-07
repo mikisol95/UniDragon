@@ -11,7 +11,7 @@
 
 
 import sys
-from telethon import events, functions, __version__
+from telethon import functions, __version__
 from uniborg.util import admin_cmd
 
 

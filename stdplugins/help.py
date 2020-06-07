@@ -1,10 +1,7 @@
 # For UniBorg
 # By Priyam Kalra
 # Syntax (.syntax <module_name>)
-from telethon import events
 from uniborg.util import admin_cmd
-import asyncio
-from telethon.tl import functions, types
 from uniborg import SYNTAX, MODULE
 
 

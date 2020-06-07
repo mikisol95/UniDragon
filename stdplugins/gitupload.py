@@ -8,14 +8,11 @@ By:- @Zero_cool7870
 
 
 from github import Github
-import aiohttp
 import asyncio
 import os
 import time
 from datetime import datetime
-from telethon import events
-from telethon.tl.types import DocumentAttributeVideo
-from uniborg.util import admin_cmd, humanbytes, progress, time_formatter
+from uniborg.util import admin_cmd, progress
 
 
 GIT_TEMP_DIR = "./temp/"

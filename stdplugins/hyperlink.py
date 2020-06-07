@@ -5,10 +5,7 @@
 """HyperLink module for Uniborg
 \nType .hl <text to highlight> <link>
 """
-from telethon import events
 from uniborg.util import admin_cmd
-import asyncio
-from telethon.tl import functions, types
 
 @borg.on(admin_cmd(pattern="hl ?(.*)"))
 async def _(event):

@@ -5,9 +5,6 @@ usage: .gdl File-Link
 """
 import requests
 from telethon import events
-import asyncio
-import os
-import sys
 
 
 async def download_file_from_google_drive(id):

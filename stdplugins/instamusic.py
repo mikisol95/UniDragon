@@ -3,14 +3,11 @@
 """
 
 import subprocess
-from telethon.errors import MessageEmptyError, MessageTooLongError, MessageNotModifiedError
-import asyncio
-import time
 from uniborg.util import admin_cmd
 import glob
 import os
 try:
- import instantmusic , subprocess
+ import subprocess
 except:
  os.system("pip install instantmusic")
  

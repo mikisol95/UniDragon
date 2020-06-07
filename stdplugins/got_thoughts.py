@@ -5,8 +5,6 @@ Command .jon
 """
 from telethon import events
 import asyncio
-import os
-import sys
 import random
 @borg.on(events.NewMessage(pattern=r"\.gott", outgoing=True))
 async def _(event):

@@ -2,11 +2,8 @@
 \n\nCreated By @s_n_a_p_s
 Ported by @NeoMatrix90 (Legend)
 With the help of lejhand @r4v4n4"""
-import asyncio
 import pyfiglet
-from telethon import events, functions
 from uniborg.util import admin_cmd
-import sys
  
 @borg.on(admin_cmd(pattern="figlet ?(.*)", allow_sudo=True))
 async def figlet(event):
