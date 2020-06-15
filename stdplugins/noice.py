@@ -470,7 +470,7 @@ async def stretch(stret):
         await stret.edit(reply_text)
 
 
-@borg.on(admin_cmd(pattern="izal(?: |$)(.*)", outgoing=True)) 
+@borg.on(admin_cmd(pattern="zal(?: |$)(.*)", outgoing=True)) 
 async def izal(zgfy):
     """ Invoke the feeling of chaos. """
     if not zgfy.text[0].isalpha() and zgfy.text[0] not in ("/", "#", "@", "!"):

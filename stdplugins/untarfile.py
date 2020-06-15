@@ -2,31 +2,37 @@
 coded by @By_Azade
 code rewritten my SnapDragon7410
 """
-import logging
-logging.basicConfig(format='[%(levelname) 5s/%(asctime)s] %(name)s: %(message)s',
-                    level=logging.WARNING)
 import asyncio
+import logging
 import os
+import shutil
+import tarfile
 import time
-import zipfile
 from datetime import datetime
+
 from telethon.tl.types import DocumentAttributeVideo
-from uniborg.util import admin_cmd, progress
+
 from hachoir.metadata import extractMetadata
 from hachoir.parser import createParser
 from sample_config import Config
+from uniborg.util import admin_cmd, progress
 
-@borg.on(admin_cmd(pattern="unzip"))
+logging.basicConfig(format='[%(levelname) 5s/%(asctime)s] %(name)s: %(message)s',
+                    level=logging.WARNING)
+logger = logging.getLogger(__name__)
+
+
+@borg.on(admin_cmd(pattern="untar"))
 async def _(event):
     if event.fwd_from:
         return
     mone = await event.edit("Processing ...")
+    if not os.path.isdir(Config.TMP_DOWNLOAD_DIRECTORY):
+        os.makedirs(Config.TMP_DOWNLOAD_DIRECTORY)
     extracted = Config.TMP_DOWNLOAD_DIRECTORY + "extracted/"
     thumb_image_path = Config.TMP_DOWNLOAD_DIRECTORY + "/thumb_image.jpg"
     if not os.path.isdir(extracted):
         os.makedirs(extracted)
-    if not os.path.isdir(Config.TMP_DOWNLOAD_DIRECTORY):
-        os.makedirs(Config.TMP_DOWNLOAD_DIRECTORY)
     if event.reply_to_msg_id:
         start = datetime.now()
         reply_message = await event.get_reply_message()
@@ -44,13 +50,18 @@ async def _(event):
         else:
             end = datetime.now()
             ms = (end - start).seconds
-            await mone.edit("Stored the zip to `{}` in {} seconds.".format(downloaded_file_name, ms))
+            await mone.edit("Stored the tar to `{}` in {} seconds.".format(downloaded_file_name, ms))
+        with tarfile.TarFile.open(downloaded_file_name, 'r') as tar_file:
+            tar_file.extractall(path=extracted)
+        # tf = tarfile.open(downloaded_file_name)
+        # tf.extractall(path=extracted)
+        # tf.close()
 
-        with zipfile.ZipFile(downloaded_file_name, 'r') as zip_ref:
-            zip_ref.extractall(extracted)
+        # with zipfile.ZipFile(downloaded_file_name, 'r') as zip_ref:
+        #     zip_ref.extractall(extracted)
         filename = sorted(get_lst_of_files(extracted, []))
         #filename = filename + "/"
-        await event.edit("Unzipping now")
+        await event.edit("Untarring now")
         # r=root, d=directories, f = files
         for single_file in filename:
             if os.path.exists(single_file):
@@ -67,7 +78,8 @@ async def _(event):
                     if metadata.has("duration"):
                         duration = metadata.get('duration').seconds
                     if os.path.exists(thumb_image_path):
-                        metadata = extractMetadata(createParser(thumb_image_path))
+                        metadata = extractMetadata(
+                            createParser(thumb_image_path))
                         if metadata.has("width"):
                             width = metadata.get("width")
                         if metadata.has("height"):
@@ -105,6 +117,9 @@ async def _(event):
                     continue
                 os.remove(single_file)
         os.remove(downloaded_file_name)
+    await asyncio.sleep(2)
+    shutil.rmtree(Config.TMP_DOWNLOAD_DIRECTORY)
+
 
 def get_lst_of_files(input_directory, output_lst):
     filesinfolder = os.listdir(input_directory)

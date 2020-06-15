@@ -1,32 +1,38 @@
-""" command: .unrar
+""" command: .unzip
 coded by @By_Azade
+code rewritten my SnapDragon7410
 """
-
-import logging
-logging.basicConfig(format='[%(levelname) 5s/%(asctime)s] %(name)s: %(message)s',
-                    level=logging.WARNING)
 import asyncio
+import logging
 import os
+import shutil
 import time
+import zipfile
 from datetime import datetime
-import patoolib
+
 from telethon.tl.types import DocumentAttributeVideo
-from uniborg.util import admin_cmd, progress
+
 from hachoir.metadata import extractMetadata
 from hachoir.parser import createParser
 from sample_config import Config
+from uniborg.util import admin_cmd, progress
 
-@borg.on(admin_cmd(pattern="unrar"))
+logging.basicConfig(format='[%(levelname) 5s/%(asctime)s] %(name)s: %(message)s',
+                    level=logging.WARNING)
+logger = logging.getLogger(__name__)
+
+
+@borg.on(admin_cmd(pattern="unzip"))
 async def _(event):
     if event.fwd_from:
         return
     mone = await event.edit("Processing ...")
-    if not os.path.isdir(Config.TMP_DOWNLOAD_DIRECTORY):
-        os.makedirs(Config.TMP_DOWNLOAD_DIRECTORY)
     extracted = Config.TMP_DOWNLOAD_DIRECTORY + "extracted/"
     thumb_image_path = Config.TMP_DOWNLOAD_DIRECTORY + "/thumb_image.jpg"
     if not os.path.isdir(extracted):
         os.makedirs(extracted)
+    if not os.path.isdir(Config.TMP_DOWNLOAD_DIRECTORY):
+        os.makedirs(Config.TMP_DOWNLOAD_DIRECTORY)
     if event.reply_to_msg_id:
         start = datetime.now()
         reply_message = await event.get_reply_message()
@@ -44,12 +50,13 @@ async def _(event):
         else:
             end = datetime.now()
             ms = (end - start).seconds
-            await mone.edit("Stored the rar to `{}` in {} seconds.".format(downloaded_file_name, ms))
+            await mone.edit("Stored the zip to `{}` in {} seconds.".format(downloaded_file_name, ms))
 
-        patoolib.extract_archive(downloaded_file_name, outdir=extracted)
+        with zipfile.ZipFile(downloaded_file_name, 'r') as zip_ref:
+            zip_ref.extractall(extracted)
         filename = sorted(get_lst_of_files(extracted, []))
         #filename = filename + "/"
-        await event.edit("Unraring now")
+        await event.edit("Unzipping now")
         # r=root, d=directories, f = files
         for single_file in filename:
             if os.path.exists(single_file):
@@ -66,7 +73,8 @@ async def _(event):
                     if metadata.has("duration"):
                         duration = metadata.get('duration').seconds
                     if os.path.exists(thumb_image_path):
-                        metadata = extractMetadata(createParser(thumb_image_path))
+                        metadata = extractMetadata(
+                            createParser(thumb_image_path))
                         if metadata.has("width"):
                             width = metadata.get("width")
                         if metadata.has("height"):
@@ -84,7 +92,7 @@ async def _(event):
                     await borg.send_file(
                         event.chat_id,
                         single_file,
-                        caption=f"UnRarred `{caption_rts}`",
+                        caption=f"`{caption_rts}`",
                         force_document=force_document,
                         supports_streaming=supports_streaming,
                         allow_cache=False,
@@ -104,6 +112,9 @@ async def _(event):
                     continue
                 os.remove(single_file)
         os.remove(downloaded_file_name)
+    await asyncio.sleep(2)
+    shutil.rmtree(Config.TMP_DOWNLOAD_DIRECTORY)
+
 
 def get_lst_of_files(input_directory, output_lst):
     filesinfolder = os.listdir(input_directory)
@@ -112,4 +123,4 @@ def get_lst_of_files(input_directory, output_lst):
         if os.path.isdir(current_file_name):
             return get_lst_of_files(current_file_name, output_lst)
         output_lst.append(current_file_name)
-    return output_lst   
+    return output_lst

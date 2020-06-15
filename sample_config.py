@@ -56,8 +56,6 @@ class Config(object):
     # Remove This To Make Them Work But Would Make Bot Unstable AF...⚡
     NO_LOAD = [
                    "pmpermit" ,
-                   "antiflood" ,
-                   "locks" ,
                    "blacklist" ,
 ]
     # Get your own API key from https://www.remove.bg/ or

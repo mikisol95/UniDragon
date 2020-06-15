@@ -3,12 +3,12 @@
   "description": "Only For Legends..... By : @kirito6969",
   "logo": "https://telegra.ph/file/5b5388c1a96670bd96b5e.png",
   "keywords": [
-    "sex",
-    "porn",
-    "xxx",
-    "dick",
-    "vagina",
-    "boobs"
+    "pepe",
+    "doggo",
+    "cat",
+    "dani_daniels",
+    "hentoi",
+    "oppai"
   ],
   "repository": "https://gitlab.com/SpEcHiDe/UniBorg",
   "website": "https://telegram.dog/UniBorg",
@@ -73,7 +73,7 @@
     },
     "TELEGRAPH_SHORT_NAME": {
       "description": "This is required for the @telegraph functionality.",
-      "value": "LUCIFERTHEKING",
+      "value": "@kirito6969",
       "required": false
     },
     "OCR_SPACE_API_KEY": {
@@ -116,6 +116,7 @@
     },
     "PM_LOGGR_BOT_API_ID": {
       "description": "send .g_id in any channel to forward all your NEW PMs to this group",
+      "value":"-100",
       "required": false
     },
     "NO_OF_BUTTONS_DISPLAYED_IN_H_ME_CMD": {
@@ -171,11 +172,6 @@
       "value": "./uniborg.media.ffmpeg/",
       "required": false
     },
-    "PM_LOGGR_BOT_API_ID": {
-      "description": "Type .g_id in private channel and add that value here.",
-      "value": "-100",
-      "required": false
-    },
     "CHROME_BIN": {
       "description": "For Carbon.py",
       "value": "/app/.apt/usr/bin/google-chrome",
@@ -194,21 +190,13 @@
       "description": "This is required for commit functionality to work.",
       "required": false
     },
-    "OPEN_LOAD_KEY": {
-      "description": "I dunno but my repo needs it, u can type 100.",
-      "required": false
-    },
-    "OPEN_LOAD_LOGIN": {
-      "description": "Same Description As Above.",
-      "required": false
-    },
     "TEMP_DIR": {
       "description": ":p",
       "value": "Env",
       "required": false
     },
     "UB_BLACK_LIST_CHAT": {
-      "description": "haha",
+      "description": "set blacklist_chats where you do not want userbot features",
       "value": "-100",
       "required": false
     },

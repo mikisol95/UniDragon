@@ -4,7 +4,7 @@
 
 """Syntax: 
 `.save <notename>
-.get <notename>
+.iget <notename>
 .clear <notename>
 .clearall`
 """
