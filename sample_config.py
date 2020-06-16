@@ -115,9 +115,11 @@ class Config(object):
     GOOGLE_CHROME_BIN = os.environ.get("GOOGLE_CHROME_BIN", None)
     #
     LYDIA_API = os.environ.get("LYDIA_API", None)
-    #
+    # Heroku Miscellaneous
+    HEROKU_MEMEZ = bool(os.environ.get("HEROKU_MEMEZ", "False"))
     HEROKU_API_KEY = os.environ.get("HEROKU_API_KEY", None)
     HEROKU_APP_NAME = os.environ.get("HEROKU_APP_NAME", None)
+    UPSTREAM_REPO_URL = os.environ.get("UPSTREAM_REPO_URL", "https://github.com/prono69/PepeBot.git")
     #
     CHROME_DRIVER = os.environ.get("CHROME_DRIVER", None)
     CHROME_BIN = os.environ.get("CHROME_BIN", None)

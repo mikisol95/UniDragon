@@ -1,12 +1,15 @@
 from telethon.errors.rpcerrorlist import YouBlockedUserError
 from uniborg.util import admin_cmd
+from uniborg import MODULE, SYNTAX
 
 naam = "NIKITA"
+nom = " You"
 
 bot = "@indianaibot"
 bluebot = "@EASY12DEVIL_BOT"
 freebot = "@freeusersbot"
 
+MODULE.append("javifi")
 
 @borg.on(admin_cmd(pattern="jav ?(.*)"))
 async def _(event):
@@ -23,6 +26,7 @@ async def _(event):
               audio = await conv.get_response()
               await borg.send_file(event.chat_id, audio, caption="➡️**TO BOSS : **" + naam +"\n`Check out` [PEPEBOT](https://github.com/prono69/PepeBot)")
               await event.delete()
+              await event.client.send_read_acknowledge(conv.chat_id)
           except YouBlockedUserError:
               await event.edit("**Error:** `unblock` @indianaibot `and retry!")
     elif sysarg == "ss":
@@ -34,6 +38,7 @@ async def _(event):
               audio = await conv.get_response()
               await borg.send_file(event.chat_id, audio, caption="**CREDITS : Dr.jr Genesis**\n`Check out` [PEPEBOT](https://github.com/prono69/PepeBot)")
               await event.delete()
+              await event.client.send_read_acknowledge(conv.chat_id)
           except YouBlockedUserError:
               await event.edit("**Error:** `unblock` @Mariodevs `and retry!`")
     elif sysarg == "--h":
@@ -45,6 +50,7 @@ async def _(event):
               audio = await conv.get_response()
               await borg.send_file(event.chat_id, audio, caption="**Dr.Bot Is Here To Help**\n`Check out` [PEPEBOT](https://github.com/prono69/PepeBot)")
               await event.delete()
+              await event.client.send_read_acknowledge(conv.chat_id)
           except YouBlockedUserError:
               await event.edit("**Error:** `unblock` @Mariodevs `and retry!`")
     elif sysarg == "npic":
@@ -54,8 +60,9 @@ async def _(event):
               response = await conv.get_response()
               await conv.send_message("/nudepic")
               audio = await conv.get_response()
-              await borg.send_file(event.chat_id, audio, caption="**For" + naam +" **\n`Check out` [PEPEBOT](https://github.com/prono69/PepeBot)")
+              await borg.send_file(event.chat_id, audio, caption="**For" + nom +" **\n`Check out` [PEPEBOT](https://github.com/prono69/PepeBot)")
               await event.delete()
+              await event.client.send_read_acknowledge(conv.chat_id)
           except YouBlockedUserError:
               await event.edit("**Error:** `unblock` @indianaibot `and retry!`")
     elif sysarg == "rs":
@@ -67,6 +74,7 @@ async def _(event):
               audio = await conv.get_response()
               await borg.send_file(event.chat_id, audio, caption="**CREDITS : Dr.Pure Indian Lover**\n`Check out` [PEPEBOT](https://github.com/prono69/PepeBot)")
               await event.delete()
+              await event.client.send_read_acknowledge(conv.chat_id)
           except YouBlockedUserError:
               await event.edit("**Error:** `unblock` @Mariodevs `and retry!`")
     elif sysarg == "ib":
@@ -78,6 +86,7 @@ async def _(event):
               audio = await conv.get_response()
               await borg.send_file(event.chat_id, audio, caption="**CREDITS : Dr.BlueDevil**\n`Check out` [PEPEBOT](https://github.com/prono69/PepeBot)")
               await event.delete()
+              await event.client.send_read_acknowledge(conv.chat_id)
           except YouBlockedUserError:
               await event.edit("**Error:** `unblock` @mariodevs `and retry!`")
     elif sysarg == "acc":
@@ -89,10 +98,23 @@ async def _(event):
               audio = await conv.get_response()
               await borg.send_file(event.chat_id, audio)
               await event.delete()
+              await event.client.send_read_acknowledge(conv.chat_id)
           except YouBlockedUserError:
               await event.edit("**Error:** `unblock` @mariodevs `and retry!`")
     else:
       await brog.send_message(event.chat_id, "**INVALID** -- FOR HELP COMMAND IS **.jav --h**")
       await event.delete()
+      await event.client.send_read_acknowledge(event.chat_id)
 
+SYNTAX.update({
+    "javifi":
+"Usage: Various Bot Commands\
+\n\n`.jav h` For Hello\
+\n\n`.jav --h` For Help\
+\n\n`.jav npic` For a Random Nude Pic\
+\n\n`.jav ss` \
+\n\n`.jav rs` \
+\n\n`.jav ib` \
+\n\n`.jav acc`"
+})
 
