@@ -57,7 +57,7 @@ async def _(event):
         "limit": Config.TG_GLOBAL_ALBUM_LIMIT,
         "format": "jpg",
         "delay": 1,
-        "safe_search": True,
+        "safe_search": False,
         "output_directory": Config.TMP_DOWNLOAD_DIRECTORY
     }
     paths = response.download(arguments)
