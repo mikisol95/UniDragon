@@ -97,7 +97,7 @@ async def _(hazmat):
         else:
             downloaded_file_name = await hazmat.client.download_media(
                                  response.media,
-                                 TEMP_DOWNLOAD_DIRECTORY
+                                 Config.TMP_DOWNLOAD_DIRECTORY
             )
             await hazmat.client.send_file(
                 hazmat.chat_id,
