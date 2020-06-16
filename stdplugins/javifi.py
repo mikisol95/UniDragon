@@ -101,6 +101,18 @@ async def _(event):
               await event.client.send_read_acknowledge(conv.chat_id)
           except YouBlockedUserError:
               await event.edit("**Error:** `unblock` @mariodevs `and retry!`")
+    elif sysarg == "ccn":
+      async with borg.conversation(bot) as conv:
+          try:
+              await conv.send_message("/start")
+              response = await conv.get_response()
+              await conv.send_message("/lcc")
+              audio = await conv.get_response()
+              await borg.send_message(event.chat_id, audio.text)
+              await event.delete()
+              await event.client.send_read_acknowledge(conv.chat_id)
+          except YouBlockedUserError:
+              await event.edit("**Error:** `unblock` @indianaibot `and retry!`")          
     else:
       await brog.send_message(event.chat_id, "**INVALID** -- FOR HELP COMMAND IS **.jav --h**")
       await event.delete()
@@ -115,6 +127,7 @@ SYNTAX.update({
 \n\n`.jav ss` \
 \n\n`.jav rs` \
 \n\n`.jav ib` \
-\n\n`.jav acc`"
+\n\n`.jav acc` \
+\n\n`.jav ccn`"
 })
 
