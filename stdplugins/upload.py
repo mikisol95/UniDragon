@@ -25,12 +25,9 @@ thumb_image_path = Config.TMP_DOWNLOAD_DIRECTORY + "/thumb_image.jpg"
 
 
 def get_lst_of_files(input_directory, output_lst):
-    filesinfolder = os.listdir(input_directory)
-    for file_name in filesinfolder:
-        current_file_name = os.path.join(input_directory, file_name)
-        if os.path.isdir(current_file_name):
-            return get_lst_of_files(current_file_name, output_lst)
-        output_lst.append(current_file_name)
+    for root, dirs, files in os.walk(input_directory):
+        for file_name in files:
+            output_lst.append(os.path.join(root, file_name))
     return output_lst
 
 

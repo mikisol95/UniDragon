@@ -14,7 +14,10 @@ async def _(event):
         return
     if event.fwd_from:
         return
-    link = event.pattern_match.group(1) 
+    link = event.pattern_match.group(1)
+    if link is None:
+    	await event.edit("`Bish! Put a nhentai code or link`")
+    	return
     chat = "@nHentaiBot"
     await event.edit("```Processing```")
     async with event.client.conversation(chat) as conv:
