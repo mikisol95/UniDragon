@@ -21,13 +21,13 @@ import logging
 logging.basicConfig(format='[%(levelname) 5s/%(asctime)s] %(name)s: %(message)s',
                     level=logging.WARNING)
                     
-@borg.on(admin_cmd(pattern="cbio (.*)"))  # pylint:disable=E0602
+@borg.on(admin_cmd(pattern="cbio (.*)"))   
 async def _(event):
     if event.fwd_from:
         return
     bio = event.pattern_match.group(1)
     try:
-        await borg(functions.account.UpdateProfileRequest(  # pylint:disable=E0602
+        await borg(functions.account.UpdateProfileRequest(   
             about=bio
         ))
         await event.edit("`Succesfully changed My Profile bio`")
@@ -35,7 +35,7 @@ async def _(event):
         await event.edit(str(e))
 
 
-@borg.on(admin_cmd(pattern="cname ((.|\n)*)"))  # pylint:disable=E0602,W0703
+@borg.on(admin_cmd(pattern="cname ((.|\n)*)"))   ,W0703
 async def _(event):
     if event.fwd_from:
         return
@@ -45,7 +45,7 @@ async def _(event):
     if  "\\n" in names:
         first_name, last_name = names.split("\\n", 1)
     try:
-        await borg(functions.account.UpdateProfileRequest(  # pylint:disable=E0602
+        await borg(functions.account.UpdateProfileRequest(   
             first_name=first_name,
             last_name=last_name
         ))
@@ -54,7 +54,7 @@ async def _(event):
         await event.edit(str(e))
 
 
-@borg.on(admin_cmd(pattern="cpic"))  # pylint:disable=E0602
+@borg.on(admin_cmd(pattern="cpic"))   
 async def _(event):
     if event.fwd_from:
         return
@@ -76,9 +76,9 @@ async def _(event):
     else:
         if photo:
             await event.edit("Making Profile pic for U, Nibba.")
-            file = await borg.upload_file(photo)  # pylint:disable=E0602
+            file = await borg.upload_file(photo)   
             try:
-                await borg(functions.photos.UploadProfilePhotoRequest(  # pylint:disable=E0602
+                await borg(functions.photos.UploadProfilePhotoRequest(   
                     file
                 ))
             except Exception as e:  # pylint:disable=C0103,W0703
@@ -88,7 +88,7 @@ async def _(event):
     try:
         os.remove(photo)
     except Exception as e:  # pylint:disable=C0103,W0703
-        logger.warn(str(e))  # pylint:disable=E0602
+        logger.warn(str(e))   
 
 @borg.on(admin_cmd(pattern="delpfp ?(.*)"))
 async def remove_profilepic(delpfp):
@@ -128,7 +128,7 @@ async def update_username(username):
     except UsernameInvalidError:
         await username.edit("```This Username is Invalid, U Brainless Creature```")     
 
-@borg.on(admin_cmd(pattern="photo ?(.*)"))  # pylint:disable=E0602
+@borg.on(admin_cmd(pattern="photo ?(.*)"))   
 async def _(event):
     """getting user profile photo last changed time"""
     if event.fwd_from:
