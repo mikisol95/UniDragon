@@ -59,14 +59,17 @@ async def _(event):
     if event.fwd_from:
         return
     reply_message = await event.get_reply_message()
+    if reply_message.text:
+    	await event.edit("Hey Pro! Are You sure it's a Photo ?")
+    	return
     await event.edit("Downloading Profile Picture to my local ...")
-    if not os.path.isdir(Config.TMP_DOWNLOAD_DIRECTORY):  # pylint:disable=E0602
-        os.makedirs(Config.TMP_DOWNLOAD_DIRECTORY)  # pylint:disable=E0602
+    if not os.path.isdir(Config.TMP_DOWNLOAD_DIRECTORY):  
+        os.makedirs(Config.TMP_DOWNLOAD_DIRECTORY) 
     photo = None
     try:
-        photo = await borg.download_media(  # pylint:disable=E0602
+        photo = await borg.download_media(  
             reply_message,
-            Config.TMP_DOWNLOAD_DIRECTORY  # pylint:disable=E0602
+            Config.TMP_DOWNLOAD_DIRECTORY  
         )
     except Exception as e:  # pylint:disable=C0103,W0703
         await event.edit(str(e))
