@@ -35,7 +35,7 @@ async def _(event):
         await event.edit(str(e))
 
 
-@borg.on(admin_cmd(pattern="cname ((.|\n)*)"))   ,W0703
+@borg.on(admin_cmd(pattern="cname ((.|\n)*)"))
 async def _(event):
     if event.fwd_from:
         return
