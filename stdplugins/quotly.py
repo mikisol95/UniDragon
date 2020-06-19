@@ -1,7 +1,11 @@
 """QuotLy: Avaible commands: .qbot
 """
-from telethon import events
+from uniborg import MODULE, SYNTAX
 from uniborg.util import admin_cmd
+from telethon import events
+
+MODULE_LIST.append("quotly")
+
 
 @borg.on(admin_cmd(pattern="qbot ?(.*)"))
 async def _(event):
@@ -14,17 +18,12 @@ async def _(event):
     elif reply:
         quote = reply
     else:
-    	await event.edit("```Plz Reply to a TEXT message or Input TEXT.```")
-    return
+        return
     bot = "@QuotLyBot"
-    await event.edit(f"```Making a Quote...```")
+    await event.edit(f"```Making a quote....```")
 
     async with borg.conversation(bot) as bot_conv:
-        if True:
-            response = await silently_send_message(bot_conv, "/start")
-            if "Hi!" not in response.text:
-                await event.edit(f"{response.text}")
-                return
+        if True: #lazy indentation workaround xD
             if input_str:
               response = await silently_send_message(bot_conv, quote)
             elif reply:
@@ -44,3 +43,13 @@ async def silently_send_message(conv, text):
     response = await conv.get_response()
     await conv.mark_read(message=response)
     return response
+
+
+SYNTAX.update({
+    "quotly": "\
+**Requested Module --> quotly**\
+\n\n**Detailed usage of fuction(s):**\
+\n\n```.qbot <text_to_quote> [or as a reply to a message to quote]```\
+\nUsage: Quotes the target message.\nUses @QuotLyBot.\
+"
+})
