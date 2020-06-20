@@ -77,7 +77,7 @@ async def git_commit(file_name,mone):
 		try:
 			repo.create_file(file_name, "Uploaded New Plugin", commit_data, branch=BRANCH)
 			print("Committed File")
-			await mone.edit("`Committed on Your Github Repo.\nCheck from` [HERE](https://github.com/prono69/PepeBot/blob/master/stdplugins)")
+			await mone.edit("`Committed on Your Github Repo.\nCheck from` [HERE](https://github.com/prono69/PepeBot/blob/master/stdplugins/{file_name})")
 		except:
 			print("Cannot Create Plugin")
 			await mone.edit("Cannot Upload Plugin")

@@ -13,6 +13,7 @@ google_images_download==2.8.0
 google-api-python-client
 google_auth_oauthlib
 gsearch>=1.6.0
+geopy
 gtts
 hachoir
 lyricsgenius
@@ -61,3 +62,4 @@ pymongo
 covid
 heroku3
 justwatch
+htmlement
