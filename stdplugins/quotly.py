@@ -4,7 +4,7 @@ from uniborg import MODULE, SYNTAX
 from uniborg.util import admin_cmd
 from telethon import events
 
-MODULE_LIST.append("quotly")
+MODULE.append("quotly")
 
 
 @borg.on(admin_cmd(pattern="qbot ?(.*)"))
