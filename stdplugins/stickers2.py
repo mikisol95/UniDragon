@@ -29,8 +29,6 @@ KANGING_STR = [
     "Aaja Bsdk aa Sala Kurkure..."
 ]
 
-
-# @register(outgoing=True, pattern="^.kang")
 @borg.on(admin_cmd(pattern="ikang ?(.*)"))
 async def kang(args):
     """ For .kang command, kangs stickers or creates new ones. """
@@ -41,9 +39,9 @@ async def kang(args):
         message = await args.get_reply_message()
         input_str = args.pattern_match.group(1)
         photo = None
-        emojibypass = False
+        emojibypass = True
         is_anim = False
-        emoji = None
+        emoji = "🍑"
         if input_str:
         	emoji = input_str
 
