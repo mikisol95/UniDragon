@@ -39,7 +39,7 @@ async def kang(args):
         message = await args.get_reply_message()
         input_str = args.pattern_match.group(1)
         photo = None
-        emojibypass = True
+        emojibypass = False
         is_anim = False
         emoji = "🍑"
         if input_str:
@@ -80,8 +80,6 @@ async def kang(args):
 
         if photo:
             splat = args.text.split()
-            if not emojibypass:
-                emoji = "🍑"
             pack = 1
             if len(splat) == 3:
                 pack = splat[2]  # User sent both
