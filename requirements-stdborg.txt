@@ -64,3 +64,4 @@ heroku3
 justwatch
 htmlement
 pybase64
+jikanpy

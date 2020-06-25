@@ -14,6 +14,7 @@ async def _(event):
         return
     DELAY_BETWEEN_EDITS = 0.3
     PROCESS_RUN_TIME = 100
+    await event.edit("`Processing...`")
     cmd = event.pattern_match.group(1)
     reply_to_id = event.message.id
     if event.reply_to_msg_id:
