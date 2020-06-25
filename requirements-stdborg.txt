@@ -40,7 +40,7 @@ youtube-dl
 lxml
 python-magic
 oauth2client
-httplib2==0.18.0
+httplib2==0.15.0
 humanize
 patool
 remotezip
@@ -63,3 +63,4 @@ covid
 heroku3
 justwatch
 htmlement
+pybase64

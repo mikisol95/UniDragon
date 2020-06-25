@@ -158,6 +158,25 @@ async def xcursive(cursivelite):
             string = string.replace(normiecharacter, cursivecharacter)
     await cursivelite.edit(string)
     
+musicalfont = ['♬', 'ᖲ', '¢', 'ᖱ', '៩', '⨏', '❡', 'Ϧ', 'ɨ', 'ɉ', 'ƙ', 'ɭ', '៣', '⩎', '០', 'ᖰ', 'ᖳ', 'Ʀ', 'ន', 'Ƭ',
+               '⩏','⩔', 'Ɯ', '✗', 'ƴ', 'Ȥ']
+               
+@borg.on(events.NewMessage(pattern="^.musi(?: |$)(.*)"))
+async def xmusical(musical):
+
+    args = musical.pattern_match.group(1)
+    if not args:
+        get = await musical.get_reply_message()
+        args = get.text   
+    if not args:
+        await musical.edit("`What I am Supposed to musicify for U Dumb`")
+        return
+    string = ''.join(args).lower()
+    for normiecharacter in string:
+        if normiecharacter in normiefont:
+            musicalstyle = musicalfont[normiefont.index(normiecharacter)]
+            string = string.replace(normiecharacter, musicalstyle)
+    await musical.edit(string)               
 
     
 SYNTAX.update({
@@ -169,5 +188,6 @@ SYNTAX.update({
 \n\n`.medi` make text medival.\
 \n\n`.medib` make text medival bold.\
 \n\n`.ds` make text doublestruck.\
-\n\n`.bold` make text bold."
+\n\n`.bold` make text bold.\
+\n\n`.musi` make text musical."
 })

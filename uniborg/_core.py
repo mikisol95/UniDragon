@@ -66,9 +66,12 @@ async def send_plug_in(event):
     end = datetime.now()
     time_taken_in_ms = (end - start).seconds
     await event.edit("Ok, BTC Uploaded {} in {} seconds".format(input_str, time_taken_in_ms))
+    else:
+    	await event.edit("`Brah.. No Module Found!`")
+    	return
     await asyncio.sleep(DELETE_TIMEOUT)
-    await event.delete()
-
+    await event.delete()    
+     	
 
 @borg.on(util.admin_cmd(pattern="install"))   
 async def install_plug_in(event):
