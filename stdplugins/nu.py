@@ -4,7 +4,7 @@ from uniborg.util import admin_cmd
 import datetime
 import requests
 import bs4
-import textwarp
+import textwrap
 
 @borg.on(admin_cmd(pattern="user ?(.*)"))
 async def user(event):
