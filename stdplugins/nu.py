@@ -73,11 +73,11 @@ async def user(event):
     caption += f"*About*: {about_string}"
     await event.client.send_file(event.chat_id, file = user['url'],  caption=caption)
 
-@borg.on(admin_cmd(pattern="(kaizoku|kayo) ?(.*)"))    
+@borg.on(admin_cmd(pattern="s (kaizoku|kayo) ?(.*)"))    
 async def site_search(event):
     message = await event.get_reply_message()
-    search_query= event.pattern_match.group(1)
-    site = event.pattern_match.group(0)
+    search_query= event.pattern_match.group(2)
+    site = event.pattern_match.group(1)
     if search_query:
     	pass
     elif message:
@@ -117,5 +117,5 @@ async def site_search(event):
             post_link = entry.a['href']
             post_name = html.escape(entry.text.strip())
             result += f"• <a href='{post_link}'>{post_name}</a>\n"
-            await event.edit(result, parse_mode='html')
+            await event.edit(result, parse_mode='HTML')
     
