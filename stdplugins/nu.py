@@ -26,7 +26,7 @@ async def user(event):
         await event.edit("Username not found.")
         return
 
-    progress_message = await event.edit("Searching.... ")
+    await event.edit("Searching.... ")
 
     date_format = "%Y-%m-%d"
     if user['image_url'] is None:
@@ -98,8 +98,10 @@ async def site_search(event):
                 post_link = entry.a['href']
                 post_name = html.escape(entry.text)
                 result += f"• <a href='{post_link}'>{post_name}</a>\n"
+                await event.edit(result, parse_mode = 'HTML')
         else:
             result = f"<b>No result found for</b> <code>{html.escape(search_query)}</code> <b>on</b> <code>AnimeKaizoku</code>"
+            await event.edit(result, parse_mode='HTML')
 
     elif site == "kayo":
         search_url = f"https://animekayo.com/?s={search_query}"
