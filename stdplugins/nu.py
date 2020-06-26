@@ -15,7 +15,7 @@ async def user(event):
     elif message:
     	search_query = message.text
     else:
-    	await event.edit("Format : /user <username>")
+    	await event.edit("Format : .user <username>")
     	return
 
     jikan = jikanpy.jikan.Jikan()
@@ -71,12 +71,13 @@ async def user(event):
     """)
 
     caption += f"*About*: {about_string}"
-    await event.client.send_message(event.chat_id, caption)
+    await event.client.send_file(event.chat_id, file = user['url'],  caption=caption)
 
 @borg.on(admin_cmd(pattern="(kaizoku|kayo) ?(.*)"))    
 async def site_search(event):
     message = await event.get_reply_message()
     search_query= event.pattern_match.group(1)
+    site = event.pattern_match.group(0)
     if search_query:
     	pass
     elif message:
