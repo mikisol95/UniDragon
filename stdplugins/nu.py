@@ -60,18 +60,18 @@ async def user(event):
     caption = ""
 
     caption += textwrap.dedent(f"""
-    *Username*: [{user['username']}]({user['url']})
+    **Username**: [{user['username']}]({user['url']})
 
-    *Gender*: `{user['gender']}`
-    *Birthday*: `{user_birthday_formatted}`
-    *Joined*: `{user_joined_date_formatted}`
-    *Days wasted watching anime*: `{user['anime_stats']['days_watched']}`
-    *Days wasted reading manga*: `{user['manga_stats']['days_read']}`
+    **Gender**: `{user['gender']}`
+    **Birthday**: `{user_birthday_formatted}`
+    **Joined**: `{user_joined_date_formatted}`
+    **Days wasted watching Anime**: `{user['anime_stats']['days_watched']}`
+    **Days wasted reading Manga**: `{user['manga_stats']['days_read']}`
 
     """)
 
-    caption += f"*About*: {about_string}"
-    await event.client.send_file(event.chat_id, file = user['image_url'],  caption=caption)
+    caption += f"**About**: {about_string}"
+    await event.client.send_file(event.chat_id, file=img, caption=caption)
 
 @borg.on(admin_cmd(pattern="s (kaizoku|kayo) ?(.*)"))    
 async def site_search(event):
@@ -90,7 +90,7 @@ async def site_search(event):
         search_url = f"https://animekaizoku.com/?s={search_query}"
         html_text = requests.get(search_url).text
         soup = bs4.BeautifulSoup(html_text, "html.parser")
-        search_result = soup.find_all("h2", {'class': "post-title"})
+        search_result = soup.find_all("h2", {'class': "title"})
 
         if search_result:
             result = f"<b>Search results for</b> <code>{html.escape(search_query)}</code> <b>on</b> <code>AnimeKaizoku</code>: \n\n"
@@ -98,7 +98,6 @@ async def site_search(event):
                 post_link = entry.a['href']
                 post_name = html.escape(entry.text.strip())
                 result += f"• <a href='{post_link}'>{post_name}</a>\n"
-                result += f"{search_url}"
                 await event.edit(result, parse_mode = 'HTML')
         else:
             result = f"<b>No result found for</b> <code>{html.escape(search_query)}</code> <b>on</b> <code>AnimeKaizoku</code>"

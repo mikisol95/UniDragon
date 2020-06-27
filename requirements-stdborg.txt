@@ -65,3 +65,4 @@ justwatch
 htmlement
 pybase64
 jikanpy
+nekos.py
