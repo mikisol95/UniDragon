@@ -18,9 +18,11 @@ API_HASH = input("Enter API HASH here: ")
  
 with TelegramClient(StringSession(), APP_ID, API_HASH) as client:
     session_string = client.session.save()
-    saved_messages_template = """@Uniborg 
+    saved_messages_template = """@PepeB0t 
 <code>HU_STRING_SESSION</code>: <code>{}</code>
  
 ⚠️ <i>it is forbidden to pass this value to third parties</i>""".format(session_string)
     client.send_message("me", saved_messages_template, parse_mode="html")
- 
+    
+print("""Please Check Your Telegarm Saved Message for String Session.
+Thank You for Using PepeBot Service.""")
