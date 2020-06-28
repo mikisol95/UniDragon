@@ -1,7 +1,7 @@
 """
 Anime Batch Downloader Plugin for userbot. //set TEMP_DIR Env Var first.
 usage:- get a link of Animefrenzy.net Anime page and use in cmd.
-cmd:- .anime page_link
+cmd:- .anid page_link
 By:- @Zero_cool7870	  
 
 """
@@ -30,7 +30,7 @@ async def download_file(url,filename):
 			handle.write(chunk)
 	handle.close()   
 
-@borg.on(events.NewMessage(pattern=r"\.anime", outgoing=True))
+@borg.on(events.NewMessage(pattern=r"\.anid", outgoing=True))
 async def anime_download(event):
 	urls = []
 	url_links = []
