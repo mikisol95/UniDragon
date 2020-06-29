@@ -47,8 +47,7 @@ async def _(event):
         # if odd, escaped -> move along
         else:
             note_data += markdown_note[prev:to_check]
-            prev = match.start(1) - 1
-        
+            prev = match.start(1) - 1       
         note_data += markdown_note[prev:]
 
     message_text = note_data.strip()
