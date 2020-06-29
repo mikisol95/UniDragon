@@ -2,15 +2,10 @@
 
 from telethon import events
 import subprocess
-from telethon.errors import MessageEmptyError, MessageTooLongError, MessageNotModifiedError
-import io
 import asyncio
-import datetime
-import time
 from uniborg.util import admin_cmd
 from uniborg import MODULE, SYNTAX
 from telethon.errors.rpcerrorlist import YouBlockedUserError
-from telethon.tl.functions.account import UpdateNotifySettingsRequest
 import glob
 import os
 MODULE.append("song")

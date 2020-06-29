@@ -1,7 +1,7 @@
 "get music from .music/.spotbot <music query>  Credits https://t.me/By_Azade"
 import logging
 from uniborg.util import admin_cmd
-from uniborg import MODULE, SYNTAX
+from uniborg import MODULE
 MODULE.append("song1")
 
 logging.basicConfig(format='[%(levelname) 5s/%(asctime)s] %(name)s: %(message)s',

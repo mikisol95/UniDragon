@@ -18,7 +18,6 @@ Bengali = .ben  '''
 import io
 import textwrap
 import random
-from telethon import events
 from PIL import Image, ImageDraw, ImageFont
 from uniborg.util import admin_cmd
 

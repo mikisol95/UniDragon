@@ -5,7 +5,7 @@
 from asyncio import sleep
 from sample_config import Config
 from uniborg.util import admin_cmd
-from uniborg import MODULE, SYNTAX
+from uniborg import MODULE
 MODULE.append("chatmute")
 
 

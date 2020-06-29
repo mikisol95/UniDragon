@@ -4,7 +4,6 @@ Syntax: .covid <country>"""
 from datetime import datetime
 from covid import Covid
 from uniborg.util import admin_cmd
-from telethon import events
 
 @borg.on(admin_cmd(pattern="covid ?(.*)", allow_sudo=True))
 async def corona(event):
