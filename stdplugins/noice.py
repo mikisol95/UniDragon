@@ -424,7 +424,7 @@ async def copypasta(cp_e):
 async def vapor(vpr):
     """ Vaporize everything! """
     if not vpr.text[0].isalpha() and vpr.text[0] not in ("/", "#", "@", "!"):
-        reply_text = list()
+        reply_text = []
         textx = await vpr.get_reply_message()
         message = vpr.pattern_match.group(1)
         if message:
@@ -474,7 +474,7 @@ async def stretch(stret):
 async def izal(zgfy):
     """ Invoke the feeling of chaos. """
     if not zgfy.text[0].isalpha() and zgfy.text[0] not in ("/", "#", "@", "!"):
-        reply_text = list()
+        reply_text = []
         textx = await zgfy.get_reply_message()
         message = zgfy.pattern_match.group(1)
         if message:
@@ -586,7 +586,7 @@ async def iqless(e):
 async def spongemocktext(mock):
     """ Do it and find the real fun. """
     if not mock.text[0].isalpha() and mock.text[0] not in ("/", "#", "@", "!"):
-        reply_text = list()
+        reply_text = []
         textx = await mock.get_reply_message()
         message = mock.pattern_match.group(1)
         if message:
