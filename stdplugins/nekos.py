@@ -21,11 +21,10 @@ Cmds = `.nk <argument from POSSIBLE list>`
 
 import nekos
 from uniborg.util import admin_cmd
-import json
 import requests
 from PIL import Image
 import os
-from uniborg import MODULE, SYNTAX
+from uniborg import MODULE
 
 MODULE.append("nekos")
 

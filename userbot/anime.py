@@ -1,7 +1,6 @@
 import textwrap
 import jikanpy
 import requests
-import html
 
 def getPosterLink(mal):
     # grab poster from kitsu

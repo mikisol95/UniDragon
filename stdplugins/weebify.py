@@ -4,7 +4,6 @@
 
 from uniborg import SYNTAX, MODULE
 from telethon import events
-from uniborg.util import admin_cmd
 
 MODULE.append("weebify")
 
