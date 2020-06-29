@@ -53,8 +53,11 @@ The core features offered by the custom `TelegramClient` live under the
 [`uniborg/`](https://github.com/muhammedfurkan/uniborg/tree/master/uniborg)
 directory, with some utilities, enhancements, the `_core` plugin, and the `_inline_bot` plugin.
  
- 
-## [@Kirito](https://telegram.dog/kirito6969)
+## [#LazyAF_Geng](https://t.me/LazyAF_Geng)
+
+We are a OP Telegram Gang. And yes I am the creator of this Gang. If you wanna join the community then message me.
+
+## [Kirito](https://telegram.dog/kirito6969)
  
 - Only two of the environment variables are mandatory.
 - This is because of `telethon.errors.rpc_error_list.ApiIdPublishedFloodError`
@@ -74,7 +77,7 @@ Each plugin gets the `borg`, `logger`, `Config`, `tgbot` magical
 [variables](https://github.com/muhammedfurkan/UniBorg/blob/488eff632e65103ba7017d4f52777d22ddd52ea2/uniborg/uniborg.py#L76-L80)
 to ease their use. Thus creating a plugin as easy as adding
 a new file under the plugin directory to do the job:
- 
+
 ```python
 # stdplugins/myplugin.py
 from telethon import events

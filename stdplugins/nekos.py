@@ -35,9 +35,6 @@ async def _(event):
 	if not hmm:
 		await event.edit("`Bruh.. What I am supposed to do!`")
 		return
-	if nekos.errors.InvalidArgument:
-	    await event.edit("`You haven't added any valid arguments`")
-	    return
 	await event.edit("`Processing...Nekos`")
 	target = nekos.img(f'{hmm}')
 	await event.client.send_file(event.chat_id, file=target, caption=f"{hmm}")

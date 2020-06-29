@@ -21,7 +21,7 @@ async def _(event):
     specs = f"```System: {uname.system}```\n```Release: {uname.release}```\n```Version: {uname.version}```\n```Processor: {uname.processor}```\n```Memory [RAM]: {get_size(memory.total)}```"
     help_string = f"`Chal raha hu Bsdk...Don't Distirb Meh\nAb Hoga Tera Account Ban`\n\n**General Info:**\n```Build: {BUILD}\n```USER: {str(user)}\n```By: @kirito6969```\n\n**System Specifications:**\n{specs}\n```Python {sys.version}```\n```Telethon {__version__}```"
     await event.client.send_file(event.chat_id, file="CAADBQADgAEAAiriyVcBvpocd4kH1QI")
-    await event.edit(help_string + "\n\n")
+    await event.client.send_message(event.chat_id, help_string + "\n\n")
     await event.delete()
 
 def get_size(bytes, suffix="B"):
