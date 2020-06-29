@@ -20,7 +20,7 @@ async def _(event):
     else:
         return
     bot = "@QuotLyBot"
-    await event.edit(f"```Making a quote....```")
+    await event.edit("```Making a quote....```")
 
     async with borg.conversation(bot) as bot_conv:
         if True: #lazy indentation workaround xD
@@ -32,7 +32,7 @@ async def _(event):
               response = await response
               response = response.message
             if response.text.startswith("Command"):
-                await event.edit(f"Invalid message type.")
+                await event.edit("Invalid message type.")
                 return
             await event.reply(response)
             await event.delete()

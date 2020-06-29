@@ -168,7 +168,7 @@ async def _(event):
     except (Exception) as exc:
         await event.edit(str(exc))
     else:
-        await event.edit(f"**Muted**")
+        await event.edit("**Muted**")
 
 
 @borg.on(admin_cmd(pattern="unmute ?(.*)"))
@@ -201,7 +201,7 @@ async def _(event):
     except (Exception) as exc:
         await event.edit(str(exc))
     else:
-        await event.edit(f"**Unmuted**")
+        await event.edit("**Unmuted**")
 
 
 @borg.on(admin_cmd(pattern="tmute ?(.*)"))
