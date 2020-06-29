@@ -127,4 +127,4 @@ async def on_snip_delete(event):
 @borg.on(admin_cmd(pattern="clearallfilters"))
 async def on_all_snip_delete(event):
     remove_all_filters(event.chat_id)
-    await event.edit(f"filters **in current chat** deleted successfully")
+    await event.edit("filters **in current chat** deleted successfully")

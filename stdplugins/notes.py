@@ -67,7 +67,7 @@ async def _(fltr):
       add_note(str(fltr.chat_id), notename, string)
       message = f"**Note saved successfully.**\n**Use** ```.get {notename}``` **to get it.**"
     else:
-      message = f"**Error!**\nPlease use carefully or ```Reply to a user message.```\n**You little piece of Shit!**"
+      message = "**Error!**\nPlease use carefully or ```Reply to a user message.```\n**You little piece of Shit!**"
     await fltr.edit(message)
 
 

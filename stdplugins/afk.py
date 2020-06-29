@@ -67,7 +67,7 @@ async def _(event):
         if reason:
             await event.edit(f"Set AFK mode to True, and Reason is {reason}")
         else:
-            await event.edit(f"`I am goin afk`")
+            await event.edit("`I am goin afk`")
         await asyncio.sleep(5)
         await event.delete()
         try:
@@ -129,7 +129,7 @@ async def on_afk(event):
         message_to_reply = f"`Hey, My Master iz Currently OFFLINE` Since: **{afk_since}** " + \
             f"`Reason is:` **{reason}**"\
             if reason \
-            else f"RIP.....\n\n**Important Notice**\n\n[Sorry ! But My Mastor Ded Forever...Sed...Very Sed...](https://telegra.ph//file/a53fa950ff31781d5930a.jpg)"
+            else "RIP.....\n\n**Important Notice**\n\n[Sorry ! But My Mastor Ded Forever...Sed...Very Sed...](https://telegra.ph//file/a53fa950ff31781d5930a.jpg)"
         msg = await event.reply(message_to_reply)
         await asyncio.sleep(5)
         if event.chat_id in last_afk_message:  

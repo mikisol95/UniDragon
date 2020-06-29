@@ -222,5 +222,5 @@ async def upload_file(http, file_path, file_name, mime_type, event):
 async def _(event):
     if event.fwd_from:
         return
-    folder_link =f"https://drive.google.com/drive/u/2/folders/"+parent_id
+    folder_link ="https://drive.google.com/drive/u/2/folders/"+parent_id
     await event.edit(f"Your current Google Drive Upload Directory : [Here]({folder_link})")

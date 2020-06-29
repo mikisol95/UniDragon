@@ -30,7 +30,7 @@ async def _(event):
         stderr=asyncio.subprocess.PIPE
     )
     logger.info(command_to_exec)
-    OUTPUT = f"**Files in DOWNLOADS folder:**\n"
+    OUTPUT = "**Files in DOWNLOADS folder:**\n"
     stdout, stderr = await process.communicate()
     t_response = stdout.decode().strip()
     if len(stdout) > Config.MAX_MESSAGE_SIZE_LIMIT:

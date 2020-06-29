@@ -56,7 +56,7 @@ async def _(event):
             round(percentage, 2))
         estimated_total_time = downloader.get_eta(human=True)
         try:
-            current_message = f"trying to download\n"
+            current_message = "trying to download\n"
             current_message += f"URL: {url}\n"
             current_message += f"File Name: {file_name}\n"
             current_message += f"{progress_str}\n"
