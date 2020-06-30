@@ -61,7 +61,7 @@ async def send_plug_in(event):
         the_plugin_file,
         force_document=True,
         allow_cache=False,
-        caption="©️ @LazyAF_Pepe"
+        caption="©️ @LazyAF_Pepe",
         reply_to=message_id
     )
     end = datetime.now()
