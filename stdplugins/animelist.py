@@ -267,7 +267,7 @@ async def character(event):
     try:
         search_result = jikan.search("character", search_query)
     except APIException:
-        await message.edit("`Character not found.`")
+        await event.edit("`Character not found.`")
         return
     first_mal_id = search_result["results"][0]["mal_id"]
     character = jikan.character(first_mal_id)
