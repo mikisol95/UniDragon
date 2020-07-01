@@ -12,7 +12,7 @@ from asyncio import subprocess as asyncsub
 from os import remove
 from time import gmtime, strftime
 from traceback import format_exc
-
+from sample_config import Config
 from telethon import events
 BOTLOG_CHATID = Config.BOTLOG
 LOGSPAMMER = Config.LOGSPAMMER
