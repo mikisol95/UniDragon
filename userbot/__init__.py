@@ -18,7 +18,7 @@ from sample_config import Config
 from telethon import TelegramClient, events
 from telethon.sessions import StringSession
 
-BOTLOG_CHATID = Config.BOTLOG
+BOTLOG_CHATID = Config.BOTLOG_CHATID
 LOGSPAMMER = Config.LOGSPAMMER
 STRING_SESSION = Config.HU_STRING_SESSION
 API_KEY = Config.APP_ID
