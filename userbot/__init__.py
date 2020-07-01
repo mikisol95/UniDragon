@@ -15,10 +15,14 @@ from os import remove
 from time import gmtime, strftime
 from traceback import format_exc
 from sample_config import Config
-from telethon import events
+from telethon import TelegramClient, events
+from telethon.sessions import StringSession
+
 BOTLOG_CHATID = Config.BOTLOG
 LOGSPAMMER = Config.LOGSPAMMER
-bot = borg
+STRING_SESSION = Config.HU_STRING_SESSION
+API_KEY = Config.APP_ID
+API_HASH = Config.API_HASH
 
 # Bot Logs setup:
 CONSOLE_LOGGER_VERBOSE = sb(os.environ.get("CONSOLE_LOGGER_VERBOSE", "False"))
@@ -173,3 +177,45 @@ def register(**args):
         return wrapper
 
     return decorator
+
+# 'bot' variable
+if STRING_SESSION:
+    # pylint: disable=invalid-name
+    bot = TelegramClient(StringSession(STRING_SESSION), API_KEY, API_HASH)
+else:
+    # pylint: disable=invalid-name
+    bot = TelegramClient("userbot", API_KEY, API_HASH)
+ 
+ 
+async def check_botlog_chatid():
+    if not BOTLOG_CHATID and LOGSPAMMER:
+        LOGS.info(
+            "You must set up the BOTLOG_CHATID variable in the config.env or environment variables, for the private error log storage to work."
+        )
+        quit(1)
+ 
+    elif not BOTLOG_CHATID and BOTLOG:
+        LOGS.info(
+            "You must set up the BOTLOG_CHATID variable in the config.env or environment variables, for the userbot logging feature to work."
+        )
+        quit(1)
+ 
+    elif not BOTLOG or not LOGSPAMMER:
+        return
+ 
+    entity = await bot.get_entity(BOTLOG_CHATID)
+    if entity.default_banned_rights.send_messages:
+        LOGS.info(
+            "Your account doesn't have rights to send messages to BOTLOG_CHATID "
+            "group. Check if you typed the Chat ID correctly.")
+        quit(1)
+ 
+ 
+with bot:
+    try:
+        bot.loop.run_until_complete(check_botlog_chatid())
+    except:
+        LOGS.info(
+            "BOTLOG_CHATID environment variable isn't a "
+            "valid entity. Check your environment variables/config.env file.")
+        quit(1)    
