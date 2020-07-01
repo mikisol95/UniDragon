@@ -171,7 +171,9 @@ class Config(object):
     # Deeer ARL Token
     DEEZER_ARL_TOKEN = os.environ.get("DEEZER_ARL_TOKEN", None)
     ZIP_DOWNLOAD_DIRECTORY = os.environ.get("ZIP_DOWNLOAD_DIRECTORY", "./zips")
-    LOGSPAMMER = sb(os.environ.get("LOGSPAMMER", "False"))
+    LOGSPAMMER = sb(os.environ.get("LOGSPAMMER", "True"))
+    BOTLOG_CHATID = int(os.environ.get("BOTLOG_CHATID", None))
+    BOTLOOG = sb(os.environ.get("BOTLOOG", "True"))
 
 class Production(Config):
     LOGGER = False
