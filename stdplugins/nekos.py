@@ -35,6 +35,7 @@ async def _(event):
 		await event.edit("`Bruh.. What I am supposed to do!`")
 		return
 	await event.edit("`Processing...Nekos`")
+	await event.delete()
 	target = nekos.img(f'{hmm}')
 	await event.client.send_file(event.chat_id, file=target, caption=f"{hmm}")
 
@@ -61,6 +62,7 @@ async def avatarlewd(event):
 async def _(event):
 	target = nekos.cat()
 	await event.edit("Finding ur ket...🌚")
+	await event.delete()
 	await event.client.send_file(event.chat_id, file=target)
 
 @borg.on(admin_cmd(pattern="lewdn"))
