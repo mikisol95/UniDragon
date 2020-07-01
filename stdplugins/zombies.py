@@ -56,17 +56,17 @@ async def rm_deletedacc(show):
 
     con = show.pattern_match.group(1).lower()
     del_u = 0
-    del_status = "`No deleted accounts found, Group is clean`"
+    del_status = "`No deleted accounts found, Group is clean AF`"
 
     if con != "clean":
-        await show.edit("`Searching for ghost/deleted/zombie accounts...`")
+        await show.edit("`⚰️ Searching for ghost/deleted/zombie ☠️ accounts...`")
         async for user in show.client.iter_participants(show.chat_id):
 
             if user.deleted:
                 del_u += 1
                 await sleep(1)
         if del_u > 0:
-            del_status = f"`Found` **{del_u}** `ghost/deleted/zombie account(s) in this group,\
+            del_status = f"`Found` ☠️ **{del_u}** `ghost/deleted/zombie account(s) in this group,\
             \nclean them by using .zombies clean`"
         await show.edit(del_status)
         return
@@ -102,7 +102,7 @@ async def rm_deletedacc(show):
 
 
     if del_u > 0:
-        del_status = f"Cleaned **{del_u}** deleted account(s)"
+        del_status = f"Cleaned ☠️ **{del_u}** ☠️ Deleted account(s)"
 
     if del_a > 0:
         del_status = f"Cleaned **{del_u}** deleted account(s) \
