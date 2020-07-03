@@ -7,10 +7,10 @@ from os import remove
 from telethon import version
 
 """Type:
-\n.permalink
-.userid
-.pip
-.on
+\n`.permalink`
+`.userid`
+`.pip`
+`.on`
 """
 plugs = len(borg._plugins)
 

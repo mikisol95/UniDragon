@@ -4,28 +4,18 @@
 
 """Syntax: 
 `.save <notename>
-.iget <notename>
+.get <notename>
 .clear <notename>
-.clearall`
+.cleanall
+.rmbotnotes`
 """
 
 from sql_helpers.global_variables_sql import LOGGER
 from sql_helpers.notes_sql import get_notes, rm_note, add_note, rm_all_notes
 from uniborg.util import admin_cmd
 import time
-
-"""
-notes: \
-```.get <notename>```\
-\nUsage: Gets the note with name <notename>\
-\n\n```.save <notename>``` (as a reply to message to save)\
-\nUsage: Saves target message as a note with the name <notename>\
-\n\n```.clear <notename>```\
-\nUsage: Deletes the note with name <notename>.\
-\n\n```.notes```\
-\nUsage: Prints the list of notes saved in the current chat.
-
-"""
+from uniborg import MODULE, SYNTAX
+MODULE.append("notes")
 
 @borg.on(admin_cmd(pattern="notes ?(.*)"))
 async def _(svd):
@@ -71,7 +61,7 @@ async def _(fltr):
     await fltr.edit(message)
 
 
-@borg.on(admin_cmd(pattern="iget ?(.*)"))
+@borg.on(admin_cmd(pattern="get ?(.*)"))
 async def _(getnt):
     if getnt.fwd_from:
         return
@@ -100,3 +90,42 @@ async def _(prg):
                 LOGGER, f"**Successfully purged all notes at** ```{prg.chat_id}```"
             )
 
+@borg.on(admin_cmd(pattern="rmbotnotes ?(.*)"))
+async def kick_marie_notes(kick):
+    """ For .rmbotnotes command, allows you to kick all \
+        Marie(or her clones) notes from a chat. """
+    bot_type = kick.pattern_match.group(1).lower()
+    if bot_type not in ["marie", "rose"]:
+        return await kick.edit("`That bot is not yet supported!`")
+    await kick.edit("```Will be kicking away all Notes!```")
+    time.sleep(3)
+    resp = await kick.get_reply_message()
+    filters = resp.text.split("-")[1:]
+    for i in filters:
+        if bot_type == "marie":
+            await kick.reply("/clear %s" % (i.strip()))
+        if bot_type == "rose":
+            i = i.replace('`', '')
+            await kick.reply("/clear %s" % (i.strip()))
+        time.sleep(0.3)
+    await kick.respond(
+        "```Successfully purged bots notes yaay!```\n Gimme cookies!")
+    if LOGGER:
+        await kick.client.send_message(
+            LOGGER, "I cleaned all Notes at " + str(kick.chat_id))
+
+SYNTAX.update({
+    "notes": "\
+```.get <notename>```\
+\nUsage: Gets the note with name <notename>\
+\n\n```.save <notename>``` (as a reply to message to save)\
+\nUsage: Saves target message as a note with the name <notename>\
+\n\n```.clear <notename>```\
+\nUsage: Deletes the note with name <notename>.\
+\n\n```.notes <notename>```\
+\nUsage: Prints the list of notes saved in the current chat.\
+\n\n```.cleanall```\
+\nUsage: Clear all notes at Once.\
+\n\n```.rmbotnotes```\
+\nUsage: Clear Marie and Rose Bot notes"
+})            

@@ -1,10 +1,10 @@
 """Pins the replied message
-Syntax: .pin [LOUD]"""
+Syntax: .cpin [LOUD]"""
 from telethon.tl import functions
 from uniborg.util import admin_cmd
 
 
-@borg.on(admin_cmd(pattern="pin ?(.*)"))
+@borg.on(admin_cmd(pattern="cpin ?(.*)"))
 async def _(event):
     if event.fwd_from:
         return

@@ -56,7 +56,7 @@ async def on_snip(event):
                 )
 
 
-@borg.on(admin_cmd(pattern="snips (.*)"))
+@borg.on(admin_cmd(pattern="snips ?(.*)"))
 async def on_snip_save(event):
     name = event.pattern_match.group(1)
     msg = await event.get_reply_message()
