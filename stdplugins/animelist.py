@@ -290,7 +290,7 @@ async def character(event):
     for entity in character:
         if character[entity] is None:
             character[entity] = "Unknown"
-    caption += f"\n**About**: {about_string}"
+    caption += f"\n🔰**Extracted Character Data**🔰\n{about_string}"
     caption += f" [Read More]({mal_url})..."
     await event.client.send_file(event.chat_id,
                             file=character['image_url'],
