@@ -1,6 +1,7 @@
 import textwrap
 import jikanpy
 import requests
+import html
 
 def getPosterLink(mal):
     # grab poster from kitsu
@@ -101,4 +102,4 @@ def get_anime_manga(mal_id, search_type, _user_id):
         <b>Genres</b>: <code>{genre_string}</code>
         📖 <b>Synopsis</b>: {synopsis_string}
         """)
-    return caption, image
+    return caption, image, parse_mode='html'
