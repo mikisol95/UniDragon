@@ -14,11 +14,11 @@ from uniborg.util import admin_cmd
 import os
 from uniborg import SYNTAX
 import random
-
+import lyricsgenius
 """Genius(lyrics) staff"""
 GApi = Config.GENIUS
-import lyricsgenius
-genius = lyricsgenius.Genius(GApi)
+if GApi is not None:
+	genius = lyricsgenius.Genius(GApi)
 
 
 @borg.on(admin_cmd(pattern='lyrics(?: |$)(.*)'))
