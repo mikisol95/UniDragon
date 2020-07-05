@@ -7,7 +7,7 @@ from uniborg.util import admin_cmd
 from uniborg import MODULE, SYNTAX
 
 MODULE.append("waifu")
-
+senpais = [37, 38, 48, 55]
 EMOJI_PATTERN = re.compile(
     "["
     "\U0001F1E0-\U0001F1FF"  # flags (iOS)
@@ -37,7 +37,7 @@ async def waifu(animu):
         else:
             await animu.answer("`No text given, hence the waifu ran away.`")
             return
-    animus = [6, 8, 12, 20, 30, 32, 33, 38, 40, 41, 42, 51, 58, 59]
+    animus = [20, 32, 33, 40, 41, 42, 58]
     sticcers = await animu.client.inline_query(
         "stickerizerbot", f"#{random.choice(animus)}{(deEmojify(text))}")
     await sticcers[0].click(animu.chat_id,
@@ -116,6 +116,23 @@ async def _(hazmat):
     await hazmat.delete()
     return os.remove(downloaded_file_name)
 
+@borg.on(admin_cmd(pattern="senpai(?: |$)(.*)"))
+async def waifu(animu):
+    text = animu.pattern_match.group(1)
+    if not text:
+        if animu.is_reply:
+            text = (await animu.get_reply_message()).message
+        else:
+            await animu.answer("`No text given, hence the Senpai will beat u in the Toilet` 🌚")
+            return
+    sticcers = await animu.client.inline_query(
+        "stickerizerbot", f"#{random.choice(senpais)}{(deEmojify(text))}")
+    await sticcers[0].click(animu.chat_id,
+                            reply_to=animu.reply_to_msg_id,
+                            silent=True if animu.is_reply else False,
+                            hide_via=True)
+    await animu.delete()
+    
 SYNTAX.update({
     "waifu":
     "`.waifu` text\

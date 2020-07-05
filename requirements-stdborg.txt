@@ -66,3 +66,4 @@ htmlement
 pybase64
 jikanpy
 nekos.py
+html_telegraph_poster

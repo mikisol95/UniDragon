@@ -73,7 +73,7 @@ async def anime(message):
     else:
         await message.edit("`No results Found!`")
         return
-    rep = f"<b>{title} ({japanese})</b>\n"
+    rep = f"<b>{title} – ({japanese})</b>\n"
     rep += f"<b>Type:</b> <code>{type}</code>\n"
     rep += f"<b>Source:</b> <code>{source}</code>\n"
     rep += f"<b>Status:</b> <code>{status}</code>\n"
