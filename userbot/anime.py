@@ -1,4 +1,6 @@
 import textwrap
+import bs4
+import wget
 import jikanpy
 import requests
 from html_telegraph_poster import TelegraphPoster

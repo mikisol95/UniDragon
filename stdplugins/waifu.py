@@ -117,7 +117,7 @@ async def _(hazmat):
     return os.remove(downloaded_file_name)
 
 @borg.on(admin_cmd(pattern="senpai(?: |$)(.*)"))
-async def waifu(animu):
+async def _(animu):
     text = animu.pattern_match.group(1)
     if not text:
         if animu.is_reply:
