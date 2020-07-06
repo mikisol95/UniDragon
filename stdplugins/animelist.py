@@ -21,31 +21,31 @@ MODULE.append("animelist")
 jikan = Jikan()
 
 @borg.on(admin_cmd(pattern="anime ?(.*)"))
-async def anime(message):
-    query = message.pattern_match.group(1)
-    reply = await message.get_reply_message()
-    await message.edit("`Searching Anime...`")
+async def anime(event):
+    query = event.pattern_match.group(1)
+    reply = await event.get_reply_message()
+    await event.edit("`Searching Anime...`")
     await asyncio.sleep(1)
-    await message.delete()
+    await event.delete()
     if query:
     	pass
     elif reply:
     	query = reply.text
     else:	
-        await message.edit("`Brah.. What I am supposed to search ?`")
+        await event.edit("`Brah.. What I am supposed to search ?`")
         await asyncio.sleep(6)
-        await message.delete()
+        await event.delete()
         return
     #res = ""
     try:
         res = jikan.search("anime", query)
     except APIException:
-        await message.edit("Error connecting to the API. Please try again!")
+        await event.edit("Error connecting to the API. Please try again!")
         return 
     try:
         res = res.get("results")[0].get("mal_id") # Grab first result
     except APIException:
-        await message.edit("Error Sar")
+        await event.edit("Error Sar")
         return 
     if res:
         anime = jikan.anime(res)
@@ -80,7 +80,7 @@ async def anime(message):
         	bru = "<code>No Trailer Available</code>"
         url = anime.get("url")
     else:
-        await message.edit("`No results Found!`")
+        await event.edit("`No results Found!`")
         return
     rep = f"<b>{title}</b> - <code>{japanese}</code> - <code>{eng_title}</code>\n"
     rep += f"<b>Type:</b> <code>{type}</code>\n"
@@ -97,7 +97,7 @@ async def anime(message):
     rep += f"<a href='{image_url}'>\u200c</a>"
     rep += f"📖 <b>Synopsis</b>: <i>{synopsis}</i>\n"
     rep += f'<b>Read More:</b> <a href="{url}">MyAnimeList</a>'
-    await message.edit(rep, parse_mode='HTML', link_preview=True)
+    await event.edit(rep, parse_mode='HTML', link_preview=True)
     
 @borg.on(admin_cmd(pattern="manga ?(.*)"))
 async def manga(event):
