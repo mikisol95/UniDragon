@@ -26,7 +26,7 @@ async def anime(message):
     reply = await message.get_reply_message()
     await message.edit("`Searching Anime...`")
     await asyncio.sleep(1)
-    await event.delete
+    await message.delete()
     if query:
     	pass
     elif reply:
