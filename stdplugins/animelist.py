@@ -25,7 +25,7 @@ async def anime(event):
     query = event.pattern_match.group(1)
     reply = await event.get_reply_message()
     await event.edit("`Searching Anime...`")
-    await asyncio.sleep(1)
+    await asyncio.sleep(3)
     await event.delete()
     if query:
     	pass
