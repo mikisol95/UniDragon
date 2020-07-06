@@ -51,9 +51,9 @@ def get_anime_manga(mal_id, search_type, _user_id):
         result = jikan.anime(mal_id)
         trailer = result['trailer_url']
         if trailer:
-        	LOL = trailer
+        	LOL = "<a href='{trailer}'>Trailer</a>"
         else:
-        	LOL = "No Trailer Available"
+        	LOL = "Nu Trailer Available"
         image = getBannerLink(mal_id)
         studio_string = ', '.join(studio_info['name'] for studio_info in result['studios'])
         producer_string = ', '.join(producer_info['name'] for producer_info in result['producers'])
@@ -97,7 +97,7 @@ def get_anime_manga(mal_id, search_type, _user_id):
         🎭 <b>Genres</b>: <code>{genre_string}</code>
         🎙️ <b>Studios</b>: <code>{studio_string}</code>
         💸 <b>Producers</b>: <code>{producer_string}</code>
-        🎬 <b>Trailer:</b> <a href='{LOL}'>Trailer</a>
+        🎬 <b>Trailer:</b> {LOL}
         📖 <b>Synopsis</b>: {synopsis_string} <a href='{result['url']}'>Read More</a>
         """)
     elif search_type == "anime_manga":
@@ -133,7 +133,7 @@ def get_poster(query):
 def post_to_telegraph(anime_title, html_format_content):
     post_client = TelegraphPoster(use_api=True)
     auth_name = "@LazyAF_Pepe"
-    post_client.create_api_token(auth_name, "@LazyAF_Pepe", "https://t.me/LazyAF_Pepe")
+    post_client.create_api_token(auth_name, "@LazyAF_Pepe", "https://telegram.dog/LazyAF_Pepe")
     post_page = post_client.post(
         title=anime_title,
         author=auth_name,
