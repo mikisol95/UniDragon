@@ -44,8 +44,8 @@ async def anime(message):
         return 
     try:
         res = res.get("results")[0].get("mal_id") # Grab first result
-    except Exception as err:
-        await message.edit(f"Error: \n\n`{err}`")
+    except APIException:
+        await message.edit("Error Sar")
         return 
     if res:
         anime = jikan.anime(res)
@@ -74,6 +74,10 @@ async def anime(message):
         premiered = anime.get("premiered")
         image_url = anime.get("image_url")
         trailer = anime.get("trailer_url")
+        if trailer:
+        	bru = f"<a href='{trailer}'>Trailer</a>"
+        else:
+        	bru = "<code>No Trailer Available</code>"
         url = anime.get("url")
     else:
         await message.edit("`No results Found!`")
@@ -89,6 +93,7 @@ async def anime(message):
     rep += f"<b>Studio(s):</b> <code>{studios}</code>\n"
     rep += f"<b>Premiered:</b> <code>{premiered}</code>\n"
     rep += f"<b>Rating:</b> <code>{rating}</code>\n\n"
+    rep += f"<b>Trailer:</b> {bru}\n\n"
     rep += f"<a href='{image_url}'>\u200c</a>"
     rep += f"📖 <b>Synopsis</b>: <i>{synopsis}</i>\n"
     rep += f'<b>Read More:</b> <a href="{url}">MyAnimeList</a>'
