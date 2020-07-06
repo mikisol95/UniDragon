@@ -25,8 +25,6 @@ async def anime(event):
     query = event.pattern_match.group(1)
     reply = await event.get_reply_message()
     await event.edit("`Searching Anime...`")
-    await asyncio.sleep(3)
-    await event.delete()
     if query:
     	pass
     elif reply:
@@ -39,13 +37,13 @@ async def anime(event):
     #res = ""
     try:
         res = jikan.search("anime", query)
-    except APIException:
-        await event.edit("Error connecting to the API. Please try again!")
+    except Exception as err:
+        await event.edit(f"**Error:** \n`{err}`")
         return 
     try:
         res = res.get("results")[0].get("mal_id") # Grab first result
     except APIException:
-        await event.edit("Error Sar")
+        await event.edit("Error connecting to the API. Please try again!")
         return 
     if res:
         anime = jikan.anime(res)
@@ -300,7 +298,7 @@ async def character(event):
     for entity in character:
         if character[entity] is None:
             character[entity] = "Unknown"
-    caption += f"\n🔰**Extracted Character Data**🔰\n{about_string}"
+    caption += f"\n🔰**Extracted Character Data**🔰\n\n{about_string}"
     caption += f" [Read More]({mal_url})..."
     await event.client.send_file(event.chat_id,
                             file=character['image_url'],
