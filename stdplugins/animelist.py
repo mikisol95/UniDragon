@@ -24,6 +24,9 @@ jikan = Jikan()
 async def anime(message):
     query = message.pattern_match.group(1)
     reply = await message.get_reply_message()
+    await message.edit("`Searching Anime...`")
+    await asyncio.sleep(1)
+    await event.delete
     if query:
     	pass
     elif reply:
@@ -69,6 +72,7 @@ async def anime(message):
         duration = anime.get("duration")
         premiered = anime.get("premiered")
         image_url = anime.get("image_url")
+        trailer = anime.get("trailer_url")
         url = anime.get("url")
     else:
         await message.edit("`No results Found!`")
