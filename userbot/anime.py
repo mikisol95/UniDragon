@@ -97,6 +97,7 @@ def get_anime_manga(mal_id, search_type, _user_id):
         🎭 <b>Genres</b>: <code>{genre_string}</code>
         🎙️ <b>Studios</b>: <code>{studio_string}</code>
         💸 <b>Producers</b>: <code>{producer_string}</code>
+        
         🎬 <b>Trailer:</b> {LOL}
         
         📖 <b>Synopsis</b>: {synopsis_string} <a href='{result['url']}'>Read More</a>
