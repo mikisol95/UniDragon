@@ -1,4 +1,4 @@
-#Thenks Psycho-Ninja and Meli-Oads
+#Thenks @PhycoNinja13b and @Meli_odas_Bot 
 import jikanpy
 from uniborg.util import admin_cmd
 from userbot.anime import (
