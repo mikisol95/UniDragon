@@ -171,3 +171,34 @@ async def _(event):
              await event.edit("```Can you Kindly disable your forward privacy settings for good?```")
           else: 
              await event.edit(f"{response.message.message}")
+             
+@borg.on(admin_cmd(pattern="voicy ?(.*)"))
+async def voicy(event):
+    if event.fwd_from:
+        return
+    if not event.reply_to_msg_id:
+        await event.edit("`Please reply to a Message`")
+        return
+    reply_message = await event.get_reply_message()
+    if not reply_message.media:
+        await event.edit("`Reply to a Media`")
+        return
+    chat = "@Voicybot"
+    sender = reply_message.sender
+    await event.edit("`Haha Wait...`")
+    async with event.client.conversation(chat) as conv:
+        try:
+            await event.client.forward_messages(chat, reply_message)
+        except YouBlockedUserError:
+            await event.reply(f"`Mmmh sanırım` {chat} `engellemişsin. Lütfen engeli aç.`")
+            return
+ 
+        response = conv.wait_event(events.MessageEdited(
+            incoming=True, from_users=259276793))
+        response = await response
+        if response.text.startswith("__👋"):
+            await event.edit("`Botu başlatıp Türkçe yapmanız gerekmektedir.`")
+        elif response.text.startswith("__👮"):
+            await event.edit("`Ses bozuk, ne dediğini anlamadım.`")
+        else:
+            await event.edit(f"`{response.text}`")

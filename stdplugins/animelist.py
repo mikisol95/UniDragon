@@ -80,7 +80,7 @@ async def anime(event):
     else:
         await event.edit("`No results Found!`")
         return
-    rep = f"<b>{title}</b> - <code>{japanese}</code> - <code>{eng_title}</code>\n"
+    rep = f"<b>{title}</b> - ({japanese})\n"
     rep += f"<b>Type:</b> <code>{type}</code>\n"
     rep += f"<b>Source:</b> <code>{source}</code>\n"
     rep += f"<b>Status:</b> <code>{status}</code>\n"
@@ -91,7 +91,7 @@ async def anime(event):
     rep += f"<b>Studio(s):</b> <code>{studios}</code>\n"
     rep += f"<b>Premiered:</b> <code>{premiered}</code>\n"
     rep += f"<b>Rating:</b> <code>{rating}</code>\n\n"
-    rep += f"<b>Trailer:</b> {bru}\n\n"
+    ##rep += f"<b>Trailer:</b> {bru}\n\n"
     rep += f"<a href='{image_url}'>\u200c</a>"
     rep += f"📖 <b>Synopsis</b>: <i>{synopsis}</i>\n"
     rep += f'<b>Read More:</b> <a href="{url}">MyAnimeList</a>'

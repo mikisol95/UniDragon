@@ -53,7 +53,7 @@ def get_anime_manga(mal_id, search_type, _user_id):
         if trailer:
         	LOL = f"<a href='{trailer}'>Trailer</a>"
         else:
-        	LOL = "<code>Nu Trailer Available</code>"
+        	LOL = "<code>No Trailer Available</code>"
         image = getBannerLink(mal_id)
         studio_string = ', '.join(studio_info['name'] for studio_info in result['studios'])
         producer_string = ', '.join(producer_info['name'] for producer_info in result['producers'])
@@ -100,7 +100,7 @@ def get_anime_manga(mal_id, search_type, _user_id):
         
         🎬 <b>Trailer:</b> {LOL}
         
-        📖 <b>Synopsis</b>: {synopsis_string} <a href='{result['url']}'>Read More</a>
+        📖 <b>Synopsis</b>: <code>{synopsis_string}</code> <a href='{result['url']}'>Read More</a>
         """)
     elif search_type == "anime_manga":
         caption += textwrap.dedent(f"""
@@ -110,7 +110,8 @@ def get_anime_manga(mal_id, search_type, _user_id):
         📃 <b>Chapters</b>: <code>{result['chapters']}</code>
         💯 <b>Score</b>: <code>{result['score']}</code>
         🎭 <b>Genres</b>: <code>{genre_string}</code>
-        📖 <b>Synopsis</b>: {synopsis_string}
+        
+        📖 <b>Synopsis</b>: <code>{synopsis_string}</code>
         """)
     return caption, image
     

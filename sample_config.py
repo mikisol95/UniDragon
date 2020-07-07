@@ -174,6 +174,9 @@ class Config(object):
     LOGSPAMMER = sb(os.environ.get("LOGSPAMMER", "True"))
     BOTLOG_CHATID = int(os.environ.get("BOTLOG_CHATID", None))
     BOTLOOG = sb(os.environ.get("BOTLOOG", "True"))
+    #SpamWatch Api
+    SPAM_WATCH_API = os.environ.get("SPAM_WATCH_API", None)
+    SPAM_WATCHAPI = os.environ.get("SPAM_WATCHAPI", None)
 
 class Production(Config):
     LOGGER = False

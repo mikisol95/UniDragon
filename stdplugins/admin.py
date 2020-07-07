@@ -26,9 +26,9 @@ Usage: Reply to message to pin it in the group.
 Usage: Retrieves all admins in a chat.
 \n.bots
 Usage: Retrieves all bots in a chat.
-\n.users or .users <name>
+\n.iusers or .iusers <name>
 Usage: Retrieves all users in a chat.
-\n.undlt
+\n.iundlt
 Usage: Sends the last deleted message in group."
 
 Userbot module to help you manage a group.
@@ -710,8 +710,8 @@ async def kick(eventKickUser):
             )
 
 
-@borg.on(admin_cmd(pattern=f"{borg.me.id}users ?(.*)", allow_sudo=True))
-@borg.on(events.NewMessage(outgoing=True, pattern="^.users ?(.*)"))
+@borg.on(admin_cmd(pattern=f"{borg.me.id}iusers ?(.*)", allow_sudo=True))
+@borg.on(events.NewMessage(outgoing=True, pattern="^.iusers ?(.*)"))
 async def list_users(eventListUsers):
     if not eventListUsers.text[0].isalpha() and eventListUsers.text[0] not in ("/", "#", "@", "!"):
         if not eventListUsers.is_group:
@@ -753,23 +753,30 @@ async def list_users(eventListUsers):
 
 
 @borg.on(admin_cmd(pattern=f"{borg.me.id}iundlt$", allow_sudo=True))
-@borg.on(admin_cmd(pattern="iundlt$"))
+@borg.on(admin_cmd(pattern="iundlt ?(.*)"))
 async def _(event):
     if event.fwd_from:
         return
     c = await event.get_chat()
+    file_ = event.pattern_match.group(1)
     if c.admin_rights or c.creator:
-        a = await borg.get_admin_log(event.chat_id,limit=5, edit=False, delete=True)
-        # print(a[0].old.message)
-        deleted_msg = "Deleted message in this group:"
-        for i in a:
-            deleted_msg += "\n👉`{}`".format(i.old.message)
-        await event.edit(deleted_msg)
+        if file_ == "media":
+            await event.edit("`Fetching deleted Media`")
+            async for j in event.client.iter_admin_log(event.chat_id, delete=True):
+                if j.old.media is not None:
+                    x = await event.client.download_media(j.old.media)
+                    await event.client.send_message(entity=event.chat_id, file=x)
+        else:
+            a = await borg.get_admin_log(event.chat_id, limit=10, edit=False, delete=True)
+            deleted_msg = "Deleted message in this group:"
+            for i in a:
+                if i.old.message != "":
+                    deleted_msg += "\n👉`{}`".format(i.old.message)
+                    await event.edit(deleted_msg)
     else:
         await event.edit("`You need administrative permissions in order to do this command`")
         await asyncio.sleep(3)
         await event.delete()
-
 
 async def get_user_from_event(event):
     if event.reply_to_msg_id:

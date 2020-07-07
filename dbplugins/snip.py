@@ -22,6 +22,8 @@ async def on_snip(event):
     # await event.delete()
     name = event.pattern_match.group(1)
     snip = get_snips(name)
+    if not event.is_group:
+      await event.delete()
     reply_message = await event.get_reply_message()
     if snip:
         msg_o = await event.client.get_messages(

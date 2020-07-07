@@ -102,5 +102,5 @@ async def _(event):
             link = link.replace(" ","%20")
         output_ += f"[{pretty(provider)}]({link})\n"
     
-    await event.client.send_file(event.chat_id, caption=output_, file=thumb_link, allow_cache=False, silent=True)
+    await event.client.send_file(event.chat_id, caption=output_, file=thumb_link, force_document=False ,allow_cache=False, silent=True)
     await event.delete()
