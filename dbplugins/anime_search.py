@@ -1,4 +1,4 @@
-#Thenks @PhycoNinja13b and @Meli_odas_Bot 
+#A Huge Thenks to @PhycoNinja13b and @Meli_odas_Bot for their Hard Work 👩‍❤️‍💋‍👨
 import jikanpy
 from uniborg.util import admin_cmd
 from userbot.anime import (
