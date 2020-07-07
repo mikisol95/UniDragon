@@ -11,7 +11,7 @@ from telethon.errors.rpcerrorlist import FilePartsInvalidError
 from telethon.tl.types import MessageMediaDocument, DocumentAttributeFilename, DocumentAttributeAnimated
 from uniborg.util import admin_cmd
 
-@borg.on(admin_cmd(pattern='ar(?:ver)?se'))
+@borg.on(admin_cmd(pattern='pw(?:hat)?anime'))
 async def whatanime(e):
     media = e.media
     if not media:

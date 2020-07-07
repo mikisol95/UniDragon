@@ -106,7 +106,7 @@ async def _(event):
                 await k.edit("`Error Sar`")
                 break
               
-@events.register(events.NewMessage(pattern="ad ?(.*)", outgoing=True))
+@borg.on(admin_cmd(pattern="ad ?(.*)"))
 async def _(event):
     if event.fwd_from:
         return
