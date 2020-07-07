@@ -68,3 +68,4 @@ jikanpy
 nekos.py
 html_telegraph_poster
 pendulum
+spamwatch
