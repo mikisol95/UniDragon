@@ -1,6 +1,7 @@
 "get music from .imusic/.spotbot <music query>  Credits https://t.me/By_Azade"
 import logging
 from uniborg.util import admin_cmd
+from telethon import events
 from uniborg import MODULE
 MODULE.append("song1")
 
