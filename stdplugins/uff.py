@@ -1,14 +1,8 @@
 """Emoji
-
 Available Commands:
-
 .uff """
 
 from telethon import events
-
-
-
-
 
 @borg.on(events.NewMessage(pattern=r"\.(.*)", outgoing=True))
 

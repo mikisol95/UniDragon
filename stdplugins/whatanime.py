@@ -11,8 +11,8 @@ from telethon.errors.rpcerrorlist import FilePartsInvalidError
 from telethon.tl.types import MessageMediaDocument, DocumentAttributeFilename, DocumentAttributeAnimated
 from uniborg.util import admin_cmd
 
-@borg.on(admin_cmd(pattern='pw(?:hat)?anime'))
-async def whatanime(e):
+@borg.on(admin_cmd(pattern='areverse'))
+async def areverse(e):
     media = e.media
     if not media:
         r = await e.get_reply_message()
@@ -31,9 +31,9 @@ async def whatanime(e):
             if isinstance(i, DocumentAttributeFilename):
                 filename = i.file_name
                 break
-    await e.edit('Downloading image...')
+    await e.edit('`Downloading image...`')
     content = await e.client.download_media(media, bytes, thumb=-1 if ig else None)
-    await e.edit('Searching for result...')
+    await e.edit('`Searching for result...`')
     file = memory_file(filename, content)
     async with aiohttp.ClientSession() as session:
         url = 'https://trace.moe/api/search'

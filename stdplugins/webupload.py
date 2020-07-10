@@ -10,7 +10,7 @@ import os
 
 @borg.on(admin_cmd(pattern="webupload ?(.+?|) --(anonfiles|transfer|filebin|anonymousfiles|megaupload|bayfiles)"))
 async def _(event):
-	await event.edit("processing ...")
+	await event.edit("`processing ...`")
 	PROCESS_RUN_TIME = 100
 	input_str = event.pattern_match.group(1)
 	selected_transfer = event.pattern_match.group(2)
@@ -38,7 +38,7 @@ async def _(event):
                         bare_local_name=filename
 		)
 	except KeyError:
-		await event.edit("Invalid selected Transfer")
+		await event.edit("`Invalid selected Transfer`")
 		return
 	cmd = selected_one
         # start the subprocess $SHELL

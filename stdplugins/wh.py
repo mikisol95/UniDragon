@@ -1,24 +1,14 @@
 """Get Telegram User Information
 Syntax: .wh @username/userid"""
-
-
-
-
 import os
 import html
-
 from telethon.tl.functions.photos import GetUserPhotosRequest
 from telethon.utils import get_input_location
 from telethon.tl.functions.users import GetFullUserRequest
 from telethon.tl.types import MessageEntityMentionName
 from uniborg.util import admin_cmd
 
-
-
-
 TMP_DOWNLOAD_DIRECTORY = "./"
-
-
 
 @borg.on(admin_cmd(pattern="wh ?(.*)", allow_sudo=True))
 async def _(event):
@@ -131,20 +121,3 @@ async def fetch_info(replied_user, event):
     caption += f"<b>Bio</b>: \n<code>{user_bio}</code> \n"
 
     return caption
-    
-    
-    
-    
-   
-    
-    
-
-
-
-    
-    
-
-    
-    
-
-    
