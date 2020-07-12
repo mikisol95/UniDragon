@@ -10,12 +10,12 @@ By:- @Zero_cool7870
 import asyncio , time 
 import os ,os.path
 from os.path import join, splitext, basename, dirname, relpath, exists, isdir, isfile
-from uniborg.util import admin_cmd, humanbytes, edit_or_reply
+from uniborg.util import admin_cmd, humanbytes
 from uniborg import SYNTAX
 from telethon.errors import MessageTooLongError
 import io 
 
-@borg.on(admin_cmd(pattern="ls ?(.*)", allow_sudo=True))
+@borg.on(admin_cmd(pattern="ls ?(.*)"))
 async def lst(event):
     if event.fwd_from:
         return
@@ -25,7 +25,7 @@ async def lst(event):
     else:
         path = os.getcwd()
     if not exists(path):
-        await edit_or_reply(f"There is no such directory or file with the name `{cat}` check again")
+        await event.edit(f"There is no such directory or file with the name `{cat}` check again")
         return
     if isdir(path):
         if cat:
@@ -94,7 +94,7 @@ async def lst(event):
                 )
             await event.delete()
     else:
-        await edit_or_reply(msg)                   
+        await event.edit(msg)                   
 
  
 SYNTAX.update({
