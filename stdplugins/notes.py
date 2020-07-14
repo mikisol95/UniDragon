@@ -3,7 +3,7 @@
 # Based on the note module made by RaphielGang (https://da.gd/X4Mnf)
 
 """Syntax: 
-`.save <notename>
+`.seb <notename>
 .get <notename>
 .clear <notename>
 .cleanall
@@ -46,7 +46,7 @@ async def _(clr):
     await clr.edit(status)
 
 
-@borg.on(admin_cmd(pattern="save ?(.*)"))
+@borg.on(admin_cmd(pattern="seb ?(.*)"))
 async def _(fltr):
     if fltr.fwd_from:
         return
@@ -119,7 +119,7 @@ SYNTAX.update({
     "notes": "\
 ```.get <notename>```\
 \nUsage: Gets the note with name <notename>\
-\n\n```.save <notename>``` (as a reply to message to save)\
+\n\n```.seb <notename>``` (as a reply to message to save)\
 \nUsage: Saves target message as a note with the name <notename>\
 \n\n```.clear <notename>```\
 \nUsage: Deletes the note with name <notename>.\

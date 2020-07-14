@@ -61,6 +61,8 @@ async def on_snip(event):
 async def on_snip_save(event):
     name = event.pattern_match.group(1)
     msg = await event.get_reply_message()
+    if not name:
+    	return await event.edit("`No Keyword Provided`")
     if msg:
         msg_o = await event.client.forward_messages(
             entity=Config.PRIVATE_CHANNEL_BOT_API_ID,
@@ -69,7 +71,7 @@ async def on_snip_save(event):
             silent=True
         )
         add_snip(name, msg_o.id)
-        await event.edit("snip {name} saved successfully. Get it with #{name}".format(name=name))
+        await event.edit("snip `{name}` saved successfully. Get it with `#{name}`".format(name=name))
     else:
         await event.edit("Reply to a message with `snips keyword` to save the snip")
 
@@ -77,10 +79,10 @@ async def on_snip_save(event):
 @borg.on(admin_cmd(pattern="snipl"))
 async def on_snip_list(event):
     all_snips = get_all_snips()
-    OUT_STR = "Available Snips:\n"
+    OUT_STR = "Available Snips:\n\n"
     if len(all_snips) > 0:
         for a_snip in all_snips:
-            OUT_STR += f"👉 #{a_snip.snip} \n"
+            OUT_STR += f"👉 `#{a_snip.snip}` \n"
     else:
         OUT_STR = "No Snips. Start Saving using `.snips`"
     if len(OUT_STR) > Config.MAX_MESSAGE_SIZE_LIMIT:
@@ -103,4 +105,4 @@ async def on_snip_list(event):
 async def on_snip_delete(event):
     name = event.pattern_match.group(1)
     remove_snip(name)
-    await event.edit("snip #{} deleted successfully".format(name))
+    await event.edit("snip `#{}` deleted successfully".format(name))

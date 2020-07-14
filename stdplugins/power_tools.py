@@ -16,9 +16,9 @@ async def _(event):
     if event.fwd_from:
         return
     
-    await event.edit("Server Fast Booting...")
-    await asyncio.sleep(2)
-    await event.edit("🇸 🇪 🇷 🇻 🇪 🇷  🇷 🇪 🇧 🇴 🇴 🇹 🇪 🇩  = ✅")
+    await event.edit("`Bye... *windows XP shut down sound*`")
+    await asyncio.sleep(10)
+    await event.edit("`Me Back! Try .on`")
     await borg.disconnect()
     # https://archive.is/im3rt
     os.execl(sys.executable, sys.executable, *sys.argv)
