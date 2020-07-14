@@ -19,7 +19,6 @@ logger = logging.getLogger(__name__)
 
 @borg.on(admin_cmd(pattern=r'\#(\S+)', outgoing=True))
 async def on_snip(event):
-    # await event.delete()
     name = event.pattern_match.group(1)
     snip = get_snips(name)
     if not event.is_group:

@@ -92,8 +92,9 @@ async def _(prg):
 
 @borg.on(admin_cmd(pattern="rmbotnotes ?(.*)"))
 async def kick_marie_notes(kick):
-    """ For .rmbotnotes command, allows you to kick all \
-        Marie(or her clones) notes from a chat. """
+	if kick.is_private:
+		await event.edit("`You cant do that in DMs`")
+		return
     bot_type = kick.pattern_match.group(1).lower()
     if bot_type not in ["marie", "rose"]:
         return await kick.edit("`That bot is not yet supported!`")

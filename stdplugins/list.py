@@ -32,7 +32,7 @@ async def lst(event):
             msg = "**PATH**: `{}`\n\n".format(path)
             lists = os.listdir(path)
         else:
-            msg = "**Files in Current Directory** :\n\n"
+            msg = "**PATH**: .\n\n"
             lists = os.listdir(path)
         files = ""
         folders =""
@@ -57,7 +57,7 @@ async def lst(event):
         if files or folders:
             msg = msg + folders + files
         else:
-            msg = msg + "`Folder is Empty`"    
+            msg = msg + "`Empty Folder`"    
     else:
         size = os.stat(path).st_size
         msg = f"The details of given file :\n"

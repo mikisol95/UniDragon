@@ -175,6 +175,8 @@ def parse_arguments(message: str, valid: List[str]) -> (dict, str):
     return options, message.strip()        
 
 async def is_admin(client, chat_id, user_id):
+    if not str(chat_id).startswith("-100"):
+        return False
     req_jo = await client(GetParticipantRequest(
         channel=chat_id,
         user_id=user_id
@@ -186,12 +188,13 @@ async def is_admin(client, chat_id, user_id):
 
 
 # Not that Great but it will fix sudo reply
-async def edit_or_reply(event, user_id, text):
-    if user_id in Config.SUDO_USERS:
-      reply_to = await event.get_reply_message()
-      if reply_to:
-        return await reply_to.reply(text)
-      else:
-        return await event.reply(text)
+async def edit_or_reply(event, text):
+    if event.from_id in Config.SUDO_USERS:
+        await event.delete()
+        reply_to = await event.get_reply_message()
+        if reply_to:
+            return await reply_to.reply(text)
+        else:
+            return await event.reply(text)
     else:
         return await event.edit(text)
