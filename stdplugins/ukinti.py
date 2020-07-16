@@ -20,7 +20,7 @@ async def _(event):
     else:
         if event.is_private:
             return False
-        await event.edit("Searching Participant Lists.")
+        await event.edit("`Searching Participant Lists.`")
         p = 0
         async for i in borg.iter_participants(event.chat_id, filter=ChannelParticipantsKicked, aggressive=True):
             rights = ChatBannedRights(
@@ -63,7 +63,7 @@ async def _(event):
     o = 0
     q = 0
     r = 0
-    await event.edit("Searching Participant Lists.")
+    await event.edit("`Searching Participant Lists.`")
     async for i in borg.iter_participants(event.chat_id):
         p = p + 1
         #
@@ -181,27 +181,27 @@ async def _(event):
             n = n + 1
     if input_str:
         required_string = """Kicked {} / {} users
-Deleted Accounts: {}
-UserStatusEmpty: {}
-UserStatusLastMonth: {}
-UserStatusLastWeek: {}
-UserStatusOffline: {}
-UserStatusOnline: {}
-UserStatusRecently: {}
-Bots: {}
-None: {}"""
+Deleted Accounts: `{}`
+UserStatusEmpty: `{}`
+UserStatusLastMonth: `{}`
+UserStatusLastWeek: `{}`
+UserStatusOffline: `{}`
+UserStatusOnline: `{}`
+UserStatusRecently: `{}`
+Bots: `{}`
+None: `{}`"""
         await event.edit(required_string.format(c, p, d, y, m, w, o, q, r, b, n))
         await asyncio.sleep(5)
-    await event.edit("""Total: {} users
-Deleted Accounts: {}
-UserStatusEmpty: {}
-UserStatusLastMonth: {}
-UserStatusLastWeek: {}
-UserStatusOffline: {}
-UserStatusOnline: {}
-UserStatusRecently: {}
-Bots: {}
-None: {}""".format(p, d, y, m, w, o, q, r, b, n))
+    await event.edit("""**Total:** `{}` users\n
+Deleted Accounts: `{}`
+**Status**: Empty = `{}`
+      : Last Month = `{}`
+      : Last Week = `{}`
+      : Offline = `{}`
+      : Online = `{}`
+      : Recently = `{}`
+Bots = `{}`
+Unidentified = `{}`""".format(p, d, y, m, w, o, q, r, b, n))
 
 
 async def ban_user(chat_id, i, rights):

@@ -1,5 +1,5 @@
-"""Restrict Users
-Available Commands: .ban, .unban, .mute, .unmute .tmute, .tban"""
+"""Restrict Users\n
+Available Commands: `.ban`, `.unban`, `.mute`, `.unmute`, `.tmute`, `.tban`"""
 
 from datetime import datetime
 from telethon.tl.functions.channels import EditBannedRequest
@@ -136,12 +136,10 @@ async def _(event):
     except (Exception) as exc:
         await event.edit(str(exc))
     else:
-        await event.edit(f"{input_cmd}ed Successfully")
+        await event.edit(f"`{input_cmd}ed Successfully`")
 
 @borg.on(admin_cmd(pattern="mute ?(.*)"))
 async def _(event):
-    # Space weirdness in regex required because argument is optional and other
-    # commands start with ".unban"
     if event.fwd_from:
         return
     start = datetime.now()
@@ -173,8 +171,6 @@ async def _(event):
 
 @borg.on(admin_cmd(pattern="unmute ?(.*)"))
 async def _(event):
-    # Space weirdness in regex required because argument is optional and other
-    # commands start with ".unban"
     if event.fwd_from:
         return
     start = datetime.now()
@@ -206,8 +202,6 @@ async def _(event):
 
 @borg.on(admin_cmd(pattern="tmute ?(.*)"))
 async def _(event):
-    # Space weirdness in regex required because argument is optional and other
-    # commands start with ".unban"
     if event.fwd_from:
         return
 
@@ -250,8 +244,6 @@ async def _(event):
 
 @borg.on(admin_cmd(pattern="tban ?(.*)"))
 async def _(event):
-    # Space weirdness in regex required because argument is optional and other
-    # commands start with ".unban"
     if event.fwd_from:
         return
 
