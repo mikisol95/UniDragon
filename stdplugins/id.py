@@ -27,9 +27,9 @@ async def get_id(e):
         text += f'\'s ID: <code>{id}</code>'
         await e.edit(text, parse_mode='HTML')
         return
-    text = f'ChatID[<code>{e.chat_id}</code>]\n'
-    text += f'MessageID[<code>{e.id}</code>]\n'
-    text += f'YourID[<code>{e.from_id}</code>, <a href="tg://user?id={e.from_id}">link</a>]\n'
+    text = f'👥 ChatID[<code>{e.chat_id}</code>]\n'
+    text += f'💬 MessageID[<code>{e.id}</code>]\n'
+    text += f'🙋‍♂️ YourID[<code>{e.from_id}</code>, <a href="tg://user?id={e.from_id}">link</a>]\n'
     if e.is_reply:
         text += '\n'
         r = await e.get_reply_message()
