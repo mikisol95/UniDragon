@@ -1,12 +1,12 @@
 from datetime import datetime
-from uniborg.util import admin_cmd, edit_or_reply
+from uniborg.util import admin_cmd
 
 
 @borg.on(admin_cmd(pattern="ping", allow_sudo=True))
 async def _(event):
     if event.fwd_from:
         return
-    ed = await edit_or_reply(event, event.from_id, "...")
+    ed = await event.reply("Pong!")
     start = datetime.now()
     await ed.edit("Pong!")
     end = datetime.now()
