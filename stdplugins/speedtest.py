@@ -1,12 +1,12 @@
 """Check your internet speed powered by speedtest.net
-Syntax: .speedtest
+Syntax: .speed
 Available Options: image, file, text"""
 from datetime import datetime
 import speedtest
 from uniborg.util import admin_cmd
 
 
-@borg.on(admin_cmd(pattern="speedtest ?(.*)"))
+@borg.on(admin_cmd(pattern="speed ?(.*)"))
 async def _(event):
     if event.fwd_from:
         return
@@ -19,7 +19,7 @@ async def _(event):
         as_document = True
     elif input_str == "text":
         as_text = True
-    await event.edit("Calculating my internet speed. Please wait!")
+    await event.edit("`Running speedtest... Please wait!`")
     start = datetime.now()
     s = speedtest.Speedtest()
     s.get_best_server()
@@ -41,12 +41,12 @@ async def _(event):
         response = s.results.share()
         speedtest_image = response
         if as_text:
-            await event.edit("""**SpeedTest** completed in {} seconds
-Download: {}
-Upload: {}
-Ping: {}
-Internet Service Provider: {}
-ISP Rating: {}""".format(ms, convert_from_bytes(download_speed), convert_from_bytes(upload_speed), ping_time, i_s_p, i_s_p_rating))
+            await event.edit("""`SpeedTest completed in {} seconds`
+`Download: {}`
+`Upload: {}`
+`Ping: {}`
+`Internet Service Provider: {}`
+`ISP Rating: {}`""".format(ms, convert_from_bytes(download_speed), convert_from_bytes(upload_speed), ping_time, i_s_p, i_s_p_rating))
         else:
             await borg.send_file(
                 event.chat_id,
