@@ -1,19 +1,3 @@
-#    Friendly Telegram (telegram userbot)
-#    Copyright (C) 2018-2019 The Authors
-
-#    This program is free software: you can redistribute it and/or modify
-#    it under the terms of the GNU Affero General Public License as published by
-#    the Free Software Foundation, either version 3 of the License, or
-#    (at your option) any later version.
-
-#    This program is distributed in the hope that it will be useful,
-#    but WITHOUT ANY WARRANTY; without even the implied warranty of
-#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-#    GNU Affero General Public License for more details.
-
-#    You should have received a copy of the GNU Affero General Public License
-#    along with this program.  If not, see <https://www.gnu.org/licenses/>.
-
 """
 ----------------------------------------------------------------
 All Thenks goes to Emily ( The creater of This Plugin)
@@ -24,14 +8,11 @@ All Thenks goes to Emily ( The creater of This Plugin)
 Type `.poto` for get **All profile pics of that User**
 \nOr type `.poto (number)` to get the **desired number of photo of a User** .
 """
-
 import logging
-
 from uniborg.util import admin_cmd
 import asyncio
+
 logger = logging.getLogger(__name__)
-
-
 
 if 1 == 1:
     name = "Profile Photos"
@@ -73,7 +54,7 @@ if 1 == 1:
                  return
             if int(id) <= (len(photos)):
                 send_photos = await event.client.download_media(photos[id - 1])
-                await event.client.send_file(event.chat_id, send_photos)
+                await event.client.send_file(event.chat_id, send_photos, caption=id)
             else:
                 await event.edit("```No photo found of this NIBBA / NIBBI. Now u Die!```")
                 await asyncio.sleep(8)

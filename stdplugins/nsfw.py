@@ -2,9 +2,16 @@
 .x, .xperu,.xthanos,.xchua,.xfuke,.xhard,.xface,.xchase
 \n\nPorted by @NeoMatrix90
 \nImproved by @amnd33p"""
-from telethon import events
+
+import os
+import urllib
+import requests
+from asyncio import sleep
+from uniborg import SYNTAX
+from uniborg.util import admin_cmd
 import random
-@borg.on(events.NewMessage(pattern=r"\.x(.*)", outgoing=True))
+
+@borg.on(admin_cmd(pattern="x(.*)"))
 async def _(event):
     if event.fwd_from:
         return
@@ -249,3 +256,36 @@ async def _(event):
     index = random.randint(0, (len(emoticons)-1))
     output_str = emoticons[index]
     await event.edit(output_str)
+
+@borg.on(admin_cmd(pattern="boobs(?: |$)(.*)"))
+async def boobs(e):
+    await e.edit("`Finding some big boobs...`")
+    await sleep(3)
+    await e.edit("`Sending some big boobs...`")
+    nsfw = requests.get('http://api.oboobs.ru/noise/1').json()[0]["preview"]
+    urllib.request.urlretrieve("http://media.oboobs.ru/{}".format(nsfw), "*.jpg")
+    os.rename('*.jpg', 'boobs.jpg')
+    await e.client.send_file(e.chat_id, "boobs.jpg")
+    os.remove("boobs.jpg")
+    await e.delete()
+
+@borg.on(admin_cmd(pattern="butts(?: |$)(.*)"))
+async def butts(e):
+    await e.edit("`Finding some beautiful butts...`")
+    await sleep(3)
+    await e.edit("`Sending some beautiful butts...`")
+    nsfw = requests.get('http://api.obutts.ru/noise/1').json()[0]["preview"]
+    urllib.request.urlretrieve("http://media.obutts.ru/{}".format(nsfw), "*.jpg")
+    os.rename('*.jpg', 'butts.jpg')
+    await e.client.send_file(e.chat_id, "butts.jpg")
+    os.remove("butts.jpg")
+    await e.delete()
+
+SYNTAX.update({
+    'nsfw':
+    ">`.boobs`"
+    "\nUsage: Get boobs image.\n"
+    ">`.butts`"
+    "\nUsage: Get butts image."
+})
+    

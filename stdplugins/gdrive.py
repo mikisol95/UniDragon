@@ -118,23 +118,23 @@ async def _(event):
 async def _(event):
     if event.fwd_from:
         return
-    mone = await event.reply("Processing ...")
+    mone = await event.reply("`Processing...`")
     input_str = event.pattern_match.group(1)
     if input_str:
         G_DRIVE_F_PARENT_ID = input_str
         await mone.edit(f"Custom Folder ID set successfully. The next uploads will upload to {G_DRIVE_F_PARENT_ID} till `.gdriveclear`")
         await event.delete()
     else:
-        await mone.edit("Send `.gdrivesp https://drive.google.com/drive/u/X/folders/Y` to set the folder to upload new files to")
+        await mone.edit("Send `.gfolder https://drive.google.com/drive/u/X/folders/Y` to set the folder to upload new files to")
 
 
 @borg.on(admin_cmd(pattern="gclear", allow_sudo=True))
 async def _(event):
     if event.fwd_from:
         return
-    mone = await event.reply("Processing ...")
+    mone = await event.reply("`Processing...`")
     G_DRIVE_F_PARENT_ID = None
-    await mone.edit("Custom Folder ID cleared successfully.")
+    await mone.edit("`Custom Folder ID cleared successfully.`")
     await event.delete()
 
 
@@ -142,7 +142,7 @@ async def _(event):
 async def _(event):
     if event.fwd_from:
         return
-    mone = await event.reply("Processing ...")
+    mone = await event.reply("`Processing...`")
     if CLIENT_ID is None or CLIENT_SECRET is None:
         await mone.edit("This module requires credentials from https://da.gd/so63O. Aborting!")
         return
@@ -175,7 +175,7 @@ async def _(event):
 async def _(event):
     if event.fwd_from:
         return
-    mone = await event.reply("Processing ...")
+    mone = await event.reply("`Processing...`")
     if CLIENT_ID is None or CLIENT_SECRET is None:
         await mone.edit("This module requires credentials from https://da.gd/so63O. Aborting!")
         return
@@ -295,7 +295,7 @@ async def upload_file(http, file_path, file_name, mime_type, event, parent_id):
         "withLink": True
     }
     # Insert a file
-    file = drive_service.files().insert(body=body, media_body=media_body)
+    file = drive_service.files().insert(body=body, media_body=media_body, supportsTeamDrives=True)
     response = None
     display_message = ""
     while response is None:
@@ -323,7 +323,7 @@ async def upload_file(http, file_path, file_name, mime_type, event, parent_id):
     except:
             pass
     # Define file instance and get url for download
-    file = drive_service.files().get(fileId=file_id).execute()
+    file = drive_service.files().get(fileId=file_id, supportsTeamDrives=True).execute()
     download_url = file.get("webContentLink")
     return download_url
 
@@ -342,7 +342,7 @@ async def create_directory(http, directory_name, parent_id):
     }
     if parent_id is not None:
         file_metadata["parents"] = [{"id": parent_id}]
-    file = drive_service.files().insert(body=file_metadata).execute()
+    file = drive_service.files().insert(body=file_metadata, supportsTeamDrives=True).execute()
     file_id = file.get("id")
     try:
             drive_service.permissions().insert(fileId=file_id, body=permissions).execute()
@@ -373,7 +373,7 @@ async def DoTeskWithDir(http, input_directory, event, parent_id):
 
 async def gdrive_delete(service, file_id):
     try:
-        service.files().delete(fileId=file_id).execute()
+        service.files().delete(fileId=file_id, supportsTeamDrives=True).execute()
         return f"successfully deleted {file_id} from my gDrive."
     except Exception as e:
         return str(e)
@@ -381,7 +381,7 @@ async def gdrive_delete(service, file_id):
 
 async def gdrive_list_file_md(service, file_id):
     try:
-        file = service.files().get(fileId=file_id).execute()
+        file = service.files().get(fileId=file_id, supportsTeamDrives=True).execute()
         # logger.info(file)
         file_meta_data = {}
         file_meta_data["title"] = file["title"]
@@ -415,6 +415,8 @@ async def gdrive_search(http, search_query):
         try:
             response = drive_service.files().list(
                 q=query,
+                supportsTeamDrives=True,
+                includeTeamDriveItems=True,
                 spaces="drive",
                 fields="nextPageToken, items(id, title, mimeType)",
                 pageToken=page_token

@@ -177,14 +177,18 @@ def parse_arguments(message: str, valid: List[str]) -> (dict, str):
 async def is_admin(client, chat_id, user_id):
     if not str(chat_id).startswith("-100"):
         return False
-    req_jo = await client(GetParticipantRequest(
-        channel=chat_id,
-        user_id=user_id
-    ))
-    chat_participant = req_jo.participant
-    if isinstance(chat_participant, ChannelParticipantCreator) or isinstance(chat_participant, ChannelParticipantAdmin):
-        return True
-    return False
+    try:
+        req_jo = await client(GetParticipantRequest(
+            channel=chat_id,
+            user_id=user_id
+        ))
+        chat_participant = req_jo.participant
+        if isinstance(chat_participant, ChannelParticipantCreator) or isinstance(chat_participant, ChannelParticipantAdmin):
+            return True
+    except Exception:
+        return False
+    else:
+        return False
 
 
 # Not that Great but it will fix sudo reply

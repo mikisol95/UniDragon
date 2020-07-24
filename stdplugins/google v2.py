@@ -1,21 +1,13 @@
 import datetime
 import asyncio
 import shutil
-from bs4 import BeautifulSoup
 import re
 from html import unescape
 from re import findall
-from selenium import webdriver
-from urllib.parse import quote_plus
-from urllib.error import HTTPError
-from selenium.webdriver.support.ui import Select
-from selenium.webdriver.chrome.options import Options
 from requests import get
 from search_engine_parser import GoogleSearch
 from googleapiclient.discovery import build
-from googleapiclient.errors import HttpError
 import asyncio
-from telethon import events
 from uniborg.util import admin_cmd
 
 @borg.on(admin_cmd(pattern="google ?(.*)"))

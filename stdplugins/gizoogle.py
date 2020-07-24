@@ -8,14 +8,14 @@ async def gizoogle(event):
     if event.fwd_from:
         return
     input_str = event.pattern_match.group(1)
-    await event.edit("Processing...")
+    await event.edit("`Processing...`")
     if not input_str:
-        return await event.edit("I can't gizoogle nothing.")
+        return await event.edit("`I can't gizoogle nothing.`")
     else:
         try:
             result = text(input_str)
         except:
-            result = "Failed to gizoogle the text."
+            result = "`Failed to gizoogle the text.`"
         finally:
             return await event.edit(result)
 

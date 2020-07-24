@@ -19,11 +19,7 @@ async def _(event):
     await event.edit("`Bye... *windows XP shut down sound*`")
     await asyncio.sleep(10)
     await event.edit("`Me Back! Try .on`")
-    await borg.disconnect()
-    # https://archive.is/im3rt
-    os.execl(sys.executable, sys.executable, *sys.argv)
-    # You probably don't need it but whatever
-    quit()
+    asyncio.get_event_loop().create_task(restart())
 
 
 @borg.on(events.NewMessage(pattern=r"\.shutdown", outgoing=True))
@@ -38,3 +34,6 @@ async def _(event):
     await event.edit("❌🔒🔒🔒🔒🔒🔒🔒")
     await borg.disconnect()
    
+async def restart():
+    await borg.disconnect()
+    os.execl(sys.executable, sys.executable, *sys.argv)

@@ -15,7 +15,6 @@ import textwrap
 from uniborg.util import admin_cmd
 from jikanpy.exceptions import APIException
 from uniborg import MODULE, SYNTAX
-
 MODULE.append("animelist")
 
 jikan = Jikan()
@@ -212,7 +211,7 @@ async def user(event):
     caption += f"**About**: {about_string}"
     await event.client.send_file(event.chat_id, file=img, caption=caption)
     
-@borg.on(admin_cmd(pattern="k(aizoku|ayo) ?(.*)"))    
+@borg.on(admin_cmd(pattern="sh (kaizoku|kayo) ?(.*)"))    
 async def site_search(event):
     message = await event.get_reply_message()
     search_query= event.pattern_match.group(2)
@@ -225,7 +224,7 @@ async def site_search(event):
     	await event.edit("`Uuf Bro.. Gib something to Search`")
     	return
 
-    if site == "aizoku":
+    if site == "kaizoku":
         search_url = f"https://animekaizoku.com/?s={search_query}"
         html_text = requests.get(search_url).text
         soup = bs4.BeautifulSoup(html_text, "html.parser")
@@ -242,7 +241,7 @@ async def site_search(event):
             result = f"<b>No result found for</b> <code>{html.escape(search_query)}</code> <b>on</b> <code>AnimeKaizoku</code>"
             await event.edit(result, parse_mode='HTML')
 
-    elif site == "ayo":
+    elif site == "kayo":
         search_url = f"https://animekayo.com/?s={search_query}"
         html_text = requests.get(search_url).text
         soup = bs4.BeautifulSoup(html_text, "html.parser")

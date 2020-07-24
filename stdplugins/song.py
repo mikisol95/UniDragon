@@ -54,7 +54,7 @@ async def _(event):
 async def _(event):
     if event.fwd_from:
         return
-    link = event.pattern_match.group(1)
+    name = event.pattern_match.group(1)
     chat = "@SpotifyMusicDownloaderbot"
     await event.edit("```Getting Your Music```")
     async with event.client.conversation(chat) as conv:
@@ -62,13 +62,13 @@ async def _(event):
           await event.edit("`Downloading music taking some times,  Stay Tuned.....`")
           try:
               response = conv.wait_event(events.NewMessage(incoming=True,from_users=752979930))
-              await event.client.send_message(chat, link)
+              await event.client.send_message(chat, name)
               respond = await response
           except YouBlockedUserError:
               await event.reply("```Please unblock @SpotifyMusicDownloaderBot and try again```")
               return
           await event.delete()
-          await event.client.forward_messages(event.chat_id, respond.message)
+          await event.client.send_message(event.chat_id, respond.message)
 
 @borg.on(admin_cmd(pattern="netease(?: |$)(.*)"))
 async def WooMai(netase):

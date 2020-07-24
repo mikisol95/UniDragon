@@ -1,6 +1,6 @@
 {
   "name": "PepeBot",
-  "description": "Only For Legends..... By : @kirito6969",
+  "description": "Only For Lazy People #LazyAF_Geng By : @kirito6969",
   "logo": "https://telegra.ph/file/5b5388c1a96670bd96b5e.png",
   "keywords": [
     "pepe",
@@ -10,7 +10,7 @@
     "hentoi",
     "oppai"
   ],
-  "repository": "https://gitlab.com/SpEcHiDe/UniBorg",
+  "repository": "https://github.com/prono69/PepeBot",
   "website": "https://telegram.dog/UniBorg",
   "success_url": "https://telegram.dog/NeoMatrix90",
   "env": {
@@ -206,12 +206,20 @@
     "TELE_GRAM_2FA_CODE": {
       "description": "Your Telegram 2FA code as a string",
       "required": false
+    },
+    "G_PHOTOS_CLIENT_ID": {
+      "description": "get the client id from https://da.gd/PUniTBorg",
+      "required": false
+    },
+    "G_PHOTOS_CLIENT_SECRET": {
+      "description": "get the client secret from https://da.gd/PUniTBorg",
+      "required": false
     }
   },
   "addons": [{
     "plan": "heroku-postgresql",
     "options": {
-      "version": "9.5"
+      "version": "9.6"
     }
   }],
   "buildpacks": [{

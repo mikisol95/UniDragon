@@ -47,7 +47,7 @@ async def _(event):
     if event.fwd_from:
         return
     start = datetime.now()
-    await event.edit("Processing ...")
+    await event.edit("`Processing...`")
     input_str = event.pattern_match.group(1)
     response = google_images_download.googleimagesdownload()
     if not os.path.isdir(Config.TMP_DOWNLOAD_DIRECTORY):
@@ -91,7 +91,7 @@ async def _(event):
     BASE_URL = "http://www.google.com"
     OUTPUT_STR = "Reply to an image to do Google Reverse Search"
     if event.reply_to_msg_id:
-        await event.edit("Pre Processing Media")
+        await event.edit("`Pre Processing Media`")
         previous_message = await event.get_reply_message()
         previous_message_text = previous_message.message
         if previous_message.media:

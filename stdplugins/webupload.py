@@ -1,14 +1,14 @@
 # originally created by
 # https://github.com/Total-Noob-69/X-tra-Telegram/blob/master/userbot/plugins/webupload.py
 # modified by __me__ to suit **my** needs
-
+"""Syntax: `.web <supported sites>`"""
 from uniborg.util import admin_cmd
 import asyncio
 import json
 import os
 
 
-@borg.on(admin_cmd(pattern="webupload ?(.+?|) --(anonfiles|transfer|filebin|anonymousfiles|megaupload|bayfiles)"))
+@borg.on(admin_cmd(pattern="web ?(.+?|) --(anonfiles|transfer|filebin|anonymousfiles|megaupload|bayfiles|letsupload|vshare)"))
 async def _(event):
 	await event.edit("`processing ...`")
 	PROCESS_RUN_TIME = 100
@@ -29,7 +29,9 @@ async def _(event):
 		"filebin": "curl -X POST --data-binary \"@{full_file_path}\" -H \"filename: {bare_local_name}\" \"https://filebin.net\"",
 		"anonymousfiles": "curl -F file=\"@{full_file_path}\" https://api.anonymousfiles.io/",
 		"megaupload": "curl -F \"file=@{full_file_path}\" https://megaupload.is/api/upload",
-		"bayfiles": "curl -F \"file=@{full_file_path}\" https://bayfiles.com/api/upload"
+		"bayfiles": "curl -F \"file=@{full_file_path}\" https://bayfiles.com/api/upload",
+		"letsupload": "curl -F \"file=@{full_file_path}\" https://api.letsupload.cc/upload",
+        "vshare": "curl -F \"file=@{}\" https://api.vshare.is/upload"
 	}
 	filename = os.path.basename(file_name)
 	try:
