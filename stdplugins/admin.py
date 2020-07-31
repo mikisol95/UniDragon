@@ -52,7 +52,7 @@ from telethon.tl.types import (ChannelParticipantsAdmins, ChannelParticipantsBot
                                ChatBannedRights, MessageEntityMentionName,
                                MessageMediaPhoto, PeerUser)
 ENABLE_LOG = True
-LOGGING_CHATID = Config.PRIVATE_CHANNEL_BOT_API_ID
+LOGGING_CHATID = Config.PM_LOGGR_BOT_API_ID
 BANNED_RIGHTS = ChatBannedRights(
     until_date=None,
     view_messages=True,
@@ -629,7 +629,7 @@ async def listbots(eventListBots):
 
 
 @borg.on(admin_cmd(pattern=f"{borg.me.id}ipin(?: |$)(.*)", allow_sudo=True))
-@borg.on(events.NewMessage(outgoing=True, pattern="^.ipin(?: |$)(.*)"))
+@borg.on(events.NewMessage(outgoing=True, pattern="^.pin(?: |$)(.*)"))
 async def pinmessage(eventPinMessage):
     if not eventPinMessage.text[0].isalpha() and eventPinMessage.text[0] not in ("/", "#", "@", "!"):
         chat = await eventPinMessage.get_chat()

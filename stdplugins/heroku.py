@@ -5,7 +5,6 @@ import asyncio
 import os
 import requests
 import math
-
 from userbot.utils import prettyjson
 from uniborg.util import admin_cmd
 from sample_config import Config
@@ -146,7 +145,7 @@ async def _(dyno):
              Heroku = heroku3.from_key(Config.HEROKU_API_KEY)                         
              app = Heroku.app(Config.HEROKU_APP_NAME)
         except:
-  	       return await dyno.reply(" Please make sure your Heroku API Key, Your App name are configured correctly in the heroku var please check https://t.me/IndianBot_Official/55?single")
+  	       return await dyno.reply(" Please make sure your Heroku API Key, Your App name are configured correctly in the heroku var")
         await dyno.edit("Getting Logs....")
         with open('logs.txt', 'w') as log:
             log.write(app.get_log())
@@ -156,7 +155,115 @@ async def _(dyno):
             reply_to=dyno.id,
             caption="logs of 100+ lines",
         )
-        await dyno.edit("`Sending in Progress.....`")
-        await asyncio.sleep(5)
         await dyno.delete()
-        return os.remove('logs.txt')                           
+        return os.remove('logs.txt')
+        
+@borg.on(admin_cmd(pattern="dyno (on|restart|off|cancel deploy|cancel build) ?(.*)"))
+async def dyno_manage(dyno):
+    """ - Restart/Kill dyno - """
+    await dyno.edit("`Sending information...`")
+    app = Heroku.app(HEROKU_APP_NAME)
+    exe = dyno.pattern_match.group(1)
+    if exe == "on":
+        try:
+            Dyno = app.dynos()[0]
+        except IndexError:
+            app.scale_formation_process("worker", 1)
+            text = f"`Starting` ⬢**{HEROKU_APP_NAME}**"
+            sleep = 1
+            dot = "."
+            await dyno.edit(text)
+            while (sleep <= 24):
+                await dyno.edit(text + f"`{dot}`")
+                await asyncio.sleep(1)
+                if len(dot) == 3:
+                    dot = "."
+                else:
+                    dot += "."
+                sleep += 1
+            state = Dyno.state
+            if state == "up":
+                await dyno.respond(f"⬢**{HEROKU_APP_NAME}** `up...`")
+            elif state == "crashed":
+                await dyno.respond(f"⬢**{HEROKU_APP_NAME}** `crashed...`")
+            return await dyno.delete()
+        else:
+            return await dyno.edit(f"⬢**{HEROKU_APP_NAME}** `already on...`")
+    if exe == "restart":
+        try:
+            """ - Catch error if dyno not on - """
+            Dyno = app.dynos()[0]
+        except IndexError:
+            return await dyno.respond(f"⬢**{HEROKU_APP_NAME}** `is not on...`")
+        else:
+            text = f"`Restarting` ⬢**{HEROKU_APP_NAME}**"
+            Dyno.restart()
+            sleep = 1
+            dot = "."
+            await dyno.edit(text)
+            while (sleep <= 24):
+                await dyno.edit(text + f"`{dot}`")
+                await asyncio.sleep(1)
+                if len(dot) == 3:
+                    dot = "."
+                else:
+                    dot += "."
+                sleep += 1
+            state = Dyno.state
+            if state == "up":
+                await dyno.respond(f"⬢**{HEROKU_APP_NAME}** `restarted...`")
+            elif state == "crashed":
+                await dyno.respond(f"⬢**{HEROKU_APP_NAME}** `crashed...`")
+            return await dyno.delete()
+    elif exe == "off":
+        """ - Complete shutdown - """
+        app.scale_formation_process("worker", 0)
+        text = f"`Shutdown` ⬢**{HEROKU_APP_NAME}**"
+        sleep = 1
+        dot = "."
+        while (sleep <= 3):
+            await dyno.edit(text + f"`{dot}`")
+            await asyncio.sleep(1)
+            dot += "."
+            sleep += 1
+        await dyno.respond(f"⬢**{HEROKU_APP_NAME}** `turned off...`")
+        return await dyno.delete() 
+    elif exe == "cancel deploy" or exe == "cancel build":
+        """ - Only cancel 1 recent builds from activity - """
+        build_id = dyno.pattern_match.group(2)
+        if build_id is None:
+            build = app.builds(order_by='created_at', sort='desc')[0]
+        else:
+            build = app.builds().get(build_id)
+            if build is None:
+                return await dyno.edit(
+                    f"`There is no such build.id`:  **{build_id}**")
+        if build.status != "pending":
+            return await dyno.edit("`Zero active builds to cancel...`")
+        headers = {
+            'User-Agent': useragent,
+            'Authorization': f'Bearer {HEROKU_API_KEY}',
+            'Accept': 'application/vnd.heroku+json; version=3.cancel-build',
+        }
+        path = "/apps/" + build.app.id + "/builds/" + build.id
+        r = requests.delete(heroku_api + path, headers=headers)
+        text = f"`Stopping build`  ⬢**{build.app.name}**"
+        await dyno.edit(text)
+        sleep = 1
+        dot = "."
+        await asyncio.sleep(2)
+        while (sleep <= 3):
+            await dyno.edit(text + f"`{dot}`")
+            await asyncio.sleep(1)
+            dot += "."
+            sleep += 1
+        await dyno.respond(
+            "`[HEROKU]`\n"
+            f"Build: ⬢**{build.app.name}**  `Stopped...`")
+        """ - Restart main if builds cancelled - """
+        try:
+            app.dynos()[0].restart()
+        except IndexError:
+            await dyno.edit("`Your dyno main app is not on...`")
+            await asyncio.sleep(2.5)
+        return await dyno.delete()

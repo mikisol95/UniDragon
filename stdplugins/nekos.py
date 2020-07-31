@@ -102,7 +102,7 @@ async def waifu(event):
 @borg.on(admin_cmd(pattern="fact"))
 async def _(event):
 	target= nekos.fact()
-	await event.edit(target)
+	await event.edit(f"`{target}`")
 
 @borg.on(admin_cmd(pattern="tcat"))
 async def _(event):

@@ -41,7 +41,7 @@ async def _(event):
                 m_list = fd.readlines()
             message = ""
             for m in m_list:
-                message += m.decode("UTF-8") + "\r\n"
+                message += m.decode("UTF-8")
             os.remove(downloaded_file_name)
         else:
             message = previous_message.message
@@ -65,7 +65,7 @@ async def get_dogbin_content(dog_url):
         fetches the content of a dogbin URL. """
     textx = await dog_url.get_reply_message()
     message = dog_url.pattern_match.group(1)
-    await dog_url.edit("`Getting dogbin content . . .`")
+    await dog_url.edit("`Getting dogbin content...`")
 
     if textx:
         message = str(textx.message)

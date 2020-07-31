@@ -54,7 +54,7 @@ if 1 == 1:
                  return
             if int(id) <= (len(photos)):
                 send_photos = await event.client.download_media(photos[id - 1])
-                await event.client.send_file(event.chat_id, send_photos, caption=id)
+                await event.client.send_file(event.chat_id, send_photos)
             else:
                 await event.edit("```No photo found of this NIBBA / NIBBI. Now u Die!```")
                 await asyncio.sleep(8)

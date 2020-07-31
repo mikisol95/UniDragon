@@ -1,12 +1,9 @@
 """command: .mxhin , .mxmal"""
 
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
-
-from telethon import events
+from uniborg.util import admin_cmd
 import random
 
-@borg.on(events.NewMessage(pattern=r"\.mx(.*)", outgoing=True))
+@borg.on(admin_cmd(pattern="mx(.*)"))
 async def _(event):
     if event.fwd_from:
         return

@@ -8,10 +8,8 @@
 import re
 from requests import get
 from bs4 import BeautifulSoup
-
 from uniborg import MODULE, SYNTAX
 from uniborg.util import admin_cmd
-
 MODULE.append("android")
 
 GITHUB = 'https://github.com'

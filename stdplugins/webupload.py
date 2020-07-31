@@ -8,7 +8,7 @@ import json
 import os
 
 
-@borg.on(admin_cmd(pattern="web ?(.+?|) --(anonfiles|transfer|filebin|anonymousfiles|megaupload|bayfiles|letsupload|vshare)"))
+@borg.on(admin_cmd(pattern="web ?(.+?|) --(anonfiles|transfer|filebin|anonymousfiles|megaupload|bayfiles|letsupload|vshare|fileio)"))
 async def _(event):
 	await event.edit("`processing ...`")
 	PROCESS_RUN_TIME = 100
@@ -31,7 +31,8 @@ async def _(event):
 		"megaupload": "curl -F \"file=@{full_file_path}\" https://megaupload.is/api/upload",
 		"bayfiles": "curl -F \"file=@{full_file_path}\" https://bayfiles.com/api/upload",
 		"letsupload": "curl -F \"file=@{full_file_path}\" https://api.letsupload.cc/upload",
-        "vshare": "curl -F \"file=@{}\" https://api.vshare.is/upload"
+    "vshare": "curl -F \"file=@{}\" https://api.vshare.is/upload",
+    "file.io": "curl -F file=\"@{}\" https://file.io"
 	}
 	filename = os.path.basename(file_name)
 	try:

@@ -39,19 +39,33 @@ async def lst(event):
         for contents in  sorted(lists):
             catpath = path + "/" + contents
             if not isdir(catpath):
-                    size = os.stat(catpath).st_size
-                    if contents.endswith((".mp3", ".flac", ".wav", ".m4a")):
-                        files += "🎵" + f"`{contents}`\n"
-                    if contents.endswith((".opus")):    
-                        files += "🎙" + f"`{contents}`\n"
-                    elif contents.endswith((".mkv", ".mp4", ".webm", ".avi", ".mov", ".flv")):
-                        files += "🎞" + f"`{contents}`\n"
-                    elif contents.endswith((".zip", ".tar", ".tar.gz", ".rar", ".7z")):
-                        files += "🗜" + f"`{contents}`\n"
-                    elif contents.endswith((".jpg", ".jpeg", ".png", ".gif", ".bmp", ".ico", ".webp")):
-                        files += "🖼" + f"`{contents}`\n"
-                    else:
-                        files += "📄" + f"`{contents}`\n"
+                size = os.stat(catpath).st_size
+                if contents.endswith((".mp3", ".flac", ".wav", ".m4a")):
+                    files += "🎵 " + f"`{contents}`\n"
+                if contents.endswith((".opus")):
+                    files += "🎙 " + f"`{contents}`\n"
+                elif contents.endswith(
+                    (".mkv", ".mp4", ".webm", ".avi", ".mov", ".flv")
+                ):
+                    files += "🎞 " + f"`{contents}`\n"
+                elif contents.endswith(
+                    (".zip", ".tar", ".tar.gz", ".rar", ".7z", ".xz")
+                ):
+                    files += "🗜 " + f"`{contents}`\n"
+                elif contents.endswith(
+                    (".jpg", ".jpeg", ".png", ".gif", ".bmp", ".ico", ". webp")
+                ):
+                    files += "🖼 " + f"`{contents}`\n"
+                elif contents.endswith((".exe", ".deb")):
+                    files += "⚙️ " + f"`{contents}`\n"
+                elif contents.endswith((".iso", ".img")):
+                    files += "💿 " + f"`{contents}`\n"
+                elif contents.endswith((".apk", ".xapk")):
+                    files += "📱 " + f"`{contents}`\n"
+                elif contents.endswith((".py")):
+                    files += "🐍 " + f"`{contents}`\n"
+                else:
+                    files += "📄 " + f"`{contents}`\n"
             else:
                     folders += f"📁`{contents}`\n"  
         if files or folders:
@@ -60,19 +74,27 @@ async def lst(event):
             msg = msg + "`Empty Folder`"    
     else:
         size = os.stat(path).st_size
-        msg = f"The details of given file :\n"
+        msg = f"The details of given file :\n\n"
         if path.endswith((".mp3", ".flac", ".wav", ".m4a")):
-            mode = "🎵"
-        if path.endswith((".opus")): 
-            mode = "🎙"
+            mode = "🎵 "
+        if path.endswith((".opus")):
+            mode = "🎙 "
         elif path.endswith((".mkv", ".mp4", ".webm", ".avi", ".mov", ".flv")):
-            mode = "🎞"
-        elif path.endswith((".zip", ".tar", ".tar.gz", ".rar")):
-            mode = "🗜"
-        elif path.endswith((".jpg", ".jpeg", ".png", ".gif", ".bmp", ".ico")):
-            mode = "🖼" 
+            mode = "🎞 "
+        elif path.endswith((".zip", ".tar", ".tar.gz", ".rar", ".7z", ".xz")):
+            mode = "🗜 "
+        elif path.endswith((".jpg", ".jpeg", ".png", ".gif", ".bmp", ".ico", ". webp")):
+            mode = "🖼 "
+        elif path.endswith((".exe", ".deb")):
+            mode = "⚙️ "
+        elif path.endswith((".iso", ".img")):
+            mode = "💿 "
+        elif path.endswith((".apk", ".xapk")):
+            mode = "📱 "
+        elif path.endswith((".py")):
+            mode = "🐍 "
         else:
-            mode = "📄" 
+            mode = "📄 "
         time1 = time.ctime(os.path.getctime(path))
         time2 = time.ctime(os.path.getmtime(path))
         time3 = time.ctime(os.path.getatime(path))

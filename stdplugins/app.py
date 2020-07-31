@@ -4,8 +4,6 @@
 import requests
 import bs4 
 from uniborg.util import admin_cmd
-from telethon import *
-from uniborg import *
 
 @borg.on(admin_cmd(pattern="app (.*)", allow_sudo=True))
 async def apk(e):
