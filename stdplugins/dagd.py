@@ -2,6 +2,7 @@
 import requests
 from uniborg.util import admin_cmd
 
+
 @borg.on(admin_cmd(pattern="dns (.*)"))
 async def _(event):
     if event.fwd_from:
@@ -14,6 +15,7 @@ async def _(event):
     else:
         await event.edit("I can't seem to Find {} on the internet".format(input_str))
 
+
 @borg.on(admin_cmd(pattern="link (.*)"))
 async def _(event):
     if event.fwd_from:
@@ -25,6 +27,7 @@ async def _(event):
         await event.edit("Generated {} for {}.".format(response_api, input_str))
     else:
         await event.edit("Something is Wrong. Please try Again Later.")
+
 
 @borg.on(admin_cmd(pattern="unshort (.*)"))
 async def _(event):
@@ -39,6 +42,7 @@ async def _(event):
     else:
         await event.edit("Input URL {} returned status_code {}".format(input_str, r.status_code))
 
+
 @borg.on(admin_cmd(pattern="myip(.*)"))
 async def _(event):
     if event.fwd_from:
@@ -50,6 +54,7 @@ async def _(event):
         await event.edit("**Ip Of My Userbot:**{}\n{}".format(input_str, response_api))
     else:
         await event.edit("I can't seem to find {} on the internet".format(input_str))
+
 
 @borg.on(admin_cmd(pattern="myisp(.*)"))
 async def _(event):
@@ -63,6 +68,7 @@ async def _(event):
     else:
         await event.edit("I can't seem to find {} on the internet".format(input_str))
 
+
 @borg.on(admin_cmd(pattern="mywho (.*)"))
 async def _(event):
     if event.fwd_from:
@@ -74,6 +80,7 @@ async def _(event):
         await event.edit("**Whois:**\n{}\n{}".format(input_str, response_api))
     else:
         await event.edit("I can't seem to find {} on the internet".format(input_str))
+
 
 @borg.on(admin_cmd(pattern="myhead (.*)"))
 async def _(event):
@@ -87,6 +94,7 @@ async def _(event):
     else:
         await event.edit("i can't seem to find {} on the internet".format(input_str))
 
+
 @borg.on(admin_cmd(pattern="myup (.*)"))
 async def _(event):
     if event.fwd_from:
@@ -98,6 +106,7 @@ async def _(event):
         await event.edit("`Is Website Up????`\n ☞ {}\n\n\nAns: `{}`".format(input_str, response_api))
     else:
         await event.edit("I can't seem to find {} on the internet".format(input_str))
+
 
 @borg.on(admin_cmd(pattern="iifast(.*)"))
 async def _(event):

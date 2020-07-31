@@ -29,6 +29,7 @@ KANGING_STR = [
     "Aaja Bsdk aa Sala Kurkure..."
 ]
 
+
 @borg.on(admin_cmd(pattern="ikang ?(.*)"))
 async def kang(args):
     """ For .kang command, kangs stickers or creates new ones. """
@@ -39,11 +40,10 @@ async def kang(args):
         message = await args.get_reply_message()
         input_str = args.pattern_match.group(1)
         photo = None
-        emojibypass = False
         is_anim = False
         emoji = "🍑"
         if input_str:
-        	emoji = input_str
+            emoji = input_str
 
         if message and message.media:
             if isinstance(message.media, MessageMediaPhoto):
@@ -57,18 +57,16 @@ async def kang(args):
                 if (DocumentAttributeFilename(file_name='sticker.webp') in
                         message.media.document.attributes):
                     emoji = message.media.document.attributes[1].alt
-                    emojibypass = True
             elif "tgsticker" in message.media.document.mime_type:
                 await args.edit(f"`{random.choice(KANGING_STR)}`")
                 await borg.download_file(message.media.document,
-                                        'AnimatedSticker.tgs')
+                                         'AnimatedSticker.tgs')
 
                 attributes = message.media.document.attributes
                 for attribute in attributes:
                     if isinstance(attribute, DocumentAttributeSticker):
                         emoji = attribute.alt
 
-                emojibypass = True
                 is_anim = True
                 photo = 1
             else:

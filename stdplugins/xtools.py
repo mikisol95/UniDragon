@@ -19,7 +19,8 @@ async def _(event):
         sub_domain = input_str
     else:
         sub_domain, username = input_str.split("|")
-    final_url = "https://xtools.wmflabs.org/api/user/simple_editcount/{}.wikipedia.org/{}".format(sub_domain, username)
+    final_url = "https://xtools.wmflabs.org/api/user/simple_editcount/{}.wikipedia.org/{}".format(
+        sub_domain, username)
     json_string = requests.get(final_url).json()
     result_text = json_string["liveEditCount"]
     end = datetime.now()

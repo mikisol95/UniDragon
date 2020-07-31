@@ -6,19 +6,10 @@
 """ Userbot module for getting information about the userbot's version.
 cmd is .ver"""
 
-import asyncio
 from asyncio import create_subprocess_shell as asyncrunapp
 from asyncio.subprocess import PIPE as asyncPIPE
-from platform import python_version, uname
-from shutil import which, rmtree
-from telethon import version
-from os import remove, execle, path, makedirs, getenv, environ
-from git import Repo
-from git.exc import GitCommandError, InvalidGitRepositoryError, NoSuchPathError
-import distutils
+from shutil import which
 from uniborg.util import admin_cmd
-from collections import deque
-
 
 
 @borg.on(admin_cmd(pattern="ver(.*)"))
@@ -55,4 +46,3 @@ async def bot_ver(event):
         await event.edit(
             "Shame that you don't have git, You're running 69.0 - 'Master' anyway"
         )
-

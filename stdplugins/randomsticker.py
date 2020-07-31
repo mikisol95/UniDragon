@@ -2,7 +2,7 @@
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
-""" Command: .dab , .brain 
+""" Command: .dab , .brain
 
 credit: @r4v4n4"""
 
@@ -15,6 +15,7 @@ def choser(cmd, pack, blacklist=None):
     if blacklist is None:
         blacklist = {}
     docs = None
+
     @borg.on(events.NewMessage(pattern=rf'\.{cmd}', outgoing=True))
     async def handler(event):
         await event.delete()

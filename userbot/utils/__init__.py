@@ -12,9 +12,13 @@ from telethon.tl.custom import Message
 from telethon.tl.functions.channels import GetFullChannelRequest
 from telethon.tl.functions.messages import GetFullChatRequest
 from telethon.tl.functions.users import GetFullUserRequest
-from telethon.tl.types import (MessageEntityMentionName,
-                               ChannelParticipantsAdmins,
-                               ChannelParticipantsBots, MessageEntityMention, InputPeerChannel, InputPeerChat)
+from telethon.tl.types import (
+    MessageEntityMentionName,
+    ChannelParticipantsAdmins,
+    ChannelParticipantsBots,
+    MessageEntityMention,
+    InputPeerChannel,
+    InputPeerChat)
 
 
 def parse_arguments(message: str, valid: List[str]) -> (dict, str):
@@ -94,7 +98,7 @@ async def get_user_from_event(event: NewMessage.Event, **kwargs):
             user_object = await event.client.get_entity(user)
             replied_user = await event.client(
                 GetFullUserRequest(user_object.id))
-        except (TypeError, ValueError) as err:
+        except (TypeError, ValueError):
             return None
 
     # Check for a forwarded message

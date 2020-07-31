@@ -7,6 +7,7 @@
 """
 from uniborg.util import admin_cmd
 
+
 @borg.on(admin_cmd(pattern="hl ?(.*)"))
 async def _(event):
     if event.fwd_from:
@@ -18,5 +19,3 @@ async def _(event):
     string = " ".join(strings)
     output = f"[{string}]({link})"
     await event.edit(output)
-
-

@@ -54,7 +54,7 @@ async def _(event):
                 await event.edit("Uploaded to https://telegra.ph{} in {} seconds.".format(media_urls[0], (ms + ms_two)), link_preview=True)
         elif input_str == "t":
             user_object = await borg.get_entity(r_message.from_id)
-            title_of_page = user_object.first_name # + " " + user_object.last_name
+            title_of_page = user_object.first_name  # + " " + user_object.last_name
             # apparently, all Users do not have last_name field
             if optional_title:
                 title_of_page = optional_title

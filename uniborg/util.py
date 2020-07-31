@@ -24,13 +24,13 @@ else:
 
 def admin_cmd(**args):
     args["func"] = lambda e: e.via_bot_id is None
-    
+
     pattern = args.get("pattern", None)
     allow_sudo = args.get("allow_sudo", False)
 
     # get the pattern from the decorator
     if pattern is not None:
-        if pattern.startswith("\#"):
+        if pattern.startswith(r"\#"):
             # special fix for snip.py
             args["pattern"] = re.compile(pattern)
         else:
@@ -55,13 +55,11 @@ def admin_cmd(**args):
         args["chats"] = black_list_chats
 
     # check if the plugin should allow edited updates
-    allow_edited_updates = False
     if "allow_edited_updates" in args and args["allow_edited_updates"]:
-        allow_edited_updates = args["allow_edited_updates"]
+        args["allow_edited_updates"]
         del args["allow_edited_updates"]
 
     # check if the plugin should listen for outgoing 'messages'
-    is_message_enabled = True
 
     return events.NewMessage(**args)
 
@@ -147,10 +145,10 @@ def time_formatter(milliseconds: int) -> str:
         ((str(milliseconds) + "ms, ") if milliseconds else "")
     return tmp[:-2]
 
-    
+
 def parse_arguments(message: str, valid: List[str]) -> (dict, str):
     options = {}
- 
+
     # Handle boolean values
     for opt in findall(r'([.!]\S+)', message):
         if opt[1:] in valid:
@@ -159,7 +157,7 @@ def parse_arguments(message: str, valid: List[str]) -> (dict, str):
             elif opt[0] == '!':
                 options[opt[1:]] = False
             message = message.replace(opt, '')
- 
+
     # Handle key/value pairs
     for opt in findall(r'(\S+):(?:"([\S\s]+)"|(\S+))', message):
         key, val1, val2 = opt
@@ -171,8 +169,9 @@ def parse_arguments(message: str, valid: List[str]) -> (dict, str):
                 match(r'[Tt]rue', value)
             options[key] = value
             message = message.replace(f"{key}:{value}", '')
- 
-    return options, message.strip()        
+
+    return options, message.strip()
+
 
 async def is_admin(client, chat_id, user_id):
     if not str(chat_id).startswith("-100"):
@@ -183,7 +182,11 @@ async def is_admin(client, chat_id, user_id):
             user_id=user_id
         ))
         chat_participant = req_jo.participant
-        if isinstance(chat_participant, ChannelParticipantCreator) or isinstance(chat_participant, ChannelParticipantAdmin):
+        if isinstance(
+                chat_participant,
+                ChannelParticipantCreator) or isinstance(
+                chat_participant,
+                ChannelParticipantAdmin):
             return True
     except Exception:
         return False

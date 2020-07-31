@@ -30,19 +30,19 @@ async def gbun(event):
         if idd == 986755683:
             await reply_message.reply("`Wait a Second, This is My Master!`\n**How dare you threaten to Gban My Master Nigger!**\n\n__Your account has been hacked! Pay 69$ to my master__ [Kirito](tg://user?id=986755683) __to Release your Account__😏")
         else:
-            jnl=("`Warning!! `"
-                  "[{}](tg://user?id={})"
-                  "` RIPPED By Admin...\n\n`"
-                  "**Rendi's Name: ** __{}__\n"
-                  "**ID : ** `{}`\n"
-                ).format(firstname, idd, firstname, idd)
-            if usname == None:
+            jnl = ("`Warning!! `"
+                   "[{}](tg://user?id={})"
+                   "` RIPPED By Admin...\n\n`"
+                   "**Rendi's Name: ** __{}__\n"
+                   "**ID : ** `{}`\n"
+                   ).format(firstname, idd, firstname, idd)
+            if usname is None:
                 jnl += "**Victim Nigga's username: ** `Doesn't own a username!`\n"
             elif usname != "None":
                 jnl += "**Victim Nigga's username** : @{}\n".format(usname)
             if len(gbunVar) > 0:
                 gbunm = "`{}`".format(gbunVar)
-                gbunr = "**Reason: **"+gbunm
+                gbunr = "**Reason: **" + gbunm
                 jnl += gbunr
             else:
                 jnl += no_reason

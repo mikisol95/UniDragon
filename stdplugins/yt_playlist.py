@@ -5,30 +5,30 @@ Audio and video downloader using Youtube-dl
 .playlista To Download in mp3 format
 .playlistv To Download in mp4 format
 """
-import logging
-logging.basicConfig(format='[%(levelname) 5s/%(asctime)s] %(name)s: %(message)s',
-                    level=logging.WARNING)
-import os
-import time
-import math
-import asyncio
-import re
-from youtube_dl import YoutubeDL
+import shutil
+from sample_config import Config
+from uniborg.util import admin_cmd
+from hachoir.parser import createParser
+from hachoir.metadata import extractMetadata
+from uniborg.util import admin_cmd, humanbytes, progress, time_formatter
+from telethon.tl.types import DocumentAttributeVideo
 from youtube_dl.utils import (DownloadError, ContentTooShortError,
                               ExtractorError, GeoRestrictedError,
                               MaxDownloadsReached, PostProcessingError,
                               UnavailableVideoError, XAttrMetadataError)
-from telethon.tl.types import DocumentAttributeVideo
+from youtube_dl import YoutubeDL
+import re
+import asyncio
+import math
+import time
+import os
+import logging
+logging.basicConfig(
+    format='[%(levelname) 5s/%(asctime)s] %(name)s: %(message)s',
+    level=logging.WARNING)
 
-from uniborg.util import admin_cmd, humanbytes, progress, time_formatter
-from hachoir.metadata import extractMetadata
-from hachoir.parser import createParser
-from uniborg.util import admin_cmd
-from sample_config import Config
-import shutil
 
 DELETE_TIMEOUT = 5
-
 
 
 async def progress(current, total, event, start, type_of_ps, file_name=None):
@@ -36,7 +36,7 @@ async def progress(current, total, event, start, type_of_ps, file_name=None):
     now = time.time()
     diff = now - start
     out_folder = Config.TMP_DOWNLOAD_DIRECTORY + "youtubedl/"
-    thumb_image_path = Config.TMP_DOWNLOAD_DIRECTORY + "/thumb_image.jpg"
+    Config.TMP_DOWNLOAD_DIRECTORY + "/thumb_image.jpg"
     if not os.path.isdir(out_folder):
         os.makedirs(out_folder)
     if round(diff % 10.00) == 0 or current == total:
@@ -92,6 +92,7 @@ def time_formatter(milliseconds: int) -> str:
         ((str(milliseconds) + " millisecond(s), ") if milliseconds else "")
     return tmp[:-2]
 
+
 @borg.on(admin_cmd(pattern="playlist(a|v) ?(.*)"))
 async def download_video(v_url):
     """ For .ytdl command, download media from YouTube and many other sites. """
@@ -103,56 +104,57 @@ async def download_video(v_url):
         url = re.findall(r'\bhttps?://.*\.\S+', reply.message)[0]
     else:
         return
-    type = v_url.pattern_match.group(1).lower() if v_url.pattern_match.group(1) is not None else "a" 
+    type = v_url.pattern_match.group(1).lower(
+    ) if v_url.pattern_match.group(1) is not None else "a"
     await v_url.edit("`Preparing to download...`")
     out_folder = Config.TMP_DOWNLOAD_DIRECTORY + "youtubedl/"
-    thumb_image_path = Config.TMP_DOWNLOAD_DIRECTORY + "/thumb_image.jpg"
+    Config.TMP_DOWNLOAD_DIRECTORY + "/thumb_image.jpg"
     if not os.path.isdir(out_folder):
         os.makedirs(out_folder)
     if type == "a":
         opts = {
-            'format':'bestaudio',
-            'addmetadata':True,
+            'format': 'bestaudio',
+            'addmetadata': True,
             'noplaylist': False,
-            'key':'FFmpegMetadata',
-            'writethumbnail':True,
-            'embedthumbnail':True,
-            'prefer_ffmpeg':True,
-            'geo_bypass':True,
-            'nocheckcertificate':True,
+            'key': 'FFmpegMetadata',
+            'writethumbnail': True,
+            'embedthumbnail': True,
+            'prefer_ffmpeg': True,
+            'geo_bypass': True,
+            'nocheckcertificate': True,
             'postprocessors': [{
                 'key': 'FFmpegExtractAudio',
                 'preferredcodec': 'mp3',
                 'preferredquality': '320',
             }],
-            'outtmpl':out_folder + '%(title)s.%(ext)s',
-            'quiet':True,
-            'logtostderr':False
+            'outtmpl': out_folder + '%(title)s.%(ext)s',
+            'quiet': True,
+            'logtostderr': False
         }
         video = False
         song = True
 
     elif type == "v":
         opts = {
-            'format':'best',
+            'format': 'best',
             'addmetadata': True,
             'noplaylist': False,
-            'getthumbnail':True,
+            'getthumbnail': True,
             'embedthumbnail': True,
-            'xattrs':True,
+            'xattrs': True,
             'writethumbnail': True,
-            'key':'FFmpegMetadata',
-            'prefer_ffmpeg':True,
-            'geo_bypass':True,
-            'nocheckcertificate':True,
-            'postprocessors': 
+            'key': 'FFmpegMetadata',
+            'prefer_ffmpeg': True,
+            'geo_bypass': True,
+            'nocheckcertificate': True,
+            'postprocessors':
             [{
                 'key': 'FFmpegVideoConvertor',
-                'preferedformat': 'mp4'},               
-            ],
-            'outtmpl':out_folder + '%(title)s.%(ext)s',
-            'logtostderr':False,
-            'quiet':True
+                'preferedformat': 'mp4'},
+             ],
+            'outtmpl': out_folder + '%(title)s.%(ext)s',
+            'logtostderr': False,
+            'quiet': True
         }
         song = False
         video = True
@@ -160,7 +162,7 @@ async def download_video(v_url):
     try:
         await v_url.edit("`Fetching playlist data, please wait..`")
         with YoutubeDL(opts) as ytdl:
-            ytdl_data = ytdl.extract_info(url)
+            ytdl.extract_info(url)
             # print(ytdl_data['thumbnail'])
         filename = sorted(get_lst_of_files(out_folder, []))
     except DownloadError as DE:
@@ -219,7 +221,8 @@ async def download_video(v_url):
                         ]
                     try:
                         ytdl_data_name_audio = os.path.basename(single_file)
-                        thumb = out_folder + ytdl_data_name_audio[:(len(ytdl_data_name_audio)-4)] + ".jpg"
+                        thumb = out_folder + \
+                            ytdl_data_name_audio[:(len(ytdl_data_name_audio) - 4)] + ".jpg"
                         print(ytdl_data_name_audio)
                         file_path = single_file
                         song_size = file_size(file_path)
@@ -230,13 +233,13 @@ async def download_video(v_url):
                             force_document=force_document,
                             supports_streaming=supports_streaming,
                             allow_cache=False,
-                            thumb = thumb,
+                            thumb=thumb,
                             reply_to=v_url.message.id,
                             attributes=document_attributes,
                             progress_callback=lambda d, t: asyncio.get_event_loop(
-                                ).create_task(
-                                    progress(d, t, v_url, c_time, "Uploading..",
-                                    f"{ytdl_data_name_audio}")))
+                            ).create_task(
+                                progress(d, t, v_url, c_time, "Uploading..",
+                                         f"{ytdl_data_name_audio}")))
                         # os.remove(thumb)
                     except Exception as e:
                         await v_url.client.send_message(
@@ -275,7 +278,7 @@ async def download_video(v_url):
                     # for file in os.listdir("./DOWNLOADS/youtubedl/"):
                     #     if file.endswith(".jpg"):
                     #         thumb = "./DOWNLOADS/youtubedl/" + file
-                            # print(os.path.join("./DOWNLOADS/youtubedl/", file))
+                        # print(os.path.join("./DOWNLOADS/youtubedl/", file))
                     # image_link = ytdl_data['thumbnail']
                     # downloaded_image = wget.download(image_link,out_folder)
                     # thumb = ytdl_data_name_video + ".jpg"
@@ -283,21 +286,22 @@ async def download_video(v_url):
                     video_size = file_size(file_path)
                     try:
                         ytdl_data_name_video = os.path.basename(single_file)
-                        thumb = out_folder + ytdl_data_name_video[:(len(ytdl_data_name_video)-4)] + ".jpg"
+                        thumb = out_folder + \
+                            ytdl_data_name_video[:(len(ytdl_data_name_video) - 4)] + ".jpg"
                         await v_url.client.send_file(
                             v_url.chat_id,
                             single_file,
                             caption=f"`{ytdl_data_name_video}`" + "\n" + f"Size👉 {video_size}",
                             force_document=force_document,
                             supports_streaming=supports_streaming,
-                            thumb = thumb,
+                            thumb=thumb,
                             allow_cache=False,
                             reply_to=v_url.message.id,
                             attributes=document_attributes,
                             progress_callback=lambda d, t: asyncio.get_event_loop(
-                                ).create_task(
-                                    progress(d, t, v_url, c_time, "Uploading..",
-                                    f"{ytdl_data_name_video}")))
+                            ).create_task(
+                                progress(d, t, v_url, c_time, "Uploading..",
+                                         f"{ytdl_data_name_video}")))
                         # os.remove(thumb)
                     except Exception as e:
                         await v_url.client.send_message(
@@ -309,9 +313,6 @@ async def download_video(v_url):
                     await asyncio.sleep(DELETE_TIMEOUT)
                     # await v_url.delete()
         shutil.rmtree(out_folder)
-        
-
-
 
 
 def get_lst_of_files(input_directory, output_lst):
@@ -322,6 +323,7 @@ def get_lst_of_files(input_directory, output_lst):
             return get_lst_of_files(current_file_name, output_lst)
         output_lst.append(current_file_name)
     return output_lst
+
 
 async def progress(current, total, event, start, type_of_ps, file_name=None):
     """Generic progress_callback for uploads and downloads."""
@@ -379,6 +381,7 @@ def time_formatter(milliseconds: int) -> str:
         ((str(seconds) + " second(s), ") if seconds else "") + \
         ((str(milliseconds) + " millisecond(s), ") if milliseconds else "")
     return tmp[:-2]
+
 
 def convert_bytes(num):
     """

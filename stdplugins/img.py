@@ -12,7 +12,7 @@ from re import findall
 from uniborg.util import admin_cmd
 
 
-@borg.on(admin_cmd(pattern="img ?(\d+)? ?(.*)?"))
+@borg.on(admin_cmd(pattern=r"img ?(\d+)? ?(.*)?"))
 async def img_sampler(event):
     await event.edit("`Processing Bsdk..`")
     reply = await event.get_reply_message()
@@ -21,9 +21,9 @@ async def img_sampler(event):
     elif reply:
         query = reply.message
     else:
-    	await event.edit("`What I am Supposed to Search u Dumb Ass(Donkey)`")
-    	return
-        
+        await event.edit("`What I am Supposed to Search u Dumb Ass(Donkey)`")
+        return
+
     lim = findall(r"lim=\d+", query)
     lim = event.pattern_match.group(1)
     try:

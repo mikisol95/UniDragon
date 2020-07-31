@@ -7,15 +7,22 @@ import requests
 from requests import get, exceptions
 from uniborg.util import admin_cmd
 import logging
-logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
-                    level=logging.WARN)
+logging.basicConfig(
+    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
+    level=logging.WARN)
 
 
 def progress(current, total):
-    logger.info("Downloaded {} of {}\nCompleted {}".format(current, total, (current / total) * 100))
+    logger.info(
+        "Downloaded {} of {}\nCompleted {}".format(
+            current,
+            total,
+            (current / total) * 100))
+
 
 DOGBIN_URL = "https://del.dog/"
 BOTLOG = Config.PM_LOGGR_BOT_API_ID
+
 
 @borg.on(admin_cmd(pattern="paste ?(.*)"))
 async def _(event):

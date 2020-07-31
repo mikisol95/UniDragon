@@ -1,9 +1,9 @@
 # Random RGB Sticklet by @PhycoNinja13b
 
-#Exclusive for My personal Repo
-#Requirement of this plugin is very high (Kumbhkaran ki aulad) 
-#Currently Loaded 6 Language support!! (will add more with time) 
-#Dare To edit this part! U will be tored apart! 
+# Exclusive for My personal Repo
+# Requirement of this plugin is very high (Kumbhkaran ki aulad)
+# Currently Loaded 6 Language support!! (will add more with time)
+# Dare To edit this part! U will be tored apart!
 
 '''
 .lan\n
@@ -21,14 +21,15 @@ import random
 from PIL import Image, ImageDraw, ImageFont
 from uniborg.util import admin_cmd
 
-#made code shorter with regex
+# made code shorter with regex
+
 
 @borg.on(admin_cmd(pattern="lan (ara|ur|hi|mal|guj|ben) (.*)"))
 async def sticklet(event):
-    
-    R = random.randint(0,256)
-    G = random.randint(0,256)
-    B = random.randint(0,256)
+
+    R = random.randint(0, 256)
+    G = random.randint(0, 256)
+    B = random.randint(0, 256)
 
     input_cmd = event.pattern_match.group(1)
     sticktext = event.pattern_match.group(2)
@@ -46,7 +47,6 @@ async def sticklet(event):
     draw = ImageDraw.Draw(image)
     fontsize = 230
 
-
     if input_cmd == "ara":
         FONT_FILE = "MaterLang_Fonts/NotoNaskhArabic-Regular.ttf"
     if input_cmd == "ur":
@@ -60,7 +60,6 @@ async def sticklet(event):
     if input_cmd == "ben":
         FONT_FILE = "MaterLang_Fonts/NotoSansBengaliUI-SemiBold.ttf"
 
-
     font = ImageFont.truetype(FONT_FILE, size=fontsize)
 
     while draw.multiline_textsize(sticktext, font=font) > (512, 512):
@@ -68,7 +67,15 @@ async def sticklet(event):
         font = ImageFont.truetype(FONT_FILE, size=fontsize)
 
     width, height = draw.multiline_textsize(sticktext, font=font)
-    draw.multiline_text(((512-width)/2,(512-height)/2), sticktext, font=font, fill=(R, G, B))
+    draw.multiline_text(
+        ((512 - width) / 2,
+         (512 - height) / 2),
+        sticktext,
+        font=font,
+        fill=(
+            R,
+            G,
+            B))
 
     image_stream = io.BytesIO()
     image_stream.name = "sticker.webp"

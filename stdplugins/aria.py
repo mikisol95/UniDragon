@@ -18,8 +18,9 @@ import os
 from uniborg.util import admin_cmd
 
 import logging
-logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
-                    level=logging.WARN)
+logging.basicConfig(
+    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
+    level=logging.WARN)
 
 
 EDIT_SLEEP_TIME_OUT = 15
@@ -93,7 +94,7 @@ async def torrent_download(event):
             options=None,
             position=None
         )
-    except:
+    except BaseException:
         await event.edit("`Torrent File Not Found...`")
         return
     gid = download.gid
@@ -126,7 +127,7 @@ async def remove_all(event):
     try:
         removed = aria2.remove_all(force=True)
         aria2.purge_all()
-    except:
+    except BaseException:
         pass
     if removed is False:  # If API returns False Try to Remove Through System Call.
         os.system("aria2p remove-all")
@@ -210,9 +211,7 @@ async def check_progress_for_dl(gid, event):
                 return False
         except Exception as e:
             logger.info(str(e))
-            pass
     file = aria2.get_download(gid)
     complete = file.is_complete
     if complete:
         await event.edit(f"File Downloaded Successfully:`{file.name}`")
-        

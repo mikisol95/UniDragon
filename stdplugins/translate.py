@@ -34,7 +34,7 @@ async def _(event):
         transl_lan = LANGUAGES[f'{translated.dest.lower()}']
         output_str = """Detected Language: **{}**\nTRANSLATED To: **{}**\n\n{}
 """.format(
-            #previous_message.message,
+            # previous_message.message,
             source_lan.title(),
             transl_lan.title(),
             after_tr_text

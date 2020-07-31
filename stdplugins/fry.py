@@ -1,8 +1,8 @@
 """Type `.df` or `.df <1-9>` reply to a photo or sticker
 """
-from telethon import events
 from telethon.errors.rpcerrorlist import YouBlockedUserError
 from uniborg.util import admin_cmd
+
 
 @borg.on(admin_cmd(pattern='df(:? |$)(.*)?'))
 async def _(event):
@@ -19,7 +19,7 @@ async def _(event):
         return
     chat = "@image_deepfrybot"
     await event.edit("```Final Nuking...```")
-    message_id_to_reply = event.message.reply_to_msg_id
+    event.message.reply_to_msg_id
     msg_reply = None
     async with event.client.conversation(chat) as conv:
         try:
@@ -27,15 +27,15 @@ async def _(event):
             if level:
                 m = f"/deepfry {level}"
                 msg_reply = await conv.send_message(
-                          m,
-                          reply_to=msg.id)
+                    m,
+                    reply_to=msg.id)
                 r = await conv.get_response()
                 response = await conv.get_response()
             elif reply_message.gif:
                 m = "/deepfry"
                 msg_reply = await conv.send_message(
-                          m,
-                          reply_to=msg.id)
+                    m,
+                    reply_to=msg.id)
                 r = await conv.get_response()
                 response = await conv.get_response()
             else:

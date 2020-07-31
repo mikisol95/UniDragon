@@ -21,4 +21,3 @@ async def subreddit(e):
             await e.edit(message)
         except MessageNotModifiedError:
             pass
-

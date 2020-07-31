@@ -4,20 +4,22 @@ import asyncio
 from asyncio import sleep
 from uniborg.util import admin_cmd
 import logging
-logging.basicConfig(format='[%(levelname) 5s/%(asctime)s] %(name)s: %(message)s',
-                    level=logging.WARNING)
- 
-level=logging.INFO
+logging.basicConfig(
+    format='[%(levelname) 5s/%(asctime)s] %(name)s: %(message)s',
+    level=logging.WARNING)
+
+level = logging.INFO
 print(level)
+
 
 @borg.on(admin_cmd(pattern="purge ?(.*)"))
 async def _(event):
     if event.fwd_from:
         return
     if not event.reply_to_msg_id:
-       await event.edit("`I Need a Mesasge to Start Purging From. U Dumb..`")
-       return
-    else:   
+        await event.edit("`I Need a Mesasge to Start Purging From. U Dumb..`")
+        return
+    else:
         i = 1
         msgs = []
         from_user = None
@@ -42,7 +44,7 @@ async def _(event):
         else:
             await event.edit("**PURGE** Failed!")
 
-    
+
 @borg.on(admin_cmd(pattern="purgme ?(.*)"))
 async def purgeme(delme):
     """ For .purgeme, delete x count of your latest message."""
@@ -63,7 +65,8 @@ async def purgeme(delme):
     )
     await asyncio.sleep(3)
     await smsg.delete()
-    
+
+
 @borg.on(admin_cmd(pattern="isd ?(.*)"))
 async def selfdestruct(destroy):
     """ For .sd command, make seflf-destructable messages. """
@@ -77,7 +80,7 @@ async def selfdestruct(destroy):
     if Config.BOTLOG:
         await destroy.client.send_message(Config.PRIVATE_GROUP_BOT_API_ID,
                                           "`Sd query done successfully`")
-  
+
 
 @borg.on(admin_cmd(pattern="ipurg ?(.*)"))
 async def fastpurger(purg):
@@ -103,8 +106,8 @@ async def fastpurger(purg):
     if msgs:
         await purg.client.delete_messages(chat, msgs)
         done = await purg.client.send_message(
-        purg.chat_id, f"`Fast purge complete!`\
-        \nPurged {str(count)} messages") 
-        
+            purg.chat_id, f"`Fast purge complete!`\
+        \nPurged {str(count)} messages")
+
     await sleep(1)
     await done.delete()

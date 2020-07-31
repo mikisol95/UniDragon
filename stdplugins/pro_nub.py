@@ -10,11 +10,7 @@ import asyncio
 from uniborg.util import admin_cmd
 
 
-
-
-
 @borg.on(admin_cmd(pattern="(.*)"))
-
 async def _(event):
 
     if event.fwd_from:
@@ -22,7 +18,6 @@ async def _(event):
         return
 
     animation_interval = 0.5
-    
 
     animation_ttl = range(0, 9)
 
@@ -36,7 +31,7 @@ async def _(event):
             "EvErYbOdY",
             "iZ",
             "BiGGeSt",
-            "NoOoB" ,
+            "NoOoB",
             "uNtiL",
             "YoU",
             "aRriVe",
@@ -46,12 +41,11 @@ async def _(event):
 
         for i in animation_ttl:
 
-
             await event.edit(animation_chars[i % 9])
             await asyncio.sleep(animation_interval)
-            
-@borg.on(admin_cmd(pattern="(.*)"))
 
+
+@borg.on(admin_cmd(pattern="(.*)"))
 async def _(event):
 
     if event.fwd_from:
@@ -59,7 +53,6 @@ async def _(event):
         return
 
     animation_interval = 0.5
-    
 
     animation_ttl = range(0, 9)
 
@@ -73,7 +66,7 @@ async def _(event):
             "EvErYbOdY",
             "iZ",
             "BiGGeSt",
-            "NoOoB" ,
+            "NoOoB",
             "uNtiL",
             "i",
             "aRriVe",
@@ -83,12 +76,11 @@ async def _(event):
 
         for i in animation_ttl:
 
-
             await event.edit(animation_chars[i % 9])
-            await asyncio.sleep(animation_interval) 
-            
-@borg.on(admin_cmd(pattern="(.*)"))
+            await asyncio.sleep(animation_interval)
 
+
+@borg.on(admin_cmd(pattern="(.*)"))
 async def _(event):
 
     if event.fwd_from:
@@ -96,7 +88,6 @@ async def _(event):
         return
 
     animation_interval = 0.5
-    
 
     animation_ttl = range(0, 8)
 
@@ -109,7 +100,7 @@ async def _(event):
         animation_chars = [
             "EvErYbOdY",
             "iZ",
-            "PeRu" ,
+            "PeRu",
             "uNtiL",
             "YoU",
             "aRriVe",
@@ -119,12 +110,11 @@ async def _(event):
 
         for i in animation_ttl:
 
-
             await event.edit(animation_chars[i % 8])
-            await asyncio.sleep(animation_interval)  
-            
-@borg.on(admin_cmd(pattern="(.*)"))
+            await asyncio.sleep(animation_interval)
 
+
+@borg.on(admin_cmd(pattern="(.*)"))
 async def _(event):
 
     if event.fwd_from:
@@ -132,7 +122,6 @@ async def _(event):
         return
 
     animation_interval = 0.5
-    
 
     animation_ttl = range(0, 8)
 
@@ -145,7 +134,7 @@ async def _(event):
         animation_chars = [
             "EvErYbOdY",
             "iZ",
-            "PeRu" ,
+            "PeRu",
             "uNtiL",
             "i",
             "aRriVe",
@@ -154,7 +143,6 @@ async def _(event):
         ]
 
         for i in animation_ttl:
-
 
             await event.edit(animation_chars[i % 8])
             await asyncio.sleep(animation_interval)

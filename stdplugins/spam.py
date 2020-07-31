@@ -11,6 +11,7 @@ from uniborg.util import admin_cmd
 
 BOTLOG = Config.BOTLOG
 
+
 @borg.on(admin_cmd(pattern="tspam (.*)"))
 async def tmeme(e):
     cspam = str(e.pattern_match.group(1))

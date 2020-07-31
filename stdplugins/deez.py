@@ -1,11 +1,13 @@
 import requests
 from uniborg.util import admin_cmd
 
+
 @borg.on(admin_cmd(pattern="deez (.*)"))
 async def _(event):
     if event.fwd_from:
         return
-    input_str = "https://song.link/redirect?url=" + event.pattern_match.group(1) + "&to=deezer&web=true"
+    input_str = "https://song.link/redirect?url=" + \
+        event.pattern_match.group(1) + "&to=deezer&web=true"
     if not input_str.startswith("http"):
         input_str = "http://" + input_str
     r = requests.get(input_str, allow_redirects=False)

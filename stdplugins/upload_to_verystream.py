@@ -66,7 +66,7 @@ async def _(event):
         if "." in file_name:
             file_name = file_name.rsplit(".", maxsplit=1)[0]
         file_name = file_name + str(time.time())
-        file_size = os.stat(required_file_name).st_size
+        os.stat(required_file_name).st_size
         # https://stackoverflow.com/a/22058673/4723940
         sha_one_file_hash = get_sha_one_hash(required_file_name, 65536)
         # /* STEP 1: get upload_key */
@@ -91,12 +91,18 @@ async def _(event):
                     url = step_one_response_text["result"]["url"]
                     await mone.edit(f"Start Uploading to {url}")
                     start = datetime.now()
-                    files = {"file1": (file_name, open(required_file_name, "rb"))}
+                    files = {
+                        "file1": (
+                            file_name,
+                            open(
+                                required_file_name,
+                                "rb"))}
                     resp = requests.post(url, files=files)
                     step_two_response_text = resp.json()
                     # logger.info(step_two_response_text)
                     if step_two_response_text["status"] == 200:
-                        output_str = json.dumps(step_two_response_text["result"], sort_keys=True, indent=4)
+                        output_str = json.dumps(
+                            step_two_response_text["result"], sort_keys=True, indent=4)
                         stream_url = step_two_response_text["result"]["url"]
                         end = datetime.now()
                         ms = (end - start).seconds
@@ -105,7 +111,7 @@ async def _(event):
                         await event.delete()
                         try:
                             os.remove(required_file_name)
-                        except:
+                        except BaseException:
                             pass
                     else:
                         await mone.edit(f"VeryStream returned {step_two_response_text['status']} => {step_two_response_text['msg']}, after STEP ONE")

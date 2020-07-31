@@ -1,4 +1,5 @@
-#A Huge Thenks to @PhycoNinja13b and @Meli_odas_Bot for their Hard Work 👩‍❤️‍💋‍👨
+# A Huge Thenks to @PhycoNinja13b and @Meli_odas_Bot for their Hard Work
+# 👩‍❤️‍💋‍👨
 import jikanpy
 from uniborg.util import admin_cmd
 from userbot.anime import (
@@ -7,8 +8,7 @@ from userbot.anime import (
     get_anime_manga,
     post_to_telegraph
 )
-import asyncio
-import html
+
 
 @borg.on(admin_cmd(pattern="sanime ?(.*)"))
 async def get_anime(message):
@@ -45,15 +45,15 @@ async def get_anime(message):
     jap_title = results_['title_japanese']
     eng_title = results_['title_english']
     type_ = results_['type']
-    source_ = results_['source']
+    results_['source']
     episodes = results_['episodes']
     status = results_['status']
-    air_dur = results_['aired'].get('string')
-    epi_dur = results_['duration']
+    results_['aired'].get('string')
+    results_['duration']
     rating = results_['rating']
     score = results_['score']
     synopsis = results_['synopsis']
-    anime_bg = results_['background']
+    results_['background']
     producer_list = results_['producers']
     studios_list = results_['studios']
     genres_list = results_['genres']
@@ -67,11 +67,11 @@ async def get_anime(message):
     # Poster Links Search
     try:
         main_poster = get_poster(anime_title)
-    except:
+    except BaseException:
         pass
     try:
         telegraph_poster = getBannerLink(f_mal_id)
-    except:
+    except BaseException:
         pass
     # if not main_poster:
     main_poster = telegraph_poster
@@ -95,7 +95,6 @@ async def get_anime(message):
     html_enc += f"<br><em>{synopsis}</em></br>"
     synopsis_link = post_to_telegraph(anime_title, html_enc)
 
-
     # Build captions:
     captions = f'''📺  `{anime_title}` - `{eng_title}` - `{jap_title}`
 
@@ -112,45 +111,54 @@ async def get_anime(message):
 
 ©️ @LazyAF_Pepe'''
 
-    
     await p_rm.delete()
     await message.client.send_file(message.chat_id,
-        file=main_poster,
-        caption=captions
-    )
+                                   file=main_poster,
+                                   caption=captions
+                                   )
+
 
 @borg.on(admin_cmd(pattern="imanga ?(.*)"))
 async def manga(message):
-	search_query = message.pattern_match.group(1)
-	lol = await message.get_reply_message()
-	await message.edit("`Searching Manga..`")
-	jikan = jikanpy.jikan.Jikan()
-	search_result = jikan.search("manga", search_query)
-	first_mal_id = search_result["results"][0]["mal_id"]
-	caption, image = get_anime_manga(first_mal_id, "anime_manga", message.chat_id)
-	await message.client.send_file(message.chat_id, file=image,
-                                caption=caption, parse_mode='HTML'
-                            )
+    search_query = message.pattern_match.group(1)
+    await message.get_reply_message()
+    await message.edit("`Searching Manga..`")
+    jikan = jikanpy.jikan.Jikan()
+    search_result = jikan.search("manga", search_query)
+    first_mal_id = search_result["results"][0]["mal_id"]
+    caption, image = get_anime_manga(
+        first_mal_id, "anime_manga", message.chat_id)
+    await message.client.send_file(message.chat_id, file=image,
+                                   caption=caption, parse_mode='HTML'
+                                   )
 
 
 @borg.on(admin_cmd(pattern="ianime ?(.*)"))
 async def anime(message):
-	search_query = message.pattern_match.group(1)
-	lol = await message.get_reply_message()
-	await message.edit("`Searching Anime..`")
-	jikan = jikanpy.jikan.Jikan()
-	search_result = jikan.search("anime", search_query)
-	first_mal_id = search_result["results"][0]["mal_id"]
-	caption, image = get_anime_manga(first_mal_id, "anime_anime", message.chat_id)
-	try:
-	   await message.client.send_file(message.chat_id, file=image, caption=caption, parse_mode='HTML')
-	except:
-	       image = getBannerLink(first_mal_id, False)
-	       await message.client.send_file(message.chat_id, file=image,
-                                caption=caption, parse_mode='HTML'
-                            )
- 
+    search_query = message.pattern_match.group(1)
+    await message.get_reply_message()
+    await message.edit("`Searching Anime..`")
+    jikan = jikanpy.jikan.Jikan()
+    search_result = jikan.search("anime", search_query)
+    first_mal_id = search_result["results"][0]["mal_id"]
+    caption, image = get_anime_manga(
+        first_mal_id, "anime_anime", message.chat_id)
+    try:
+        await message.client.send_file(message.chat_id, file=image, caption=caption, parse_mode='HTML')
+    except BaseException:
+        image = getBannerLink(first_mal_id, False)
+        await message.client.send_file(message.chat_id, file=image,
+                                       caption=caption, parse_mode='HTML'
+                                       )
+
+
 def replace_text(text):
-        return text.replace("\"", "").replace("\\r", "").replace("\\n", "").replace(
-            "\\", "")
-    
+    return text.replace(
+        "\"",
+        "").replace(
+        "\\r",
+        "").replace(
+            "\\n",
+            "").replace(
+                "\\",
+        "")

@@ -1,14 +1,7 @@
-import datetime
-import asyncio
-import shutil
-import re
-from html import unescape
 from re import findall
-from requests import get
 from search_engine_parser import GoogleSearch
-from googleapiclient.discovery import build
-import asyncio
 from uniborg.util import admin_cmd
+
 
 @borg.on(admin_cmd(pattern="google ?(.*)"))
 async def gsearch(q_event):
@@ -33,7 +26,7 @@ async def gsearch(q_event):
     gresults = await gsearch.async_search(*search_args)
     msg = ""
     i = 1
-    
+
     for i in range(11):
         try:
             title = gresults["titles"][i]
@@ -42,7 +35,7 @@ async def gsearch(q_event):
             msg += f"{i}. [{title}]({link})\n`{desc}`\n\n"
         except IndexError:
             break
-            
+
             i += 1
 
     await q_event.edit("**Search Query:**\n`" + url + "`\n\n**Results:**\n" +

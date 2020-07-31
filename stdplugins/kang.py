@@ -27,7 +27,7 @@ from uniborg.util import admin_cmd
 KANGING_STR = [
     "`Using Witchery to kang this sticker...`",
     "`Plagiarising hehe...`",
-"`Aaham Brahmassami................`",
+    "`Aaham Brahmassami................`",
     "`Inviting this sticker over to my pack...`",
     "`Kanging this sticker...`",
     "`Hey that's a nice sticker!\nMind if I kang?!..`",
@@ -36,13 +36,14 @@ KANGING_STR = [
     "`Roses are red violets are blue, kanging this sticker so my pacc looks cool`",
     "`Imprisoning this sticker...`",
     "`Mr.Steal Your Sticker is stealing this sticker...`",
-"`I am Stealing your Sticker.....\nGand Marao...`",
-"Why u bullin me.....\nರ╭╮ರ`",
-"`BOOM.... HEADSHOT...\n(ノಠ益ಠ)ノ...\n(⌐■-■)`",
-"`Me is having sux with ur GF....\nU can't du nthing...Hehe..\nಠ∀ಠ...(≧▽≦)`",
+    "`I am Stealing your Sticker.....\nGand Marao...`",
+    "Why u bullin me.....\nರ╭╮ರ`",
+    "`BOOM.... HEADSHOT...\n(ノಠ益ಠ)ノ...\n(⌐■-■)`",
+    "`Me is having sux with ur GF....\nU can't du nthing...Hehe..\nಠ∀ಠ...(≧▽≦)`",
     "`Aise tukur tukur kahe Dekh raha hain`",
 
 ]
+
 
 @borg.on(admin_cmd(pattern="kang ?(.*)"))
 async def _(event):
@@ -147,7 +148,8 @@ async def _(event):
         await event.edit("Reply to any sticker to get it's pack info.")
         return
     stickerset_attr_s = rep_msg.document.attributes
-    stickerset_attr = find_instance(stickerset_attr_s, DocumentAttributeSticker)
+    stickerset_attr = find_instance(
+        stickerset_attr_s, DocumentAttributeSticker)
     if not stickerset_attr.stickerset:
         await event.edit("sticker does not belong to a pack.")
         return
@@ -175,7 +177,7 @@ async def _(event):
 async def _(event):
     if event.fwd_from:
         return
-    input_str = event.pattern_match.group(1)
+    event.pattern_match.group(1)
     if not os.path.isdir(Config.TMP_DOWNLOAD_DIRECTORY):
         os.makedirs(Config.TMP_DOWNLOAD_DIRECTORY)
     if event.reply_to_msg_id:
@@ -184,7 +186,8 @@ async def _(event):
         if not reply_message.sticker:
             return
         sticker = reply_message.sticker
-        sticker_attrib = find_instance(sticker.attributes, DocumentAttributeSticker)
+        sticker_attrib = find_instance(
+            sticker.attributes, DocumentAttributeSticker)
         if not sticker_attrib.stickerset:
             await event.reply("This sticker is not part of a pack")
             return
@@ -195,7 +198,10 @@ async def _(event):
             file_ext_ns_ion = "tgs"
             file_caption = "Forward the ZIP file to @AnimatedStickersRoBot to get lottIE JSON containing the vector information."
         sticker_set = await borg(GetStickerSetRequest(sticker_attrib.stickerset))
-        pack_file = os.path.join(Config.TMP_DOWNLOAD_DIRECTORY, sticker_set.set.short_name, "pack.txt")
+        pack_file = os.path.join(
+            Config.TMP_DOWNLOAD_DIRECTORY,
+            sticker_set.set.short_name,
+            "pack.txt")
         if os.path.isfile(pack_file):
             os.remove(pack_file)
         # Sticker emojis are retrieved as a mapping of
@@ -206,20 +212,27 @@ async def _(event):
         for pack in sticker_set.packs:
             for document_id in pack.documents:
                 emojis[document_id] += pack.emoticon
+
         async def download(sticker, emojis, path, file):
             await borg.download_media(sticker, file=os.path.join(path, file))
             with open(pack_file, "a") as f:
-                f.write(f"{{'image_file': '{file}','emojis':{emojis[sticker.id]}}},")
+                f.write(
+                    f"{{'image_file': '{file}','emojis':{emojis[sticker.id]}}},")
         pending_tasks = [
             asyncio.ensure_future(
-                download(document, emojis, Config.TMP_DOWNLOAD_DIRECTORY + sticker_set.set.short_name, f"{i:03d}.{file_ext_ns_ion}")
-            ) for i, document in enumerate(sticker_set.documents)
-        ]
+                download(
+                    document,
+                    emojis,
+                    Config.TMP_DOWNLOAD_DIRECTORY +
+                    sticker_set.set.short_name,
+                    f"{i:03d}.{file_ext_ns_ion}")) for i,
+            document in enumerate(
+                sticker_set.documents)]
         await event.edit(f"Downloading {sticker_set.set.count} sticker(s) to .{Config.TMP_DOWNLOAD_DIRECTORY}{sticker_set.set.short_name}...")
         num_tasks = len(pending_tasks)
-        while 1:
+        while True:
             done, pending_tasks = await asyncio.wait(pending_tasks, timeout=2.5,
-                return_when=asyncio.FIRST_COMPLETED)
+                                                     return_when=asyncio.FIRST_COMPLETED)
             try:
                 await event.edit(
                     f"Downloaded {num_tasks - len(pending_tasks)}/{sticker_set.set.count}")
@@ -230,7 +243,10 @@ async def _(event):
         await event.edit("Downloading to my local completed")
         # https://gist.github.com/udf/e4e3dbb2e831c8b580d8fddd312714f7
         directory_name = Config.TMP_DOWNLOAD_DIRECTORY + sticker_set.set.short_name
-        zipf = zipfile.ZipFile(directory_name + ".zip", "w", zipfile.ZIP_DEFLATED)
+        zipf = zipfile.ZipFile(
+            directory_name + ".zip",
+            "w",
+            zipfile.ZIP_DEFLATED)
         zipdir(directory_name, zipf)
         zipf.close()
         await borg.send_file(
@@ -245,7 +261,7 @@ async def _(event):
         try:
             os.remove(directory_name + ".zip")
             os.remove(directory_name)
-        except:
+        except BaseException:
             pass
         await event.edit("task Completed")
         await asyncio.sleep(3)
@@ -266,7 +282,7 @@ def is_it_animated_sticker(message):
                 return False
         else:
             return False
-    except:
+    except BaseException:
         return False
 
 
@@ -328,7 +344,11 @@ def resize_image(image, save_locaton):
 
 
 def progress(current, total):
-    logger.info("Uploaded: {} of {}\nCompleted {}".format(current, total, (current / total) * 100))
+    logger.info(
+        "Uploaded: {} of {}\nCompleted {}".format(
+            current,
+            total,
+            (current / total) * 100))
 
 
 def find_instance(items, class_or_tuple):

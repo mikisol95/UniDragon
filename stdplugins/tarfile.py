@@ -32,7 +32,7 @@ async def _(event):
             directory_name = downloaded_file_name
             await event.edit("Finish downloading to my local")
             to_upload_file = directory_name
-            output = await create_archive(to_upload_file) 
+            output = await create_archive(to_upload_file)
             is_zip = False
             if is_zip:
                 check_if_file = await create_archive(to_upload_file)
@@ -49,8 +49,8 @@ async def _(event):
             try:
                 os.remove(output)
                 os.remove(output)
-            except:
-                    pass
+            except BaseException:
+                pass
             await event.edit("Task Completed")
             await asyncio.sleep(3)
             await event.delete()
@@ -58,9 +58,8 @@ async def _(event):
             await mone.edit(str(e))
     elif input_str:
         directory_name = input_str
-        
-        await event.edit("Local file compressed to `{}`".format(output))
 
+        await event.edit("Local file compressed to `{}`".format(output))
 
 
 async def create_archive(input_directory):
@@ -86,12 +85,12 @@ async def create_archive(input_directory):
         )
         # Wait for the subprocess to finish
         stdout, stderr = await process.communicate()
-        e_response = stderr.decode().strip()
-        t_response = stdout.decode().strip()
+        stderr.decode().strip()
+        stdout.decode().strip()
         if os.path.exists(compressed_file_name):
             try:
                 shutil.rmtree(input_directory)
-            except:
+            except BaseException:
                 pass
             return_name = compressed_file_name
     return return_name

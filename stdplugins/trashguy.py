@@ -92,28 +92,39 @@ class TrashGuy:
         # This means that the code snapshots frames in the opposite order to how they appear in the final animation.
         # This is due to the nature of trash guy picking up items from the left-hand side.
         #
-        # The animation is based on this loop which iterates over the user input items.
+        # The animation is based on this loop which iterates over the user
+        # input items.
         for item in trash_reversed:
             truncating_items = trash_input[:trash_truncator]
             truncated_len_difference = trash_length - trash_truncator
             space_padding = [s_space] * truncated_len_difference
 
             # Create a dynamic canvas while each item disappears
-            canvas = [*truncating_items + space_padding, *[s_space] * 3, s_trash]
+            canvas = [
+                *
+                truncating_items +
+                space_padding,
+                *
+                [s_space] *
+                3,
+                s_trash]
             r_canvas = list(reversed(canvas))
 
             last_item_index = -len(truncating_items)
             frames = []
-            # Loop over the canvas to animate the trash guy going right while holding the item.
+            # Loop over the canvas to animate the trash guy going right while
+            # holding the item.
             for index in range(len(r_canvas)):
                 # Trash guy hits the item he wants to pickup
                 if r_canvas[index] == s_space or -index == last_item_index:
                     try:
                         if r_canvas[index - 1] == s_trash:
-                            # Looking left on the very final frame of the animation
+                            # Looking left on the very final frame of the
+                            # animation
                             r_canvas[index] = s_left
 
-                            # Temporarily remove the item from the trash pile while trash guy is holding it
+                            # Temporarily remove the item from the trash pile
+                            # while trash guy is holding it
                             if r_canvas[last_item_index] == item:
                                 r_canvas[last_item_index] = s_space
 
@@ -130,12 +141,14 @@ class TrashGuy:
                             # (must be set to space character)
                             r_canvas[index] = s_space
 
-                        # Animate trash guy going right with the item until he hits the trash can
+                        # Animate trash guy going right with the item until he
+                        # hits the trash can
                         elif r_canvas[index - 1] == s_space and r_canvas[index - 1] != s_trash:
                             r_canvas[index - 1] = item
                             r_canvas[index] = s_right
 
-                            # Temporarily remove the item from the trash pile while trash guy is holding it
+                            # Temporarily remove the item from the trash pile
+                            # while trash guy is holding it
                             if r_canvas[last_item_index] == item:
                                 r_canvas[last_item_index] = s_space
 
@@ -149,14 +162,17 @@ class TrashGuy:
                     except IndexError:
                         pass  # animation reached end
 
-            # Loop over the canvas to animate trash guy going from the beginning of the animation towards the items
+            # Loop over the canvas to animate trash guy going from the
+            # beginning of the animation towards the items
             for index in range(len(canvas)):
                 # if the guy is near the trash can, skip the frame
                 if canvas[index] == s_space and canvas[index + 1] != s_trash:
-                    # animate guy starting from the first space after the one being next to the trash can
+                    # animate guy starting from the first space after the one
+                    # being next to the trash can
                     canvas[index] = s_left
 
-                    # Snapshot the frames of the animation going left for as long as there are whitespaces
+                    # Snapshot the frames of the animation going left for as
+                    # long as there are whitespaces
                     self.__add(frames, canvas)
 
                     # Remove the previous position and continue

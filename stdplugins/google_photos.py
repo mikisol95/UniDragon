@@ -18,11 +18,11 @@ import aiofiles
 import os
 import time
 from telethon import events
-from uniborg.util import admin_cmd, humanbytes, progress, time_formatter
+from uniborg.util import admin_cmd, progress
 from apiclient.discovery import build
 from mimetypes import guess_type
 from httplib2 import Http
-from oauth2client import file, client, tools
+from oauth2client import client, file
 
 
 # setup the gPhotos v1 API
@@ -36,7 +36,6 @@ REDIRECT_URI = "urn:ietf:wg:oauth:2.0:oob"
 PHOTOS_BASE_URI = "https://photoslibrary.googleapis.com"
 
 TOKEN_FILE_NAME = "gPhoto_credentials_@LazyAF_Geng.json"
-
 
 
 @borg.on(admin_cmd(pattern="gphoto setup"))
@@ -237,7 +236,7 @@ async def upload_google_photos(event):
                 current_chunk = await f_d.read(upload_granularity)
                 offset = i * upload_granularity
                 part_size = len(current_chunk)
-                
+
                 headers = {
                     "Content-Length": str(part_size),
                     "X-Goog-Upload-Command": "upload",
@@ -251,7 +250,14 @@ async def upload_google_photos(event):
                     headers=headers,
                     data=current_chunk
                 )
-                loop.create_task(progress(offset + part_size, file_size, event, c_time, "uploading (gphoto)🧐?"))
+                loop.create_task(
+                    progress(
+                        offset +
+                        part_size,
+                        file_size,
+                        event,
+                        c_time,
+                        "uploading (gphoto)🧐?"))
                 logger.info(response.headers)
 
                 # await f_d.seek(i * upload_granularity)
@@ -313,4 +319,3 @@ def file_ops(file_path):
     mime_type = mime_type if mime_type else "text/plain"
     file_name = file_path.split("/")[-1]
     return file_name, mime_type, file_size
-

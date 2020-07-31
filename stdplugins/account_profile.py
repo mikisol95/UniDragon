@@ -2,7 +2,7 @@
 .cbio <Bio>
 .cname <Name>
 .cpic
-.delpfp <number or all> 
+.delpfp <number or all>
 to delete ur profile pic.
 .username <name>
 to change ur username.
@@ -20,16 +20,18 @@ from telethon.tl.functions.photos import (DeletePhotosRequest,
                                           GetUserPhotosRequest)
 from telethon.tl.types import InputPhoto
 import logging
-logging.basicConfig(format='[%(levelname) 5s/%(asctime)s] %(name)s: %(message)s',
-                    level=logging.WARNING)
-                    
-@borg.on(admin_cmd(pattern="cbio (.*)"))   
+logging.basicConfig(
+    format='[%(levelname) 5s/%(asctime)s] %(name)s: %(message)s',
+    level=logging.WARNING)
+
+
+@borg.on(admin_cmd(pattern="cbio (.*)"))
 async def _(event):
     if event.fwd_from:
         return
     bio = event.pattern_match.group(1)
     try:
-        await borg(functions.account.UpdateProfileRequest(   
+        await borg(functions.account.UpdateProfileRequest(
             about=bio
         ))
         await event.edit("`Succesfully changed My Profile bio`")
@@ -44,10 +46,10 @@ async def _(event):
     names = event.pattern_match.group(1)
     first_name = names
     last_name = ""
-    if  "\\n" in names:
+    if "\\n" in names:
         first_name, last_name = names.split("\\n", 1)
     try:
-        await borg(functions.account.UpdateProfileRequest(   
+        await borg(functions.account.UpdateProfileRequest(
             first_name=first_name,
             last_name=last_name
         ))
@@ -56,31 +58,31 @@ async def _(event):
         await event.edit(str(e))
 
 
-@borg.on(admin_cmd(pattern="cpic"))   
+@borg.on(admin_cmd(pattern="cpic"))
 async def _(event):
     if event.fwd_from:
         return
     reply_message = await event.get_reply_message()
     if reply_message.text:
-    	await event.edit("Hey Pro! Are You sure it's a Photo ?")
-    	return
+        await event.edit("Hey Pro! Are You sure it's a Photo ?")
+        return
     await event.edit("Downloading Profile Picture to my local ...")
-    if not os.path.isdir(Config.TMP_DOWNLOAD_DIRECTORY):  
-        os.makedirs(Config.TMP_DOWNLOAD_DIRECTORY) 
+    if not os.path.isdir(Config.TMP_DOWNLOAD_DIRECTORY):
+        os.makedirs(Config.TMP_DOWNLOAD_DIRECTORY)
     photo = None
     try:
-        photo = await borg.download_media(  
+        photo = await borg.download_media(
             reply_message,
-            Config.TMP_DOWNLOAD_DIRECTORY  
+            Config.TMP_DOWNLOAD_DIRECTORY
         )
     except Exception as e:  # pylint:disable=C0103,W0703
         await event.edit(str(e))
     else:
         if photo:
             await event.edit("Making Profile pic for U, Nibba.")
-            file = await borg.upload_file(photo)   
+            file = await borg.upload_file(photo)
             try:
-                await borg(functions.photos.UploadProfilePhotoRequest(   
+                await borg(functions.photos.UploadProfilePhotoRequest(
                     file
                 ))
             except Exception as e:  # pylint:disable=C0103,W0703
@@ -90,7 +92,8 @@ async def _(event):
     try:
         os.remove(photo)
     except Exception as e:  # pylint:disable=C0103,W0703
-        logger.warn(str(e))   
+        logger.warn(str(e))
+
 
 @borg.on(admin_cmd(pattern="delpfp ?(.*)"))
 async def remove_profilepic(delpfp):
@@ -117,7 +120,8 @@ async def remove_profilepic(delpfp):
     await delpfp.client(DeletePhotosRequest(id=input_photos))
     await delpfp.edit(
         f"`Successfully deleted {len(input_photos)} profile picture(s).`")
- 
+
+
 @borg.on(admin_cmd(pattern="username ?(.*)"))
 async def update_username(username):
     """ For .username command, set a new username in Telegram. """
@@ -126,11 +130,12 @@ async def update_username(username):
         await username.client(UpdateUsernameRequest(newusername))
         await username.edit("```Your username was succesfully changed.```")
     except UsernameOccupiedError:
-        await username.edit("```This username is already taken by a Faking Nibba.```")   
+        await username.edit("```This username is already taken by a Faking Nibba.```")
     except UsernameInvalidError:
-        await username.edit("```This Username is Invalid, U Brainless Creature```")     
+        await username.edit("```This Username is Invalid, U Brainless Creature```")
 
-@borg.on(admin_cmd(pattern="photo ?(.*)"))   
+
+@borg.on(admin_cmd(pattern="photo ?(.*)"))
 async def _(event):
     """getting user profile photo last changed time"""
     if event.fwd_from:
@@ -154,9 +159,9 @@ async def _(event):
                 msg = "Last profile photo changed: \n👉 `{}` `UTC+5:30`".format(
                     str(msg_utc))
                 await a.edit(msg)
-        except:
+        except BaseException:
             pass
- 
+
     else:
         entity = await event.client.get_entity(event.chat_id)
         try:
@@ -173,5 +178,5 @@ async def _(event):
                 msg = "Last profile photo changed: \n👉 `{}` `UTC+5:30`".format(
                     str(msg_utc))
                 await a.edit(msg)
-        except:
+        except BaseException:
             pass

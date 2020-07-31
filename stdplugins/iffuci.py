@@ -8,7 +8,11 @@ from uniborg.util import admin_cmd
 
 
 def progress(current, total):
-    logger.info("Downloaded {} of {}\nCompleted {}".format(current, total, (current / total) * 100))
+    logger.info(
+        "Downloaded {} of {}\nCompleted {}".format(
+            current,
+            total,
+            (current / total) * 100))
 
 
 @borg.on(admin_cmd(pattern="iffuci ?(.*)"))

@@ -24,7 +24,7 @@ async def _(event):
     else:
         await event.edit("Fatal Error!\nPlease contact the developer of this module [@A_FRICKING_GAMER] for support.")
         return
-    if text and count != None:
+    if text and count is not None:
         for spam in range(int(count)):
             await event.reply(text)
         msg = await event.reply(f"Task complete, spammed input text {count} times!")
@@ -35,6 +35,7 @@ async def _(event):
     else:
         await event.edit("Unexpected Error! Aborting..")
         return
+
 
 async def log(text):
     LOGGER = Config.PRIVATE_GROUP_BOT_API_ID

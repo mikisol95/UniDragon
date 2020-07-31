@@ -5,6 +5,7 @@ from datetime import datetime
 from covid import Covid
 from uniborg.util import admin_cmd
 
+
 @borg.on(admin_cmd(pattern="covid ?(.*)", allow_sudo=True))
 async def corona(event):
     await event.edit("`Processing...`")
@@ -12,7 +13,7 @@ async def corona(event):
     covid = Covid()
     country_data = covid.get_status_by_country_name(country)
     if country_data:
-        output_text =  f"😷`Confirmed   : {country_data['confirmed']}`\n"
+        output_text = f"😷`Confirmed   : {country_data['confirmed']}`\n"
         output_text += f"🤒`Active      : {country_data['active']}`\n"
         output_text += f"🤕`Critical    : {country_data['critical']}`\n"
         output_text += f"⚰`Deaths      : {country_data['deaths']}`\n"

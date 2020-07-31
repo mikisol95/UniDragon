@@ -13,11 +13,7 @@ from telethon import events
 import asyncio
 
 
-
-
-
 @borg.on(events.NewMessage(pattern=r"\.(.*)", outgoing=True))
-
 async def _(event):
 
     if event.fwd_from:
@@ -35,12 +31,12 @@ async def _(event):
         await event.edit(input_str)
 
         animation_chars = [
-        
+
             "`Connecting To Hackintosh...`",
             "`Initiating Hackintosh Login.`",
             "`Loading Hackintosh... 0%\n▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒ `",
             "`Loading Hackintosh... 4%\n█▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒ `",
-            "`Loading Hackintosh... 8%\n██▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒ `",    
+            "`Loading Hackintosh... 8%\n██▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒ `",
             "`Loading Hackintosh... 20%\n█████▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒ `",
             "`Loading Hackintosh... 36%\n█████████▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒ `",
             "`Loading Hackintosh... 52%\n█████████████▒▒▒▒▒▒▒▒▒▒▒▒ `",
@@ -57,7 +53,6 @@ async def _(event):
 
 
 @borg.on(events.NewMessage(pattern=r"\.(.*)", outgoing=True))
-
 async def _(event):
 
     if event.fwd_from:
@@ -75,12 +70,12 @@ async def _(event):
         await event.edit(input_str)
 
         animation_chars = [
-        
+
             "`Connecting To Windows 10...`",
             "`Initiating Windows 10 Login.`",
             "`Loading Windows 10... 0%\n▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒ `",
             "`Loading Windows 10... 4%\n█▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒ `",
-            "`Loading Windows 10... 8%\n██▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒ `",    
+            "`Loading Windows 10... 8%\n██▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒ `",
             "`Loading Windows 10... 20%\n█████▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒ `",
             "`Loading Windows 10... 36%\n█████████▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒ `",
             "`Loading Windows 10... 52%\n█████████████▒▒▒▒▒▒▒▒▒▒▒▒ `",
@@ -96,9 +91,7 @@ async def _(event):
             await event.edit(animation_chars[i % 11])
 
 
-
 @borg.on(events.NewMessage(pattern=r"\.(.*)", outgoing=True))
-
 async def _(event):
 
     if event.fwd_from:
@@ -116,12 +109,12 @@ async def _(event):
         await event.edit(input_str)
 
         animation_chars = [
-        
+
             "`Connecting To Linux...`",
             "`Initiating Linux Login.`",
             "`Loading Linux... 0%\n▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒ `",
             "`Loading Linux... 4%\n█▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒ `",
-            "`Loading Linux... 8%\n██▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒ `",    
+            "`Loading Linux... 8%\n██▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒ `",
             "`Loading Linux... 20%\n█████▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒ `",
             "`Loading Linux... 36%\n█████████▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒ `",
             "`Loading Linux... 52%\n█████████████▒▒▒▒▒▒▒▒▒▒▒▒ `",
@@ -138,7 +131,6 @@ async def _(event):
 
 
 @borg.on(events.NewMessage(pattern=r"\.(.*)", outgoing=True))
-
 async def _(event):
 
     if event.fwd_from:
@@ -156,12 +148,12 @@ async def _(event):
         await event.edit(input_str)
 
         animation_chars = [
-        
+
             "`Connecting To Symbian OS...`",
             "`Initiating Symbian OS Login.`",
             "`Loading Symbian OS... 0%\n█████████████████████████ `",
             "`Loading Symbian OS... 4%\n█████████████████████▒▒▒▒ `",
-            "`Loading Symbian OS... 8%\n█████████████▒▒▒▒▒▒▒▒▒▒▒▒ `",    
+            "`Loading Symbian OS... 8%\n█████████████▒▒▒▒▒▒▒▒▒▒▒▒ `",
             "`Loading Symbian OS... 20%\n█████████▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒ `",
             "`Loading Symbian OS... 36%\n█████▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒ `",
             "`Loading Symbian OS... 52%\n██▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒ `",
@@ -178,7 +170,6 @@ async def _(event):
 
 
 @borg.on(events.NewMessage(pattern=r"\.(.*)", outgoing=True))
-
 async def _(event):
 
     if event.fwd_from:
@@ -196,15 +187,13 @@ async def _(event):
         await event.edit(input_str)
 
         animation_chars = [
-        
             "`Scanning OS...`",
             "`Scanning OS......`",
             "__Current Loaded OS: Symbian OS__\n\n**To Boot Other OS, Use The Following Trigger:**\n☑️ `.macos`\n☑️ `.windows`\n☑️ `.linux`\n☑️ `.stock`",
             "__Current Loaded OS: Symbian OS__\n\n**To Boot Other OS, Use The Following Trigger:**\n✅ `.macos`\n☑️ `.windows`\n☑️ `.linux`\n☑️ `.stock`",
             "__Current Loaded OS: Symbian OS__\n\n**To Boot Other OS, Use The Following Trigger:**\n✅ `.macos`\n✅ `.windows`\n☑️ `.linux`\n☑️ `.stock`",
             "__Current Loaded OS: Symbian OS__\n\n**To Boot Other OS, Use The Following Trigger:**\n✅ `.macos`\n✅ `.windows`\n✅ `.linux`\n☑️ `.stock`",
-            "__Current Loaded OS: Symbian OS__\n\n**To Boot Other OS, Use The Following Trigger:**\n✅ `.macos`\n✅ `.windows`\n✅ `.linux`\n✅ `.stock`\n\nDeveloped By: @kirito6969"
- ]
+            "__Current Loaded OS: Symbian OS__\n\n**To Boot Other OS, Use The Following Trigger:**\n✅ `.macos`\n✅ `.windows`\n✅ `.linux`\n✅ `.stock`\n\nDeveloped By: @kirito6969"]
 
         for i in animation_ttl:
 

@@ -7,7 +7,7 @@ Command: `.cpp`
 2) Ported By: @r4v4n4 (Legend)
 3) End Game Help By: @spechide
 NOTE: NO.4 IS A VIRUS WHICH HAD COME HERE ACCIDENTALLY
-4) Custom / Modified Plugin for some magical effects by this Legendary Guy @PhycoNinja13b 
+4) Custom / Modified Plugin for some magical effects by this Legendary Guy @PhycoNinja13b
 
 
 #curse: who ever edits this credit section will goto hell
@@ -23,13 +23,13 @@ from pySmartDL import SmartDL
 from telethon.tl import functions
 from uniborg.util import admin_cmd
 import asyncio
-import shutil 
+import shutil
 import random
 
 
 FONT_FILE_TO_USE = "/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf"
 
-#Add telegraph media links of profile pics that are to be used
+# Add telegraph media links of profile pics that are to be used
 TELEGRAPH_MEDIA_LINKS = ["https://telegra.ph/file/8e9effb5ba79a94e44f18.jpg",
                          "https://telegra.ph/file/3628db51a1c3e0876d302.jpg",
                          "https://telegra.ph/file/199c2029f227eab9654f2.jpg",
@@ -41,7 +41,9 @@ TELEGRAPH_MEDIA_LINKS = ["https://telegra.ph/file/8e9effb5ba79a94e44f18.jpg",
                          "https://telegra.ph/file/1b2928c73612cf856c32b.jpg",
                          "https://telegra.ph/file/e07a24aaa229b0c51471b.jpg",
                          "https://telegra.ph/file/7bbb6813da08d5bccbb56.jpg"
-                        ]
+                         ]
+
+
 @borg.on(admin_cmd(pattern="cpp ?(.*)"))
 async def autopic(event):
     while True:
@@ -52,16 +54,17 @@ async def autopic(event):
         downloader.start(blocking=False)
         photo = "photo_pfp.png"
         while not downloader.isFinished():
-            place_holder = None
-    
-    
+            pass
+
         shutil.copy(downloaded_file_name, photo)
-        im = Image.open(photo)
+        Image.open(photo)
         current_time = datetime.now().strftime("\n \n \n \n \n \n \n Owner: @kirito6969 . It's Her Choice (- Lawdi) \n \n \n \n \n \n \n \n \n                   Nikal Lawde \n                   Time: %H:%M:%S \n                   Date: %d/%m/%y ")
         img = Image.open(photo)
         drawn_text = ImageDraw.Draw(img)
         fnt = ImageFont.truetype(FONT_FILE_TO_USE, 35)
-        drawn_text.text((200, 250), current_time, font=fnt, fill=(230,230,250))
+        drawn_text.text(
+            (200, 250), current_time, font=fnt, fill=(
+                230, 230, 250))
         img.save(photo)
         file = await event.client.upload_file(photo)  # pylint:disable=E0602
         try:
@@ -69,7 +72,7 @@ async def autopic(event):
                 file
             ))
             os.remove(photo)
-            
+
             await asyncio.sleep(15)
-        except:
+        except BaseException:
             return

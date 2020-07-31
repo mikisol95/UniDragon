@@ -1,6 +1,6 @@
 """Send Chat Actions
 Syntax: .sca <option> <time in sec>
-        sca options: Options for sca 
+        sca options: Options for sca
 
 typing
 contact
@@ -21,7 +21,7 @@ from uniborg.util import admin_cmd
 async def _(event):
     if event.fwd_from:
         return
-    input_str = event.pattern_match.group(1)
+    event.pattern_match.group(1)
     input_time = event.pattern_match.group(2)
     action = "typing"
     try:
@@ -31,7 +31,7 @@ async def _(event):
             await event.delete()
         async with borg.action(event.chat_id, action):
             await asyncio.sleep(action_time)
-    except Exception as e:
+    except Exception:
         await event.edit("Send in `.sca <option> <time in sec>` format.\nCheck `.scaoptions` for option.")
 
 

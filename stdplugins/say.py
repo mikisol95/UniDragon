@@ -11,8 +11,8 @@ async def _(event):
         return
     input = event.pattern_match.group(1)
     if not input:
-    	abe = await event.get_reply_message()
-    	input = abe.text
+        abe = await event.get_reply_message()
+        input = abe.text
     strings = input.split()
     count = 0
     output = ""

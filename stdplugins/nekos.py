@@ -28,27 +28,30 @@ from uniborg import MODULE
 
 MODULE.append("nekos")
 
+
 @borg.on(admin_cmd(pattern="nk ?(.*)"))
 async def _(event):
-	hmm = event.pattern_match.group(1)
-	if not hmm:
-		await event.edit("`Bruh.. What I am supposed to do!`")
-		return
-	await event.edit("`Processing...Nekos`")
-	await event.delete()
-	target = nekos.img(f'{hmm}')
-	await event.client.send_file(event.chat_id, file=target, caption=f"{hmm}")
+    hmm = event.pattern_match.group(1)
+    if not hmm:
+        await event.edit("`Bruh.. What I am supposed to do!`")
+        return
+    await event.edit("`Processing...Nekos`")
+    await event.delete()
+    target = nekos.img(f'{hmm}')
+    await event.client.send_file(event.chat_id, file=target, caption=f"{hmm}")
+
 
 @borg.on(admin_cmd(pattern="dva"))
 async def dva(event):
     nsfw = requests.get("https://api.computerfreaker.cf/v1/dva").json()
     url = nsfw.get("url")
     if not url:
-    	await event.edit("`uuuf.. No URL found from the API`")
-    	return
+        await event.edit("`uuuf.. No URL found from the API`")
+        return
     await event.client.send_file(event.chat_id, file=url)
-    
-@borg.on(admin_cmd(pattern="nsfw"))    
+
+
+@borg.on(admin_cmd(pattern="nsfw"))
 async def avatarlewd(event):
     target = 'nsfw_avatar'
     with open("temp.png", "wb") as f:
@@ -57,27 +60,31 @@ async def avatarlewd(event):
     img.save("temp.webp", "webp")
     await event.client.send_file(event.chat_id, file=open("temp.webp", "rb"))
     os.remove("temp.webp")
-    
+
+
 @borg.on(admin_cmd(pattern="cat"))
 async def _(event):
-	target = nekos.cat()
-	await event.edit("Finding ur ket...🌚")
-	await event.delete()
-	await event.client.send_file(event.chat_id, file=target)
+    target = nekos.cat()
+    await event.edit("Finding ur ket...🌚")
+    await event.delete()
+    await event.client.send_file(event.chat_id, file=target)
+
 
 @borg.on(admin_cmd(pattern="lewdn"))
 async def dva(event):
     nsfw = requests.get("https://nekos.life/api/lewd/neko").json()
     url = nsfw.get("neko")
     if not url:
-    	await event.edit("`uuuf.. No NEKO found from the API`")
-    	return
+        await event.edit("`uuuf.. No NEKO found from the API`")
+        return
     await event.client.send_file(event.chat_id, file=url)
+
 
 @borg.on(admin_cmd(pattern="why"))
 async def _(event):
-	target = nekos.why()
-	await event.edit(target)
+    target = nekos.why()
+    await event.edit(target)
+
 
 @borg.on(admin_cmd(pattern="gasm"))
 async def gasm(event):
@@ -89,6 +96,7 @@ async def gasm(event):
     await event.client.send_file(event.chat_id, file=open("temp.webp", "rb"))
     os.remove("temp.webp")
 
+
 @borg.on(admin_cmd(pattern="ifu"))
 async def waifu(event):
     target = 'waifu'
@@ -98,14 +106,15 @@ async def waifu(event):
     img.save("temp.webp", "webp")
     await event.client.send_file(event.chat_id, file=open("temp.webp", "rb"))
     os.remove("temp.webp")
- 
+
+
 @borg.on(admin_cmd(pattern="fact"))
 async def _(event):
-	target= nekos.fact()
-	await event.edit(f"`{target}`")
+    target = nekos.fact()
+    await event.edit(f"`{target}`")
+
 
 @borg.on(admin_cmd(pattern="tcat"))
 async def _(event):
-	target = nekos.textcat()
-	await event.edit(target)
-	
+    target = nekos.textcat()
+    await event.edit(target)

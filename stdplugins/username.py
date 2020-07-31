@@ -15,9 +15,7 @@ async def update_username(username):
         newusername = newusername[1:]
     try:
         await borg(UpdateUsernameRequest(newusername))
-        
+
         await username.edit("Succesfully changed my Username")
     except UsernameOccupiedError:
         await event.edit("This Username is Already Reserved")
-
-        

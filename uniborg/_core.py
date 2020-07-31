@@ -9,38 +9,39 @@ import traceback
 from datetime import datetime
 from uniborg import util
 
-logging.basicConfig(format='[%(levelname) 5s/%(asctime)s] %(name)s: %(message)s',
-                    level=logging.WARNING)
+logging.basicConfig(
+    format='[%(levelname) 5s/%(asctime)s] %(name)s: %(message)s',
+    level=logging.WARNING)
 logger = logging.getLogger(__name__)
 DELETE_TIMEOUT = 5
 
 
-@borg.on(util.admin_cmd(pattern="load (?P<shortname>\w+)$"))   
+@borg.on(util.admin_cmd(pattern=r"load (?P<shortname>\w+)$"))
 async def load_reload(event):
     await event.delete()
     shortname = event.pattern_match["shortname"]
     try:
-        if shortname in borg._plugins:   
-            borg.remove_plugin(shortname)   
-        borg.load_plugin(shortname)   
+        if shortname in borg._plugins:
+            borg.remove_plugin(shortname)
+        borg.load_plugin(shortname)
         msg = await event.respond(f"Successfully (re)loaded plugin {shortname}")
         await asyncio.sleep(DELETE_TIMEOUT)
         await msg.delete()
     except Exception as e:  # pylint:disable=C0103,W0703
         trace_back = traceback.format_exc()
-         
+
         logger.warn(f"Failed to (re)load plugin {shortname}: {trace_back}")
         await event.respond(f"Failed to (re)load plugin {shortname}: {e}")
 
 
-@borg.on(util.admin_cmd(pattern="(?:unload|remove) (?P<shortname>\w+)$"))   
+@borg.on(util.admin_cmd(pattern=r"(?:unload|remove) (?P<shortname>\w+)$"))
 async def remove(event):
     await event.delete()
     shortname = event.pattern_match["shortname"]
     if shortname == "_core":
         msg = await event.respond(f"Not removing {shortname}")
-    elif shortname in borg._plugins:   
-        borg.remove_plugin(shortname)   
+    elif shortname in borg._plugins:
+        borg.remove_plugin(shortname)
         msg = await event.respond(f"Removed plugin {shortname}")
     else:
         msg = await event.respond(f"Plugin {shortname} is not loaded")
@@ -48,7 +49,7 @@ async def remove(event):
     await msg.delete()
 
 
-@borg.on(util.admin_cmd(pattern="send (?P<shortname>\w+)$"))   
+@borg.on(util.admin_cmd(pattern=r"send (?P<shortname>\w+)$"))
 async def send_plug_in(event):
     if event.fwd_from:
         return
@@ -56,7 +57,7 @@ async def send_plug_in(event):
     input_str = event.pattern_match["shortname"]
     the_plugin_file = "./stdplugins/{}.py".format(input_str)
     start = datetime.now()
-    await event.client.send_file(   
+    await event.client.send_file(
         event.chat_id,
         the_plugin_file,
         force_document=True,
@@ -68,10 +69,10 @@ async def send_plug_in(event):
     time_taken_in_ms = (end - start).seconds
     await event.edit("Ok, BTC Uploaded {} in {} seconds".format(input_str, time_taken_in_ms))
     await asyncio.sleep(DELETE_TIMEOUT)
-    await event.delete()    
-     	
+    await event.delete()
 
-@borg.on(util.admin_cmd(pattern="install"))   
+
+@borg.on(util.admin_cmd(pattern="install"))
 async def install_plug_in(event):
     if event.fwd_from:
         return
@@ -79,10 +80,10 @@ async def install_plug_in(event):
         try:
             downloaded_file_name = await event.client.download_media(
                 await event.get_reply_message(),
-                borg.n_plugin_path   
+                borg.n_plugin_path
             )
             if "(" not in downloaded_file_name:
-                borg.load_plugin_from_file(downloaded_file_name)   
+                borg.load_plugin_from_file(downloaded_file_name)
                 await event.edit("Installed temp Plugin `{}`".format(os.path.basename(downloaded_file_name)))
             else:
                 os.remove(downloaded_file_name)

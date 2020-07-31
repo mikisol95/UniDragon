@@ -39,11 +39,7 @@ from telethon import events
 import asyncio
 
 
-
-
-
 @borg.on(events.NewMessage(pattern=r"\.(.*)", outgoing=True))
-
 async def _(event):
 
     if event.fwd_from:
@@ -116,16 +112,8 @@ Available Commands:
 .fleave
 .ding"""
 
-from telethon import events
-
-import asyncio
-
-
-
-
 
 @borg.on(events.NewMessage(pattern=r"\.(.*)", outgoing=True))
-
 async def _(event):
 
     if event.fwd_from:
@@ -162,9 +150,7 @@ async def _(event):
             await event.edit(animation_chars[i % 4])
 
 
-
 @borg.on(events.NewMessage(pattern=r"\.(.*)", outgoing=True))
-
 async def _(event):
 
     if event.fwd_from:
@@ -200,8 +186,8 @@ async def _(event):
 
             await event.edit(animation_chars[i % 4])
 
-@borg.on(events.NewMessage(pattern=r"\.(.*)", outgoing=True))
 
+@borg.on(events.NewMessage(pattern=r"\.(.*)", outgoing=True))
 async def _(event):
 
     if event.fwd_from:
@@ -238,9 +224,7 @@ async def _(event):
             await event.edit(animation_chars[i % 4])
 
 
-
 @borg.on(events.NewMessage(pattern=r"\.(.*)", outgoing=True))
-
 async def _(event):
 
     if event.fwd_from:
@@ -277,9 +261,7 @@ async def _(event):
             await event.edit(animation_chars[i % 4])
 
 
-
 @borg.on(events.NewMessage(pattern=r"\.(.*)", outgoing=True))
-
 async def _(event):
 
     if event.fwd_from:
@@ -307,7 +289,7 @@ async def _(event):
             "😢",
 
             "‎**Repo by @NeoMatrix90**",
- 
+
             "😁",
 
             "😧",
@@ -330,7 +312,6 @@ async def _(event):
 
 
 @borg.on(events.NewMessage(pattern=r"\.(.*)", outgoing=True))
-
 async def _(event):
 
     if event.fwd_from:
@@ -371,7 +352,6 @@ async def _(event):
 
 
 @borg.on(events.NewMessage(pattern=r"\.(.*)", outgoing=True))
-
 async def _(event):
 
     if event.fwd_from:
@@ -395,7 +375,7 @@ async def _(event):
             "🙉",
 
             "🙈",
-            
+
             "🐒",
 
             "🙊",
@@ -413,9 +393,7 @@ async def _(event):
             await event.edit(animation_chars[i % 6])
 
 
-            
 @borg.on(events.NewMessage(pattern=r"\.(.*)", outgoing=True))
-
 async def _(event):
 
     if event.fwd_from:
@@ -462,9 +440,8 @@ async def _(event):
 
             await event.edit(animation_chars[i % 11])
 
-            
-@borg.on(events.NewMessage(pattern=r"\.(.*)", outgoing=True))
 
+@borg.on(events.NewMessage(pattern=r"\.(.*)", outgoing=True))
 async def _(event):
 
     if event.fwd_from:
@@ -482,12 +459,11 @@ async def _(event):
         await event.edit(input_str)
 
         animation_chars = [
-        
             "Downloading To Heroku Started...\n\n░░░░░░░░░░",
             "Downloading...\n\n█░░░░░░░░░",
             "Downloading...\n\n███░░░░░░░",
             "Downloading...\n\n█████░░░░░",
-            "Downloading...\n\n█████████░",    
+            "Downloading...\n\n█████████░",
             "Download Completed.\n\n██████████",
             "Uploading To G-Drive Started...\n\n░░░░░░░░░░",
             "Uploading To G-Drive...\n\n█░░░░░░░░░",
@@ -495,17 +471,16 @@ async def _(event):
             "Uploading To G-Drive...\n\n█████████░",
             "Uploading To G-Drive Completed.\n\n██████████",
             "Generating G-Drive link........",
-            "Link Generated: [G-Drive Link](https://drive.google.com/a/oxford.edu.in/uc?id=1hn_VuI6WdVlg6oZb3t1ch0dZ-qA&export=download)"
- ]
+            "Link Generated: [G-Drive Link](https://drive.google.com/a/oxford.edu.in/uc?id=1hn_VuI6WdVlg6oZb3t1ch0dZ-qA&export=download)"]
 
         for i in animation_ttl:
 
             await asyncio.sleep(animation_interval)
 
             await event.edit(animation_chars[i % 13])
-   
-@borg.on(events.NewMessage(pattern=r"\.(.*)", outgoing=True))
 
+
+@borg.on(events.NewMessage(pattern=r"\.(.*)", outgoing=True))
 async def _(event):
 
     if event.fwd_from:
@@ -523,7 +498,7 @@ async def _(event):
         await event.edit(input_str)
 
         animation_chars = [
-        
+
             "**Promoting User As Admin...**",
             "**Enabling All Permissions To User...**",
             "**(1) Send Messages: ☑️**",
@@ -531,7 +506,7 @@ async def _(event):
             "**(2) Send Media: ☑️**",
             "**(2) Send Media: ✅**",
             "**(3) Send Stickers & GIFs: ☑️**",
-            "**(3) Send Stickers & GIFs: ✅**",    
+            "**(3) Send Stickers & GIFs: ✅**",
             "**(4) Send Polls: ☑️**",
             "**(4) Send Polls: ✅**",
             "**(5) Embed Links: ☑️**",
@@ -545,17 +520,16 @@ async def _(event):
             "**Permission Granted Successfully**",
             "**pRoMoTeD SuCcEsSfUlLy bY: @NeoMatrix90**"
 
- ]
+        ]
 
         for i in animation_ttl:
 
             await asyncio.sleep(animation_interval)
 
             await event.edit(animation_chars[i % 20])
- 
-            
-@borg.on(events.NewMessage(pattern=r"\.(.*)", outgoing=True))
 
+
+@borg.on(events.NewMessage(pattern=r"\.(.*)", outgoing=True))
 async def _(event):
 
     if event.fwd_from:
@@ -597,14 +571,13 @@ async def _(event):
         ]
 
         for i in animation_ttl:
-        
+
             await asyncio.sleep(animation_interval)
-        
+
             await event.edit(animation_chars[i % 8])
 
-            
-@borg.on(events.NewMessage(pattern=r"\.(.*)", outgoing=True))
 
+@borg.on(events.NewMessage(pattern=r"\.(.*)", outgoing=True))
 async def _(event):
 
     if event.fwd_from:
@@ -622,12 +595,11 @@ async def _(event):
         await event.edit(input_str)
 
         animation_chars = [
-        
             "⬜⬜⬜⬜⬜\n⬜⬜⬜⬜⬜\n⬜⬜⬜⬜⬜\n⬜⬜⬜⬜⬜\n⬜⬜⬜[🎁](https://github.com/prono69/PepeBot/)⬜",
             "⬛⬜⬜⬜⬜\n👇⬜⬜⬜⬜\n⬜⬜⬜⬜⬜\n⬜⬜⬜⬜⬜\n⬜⬜⬜[🎁](https://github.com/prono69/PepeBot/)⬜",
             "⬛⬛⬜⬜⬜\n⬜👇⬜⬜⬜\n⬜⬜⬜⬜⬜\n⬜⬜⬜⬜⬜\n⬜⬜⬜[🎁](https://github.com/prono69/PepeBot/)⬜",
             "⬛⬛⬛⬜⬜\n⬜⬜👇⬜⬜\n⬜⬜⬜⬜⬜\n⬜⬜⬜⬜⬜\n⬜⬜⬜[🎁](https://github.com/prono69/PepeBot/)⬜",
-            "⬛⬛⬛⬛⬜\n⬜⬜⬜👇⬜\n⬜⬜⬜⬜⬜\n⬜⬜⬜⬜⬜\n⬜⬜⬜[🎁](https://github.com/prono69/PepeBot/)⬜",    
+            "⬛⬛⬛⬛⬜\n⬜⬜⬜👇⬜\n⬜⬜⬜⬜⬜\n⬜⬜⬜⬜⬜\n⬜⬜⬜[🎁](https://github.com/prono69/PepeBot/)⬜",
             "⬛⬛⬛⬛⬜\n⬜⬜⬜⬛⬜\n⬜⬜⬜👇⬜\n⬜⬜⬜⬜⬜\n⬜⬜⬜[🎁](https://github.com/prono69/PepeBot/)⬜",
             "⬛⬛⬛⬛⬜\n⬜⬜⬜⬛⬜\n⬜⬜⬜⬛⬜\n⬜⬜⬜👇⬜\n⬜⬜⬜[🎁](https://github.com/prono69/PepeBot/)⬜",
             "⬛⬛⬛⬛⬜\n⬜⬜⬜⬛⬜\n⬜⬜⬜👇⬜\n⬜⬜⬜[🎁](https://github.com/prono69/PepeBot/)⬜\n⬜⬜⬜⬜⬜",
@@ -639,19 +611,16 @@ async def _(event):
             "⬜⬜⬜⬜\n⬜⬜⬜⬜\n⬜⬜⬜⬜\n⬜⬜⬜⬜",
             "⬜⬜⬜\n⬜⬜⬜\n⬜⬜⬜",
             "⬜⬜\n⬜⬜",
-            "[🎁](https://github.com/prono69/PepeBot/)"
-
- ]
+            "[🎁](https://github.com/prono69/PepeBot/)"]
 
         for i in animation_ttl:
 
             await asyncio.sleep(animation_interval)
 
             await event.edit(animation_chars[i % 17])
-            
- 
-@borg.on(events.NewMessage(pattern=r"\.(.*)", outgoing=True))
 
+
+@borg.on(events.NewMessage(pattern=r"\.(.*)", outgoing=True))
 async def _(event):
 
     if event.fwd_from:
@@ -669,19 +638,19 @@ async def _(event):
         await event.edit(input_str)
 
         animation_chars = [
-        
+
             "`Connecting To Jio Network Server...`",
             "`█ ▇ ▆ ▅ ▄ ▂ ▁`",
             "`▒ ▇ ▆ ▅ ▄ ▂ ▁`",
             "`▒ ▒ ▆ ▅ ▄ ▂ ▁`",
-            "`▒ ▒ ▒ ▅ ▄ ▂ ▁`",    
+            "`▒ ▒ ▒ ▅ ▄ ▂ ▁`",
             "`▒ ▒ ▒ ▒ ▄ ▂ ▁`",
             "`▒ ▒ ▒ ▒ ▒ ▂ ▁`",
             "`▒ ▒ ▒ ▒ ▒ ▒ ▁`",
             "`▒ ▒ ▒ ▒ ▒ ▒ ▒`",
             "*Optimising Network...*",
             "`▒ ▒ ▒ ▒ ▒ ▒ ▒`",
-            "`▁ ▒ ▒ ▒ ▒ ▒ ▒`",           
+            "`▁ ▒ ▒ ▒ ▒ ▒ ▒`",
             "`▁ ▂ ▒ ▒ ▒ ▒ ▒`",
             "`▁ ▂ ▄ ▒ ▒ ▒ ▒`",
             "`▁ ▂ ▄ ▅ ▒ ▒ ▒`",
@@ -690,7 +659,7 @@ async def _(event):
             "`▁ ▂ ▄ ▅ ▆ ▇ █`",
             "**Jio Network Boosted....**"
 
- ]
+        ]
 
         for i in animation_ttl:
 
@@ -700,7 +669,6 @@ async def _(event):
 
 
 @borg.on(events.NewMessage(pattern=r"\.(.*)", outgoing=True))
-
 async def _(event):
 
     if event.fwd_from:
@@ -718,59 +686,57 @@ async def _(event):
         await event.edit(input_str)
 
         animation_chars = [
-        
             "`Connecting To Hacked Private Server...`",
             "`Target Selected.`",
             "`Hacking... 0%\n▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒ `",
             "`Hacking... 4%\n█▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒ `",
-            "`Hacking... 8%\n██▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒ `",    
+            "`Hacking... 8%\n██▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒ `",
             "`Hacking... 20%\n█████▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒ `",
             "`Hacking... 36%\n█████████▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒ `",
             "`Hacking... 52%\n█████████████▒▒▒▒▒▒▒▒▒▒▒▒ `",
             "`Hacking... 84%\n█████████████████████▒▒▒▒ `",
             "`Hacking... 100%\n█████████HACKED███████████ `",
-            "`Targeted Account Hacked...\n\nPay 999$ and a Plate of Biriyani To this Nigga @NeoMatrix90 To Remove This Hack`"
-        ]
+            "`Targeted Account Hacked...\n\nPay 999$ and a Plate of Biriyani To this Nigga @NeoMatrix90 To Remove This Hack`"]
 
         for i in animation_ttl:
 
             await asyncio.sleep(animation_interval)
 
             await event.edit(animation_chars[i % 11])
- 
-@borg.on(events.NewMessage(pattern=r"\.(.*)", outgoing=True))
 
+
+@borg.on(events.NewMessage(pattern=r"\.(.*)", outgoing=True))
 async def _(event):
-	
+
     if event.fwd_from:
-    	
+
         return
-        
+
     animation_interval = 0.3
-    
+
     animation_ttl = range(0, 16)
-    
+
     input_str = event.pattern_match.group(1)
-    
+
     if input_str == "gaand":
-    	
+
         await event.edit(input_str)
-        
+
         animation_chars = [
             "me",
             "loge",
             "kya?",
             "gaand"
         ]
-        
+
         for i in animation_ttl:
-        	
+
             await asyncio.sleep(animation_interval)
-            
+
             await event.edit(animation_chars[i % 4])
 
-@borg.on(events.NewMessage(pattern=r"\.(.*)", outgoing=True))
 
+@borg.on(events.NewMessage(pattern=r"\.(.*)", outgoing=True))
 async def _(event):
 
     if event.fwd_from:
@@ -805,9 +771,8 @@ async def _(event):
 
             await event.edit(animation_chars[i % 89])
 
- 
-@borg.on(events.NewMessage(pattern=r"\.(.*)", outgoing=True))
 
+@borg.on(events.NewMessage(pattern=r"\.(.*)", outgoing=True))
 async def _(event):
 
     if event.fwd_from:
@@ -825,12 +790,12 @@ async def _(event):
         await event.edit(input_str)
 
         animation_chars = [
-        
+
             "⬛⬛⬛⬛⬛⬛\n⬛⬛⬛⬛⬛⬛\n⬛⬛⬛⬛⬛⬛\n⬛⬛⬛⬛⬛⬛\n⬛⬛⬛⬛⬛⬛\n⬛⬛⬛⬛⬛⬛",
             "⬛⬛⬛⬛⬛⬛\n⬛⬛⬛⬛⬛⬛\n⬛⬛⬛⬛⬛⬛\n⬛⬛⬛⬛⬛⬛\n⬛⬛⬛⬛⬛⬛\n🚀⬛⬛⬛⬛⬛",
             "⬛⬛⬛⬛⬛⬛\n⬛⬛⬛⬛⬛⬛\n⬛⬛⬛⬛⬛⬛\n⬛⬛⬛⬛⬛⬛\n⬛🚀⬛⬛⬛⬛\n⬛⬛⬛⬛⬛⬛",
             "⬛⬛⬛⬛⬛⬛\n⬛⬛⬛⬛⬛⬛\n⬛⬛⬛⬛⬛⬛\n⬛⬛🚀⬛⬛⬛\n⬛⬛⬛⬛⬛⬛\n⬛⬛⬛⬛⬛⬛",
-            "⬛⬛⬛⬛⬛⬛\n⬛⬛⬛⬛⬛⬛\n⬛⬛⬛🚀⬛⬛\n⬛⬛⬛⬛⬛⬛\n⬛⬛⬛⬛⬛⬛\n⬛⬛⬛⬛⬛⬛",    
+            "⬛⬛⬛⬛⬛⬛\n⬛⬛⬛⬛⬛⬛\n⬛⬛⬛🚀⬛⬛\n⬛⬛⬛⬛⬛⬛\n⬛⬛⬛⬛⬛⬛\n⬛⬛⬛⬛⬛⬛",
             "⬛⬛⬛⬛⬛⬛\n⬛⬛⬛⬛🚀⬛\n⬛⬛⬛⬛⬛⬛\n⬛⬛⬛⬛⬛⬛\n⬛⬛⬛⬛⬛⬛\n⬛⬛⬛⬛⬛⬛",
             "⬛⬛⬛⬛⬛🚀\n⬛⬛⬛⬛⬛⬛\n⬛⬛⬛⬛⬛⬛\n⬛⬛⬛⬛⬛⬛\n⬛⬛⬛⬛⬛⬛\n⬛⬛⬛⬛⬛⬛",
             "🛸⬛⬛⬛⬛⬛\n⬛⬛⬛⬛⬛⬛\n⬛⬛⬛⬛⬛⬛\n⬛⬛⬛⬛⬛⬛\n⬛⬛⬛⬛⬛⬛\n⬛⬛⬛⬛⬛⬛",
@@ -851,7 +816,7 @@ async def _(event):
             "⬛⬛⬛⬛⬛⬛\n⬛⬛⬛⬛⬛⬛\n⬛⬛⬛⬛⬛⬛\n⬛⬛⬛⬛⬛⬛\n⬛⬛👽🛸🚶‍♂️⬛\n⬜⬜⬜⬜⬜⬜",
             "__Signal Lost....__"
 
- ]
+        ]
 
         for i in animation_ttl:
 
@@ -861,7 +826,6 @@ async def _(event):
 
 
 @borg.on(events.NewMessage(pattern=r"\.(.*)", outgoing=True))
-
 async def _(event):
 
     if event.fwd_from:
@@ -879,12 +843,12 @@ async def _(event):
         await event.edit(input_str)
 
         animation_chars = [
-        
+
             "**Heroku Connecting To Latest Github Build (PepeBot)**",
             "**Build started by user** @NeoMatrix90",
             "**Deploy** `535a74f0` **by user** @NeoMatrix90",
             "**Restarting Heroku Server...**",
-            "**State changed from up to starting**",    
+            "**State changed from up to starting**",
             "**Stopping all processes with SIGTERM**",
             "**Process exited with** `status 143`",
             "**Starting process with command** `python3 -m stdborg`",
@@ -893,17 +857,16 @@ async def _(event):
             "__INFO:PepeBot:Successfully loaded all plugins__",
             "**Build Succeeded**"
 
- ]
+        ]
 
         for i in animation_ttl:
 
             await asyncio.sleep(animation_interval)
 
             await event.edit(animation_chars[i % 12])
- 
-            
-@borg.on(events.NewMessage(pattern=r"\.(.*)", outgoing=True))
 
+
+@borg.on(events.NewMessage(pattern=r"\.(.*)", outgoing=True))
 async def _(event):
 
     if event.fwd_from:
@@ -921,14 +884,13 @@ async def _(event):
         await event.edit(input_str)
 
         animation_chars = [
-        
             "⬜⬜⬜⬜⬜⬜⬜\n⬜⬜⬜⬜⬜⬜⬜\n⬜⬜⬜⬜⬜⬜⬜\n⬜⬜⬜⬜⬜⬜⬜\n⬜⬜⬜⬜⬜⬜⬜\n⬜⬜⬜⬜⬜⬜⬜\n⬜⬜⬜⬜⬜⬜⬜",
             "⬜⬜⬜⬜⬜⬜⬜\n⬜⬜⬜⬜⬜⬜⬜\n⬜⬜⬜⬜⬜⬜⬜\n⬜⬜⬜⬛⬜⬜⬜\n⬜⬜⬜⬜⬜⬜⬜\n⬜⬜⬜⬜⬜⬜⬜\n⬜⬜⬜⬜⬜⬜⬜",
             "⬜⬜⬜⬜⬜⬜⬜\n⬜⬜⬜⬜⬜⬜⬜\n⬜⬜⬛⬛⬛⬜⬜\n⬜⬜⬛⬜⬛⬜⬜\n⬜⬜⬛⬛⬛⬜⬜\n⬜⬜⬜⬜⬜⬜⬜\n⬜⬜⬜⬜⬜⬜⬜",
             "⬜⬜⬜⬜⬜⬜⬜\n⬜⬛⬛⬛⬛⬛⬜\n⬜⬛⬜⬜⬜⬛⬜\n⬜⬛⬜⬜⬜⬛⬜\n⬜⬛⬜⬜⬜⬛⬜\n⬜⬛⬛⬛⬛⬛⬜\n⬜⬜⬜⬜⬜⬜⬜",
             "⬛⬛⬛⬛⬛⬛⬛\n⬛⬜⬜⬜⬜⬜⬛\n⬛⬜⬜⬜⬜⬜⬛\n⬛⬜⬜⬜⬜⬜⬛\n⬛⬜⬜⬜⬜⬜⬛\n⬛⬜⬜⬜⬜⬜⬛\n⬛⬛⬛⬛⬛⬛⬛",
             "⬛⬜⬛⬜⬛⬜⬛⬜\n⬜⬛⬜⬛⬜⬛⬜⬛\n⬛⬜⬛⬜⬛⬜⬛⬜\n⬜⬛⬜⬛⬜⬛⬜⬛\n⬛⬜⬛⬜⬛⬜⬛⬜\n⬜⬛⬜⬛⬜⬛⬜⬛\n⬛⬜⬛⬜⬛⬜⬛⬜\n⬜⬛⬜⬛⬜⬛⬜⬛",
-            "⬜⬛⬜⬛⬜⬛⬜⬛\n⬛⬜⬛⬜⬛⬜⬛⬜\n⬜⬛⬜⬛⬜⬛⬜⬛\n⬛⬜⬛⬜⬛⬜⬛⬜\n⬜⬛⬜⬛⬜⬛⬜⬛\n⬛⬜⬛⬜⬛⬜⬛⬜\n⬜⬛⬜⬛⬜⬛⬜⬛\n⬛⬜⬛⬜⬛⬜⬛⬜",    
+            "⬜⬛⬜⬛⬜⬛⬜⬛\n⬛⬜⬛⬜⬛⬜⬛⬜\n⬜⬛⬜⬛⬜⬛⬜⬛\n⬛⬜⬛⬜⬛⬜⬛⬜\n⬜⬛⬜⬛⬜⬛⬜⬛\n⬛⬜⬛⬜⬛⬜⬛⬜\n⬜⬛⬜⬛⬜⬛⬜⬛\n⬛⬜⬛⬜⬛⬜⬛⬜",
             "⬜⬜⬜⬜⬜⬜⬜\n⬜⬛⬛⬛⬛⬛⬜\n⬜⬛⬜⬜⬜⬛⬜\n⬜⬛⬜⬛⬜⬛⬜\n⬜⬛⬜⬜⬜⬛⬜\n⬜⬛⬛⬛⬛⬛⬜\n⬜⬜⬜⬜⬜⬜⬜",
             "⬛⬛⬛⬛⬛⬛⬛\n⬛⬜⬜⬜⬜⬜⬛\n⬛⬜⬛⬛⬛⬜⬛\n⬛⬜⬛⬜⬛⬜⬛\n⬛⬜⬛⬛⬛⬜⬛\n⬛⬜⬜⬜⬜⬜⬛\n⬛⬛⬛⬛⬛⬛⬛",
             "⬜⬜⬜⬜⬜⬜⬜\n⬜⬛⬛⬛⬛⬛⬜\n⬜⬛⬜⬜⬜⬛⬜\n⬜⬛⬜⬛⬜⬛⬜\n⬜⬛⬜⬜⬜⬛⬜\n⬜⬛⬛⬛⬛⬛⬜\n⬜⬜⬜⬜⬜⬜⬜",
@@ -936,9 +898,7 @@ async def _(event):
             "⬜⬜⬜⬜⬜⬜⬜\n⬜⬛⬛⬛⬛⬛⬜\n⬜⬛⬜⬜⬜⬛⬜\n⬜⬛⬜⬛⬜⬛⬜\n⬜⬛⬜⬜⬜⬛⬜\n⬜⬛⬛⬛⬛⬛⬜\n⬜⬜⬜⬜⬜⬜⬜",
             "⬛⬛⬛⬛⬛\n⬛⬜⬜⬜⬛\n⬛⬜⬛⬜⬛\n⬛⬜⬜⬜⬛\n⬛⬛⬛⬛⬛",
             "⬜⬜⬜\n⬜⬛⬜\n⬜⬜⬜",
-            "[👉🔴👈](t.me/kirito6969)"
-
- ]
+            "[👉🔴👈](t.me/kirito6969)"]
 
         for i in animation_ttl:
 
@@ -946,9 +906,8 @@ async def _(event):
 
             await event.edit(animation_chars[i % 15])
 
-            
-@borg.on(events.NewMessage(pattern=r"\.(.*)", outgoing=True))
 
+@borg.on(events.NewMessage(pattern=r"\.(.*)", outgoing=True))
 async def _(event):
 
     if event.fwd_from:
@@ -966,12 +925,11 @@ async def _(event):
         await event.edit(input_str)
 
         animation_chars = [
-        
             "⬛⬛⬛\n⬛⬛⬛\n⬛⬛⬛",
             "⬛⬛⬛\n⬛🔄⬛\n⬛⬛⬛",
             "⬛⬆️⬛\n⬛🔄⬛\n⬛⬛⬛",
             "⬛⬆️↗️\n⬛🔄⬛\n⬛⬛⬛",
-            "⬛⬆️↗️\n⬛🔄➡️\n⬛⬛⬛",    
+            "⬛⬆️↗️\n⬛🔄➡️\n⬛⬛⬛",
             "⬛⬆️↗️\n⬛🔄➡️\n⬛⬛↘️",
             "⬛⬆️↗️\n⬛🔄➡️\n⬛⬇️↘️",
             "⬛⬆️↗️\n⬛🔄➡️\n↙️⬇️↘️",
@@ -981,9 +939,7 @@ async def _(event):
             "**Chat Message Exported To** `./ravana/chatbackup/`",
             "**Chat Message Exported To** `./ravana/chatbackup/new.txt`",
             "__Legend is leaving this chat.....!__ @admin __Goodbye aren't forever..__",
-            "__Legend is leaving this chat.....!__ @admin __Goodbye aren't forever..__"
-
- ]
+            "__Legend is leaving this chat.....!__ @admin __Goodbye aren't forever..__"]
 
         for i in animation_ttl:
 
@@ -993,7 +949,6 @@ async def _(event):
 
 
 @borg.on(events.NewMessage(pattern=r"\.(.*)", outgoing=True))
-
 async def _(event):
 
     if event.fwd_from:
@@ -1013,13 +968,13 @@ async def _(event):
         animation_chars = [
 
             "👁👁\n  👄  =====> Abey Ja Na Gandu",
-            "👁👁\n  👅  =====> Abey Ja Na Madarchod",    
+            "👁👁\n  👅  =====> Abey Ja Na Madarchod",
             "👁👁\n  💋  =====> Abey Ja Na Randi",
             "👁👁\n  👄  =====> Abey Ja Na Betichod",
-            "👁👁\n  👅  =====> Abey Ja Na Behenchod",    
+            "👁👁\n  👅  =====> Abey Ja Na Behenchod",
             "👁👁\n  💋  =====> Abey Ja Na Na Mard",
             "👁👁\n  👄  =====> Abey Ja Na Randi",
-            "👁👁\n  👅  =====> Abey Ja Na Bhosdk",    
+            "👁👁\n  👅  =====> Abey Ja Na Bhosdk",
             "👁👁\n  💋  =====> Abey Ja Na Chutiye",
             "👁👁\n  👄  =====> Hi All, How Are You Guys..."
         ]
@@ -1032,7 +987,6 @@ async def _(event):
 
 
 @borg.on(events.NewMessage(pattern=r"\.(.*)", outgoing=True))
-
 async def _(event):
 
     if event.fwd_from:
@@ -1050,19 +1004,17 @@ async def _(event):
         await event.edit(input_str)
 
         animation_chars = [
-        
             "`Randi Founded`",
             "`Your Mom Is Going To Fuck By\n` @NeoMatrix90",
             "`Fucking Your Mom\n\n\nYour Mom's Pussy Get Red\n Spanking Your Mom's Ass\nCumming On Pussy\n\nAlmost Done... 0%\n▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒ `",
             "` Fucking Your Mom\n\n\nYour Mom's Pussy Get Red\n Spanking Your Mom's Ass\nCumming On Pussy\n\nAlmost Done... \n\nFucked Percentage... 4%\n█▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒ `",
-            "` Fucking Your Mom\n\n\nYour Mom's Pussy Get Red\n Spanking Your Mom's Ass\nCumming On Pussy\n\nAlmost Done... \n\nFucked Percentage... 8%\n██▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒ `",    
+            "` Fucking Your Mom\n\n\nYour Mom's Pussy Get Red\n Spanking Your Mom's Ass\nCumming On Pussy\n\nAlmost Done... \n\nFucked Percentage... 8%\n██▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒ `",
             "` Fucking Your Mom\n\n\nYour Mom's Pussy Get Red\n Spanking Your Mom's Ass\nCumming On Pussy\n\nAlmost Done... \n\nFucked Percentage... 20%\n█████▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒ `",
             "` Fucking Your Mom\n\n\nYour Mom's Pussy Get Red\n Spanking Your Mom's Ass\nCumming On Pussy\n\nAlmost Done... \n\nFucked Percentage... 36%\n█████████▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒ `",
             "` Fucking Your Mom\n\n\nYour Mom's Pussy Get Red\n Spanking Your Mom's Ass\nCumming On Pussy\n\nAlmost Done... \n\nFucked Percentage... 52%\n█████████████▒▒▒▒▒▒▒▒▒▒▒▒ `",
             "` Fucking Your Mom\n\n\nYour Mom's Pussy Get Red\n Spanking Your Mom's Ass\nCumming On Pussy\n\nAlmost Done... \n\nFucked Percentage... 84%\n█████████████████████▒▒▒▒ `",
             "` Fucking Your Mom\n\n\nYour Mom's Pussy Get Red\n Spanking Your Mom's Ass\nCumming On Pussy\n\nAlmost Done... \n\nFucked Percentage... 100%\n█████████████████████████ `",
-            "`Fucking Your Mom\n\n\nYour Mom's Pussy Get Red\nCumming On Pussy\n\nYour mom get Pregnant\n\nResult: Now You Have 1 More Younger Brother\nAnd His Father Name Is` @NeoMatrix90"
-        ]
+            "`Fucking Your Mom\n\n\nYour Mom's Pussy Get Red\nCumming On Pussy\n\nYour mom get Pregnant\n\nResult: Now You Have 1 More Younger Brother\nAnd His Father Name Is` @NeoMatrix90"]
 
         for i in animation_ttl:
 
@@ -1070,7 +1022,7 @@ async def _(event):
 
             await event.edit(animation_chars[i % 11])
 
-            
+
 @borg.on(events.NewMessage(pattern=r"\.(.*)", outgoing=True))
 async def _(event):
     if event.fwd_from:
@@ -1078,21 +1030,21 @@ async def _(event):
     input_str = event.pattern_match.group(1)
     if input_str == "🍎":
         animation_chars = [
-                        " ‏‏‎ ",
-                        "                🍎",
-                        "            🍎 🍎",
-                        "        🍎 🍎 🍎",
-                        "    🍎 🍎 🍎 🍎",
-                        "🍎 🍎 🍎 🍎 🍎"
-                    ]
+            " ‏‏‎ ",
+            "                🍎",
+            "            🍎 🍎",
+            "        🍎 🍎 🍎",
+            "    🍎 🍎 🍎 🍎",
+            "🍎 🍎 🍎 🍎 🍎"
+        ]
         msg = ""
         for s in animation_chars:
-            msg += s+"\n"
+            msg += s + "\n"
             await event.edit(msg)
-            await asyncio.sleep(0.5)           
-            
-@borg.on(events.NewMessage(pattern=r"\.(.*)", outgoing=True))
+            await asyncio.sleep(0.5)
 
+
+@borg.on(events.NewMessage(pattern=r"\.(.*)", outgoing=True))
 async def _(event):
 
     if event.fwd_from:
@@ -1110,7 +1062,6 @@ async def _(event):
         await event.edit(input_str)
 
         animation_chars = [
-        
             "`Connecting To Telegram Headquarters...`",
             "`Call Connected.`",
             "`Telegram: Hello This is Telegram HQ. Who is this?`",
@@ -1118,7 +1069,7 @@ async def _(event):
             "`User Authorised.`",
             "`Calling Pavel Durov Shukla (@durov) At +916969696969`",
             "`Private  Call Connected...`",
-            "`Me: Hello Sir, Please Ban This Telegram Account.`",    
+            "`Me: Hello Sir, Please Ban This Telegram Account.`",
             "`Durov: May I Know Who Is This?`",
             "`Me: Yo Brah, I Am` @kirito6969",
             "`Durov: OMG!!! I Am FAN Of You Mam...\nI'll Make Sure That Guy Account Will Get Blocked Within 24Hrs.`",
@@ -1128,21 +1079,20 @@ async def _(event):
             "`Durov: Yes Mam, There Is A Bug In Telegram v5.14.0.\nI Am Not Able To Fix It. If Possible, Please Help Fix The Bug.`",
             "`Me: Send Me The App On My Telegram Account, I Will Fix The Bug & Send You.`",
             "`Durov: Sure Mam \nTC Bye Bye :)`",
-            "`Private Call Disconnected.`"
-        ]
+            "`Private Call Disconnected.`"]
 
         for i in animation_ttl:
 
             await asyncio.sleep(animation_interval)
 
             await event.edit(animation_chars[i % 18])
- 
+
+
 @borg.on(events.NewMessage(pattern=r"\.bombs", outgoing=True))
 async def _(event):
     if event.fwd_from:
         return
-       
- 
+
     await event.edit("▪️▪️▪️▪️ \n▪️▪️▪️▪️ \n▪️▪️▪️▪️ \n▪️▪️▪️▪️ \n▪️▪️▪️▪️ \n")
     await asyncio.sleep(0.5)
     await event.edit("💣💣💣💣 \n▪️▪️▪️▪️ \n▪️▪️▪️▪️ \n▪️▪️▪️▪️ \n▪️▪️▪️▪️ \n")
@@ -1164,10 +1114,9 @@ async def _(event):
     await event.edit("`RIP PLOXXX...Gand Marao...`")
     await asyncio.sleep(2)
     await event.delete()
-    
+
 
 @borg.on(events.NewMessage(pattern=r"\.(.*)", outgoing=True))
-
 async def _(event):
 
     if event.fwd_from:
@@ -1185,19 +1134,19 @@ async def _(event):
         await event.edit(input_str)
 
         animation_chars = [
-        
+
             "🔴⬛⬛⬜⬜\n⬜⬜⬜⬜⬜\n⬜⬜⬜⬜⬜",
             "⬜⬜⬛⬜⬜\n⬜⬛⬜⬜⬜\n🔴⬜⬜⬜⬜",
             "⬜⬜⬛⬜⬜\n⬜⬜⬛⬜⬜\n⬜⬜🔴⬜⬜",
             "⬜⬜⬛⬜⬜\n⬜⬜⬜⬛⬜\n⬜⬜⬜⬜🔴",
-            "⬜⬜⬛⬛🔴\n⬜⬜⬜⬜⬜\n⬜⬜⬜⬜⬜",    
+            "⬜⬜⬛⬛🔴\n⬜⬜⬜⬜⬜\n⬜⬜⬜⬜⬜",
             "⬜⬜⬛⬜⬜\n⬜⬜⬜⬛⬜\n⬜⬜⬜⬜🔴",
             "⬜⬜⬛⬜⬜\n⬜⬜⬛⬜⬜\n⬜⬜🔴⬜⬜",
             "⬜⬜⬛⬜⬜\n⬜⬛⬜⬜⬜\n🔴⬜⬜⬜⬜",
             "🔴⬛⬛⬜⬜\n⬜⬜⬜⬜⬜\n⬜⬜⬜⬜⬜",
             "⬜⬜⬜⬜⬜\n⬜ [PEPEBOT](https://github.com/prono69/PepeBot/) ⬜\n⬜⬜⬜⬜⬜"
 
- ]
+        ]
 
         for i in animation_ttl:
 
@@ -1205,9 +1154,8 @@ async def _(event):
 
             await event.edit(animation_chars[i % 10])
 
-            
-@borg.on(events.NewMessage(pattern=r"\.(.*)", outgoing=True))
 
+@borg.on(events.NewMessage(pattern=r"\.(.*)", outgoing=True))
 async def _(event):
 
     if event.fwd_from:
@@ -1227,7 +1175,7 @@ async def _(event):
         animation_chars = [
 
             "🕙",
-            "🕘",    
+            "🕘",
             "🕗",
             "🕖",
             "🕕",
@@ -1245,9 +1193,8 @@ async def _(event):
 
             await event.edit(animation_chars[i % 11])
 
-            
-@borg.on(events.NewMessage(pattern=r"\.(.*)", outgoing=True))
 
+@borg.on(events.NewMessage(pattern=r"\.(.*)", outgoing=True))
 async def _(event):
 
     if event.fwd_from:
@@ -1265,39 +1212,32 @@ async def _(event):
         await event.edit(input_str)
 
         animation_chars = [
-        
             "`Cracking some Netflix account.....`",
-           
             "`Cracking ... 0%\n▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒ `",
             "`Cracking... 4%\n█▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒ `",
-            "`Cracking... 8%\n██▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒ `",    
+            "`Cracking... 8%\n██▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒ `",
             "`Cracking... 20%\n█████▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒ `",
             "`Cracking... 36%\n█████████▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒ `",
             "`Cracking... 52%\n█████████████▒▒▒▒▒▒▒▒▒▒▒▒ `",
             "`Cracking... 84%\n█████████████████████▒▒▒▒ `",
-        "`Cracked... 100%\n█████████Cracked ███████████ `",
-        "`I'd :- *************@gmail.com\n\nPassword:-**********`",   
-
- "`Account Cracked ..\n\n Pay 9$ to @kirito6969 for I'd and Password`"
-        ]
+            "`Cracked... 100%\n█████████Cracked ███████████ `",
+            "`I'd :- *************@gmail.com\n\nPassword:-**********`",
+            "`Account Cracked ..\n\n Pay 9$ to @kirito6969 for I'd and Password`"]
 
         for i in animation_ttl:
 
             await asyncio.sleep(animation_interval)
 
             await event.edit(animation_chars[i % 11])
- 
-            
-@borg.on(events.NewMessage(pattern=r"\.(.*)", outgoing=True))
 
+
+@borg.on(events.NewMessage(pattern=r"\.(.*)", outgoing=True))
 async def _(event):
 
     if event.fwd_from:
 
         return
 
-    animation_interval = 1
-    
 
     animation_ttl = range(0, 17)
 
@@ -1329,12 +1269,10 @@ async def _(event):
 
         for i in animation_ttl:
 
-
             await event.edit(animation_chars[i % 17])
 
-            
-@borg.on(events.NewMessage(pattern=r"\.(.*)", outgoing=True))
 
+@borg.on(events.NewMessage(pattern=r"\.(.*)", outgoing=True))
 async def _(event):
 
     if event.fwd_from:
@@ -1380,4 +1318,3 @@ async def _(event):
             await asyncio.sleep(animation_interval)
 
             await event.edit(animation_chars[i % 11])
-            

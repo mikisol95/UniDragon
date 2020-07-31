@@ -8,12 +8,16 @@ import os
 from uniborg.util import admin_cmd
 import qrcode
 from bs4 import BeautifulSoup
- 
- 
+
+
 def progress(current, total):
-    logger.info("Downloaded {} of {}\nCompleted {}".format(current, total, (current / total) * 100))
- 
- 
+    logger.info(
+        "Downloaded {} of {}\nCompleted {}".format(
+            current,
+            total,
+            (current / total) * 100))
+
+
 @borg.on(admin_cmd(pattern="getqr"))
 async def _(event):
     if event.fwd_from:
@@ -56,8 +60,8 @@ async def _(event):
     await event.edit("Obtained QRCode contents in {} seconds.\n`{}`".format(ms, qr_contents))
     await asyncio.sleep(5)
     await event.edit(qr_contents)
- 
- 
+
+
 @borg.on(admin_cmd(pattern="makeqr ?(.*)"))
 async def _(event):
     if event.fwd_from:
@@ -111,4 +115,3 @@ async def _(event):
     await event.edit("Created QRCode in {} seconds".format(ms))
     await asyncio.sleep(5)
     await event.delete()
- 

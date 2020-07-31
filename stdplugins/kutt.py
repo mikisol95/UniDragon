@@ -7,7 +7,7 @@ from uniborg.util import admin_cmd, parse_arguments
 API_ENDPOINT = "https://kutt.it/api/"
 
 
-@borg.on(admin_cmd(pattern="kutt\s?([\S\s]+)?"))
+@borg.on(admin_cmd(pattern=r"kutt\s?([\S\s]+)?"))
 async def kutt_it(e):
     reply_message = await e.get_reply_message()
     params = e.pattern_match.group(1) or ""
@@ -31,9 +31,13 @@ async def kutt_it(e):
     for url in urls:
         payload = {'target': url, 'reuse': reuse}
         headers = {'X-API-Key': Config.KUTT_IT_API_KEY}
-        resp = requests.post(API_ENDPOINT + "url/submit", json=payload, headers=headers)
+        resp = requests.post(
+            API_ENDPOINT +
+            "url/submit",
+            json=payload,
+            headers=headers)
 
-        json = resp.json()  
+        json = resp.json()
         if resp.status_code == 200:
             shortened[url] = json['shortUrl']
         else:
@@ -48,4 +52,4 @@ async def kutt_it(e):
 
 def extract_urls(message):
     matches = findall(r'(https?://\S+)', str(message))
-    return list(matches)    
+    return list(matches)

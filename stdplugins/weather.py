@@ -2,13 +2,13 @@
 Syntax: `.weather <Location>`
 `.wttr <Location>`
 """
- 
+
 import aiohttp
 import io
 import time
 from uniborg.util import admin_cmd
- 
- 
+
+
 @borg.on(admin_cmd(pattern="weather (.*)"))
 async def _(event):
     if event.fwd_from:
@@ -49,8 +49,8 @@ async def _(event):
         )
     else:
         await event.edit(response_api["message"])
-      
-      
+
+
 @borg.on(admin_cmd(pattern="wttr (.*)"))
 async def _(event):
     if event.fwd_from:
@@ -67,4 +67,3 @@ async def _(event):
                 file=out_file
             )
     await event.edit(input_str)
- 

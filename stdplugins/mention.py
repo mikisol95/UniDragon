@@ -32,6 +32,8 @@ def get_tag_parser(tag, entity):
 
 
 PRINTABLE_ASCII = range(0x21, 0x7f)
+
+
 def parse_aesthetics(m):
     def aesthetify(string):
         for c in string:
@@ -56,7 +58,7 @@ def parse_subreddit(m):
 
 def parse_strikethrough(m):
     text = m.group(2)
-    text =  "\u0336".join(text) + "\u0336 "
+    text = "\u0336".join(text) + "\u0336 "
     return text, None
 
 

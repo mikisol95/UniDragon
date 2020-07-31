@@ -1,7 +1,6 @@
 # Imported from ppe-remix for PepeBot
 
 import os
-import re
 import random
 from uniborg.util import admin_cmd
 from userbot import deEmojify
@@ -9,6 +8,7 @@ from uniborg import MODULE, SYNTAX
 MODULE.append("waifu")
 
 senpais = [37, 38, 48, 55]
+
 
 @borg.on(admin_cmd(pattern="waifu(?: |$)(.*)"))
 async def waifu(animu):
@@ -52,15 +52,15 @@ async def _(hazmat):
             if level:
                 m = f"/hazmat {level}"
                 msg_reply = await conv.send_message(
-                          m,
-                          reply_to=msg.id)
+                    m,
+                    reply_to=msg.id)
                 r = await conv.get_response()
                 response = await conv.get_response()
             elif reply_message.gif:
                 m = "/hazmat"
                 msg_reply = await conv.send_message(
-                          m,
-                          reply_to=msg.id)
+                    m,
+                    reply_to=msg.id)
                 r = await conv.get_response()
                 response = await conv.get_response()
             else:
@@ -78,8 +78,8 @@ async def _(hazmat):
             return
         else:
             downloaded_file_name = await hazmat.client.download_media(
-                                 response.media,
-                                 Config.TMP_DOWNLOAD_DIRECTORY
+                response.media,
+                Config.TMP_DOWNLOAD_DIRECTORY
             )
             await hazmat.client.send_file(
                 hazmat.chat_id,
@@ -88,15 +88,16 @@ async def _(hazmat):
                 reply_to=message_id_to_reply
             )
             #""" - cleanup chat after completed - """
-            #if msg_reply is not None:
-                #await hazmat.client.delete_messages(
-                    #conv.chat_id,
-                    #[msg.id, msg_reply.id, r.id, response.id])
-            #else:
-                #await hazmat.client.delete_messages(conv.chat_id,
-                                                 #[msg.id, response.id])
+            # if msg_reply is not None:
+            # await hazmat.client.delete_messages(
+            # conv.chat_id,
+            # [msg.id, msg_reply.id, r.id, response.id])
+            # else:
+            # await hazmat.client.delete_messages(conv.chat_id,
+            # [msg.id, response.id])
     await hazmat.delete()
     return os.remove(downloaded_file_name)
+
 
 @borg.on(admin_cmd(pattern="senpai(?: |$)(.*)"))
 async def _(animu):
@@ -114,7 +115,7 @@ async def _(animu):
                             silent=True if animu.is_reply else False,
                             hide_via=True)
     await animu.delete()
-    
+
 SYNTAX.update({
     "waifu":
     "`.waifu` text\
@@ -123,4 +124,4 @@ SYNTAX.update({
 \nUsage: Reply to a image / sticker to suit up!.\
 \n\n`.senpai` <text> or <reply to a message>\
 \nUsage: Go find yourself"
-})    
+})

@@ -49,9 +49,9 @@ if 1 == 1:
                 if id <= 0:
                     await event.edit("```ID number Invalid!``` **Are you Comedy Me ?**")
                     return
-            except:
-                 await event.edit("`Are you comedy me ?`")
-                 return
+            except BaseException:
+                await event.edit("`Are you comedy me ?`")
+                return
             if int(id) <= (len(photos)):
                 send_photos = await event.client.download_media(photos[id - 1])
                 await event.client.send_file(event.chat_id, send_photos)

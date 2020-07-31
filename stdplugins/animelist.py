@@ -19,16 +19,17 @@ MODULE.append("animelist")
 
 jikan = Jikan()
 
+
 @borg.on(admin_cmd(pattern="anime ?(.*)"))
 async def anime(event):
     query = event.pattern_match.group(1)
     reply = await event.get_reply_message()
     await event.edit("`Searching Anime...`")
     if query:
-    	pass
+        pass
     elif reply:
-    	query = reply.text
-    else:	
+        query = reply.text
+    else:
         await event.edit("`Brah.. What I am supposed to search ?`")
         await asyncio.sleep(6)
         await event.delete()
@@ -38,17 +39,17 @@ async def anime(event):
         res = jikan.search("anime", query)
     except Exception as err:
         await event.edit(f"**Error:** \n`{err}`")
-        return 
+        return
     try:
-        res = res.get("results")[0].get("mal_id") # Grab first result
+        res = res.get("results")[0].get("mal_id")  # Grab first result
     except APIException:
         await event.edit("Error connecting to the API. Please try again!")
-        return 
+        return
     if res:
         anime = jikan.anime(res)
         title = anime.get("title")
         japanese = anime.get("title_japanese")
-        eng_title = anime.get("title_english")
+        anime.get("title_english")
         type = anime.get("type")
         duration = anime.get("duration")
         synopsis = anime.get("synopsis")
@@ -72,9 +73,9 @@ async def anime(event):
         image_url = anime.get("image_url")
         trailer = anime.get("trailer_url")
         if trailer:
-        	bru = f"<a href='{trailer}'>Trailer</a>"
+            bru = f"<a href='{trailer}'>Trailer</a>"
         else:
-        	bru = "<code>No Trailer Available</code>"
+            pass
         url = anime.get("url")
     else:
         await event.edit("`No results Found!`")
@@ -95,14 +96,15 @@ async def anime(event):
     rep += f"📖 <b>Synopsis</b>: <i>{synopsis}</i>\n"
     rep += f'<b>Read More:</b> <a href="{url}">MyAnimeList</a>'
     await event.edit(rep, parse_mode='HTML', link_preview=True)
-    
+
+
 @borg.on(admin_cmd(pattern="manga ?(.*)"))
 async def manga(event):
     query = event.pattern_match.group(1)
     await event.edit("`Searching Manga...`")
     if not query:
-    	await event.edit("`Bruh.. Gib me Something to Search`")
-    	return
+        await event.edit("`Bruh.. Gib me Something to Search`")
+        return
     res = ""
     manga = ""
     try:
@@ -142,25 +144,25 @@ async def manga(event):
         rep += f"📖 <b>Synopsis</b>: <i>{synopsis}</i>\n"
         rep += f'<b>Read More:</b> <a href="{url}">MyAnimeList</a>'
         await event.edit(rep, parse_mode='HTML', link_preview=True)
-        
+
+
 @borg.on(admin_cmd(pattern="user ?(.*)"))
 async def user(event):
     search_query = event.pattern_match.group(1)
     message = await event.get_reply_message()
     if search_query:
-    	pass
+        pass
     elif message:
-    	search_query = message.text
+        search_query = message.text
     else:
-    	await event.edit("`Format : .user <username>`")
-    	return
+        await event.edit("`Format : .user <username>`")
+        return
 
     try:
         user = jikan.user(search_query)
     except APIException:
         await event.edit("`Username not Found Nibba`")
         return
-        
 
     date_format = "%Y-%m-%d"
     if user['image_url'] is None:
@@ -171,7 +173,7 @@ async def user(event):
     try:
         user_birthday = datetime.datetime.fromisoformat(user['birthday'])
         user_birthday_formatted = user_birthday.strftime(date_format)
-    except:
+    except BaseException:
         user_birthday_formatted = "Unknown"
 
     user_joined_date = datetime.datetime.fromisoformat(user['joined'])
@@ -180,7 +182,7 @@ async def user(event):
     user_last_online_formatted = user_last_online.strftime(date_format)
 
     for entity in user:
-        if user[entity] == None:
+        if user[entity] is None:
             user[entity] = "Unknown"
 
     about = user['about'].split(" ", 60)
@@ -191,7 +193,9 @@ async def user(event):
         pass
 
     about_string = ' '.join(about)
-    about_string = about_string.replace("<br>", "").strip().replace("\r\n", "\n")
+    about_string = about_string.replace(
+        "<br>", "").strip().replace(
+        "\r\n", "\n")
 
     caption = ""
 
@@ -210,19 +214,20 @@ async def user(event):
 
     caption += f"**About**: {about_string}"
     await event.client.send_file(event.chat_id, file=img, caption=caption)
-    
-@borg.on(admin_cmd(pattern="sh (kaizoku|kayo) ?(.*)"))    
+
+
+@borg.on(admin_cmd(pattern="sh (kaizoku|kayo) ?(.*)"))
 async def site_search(event):
     message = await event.get_reply_message()
-    search_query= event.pattern_match.group(2)
+    search_query = event.pattern_match.group(2)
     site = event.pattern_match.group(1)
     if search_query:
-    	pass
+        pass
     elif message:
-    	search_query = message.text
+        search_query = message.text
     else:
-    	await event.edit("`Uuf Bro.. Gib something to Search`")
-    	return
+        await event.edit("`Uuf Bro.. Gib something to Search`")
+        return
 
     if site == "kaizoku":
         search_url = f"https://animekaizoku.com/?s={search_query}"
@@ -236,7 +241,7 @@ async def site_search(event):
                 post_link = entry.a['href']
                 post_name = html.escape(entry.text.strip())
                 result += f"• <a href='{post_link}'>{post_name}</a>\n"
-                await event.edit(result, parse_mode = 'HTML')
+                await event.edit(result, parse_mode='HTML')
         else:
             result = f"<b>No result found for</b> <code>{html.escape(search_query)}</code> <b>on</b> <code>AnimeKaizoku</code>"
             await event.edit(result, parse_mode='HTML')
@@ -259,6 +264,7 @@ async def site_search(event):
             result += f"• <a href='{post_link}'>{post_name}</a>\n"
             await event.edit(result, parse_mode='HTML')
 
+
 @borg.on(admin_cmd(pattern="character ?(.*)"))
 async def character(event):
     message = await event.get_reply_message()
@@ -268,8 +274,8 @@ async def character(event):
     elif message:
         search_query = message.text
     else:
-         await event.edit("Format: `.character <character name>`")
-         return
+        await event.edit("Format: `.character <character name>`")
+        return
 
     try:
         search_result = jikan.search("character", search_query)
@@ -300,12 +306,12 @@ async def character(event):
     caption += f"\n🔰**Extracted Character Data**🔰\n\n{about_string}"
     caption += f" [Read More]({mal_url})..."
     await event.client.send_file(event.chat_id,
-                            file=character['image_url'],
-                            caption=replace_text(caption),
-                            reply_to=event
-                        )
+                                 file=character['image_url'],
+                                 caption=replace_text(caption),
+                                 reply_to=event
+                                 )
 
-                        
+
 @borg.on(admin_cmd(pattern="upcoming ?(.*)"))
 async def upcoming(message):
     rep = "<b>Upcoming anime</b>\n"
@@ -318,19 +324,27 @@ async def upcoming(message):
         if len(rep) > 1000:
             break
         await message.edit(rep, parse_mode='html')
-        
+
 
 def replace_text(text):
-        return text.replace("\"", "").replace("\\r", "").replace("\\n", "").replace(
-            "\\", "")
-            
+    return text.replace(
+        "\"",
+        "").replace(
+        "\\r",
+        "").replace(
+            "\\n",
+            "").replace(
+                "\\",
+        "")
+
+
 SYNTAX.update({
     "animelist":
-"Usage: Anime Information\
+    "Usage: Anime Information\
 \n\n`.anime <anime>` Returns with Anime information.\
 \n\n`.character <name>` Returns with Character information.\
 \n\n`.manga <manga name>` Returns with the Manga information.\
 \n\n`.user <MAL username>` Returns with MAL information.\
 \n\n`.sh <kaizoku or kayo> <anime name>` Returns with the Anime Downlaod link.\
 \n\n`.upcoming` Returns with Upcoming Anime information."
-})                                  
+})

@@ -1,4 +1,4 @@
-#By STARKTM1
+# By STARKTM1
 from telethon import events
 import asyncio
 
@@ -7,8 +7,7 @@ import asyncio
 async def _(event):
     if event.fwd_from:
         return
-        
-        
+
     await event.edit("✈-------------")
     await event.edit("-✈------------")
     await event.edit("--✈-----------")
@@ -17,7 +16,7 @@ async def _(event):
     await event.edit("-----✈--------")
     await event.edit("------✈-------")
     await event.edit("-------✈------")
-    await event.edit("--------✈-----") 
+    await event.edit("--------✈-----")
     await event.edit("---------✈----")
     await event.edit("----------✈---")
     await event.edit("-----------✈--")
@@ -25,4 +24,3 @@ async def _(event):
     await event.edit("-------------✈")
     await asyncio.sleep()
     await event.delete()
-

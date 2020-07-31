@@ -30,6 +30,7 @@ else:
                 level=INFO)
 LOGS = getLogger(__name__)
 
+
 class AioHttp:
     @staticmethod
     async def get_json(link):
@@ -62,6 +63,7 @@ class AioHttp:
             async with session.get(link) as resp:
                 return resp.url
 
+
 EMOJI_PATTERN = re.compile(
     "["
     "\U0001F1E0-\U0001F1FF"  # flags (iOS)
@@ -74,7 +76,7 @@ EMOJI_PATTERN = re.compile(
     "\U0001F900-\U0001F9FF"  # Supplemental Symbols and Pictographs
     "\U0001FA00-\U0001FA6F"  # Chess Symbols
     "\U0001FA70-\U0001FAFF"  # Symbols and Pictographs Extended-A
-    "\U00002702-\U000027B0"  # Dingbats 
+    "\U00002702-\U000027B0"  # Dingbats
     "]+")
 
 

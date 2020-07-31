@@ -18,7 +18,7 @@ import logging
 import requests
 import base64
 import json
-import os 
+import os
 import telethon
 
 from PIL import Image
@@ -50,14 +50,13 @@ if 1 == 1:
         "admin": "admin",
         "creator": "creator",
         "hidden": "hidden",
-        "channel": "Channel"
-    }
+        "channel": "Channel"}
 
-    config = dict({"api_token": os.environ.get("API_TOKEN"), 
-                                          "api_url": "http://api.antiddos.systems",
-                                          "username_colors": ["#fb6169", "#faa357", "#b48bf2", "#85de85",
-                                                              "#62d4e3", "#65bdf3", "#ff5694"],
-                                          "default_username_color": "#b48bf2"})
+    config = dict({"api_token": os.environ.get("API_TOKEN"),
+                   "api_url": "http://api.antiddos.systems",
+                   "username_colors": ["#fb6169", "#faa357", "#b48bf2", "#85de85",
+                                       "#62d4e3", "#65bdf3", "#ff5694"],
+                   "default_username_color": "#b48bf2"})
     client = borg
 
     @borg.on(admin_cmd(pattern="quote(.*)"))
@@ -79,13 +78,21 @@ if 1 == 1:
 
         admintitle = ""
         pfp = None
-        if isinstance(reply.to_id, telethon.tl.types.PeerChannel) and reply.fwd_from:
+        if isinstance(
+                reply.to_id,
+                telethon.tl.types.PeerChannel) and reply.fwd_from:
             user = reply.forward.chat
         elif isinstance(reply.to_id, telethon.tl.types.PeerChat):
             chat = await client(telethon.tl.functions.messages.GetFullChatRequest(reply.to_id))
             participants = chat.full_chat.participants.participants
-            participant = next(filter(lambda x: x.user_id == reply.from_id, participants), None)
-            if isinstance(participant, telethon.tl.types.ChatParticipantCreator):
+            participant = next(
+                filter(
+                    lambda x: x.user_id == reply.from_id,
+                    participants),
+                None)
+            if isinstance(
+                    participant,
+                    telethon.tl.types.ChatParticipantCreator):
                 admintitle = strings["creator"]
             elif isinstance(participant, telethon.tl.types.ChatParticipantAdmin):
                 admintitle = strings["admin"]
@@ -107,7 +114,8 @@ if 1 == 1:
                 profile_photo_url = None
                 admintitle = ""
             elif reply.forward.sender:
-                username = telethon.utils.get_display_name(reply.forward.sender)
+                username = telethon.utils.get_display_name(
+                    reply.forward.sender)
                 profile_photo_url = reply.forward.sender.id
                 admintitle = ""
             elif reply.forward.chat:
@@ -117,8 +125,9 @@ if 1 == 1:
             if isinstance(reply.to_id, telethon.tl.types.PeerUser) is False:
                 try:
                     user = await client(telethon.tl.functions.channels.GetParticipantRequest(message.chat_id,
-                                                                                                  user))
-                    if isinstance(user.participant, telethon.tl.types.ChannelParticipantCreator):
+                                                                                             user))
+                    if isinstance(user.participant,
+                                  telethon.tl.types.ChannelParticipantCreator):
                         admintitle = user.participant.rank or strings["creator"]
                     elif isinstance(user.participant, telethon.tl.types.ChannelParticipantAdmin):
                         admintitle = user.participant.rank or strings["admin"]
@@ -129,7 +138,8 @@ if 1 == 1:
             pfp = await client.download_profile_photo(profile_photo_url, bytes)
 
         if pfp is not None:
-            profile_photo_url = "data:image/png;base64, " + base64.b64encode(pfp).decode()
+            profile_photo_url = "data:image/png;base64, " + \
+                base64.b64encode(pfp).decode()
         else:
             profile_photo_url = ""
 
@@ -178,7 +188,7 @@ if 1 == 1:
             "Markdown": get_markdown(reply),
             "ReplyUsername": reply_username,
             "ReplyText": reply_text,
-            #"Date": date,
+            # "Date": date,
             "Template": args[0] if len(args) > 0 else "default",
             "APIKey": config["api_token"]
         })
@@ -201,9 +211,11 @@ if 1 == 1:
                 raise ValueError("Invalid response from server", resp)
         elif resp["status"] == 404:
             if resp["message"] == "ERROR_TEMPLATE_NOT_FOUND":
-                newreq = requests.post(config["api_url"] + "/api/v1/getalltemplates", data={
-                    "token": config["api_token"]
-                })
+                newreq = requests.post(
+                    config["api_url"] +
+                    "/api/v1/getalltemplates",
+                    data={
+                        "token": config["api_token"]})
                 newreq = newreq.json()
 
                 if newreq["status"] == "NOT_ENOUGH_PERMISSIONS":

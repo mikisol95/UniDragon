@@ -6,8 +6,10 @@ import sys
 import io
 from uniborg.util import admin_cmd
 import logging
-logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
-                    level=logging.WARN)
+logging.basicConfig(
+    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
+    level=logging.WARN)
+
 
 @borg.on(admin_cmd(pattern="eval"))
 async def _(event):
@@ -45,7 +47,8 @@ async def _(event):
     else:
         evaluation = "Success"
 
-    final_output = "⬤ **EVAL**: `{}` \n\n⬤ **Result**: \n `{}` \n".format(cmd, evaluation)
+    final_output = "⬤ **EVAL**: `{}` \n\n⬤ **Result**: \n `{}` \n".format(
+        cmd, evaluation)
 
     if len(final_output) > Config.MAX_MESSAGE_SIZE_LIMIT:
         with io.BytesIO(str.encode(final_output)) as out_file:

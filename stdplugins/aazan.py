@@ -6,8 +6,9 @@ from uniborg.util import admin_cmd
 TEMPAT = ''
 
 """ aazan: .aazan <city> or .aazan <country>
-        \nUsage: Gets the prayer time for muslims. 
+        \nUsage: Gets the prayer time for muslims.
  """
+
 
 @borg.on(admin_cmd(pattern="aazan(?: |$)(.*)"))
 async def get_adzan(adzan):
@@ -46,12 +47,10 @@ async def get_adzan(adzan):
     textkirim = (f"⏱  **Namaz Schedule** `{date}`:\n" +
                  f"`{location} | {location3} | {location4} | {location2}`\n\n" +
                  f"**Subuh :** `{subuh}`\n" +
-                 #f"**Syuruk :** `{syuruk}`\n" +
+                 # f"**Syuruk :** `{syuruk}`\n" +
                  f"**Zuhur :** `{zuhur}`\n" +
                  f"**Ashar :** `{ashar}`\n" +
                  f"**Maghrib :** `{maghrib}`\n" +
                  f"**Isya :** `{isya}`\n")
 
     await adzan.edit(textkirim)
-
-

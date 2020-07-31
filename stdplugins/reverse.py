@@ -5,8 +5,8 @@
 # Licensed under the Raphielscape Public License, Version 1.c (the "License");
 # you may not use this file except in compliance with the License.
 #
-#Userbot module for reverse searching stickers and images on Google
-#Thanks to PPE
+# Userbot module for reverse searching stickers and images on Google
+# Thanks to PPE
 """Type .reverse (any number) reply to a image
 \nPorted by © @NeoMatrix90"""
 
@@ -24,7 +24,7 @@ useragent = 'Mozilla/5.0 (Linux; Android 9; SM-G960F Build/PPR1.180610.011; wv) 
 opener.addheaders = [('User-agent', useragent)]
 
 
-@borg.on(admin_cmd(pattern="reverse(?: |$)(\d*)"))
+@borg.on(admin_cmd(pattern=r"reverse(?: |$)(\d*)"))
 async def okgoogle(img):
     """ For .reverse command, Google search images and stickers. """
     if os.path.isfile("okgoogle.png"):
@@ -140,4 +140,3 @@ async def scam(results, lim):
             break
 
     return imglinks
-

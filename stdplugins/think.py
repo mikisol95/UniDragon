@@ -7,6 +7,7 @@ Available Commands:
 import asyncio
 from uniborg.util import admin_cmd
 
+
 @borg.on(admin_cmd(pattern="(.*)"))
 async def _(event):
     if event.fwd_from:
@@ -56,6 +57,6 @@ async def _(event):
         ]
 
         for i in animation_ttl:
-        	
+
             await asyncio.sleep(animation_interval)
             await event.edit(animation_chars[i % 72])

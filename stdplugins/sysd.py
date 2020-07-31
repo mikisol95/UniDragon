@@ -25,4 +25,3 @@ async def sysdetails(sysd):
             await sysd.edit("Neofetch Result: `" + result + "`")
         except FileNotFoundError:
             await sysd.edit("`Hello, on ravana69/pornhub install .neofetch first kthx`")
-

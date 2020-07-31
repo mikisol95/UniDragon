@@ -6,6 +6,7 @@ from telethon import types
 from telethon.errors import PhotoInvalidDimensionsError
 from telethon.tl.functions.messages import SendMediaRequest
 
+
 @borg.on(admin_cmd(pattern="1"))
 async def on_file_to_photo(event):
     await event.delete()
@@ -15,7 +16,7 @@ async def on_file_to_photo(event):
     except AttributeError:
         return
     if not image.mime_type.startswith('image/'):
-        return  
+        return
     if image.mime_type == 'image/webp':
         return  # Telegram doesn't let you directly send stickers as photos
     if image.size > 10 * 1024 * 1024:

@@ -5,11 +5,11 @@ import json
 import pendulum
 from io import BytesIO, StringIO
 from urllib.parse import quote as urlencode
-from telethon import events
 from telethon.utils import is_image, is_video
 from telethon.errors.rpcerrorlist import FilePartsInvalidError
 from telethon.tl.types import MessageMediaDocument, DocumentAttributeFilename, DocumentAttributeAnimated
 from uniborg.util import admin_cmd
+
 
 @borg.on(admin_cmd(pattern='areverse'))
 async def areverse(e):
@@ -50,7 +50,7 @@ async def areverse(e):
         text += '</b>\n'
         if js0['episode']:
             text += f'<b>Episode:</b> {html.escape(str(js0["episode"]))}\n'
-        percent = round(js0['similarity']*100, 2)
+        percent = round(js0['similarity'] * 100, 2)
         text += f'<b>Similarity:</b> {percent}%\n'
         dt = pendulum.from_timestamp(js0['at'])
         text += f'<b>At:</b> {html.escape(dt.to_time_string())}'
@@ -59,16 +59,17 @@ async def areverse(e):
         dt1 = pendulum.from_timestamp(js0['to'])
         ctext = f'{html.escape(dt0.to_time_string())} - {html.escape(dt1.to_time_string())}'
         url = ('https://trace.moe/preview.php'
-              f'?anilist_id={urlencode(str(js0["anilist_id"]))}'
-              f'&file={urlencode(js0["filename"])}'
-              f'&t={urlencode(str(js0["at"]))}'
-              f'&token={urlencode(js0["tokenthumb"])}')
+               f'?anilist_id={urlencode(str(js0["anilist_id"]))}'
+               f'&file={urlencode(js0["filename"])}'
+               f'&t={urlencode(str(js0["at"]))}'
+               f'&token={urlencode(js0["tokenthumb"])}')
         async with session.get(url) as raw_resp1:
             file = memory_file('preview.mp4', await raw_resp1.read())
         try:
             await e.reply(ctext, file=file, parse_mode='html')
         except FilePartsInvalidError:
             await e.reply('`Cannot send preview :/`')
+
 
 def memory_file(name=None, contents=None, *, bytes=True):
     if isinstance(contents, str) and bytes:
@@ -81,12 +82,13 @@ def memory_file(name=None, contents=None, *, bytes=True):
         file.seek(0)
     return file
 
+
 def is_gif(file):
     # ngl this should be fixed, telethon.utils.is_gif but working
     # lazy to go to github and make an issue kek
     if not is_video(file):
         return False
-    if DocumentAttributeAnimated() not in getattr(file, 'document', file).attributes:
+    if DocumentAttributeAnimated() not in getattr(
+            file, 'document', file).attributes:
         return False
     return True
-            

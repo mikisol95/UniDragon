@@ -10,7 +10,8 @@ async def _(event):
     if event.fwd_from:
         return
     input_str = event.pattern_match.group(1)
-    input_url = "https://bots.shrimadhavuk.me/dictionary/?s={}".format(input_str)
+    input_url = "https://bots.shrimadhavuk.me/dictionary/?s={}".format(
+        input_str)
     headers = {"USER-AGENT": "UniBorg"}
     caption_str = f"Meaning of __{input_str}__\n"
     try:
@@ -38,6 +39,6 @@ async def _(event):
             silent=True,
             supports_streaming=True
         )
-    except:
+    except BaseException:
         pass
     await event.edit(caption_str)

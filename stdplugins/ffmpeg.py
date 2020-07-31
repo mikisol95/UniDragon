@@ -147,6 +147,7 @@ async def take_screen_shot(video_file, output_directory, ttl):
 
 # https://github.com/Nekmo/telegram-upload/blob/master/telegram_upload/video.py#L26
 
+
 async def cult_small_video(video_file, output_directory, start_time, end_time):
     # https://stackoverflow.com/a/13891070/4723940
     out_put_file_name = output_directory + \

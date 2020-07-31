@@ -13,19 +13,13 @@ Available Commands:
 from telethon import events
 
 
-
-
-
 @borg.on(events.NewMessage(pattern=r"\.(.*)", outgoing=True))
-
 async def _(event):
 
     if event.fwd_from:
 
         return
 
-    animation_interval = 1
-    
 
     animation_ttl = range(0, 75)
 
@@ -38,14 +32,14 @@ async def _(event):
         animation_chars = [
 
             "o",
-            "oo",    
+            "oo",
             "ooo",
             "ooooo",
             "oooooo",
             "ooooooo",
             "oooooooo",
             "ooooooooo",
-            "oooooooooo",    
+            "oooooooooo",
             "ooooooooooo",
             "oooooooooooo",
             "ooooooooooooo",
@@ -53,6 +47,5 @@ async def _(event):
         ]
 
         for i in animation_ttl:
-
 
             await event.edit(animation_chars[i % 80])

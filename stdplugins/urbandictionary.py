@@ -14,8 +14,8 @@ async def _(event):
     await event.edit("processing...")
     str = event.pattern_match.group(1)
     if not str:
-    	get = await event.get_reply_message()
-    	str = get.text
+        get = await event.get_reply_message()
+        str = get.text
     try:
         mean = urbandict.define(str)
         if len(mean) > 0:
@@ -31,5 +31,5 @@ async def _(event):
             )
         else:
             await event.edit("No result found for **" + str + "**")
-    except:
+    except BaseException:
         await event.edit("No result found for **" + str + "**")

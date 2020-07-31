@@ -1,4 +1,4 @@
-#kanged from AbhiNash Reddy's PPE (THX)
+# kanged from AbhiNash Reddy's PPE (THX)
 
 """It will search youtube videos using Api
 \n`Type .yts (anynumber(maximum 50)) {ur query}`
@@ -6,12 +6,12 @@
 \nPorted by © [EYEPATCH](t.me/neomatrix90)
 \n`Don't Copy Without Credits.`"""
 from html import unescape
-import urllib.parse
 from googleapiclient.discovery import build
 from googleapiclient.errors import HttpError
 from uniborg.util import admin_cmd
 
-@borg.on(admin_cmd(pattern="yts ?(\d+)? ?(.*)?"))
+
+@borg.on(admin_cmd(pattern=r"yts ?(\d+)? ?(.*)?"))
 async def yt_search(video_q):
     """ For .yt command, do a YouTube search from Telegram. """
     reply = await video_q.get_reply_message()
@@ -21,7 +21,8 @@ async def yt_search(video_q):
         query = reply.message
     else:
         return await video_q.edit("Invalid syntax")
-    resultamt = int(video_q.pattern_match.group(1)) if video_q.pattern_match.group(1) is not None else 10
+    resultamt = int(video_q.pattern_match.group(
+        1)) if video_q.pattern_match.group(1) is not None else 10
     result = ''
     i = 1
 

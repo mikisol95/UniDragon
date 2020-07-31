@@ -10,5 +10,3 @@ from userbot import *
 MODULE = []
 # add syntax to this dictionary using SYNTAX.update
 SYNTAX = {}
-
-

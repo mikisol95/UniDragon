@@ -1,26 +1,27 @@
 """
 List Files plugin for userbot //Simple Module for people who dont wanna use shell executor for listing files.
 cmd: .ls // will return files from current working directory
-	 .ls path // will return output according to path  
+	 .ls path // will return output according to path
 
 By:- @Zero_cool7870
 
 """
 
-import asyncio , time 
-import os ,os.path
-from os.path import join, splitext, basename, dirname, relpath, exists, isdir, isfile
+import time
+import os
+import os.path
+from os.path import exists, isdir
 from uniborg.util import admin_cmd, humanbytes
 from uniborg import SYNTAX
-from telethon.errors import MessageTooLongError
-import io 
+import io
+
 
 @borg.on(admin_cmd(pattern="ls ?(.*)"))
 async def lst(event):
     if event.fwd_from:
         return
     cat = event.pattern_match.group(1)
-    if cat: 
+    if cat:
         path = cat
     else:
         path = os.getcwd()
@@ -35,8 +36,8 @@ async def lst(event):
             msg = "**PATH**: .\n\n"
             lists = os.listdir(path)
         files = ""
-        folders =""
-        for contents in  sorted(lists):
+        folders = ""
+        for contents in sorted(lists):
             catpath = path + "/" + contents
             if not isdir(catpath):
                 size = os.stat(catpath).st_size
@@ -67,11 +68,11 @@ async def lst(event):
                 else:
                     files += "📄 " + f"`{contents}`\n"
             else:
-                    folders += f"📁`{contents}`\n"  
+                folders += f"📁`{contents}`\n"
         if files or folders:
             msg = msg + folders + files
         else:
-            msg = msg + "`Empty Folder`"    
+            msg = msg + "`Empty Folder`"
     else:
         size = os.stat(path).st_size
         msg = f"The details of given file :\n\n"
@@ -95,12 +96,12 @@ async def lst(event):
             mode = "🐍 "
         else:
             mode = "📄 "
-        time1 = time.ctime(os.path.getctime(path))
+        time.ctime(os.path.getctime(path))
         time2 = time.ctime(os.path.getmtime(path))
         time3 = time.ctime(os.path.getatime(path))
         msg += f"**Location :** `{path}`\n"
         msg += f"**icon :** `{mode}`\n"
-        msg += f"**Size :** `{humanbytes(size)}`\n" 
+        msg += f"**Size :** `{humanbytes(size)}`\n"
         msg += f"**Last Modified Time:** `{time2}`\n"
         msg += f"**Last Accessed Time:** `{time3}`"
 
@@ -113,12 +114,12 @@ async def lst(event):
                 force_document=True,
                 allow_cache=False,
                 caption=path
-                )
+            )
             await event.delete()
     else:
-        await event.edit(msg)                   
+        await event.edit(msg)
 
- 
+
 SYNTAX.update({
     "filemanager": "List Files plugin for userbot \
      \ncmd: `.ls`\
@@ -129,12 +130,4 @@ SYNTAX.update({
      \nUSAGE : will return file details\
      \n\nSimple Module for people who dont wanna use shell executor for listing files.\
 "
-}) 
-
-			
-
-			
-
-				
-
-        
+})

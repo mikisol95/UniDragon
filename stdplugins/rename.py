@@ -48,8 +48,8 @@ async def _(event):
         now = time.time()
         diff = now - c_time
         percentage = downloader.get_progress() * 100
-        speed = downloader.get_speed()
-        elapsed_time = round(diff) * 1000
+        downloader.get_speed()
+        round(diff) * 1000
         progress_str = "[{0}{1}]\nProgress: {2}%".format(
             ''.join(["█" for i in range(math.floor(percentage / 5))]),
             ''.join(["░" for i in range(20 - math.floor(percentage / 5))]),
@@ -140,11 +140,11 @@ async def _(event):
             end_two = datetime.now()
             os.remove(downloaded_file_name)
             ms_two = (end_two - end).seconds
-            a = await event.edit("Downloaded in {} seconds. Uploaded in {} seconds.".format(ms_one, ms_two))
+            await event.edit("Downloaded in {} seconds. Uploaded in {} seconds.".format(ms_one, ms_two))
             await asyncio.sleep(3)
             await event.delete()
         else:
-            b = await event.edit("File Not Found {}".format(input_str))
+            await event.edit("File Not Found {}".format(input_str))
             await asyncio.sleep()
             await event.delete()
     else:

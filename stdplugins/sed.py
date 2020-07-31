@@ -1,7 +1,6 @@
 from collections import defaultdict, deque
 import re
 
-import regex
 from telethon import events, utils
 from telethon.tl import types, functions
 
@@ -77,6 +76,7 @@ async def group_has_sedbot(group):
 async def on_message(event):
     last_msgs[event.chat_id].appendleft(event.message)
 
+
 @borg.on(events.MessageEdited)
 async def on_edit(event):
     for m in last_msgs[event.chat_id]:
@@ -84,8 +84,11 @@ async def on_edit(event):
             m.raw_text = event.raw_text
             break
 
-@borg.on(events.NewMessage(
-    pattern=re.compile(r"^s/((?:\\/|[^/])+)/((?:\\/|[^/])*)(/.*)?"), outgoing=True))
+
+@borg.on(
+    events.NewMessage(
+        pattern=re.compile(r"^s/((?:\\/|[^/])+)/((?:\\/|[^/])*)(/.*)?"),
+        outgoing=True))
 async def on_regex(event):
     if event.fwd_from:
         return

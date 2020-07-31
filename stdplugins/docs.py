@@ -2,12 +2,13 @@ import requests
 import asyncio
 from uniborg.util import parse_arguments, admin_cmd
 
-"""Type 
+"""Type
 `.docs <module name>`
 It will search in the docs for for You.
 """
 
-@borg.on(admin_cmd(pattern="docs\s+(.*)"))
+
+@borg.on(admin_cmd(pattern=r"docs\s+(.*)"))
 async def doc_search(e):
     params = e.pattern_match.group(1)
     args, lib = parse_arguments(params, ['version'])
@@ -30,4 +31,3 @@ async def doc_search(e):
         fak = await e.edit(f"No Docs Found for `{lib}`...")
         await asyncio.sleep(3)
         await fak.delete()
-

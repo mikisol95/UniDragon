@@ -80,7 +80,7 @@ async def _(event):
                 if not status:
                     try:
                         await event.edit("I need admin priveleges to perform this action!")
-                    except:
+                    except BaseException:
                         pass
                     ee.append(str(e))
                     # break
@@ -93,7 +93,7 @@ async def _(event):
                 if not status:
                     try:
                         await event.edit("I need admin priveleges to perform this action!")
-                    except:
+                    except BaseException:
                         pass
                     ee.append(str(e))
                     # break
@@ -106,7 +106,7 @@ async def _(event):
                 if not status:
                     try:
                         await event.edit("I need admin priveleges to perform this action!")
-                    except:
+                    except BaseException:
                         pass
                     ee.append(str(e))
                     # break
@@ -119,7 +119,7 @@ async def _(event):
                 if not status:
                     try:
                         await event.edit("I need admin priveleges to perform this action!")
-                    except:
+                    except BaseException:
                         pass
                     ee.append(str(e))
                     # break
@@ -132,7 +132,7 @@ async def _(event):
                 if not status:
                     try:
                         await event.edit("I need admin priveleges to perform this action!")
-                    except:
+                    except BaseException:
                         pass
                     ee.append(str(e))
                     # break
@@ -145,7 +145,7 @@ async def _(event):
                 if not status:
                     try:
                         await event.edit("I need admin priveleges to perform this action!")
-                    except:
+                    except BaseException:
                         pass
                     ee.append(str(e))
                     # break
@@ -158,7 +158,7 @@ async def _(event):
                 if not status:
                     try:
                         await event.edit("I need admin priveleges to perform this action!")
-                    except:
+                    except BaseException:
                         pass
                     ee.append(str(e))
                     # break
@@ -171,7 +171,7 @@ async def _(event):
                 if not status:
                     try:
                         await event.edit("I need admin priveleges to perform this action!")
-                    except:
+                    except BaseException:
                         pass
                     ee.append(str(e))
                     # break

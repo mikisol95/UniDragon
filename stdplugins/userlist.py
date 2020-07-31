@@ -3,7 +3,8 @@ Syntax: .userlist"""
 from telethon import events
 import os
 from telethon.errors.rpcerrorlist import (MessageTooLongError)
-                                          
+
+
 @borg.on(events.NewMessage(pattern=r"\.userlist ?(.*)", outgoing=True))
 async def get_users(show):
     """ For .userslist command, list all of the users of the chat. """

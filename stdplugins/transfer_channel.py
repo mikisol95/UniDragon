@@ -1,13 +1,13 @@
 """Transfer Ownership of Channels
 Available Commands:
 .otransfer @username"""
- 
+
 import telethon.password as pwd_mod
 # https://t.me/TelethonChat/140200
 from telethon.tl import functions
 from uniborg.util import admin_cmd
- 
- 
+
+
 @borg.on(admin_cmd(pattern="otransfer (.*)"))  # pylint:disable=E0602
 async def _(event):
     if event.fwd_from:
@@ -24,4 +24,3 @@ async def _(event):
         await event.edit(str(e))
     else:
         await event.edit("Transferred 🌚")
- 

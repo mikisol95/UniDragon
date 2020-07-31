@@ -8,7 +8,6 @@ async def _(event):
     if event.fwd_from:
         return
 
-
     await event.edit("╔═══════════════════╗ \n  \n╚═══════════════════╝")
     await asyncio.sleep(1)
     await event.edit("╔═══════════════════╗ \n \t░ \n╚═══════════════════╝")
@@ -17,7 +16,7 @@ async def _(event):
     await asyncio.sleep(1)
     await event.edit("╔═══════════════════╗ \n ░ ░ ░ \n╚═══════════════════╝")
     await asyncio.sleep(1)
-    await event.edit("╔═══════════════════╗ \n ░ ░ ░ ░ \n╚═══════════════════╝") 
+    await event.edit("╔═══════════════════╗ \n ░ ░ ░ ░ \n╚═══════════════════╝")
     await asyncio.sleep(1)
     await event.edit("╔═══════════════════╗ \n ░ ░ ░ ░ ░ \n╚═══════════════════╝")
     await asyncio.sleep(1)
@@ -34,7 +33,7 @@ async def _(event):
     await event.edit("╔═══════════════════╗ \n ░ ░ ░ ░ ░ ░ ░ ░ ░ ░ ░ \n╚═══════════════════╝")
     await asyncio.sleep(1)
     await event.edit("╔═══════════════════╗ \n ░ ░ ░ ░ ░ ░ ░ ░ ░ ░ ░ ░ \n╚═══════════════════╝")
-    await asyncio.sleep(1) 
+    await asyncio.sleep(1)
     await event.edit("╔═══════════════════╗ \n ░ ░ ░ ░ ░ ░ ░ ░ ░ ░ ░ ░ ░ \n╚═══════════════════╝")
     await asyncio.sleep(1)
     await event.edit("╔═══════════════════╗ \n ░ ░ ░ ░ ░ ░ ░ ░ ░ ░ ░ ░ ░ ░ \n╚═══════════════════╝")

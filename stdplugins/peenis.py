@@ -25,7 +25,7 @@ PENIS_TEMPLATE = """
 """
 
 
-@borg.on(admin_cmd(pattern="(?:penis|dick)\s?(.)?"))
+@borg.on(admin_cmd(pattern=r"(?:penis|dick)\s?(.)?"))
 async def emoji_penis(e):
     emoji = e.pattern_match.group(1)
 

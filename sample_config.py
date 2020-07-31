@@ -4,6 +4,7 @@
 import os
 from distutils.util import strtobool as sb
 
+
 class Config(object):
     LOGGER = True
     # Get this value from my.telegram.org! Please do not steal
@@ -17,12 +18,14 @@ class Config(object):
     # Get your own APPID from https://api.openweathermap.org/data/2.5/weather
     OPEN_WEATHER_MAP_APPID = os.environ.get("OPEN_WEATHER_MAP_APPID", None)
     # Get your own ACCESS_KEY from http://api.screenshotlayer.com/api/capture
-    SCREEN_SHOT_LAYER_ACCESS_KEY = os.environ.get("SCREEN_SHOT_LAYER_ACCESS_KEY", None)
+    SCREEN_SHOT_LAYER_ACCESS_KEY = os.environ.get(
+        "SCREEN_SHOT_LAYER_ACCESS_KEY", None)
     # Send .get_id in any group to fill this value.
     PRIVATE_GROUP_BOT_API_ID = os.environ.get("PRIVATE_GROUP_BOT_API_ID", None)
     if PRIVATE_GROUP_BOT_API_ID:
         PRIVATE_GROUP_BOT_API_ID = int(PRIVATE_GROUP_BOT_API_ID)
-    # Send .g_id in any channel to fill this value. ReQuired for @Manuel15 inspiration to work!
+    # Send .g_id in any channel to fill this value. ReQuired for @Manuel15
+    # inspiration to work!
     PRIVATE_CHANNEL_BOT_API_ID = os.environ.get(
         "PRIVATE_CHANNEL_BOT_API_ID",
         None
@@ -34,7 +37,8 @@ class Config(object):
         "TMP_DOWNLOAD_DIRECTORY",
         "./pepe/"
     )
-    # This is required for the speech to text module. Get your USERNAME from https://console.bluemix.net/docs/services/speech-to-text/getting-started.html
+    # This is required for the speech to text module. Get your USERNAME from
+    # https://console.bluemix.net/docs/services/speech-to-text/getting-started.html
     IBM_WATSON_CRED_URL = os.environ.get("IBM_WATSON_CRED_URL", None)
     IBM_WATSON_CRED_PASSWORD = os.environ.get("IBM_WATSON_CRED_PASSWORD", None)
     # This is required for the hash to torrent file functionality to work.
@@ -70,11 +74,11 @@ class Config(object):
     LOAD = []
     # Remove This To Make Them Work But Would Make Bot Unstable AF...⚡
     NO_LOAD = [
-                   "pmpermit" ,
-                   "blacklist" ,
-                   "locks" ,
-                   "antiflood"
-]
+        "pmpermit",
+        "blacklist",
+        "locks",
+        "antiflood"
+    ]
     # Get your own API key from https://www.remove.bg/ or
     # feel free to use http://telegram.dog/Remove_BGBot
     REM_BG_API_KEY = os.environ.get("REM_BG_API_KEY", None)
@@ -101,7 +105,7 @@ class Config(object):
     ))
     # specify command handler that should be used for the plugins
     # this should be a valid "regex" pattern
-    COMMAND_HAND_LER = os.environ.get("COMMAND_HAND_LER", "\.")
+    COMMAND_HAND_LER = os.environ.get("COMMAND_HAND_LER", r"\.")
     # specify list of users allowed to use bot
     # WARNING: be careful who you grant access to your bot.
     # malicious users could do ".exec rm -rf /*"
@@ -116,9 +120,9 @@ class Config(object):
     G_DRIVE_CLIENT_SECRET = os.environ.get("G_DRIVE_CLIENT_SECRET", None)
     GDRIVE_FOLDER_ID = os.environ.get("GDRIVE_FOLDER_ID", None)
     AUTH_TOKEN_DATA = os.environ.get("AUTH_TOKEN_DATA", None)
-    if AUTH_TOKEN_DATA != None:
+    if AUTH_TOKEN_DATA is not None:
         os.makedirs(TMP_DOWNLOAD_DIRECTORY)
-        t_file = open(TMP_DOWNLOAD_DIRECTORY+"auth_token.txt","w")
+        t_file = open(TMP_DOWNLOAD_DIRECTORY + "auth_token.txt", "w")
         t_file.write(AUTH_TOKEN_DATA)
         t_file.close()
     G_DRIVE_AUTH_TOKEN_DATA = os.environ.get("G_DRIVE_AUTH_TOKEN_DATA", None)
@@ -127,7 +131,7 @@ class Config(object):
     G_PHOTOS_CLIENT_SECRET = os.environ.get("G_PHOTOS_CLIENT_SECRET", None)
     G_PHOTOS_AUTH_TOKEN_ID = os.environ.get("G_PHOTOS_AUTH_TOKEN_ID", None)
     if G_PHOTOS_AUTH_TOKEN_ID:
-        G_PHOTOS_AUTH_TOKEN_ID = int(G_PHOTOS_AUTH_TOKEN_ID)       
+        G_PHOTOS_AUTH_TOKEN_ID = int(G_PHOTOS_AUTH_TOKEN_ID)
     #
     TELE_GRAM_2FA_CODE = os.environ.get("TELE_GRAM_2FA_CODE", None)
     #
@@ -136,7 +140,8 @@ class Config(object):
         r"(regex|moku|BananaButler_|rgx|l4mR)bot"
     )
     # Google Chrome Selenium Stuff
-    # taken from https://github.com/jaskaranSM/UniBorg/blob/9072e3580cc6c98d46f30e41edbe73ffc9d850d3/sample_config.py#L104-L106
+    # taken from
+    # https://github.com/jaskaranSM/UniBorg/blob/9072e3580cc6c98d46f30e41edbe73ffc9d850d3/sample_config.py#L104-L106
     GOOGLE_CHROME_DRIVER = os.environ.get("GOOGLE_CHROME_DRIVER", None)
     GOOGLE_CHROME_BIN = os.environ.get("GOOGLE_CHROME_BIN", None)
     #
@@ -145,11 +150,13 @@ class Config(object):
     HEROKU_MEMEZ = bool(os.environ.get("HEROKU_MEMEZ", "False"))
     HEROKU_API_KEY = os.environ.get("HEROKU_API_KEY", None)
     HEROKU_APP_NAME = os.environ.get("HEROKU_APP_NAME", None)
-    UPSTREAM_REPO_URL = os.environ.get("UPSTREAM_REPO_URL", "https://github.com/prono69/PepeBot.git")
+    UPSTREAM_REPO_URL = os.environ.get(
+        "UPSTREAM_REPO_URL",
+        "https://github.com/prono69/PepeBot.git")
     #
     CHROME_DRIVER = os.environ.get("CHROME_DRIVER", None)
     CHROME_BIN = os.environ.get("CHROME_BIN", None)
-    # define "heroku_link" in conig_vars 
+    # define "heroku_link" in conig_vars
     HEROKU_LINK = os.environ.get("HEROKU_LINK", None)
     # define "repo_link" in conig_vars
     REPO_LINK = os.environ.get("REPO_LINK", None)
@@ -159,37 +166,37 @@ class Config(object):
     PACK_NAME = os.environ.get("PACK_NAME", None)
     # define "pack_name" in config_vars
     ANIM_PACK_NAME = os.environ.get("ANIM_PACK_NAME", None)
-    #MIRRORACE STUFF
+    # MIRRORACE STUFF
     MIRROR_ACE_API_KEY = os.environ.get("MIRROR_ACE_API_KEY", None)
     MIRROR_ACE_API_TOKEN = os.environ.get("MIRROR_ACE_API_TOKEN", None)
     #
     RAVANA_LEELA = os.environ.get("RAVANA_LEELA", None)
     # spotify stuff
-    DEFAULT_BIO = os.environ.get("DEFAULT_BIO",None)
-    SPOTIFY_BIO_PREFIX = os.environ.get("SPOTIFY_BIO_PREFIX",None)
-    SPOTIFY_PASS = os.environ.get("SPOTIFY_PASS",None)
-    SPOTIFY_USERNAME = os.environ.get("SPOTIFY_USERNAME",None)
+    DEFAULT_BIO = os.environ.get("DEFAULT_BIO", None)
+    SPOTIFY_BIO_PREFIX = os.environ.get("SPOTIFY_BIO_PREFIX", None)
+    SPOTIFY_PASS = os.environ.get("SPOTIFY_PASS", None)
+    SPOTIFY_USERNAME = os.environ.get("SPOTIFY_USERNAME", None)
     DEFAULT_NAME = os.environ.get("DEFAULT_NAME", None)
-    #MongoDB
+    # MongoDB
     MONGO_URI = os.environ.get("MONGO_URI", None)
     # define the "types" that should be uplaoded as streamable
     TL_VID_STREAM_TYPES = ("MP4", "WEBM")
     TL_MUS_STREAM_TYPES = ("MP3", "WAV", "FLAC", "M4A")
-    #Uthob
+    # Uthob
     YOUTUBE_API_KEY = os.environ.get("YOUTUBE_API_KEY", None)
-    #For Lol
+    # For Lol
     API_TOKEN = os.environ.get("API_TOKEN", None)
-    #BOTLOG
+    # BOTLOG
     BOTLOG = os.environ.get("BOTLOG", None)
     if BOTLOG:
         BOTLOG = int(BOTLOG)
-    #For a Shitty Module
+    # For a Shitty Module
     KUTT_IT_API_KEY = os.environ.get("KUTT_IT_API_KEY", None)
-    #lyrics plugin
+    # lyrics plugin
     GENIUS = os.environ.get("GENIUS_API_TOKEN", None)
     #
     USER = os.environ.get("USER", None)
-    #For watch module
+    # For watch module
     WATCH_COUNTRY = os.environ.get("WATCH_COUNTRY", None)
     # Deeer ARL Token
     DEEZER_ARL_TOKEN = os.environ.get("DEEZER_ARL_TOKEN", None)
@@ -197,9 +204,10 @@ class Config(object):
     LOGSPAMMER = sb(os.environ.get("LOGSPAMMER", "True"))
     BOTLOG_CHATID = int(os.environ.get("BOTLOG_CHATID", None))
     BOTLOOG = sb(os.environ.get("BOTLOOG", "True"))
-    #SpamWatch Api
+    # SpamWatch Api
     SPAM_WATCH_API = os.environ.get("SPAM_WATCH_API", None)
     SPAM_WATCHAPI = os.environ.get("SPAM_WATCHAPI", None)
+
 
 class Production(Config):
     LOGGER = False

@@ -17,10 +17,10 @@ async def _(message):
     u, t, g, o, s, n = inp.split(), '🗑', '<(^_^ <)', '(> ^_^)>', '⠀ ', '\n'
     h = [(u[0], u[1], u[2]), (u[0], u[1], ''), (u[0], '', '')]
     for something in reversed([y for y in ([''.join(x) for x in (
-    f + (s, g, s + s * f.count(''), t), f + (g, s * 2 + s * f.count(''), t),
-    f[:i] + (o, f[i], s * 2 + s * f.count(''), t), f[:i] + (s + s * f.count(''), o, f[i], s, t),
-    f[:i] + (s * 2 + s * f.count(''), o, f[i], t), f[:i] + (s * 3 + s * f.count(''), o, t),
-    f[:i] + (s * 3 + s * f.count(''), g, t))] for i, f in enumerate(reversed(h)))]):
+            f + (s, g, s + s * f.count(''), t), f + (g, s * 2 + s * f.count(''), t),
+            f[:i] + (o, f[i], s * 2 + s * f.count(''), t), f[:i] + (s + s * f.count(''), o, f[i], s, t),
+            f[:i] + (s * 2 + s * f.count(''), o, f[i], t), f[:i] + (s * 3 + s * f.count(''), o, t),
+            f[:i] + (s * 3 + s * f.count(''), g, t))] for i, f in enumerate(reversed(h)))]):
         for something_else in something:
             await asyncio.sleep(0.3)
             try:
@@ -29,7 +29,7 @@ async def _(message):
                 await message.edit("u dun goofed m8")
                 return
 
-            
+
 @borg.on(admin_cmd(pattern="dump all ?(.*)"))
 async def _(event):
     if event.fwd_from:
@@ -37,9 +37,10 @@ async def _(event):
     from extra_util.trashguy import TrashGuy
     an = TrashGuy(event.pattern_match.group(1))
     for i in an:
-      await event.edit(i)
-      await asyncio.sleep(0.3)
-    
+        await event.edit(i)
+        await asyncio.sleep(0.3)
+
+
 @borg.on(admin_cmd(pattern="dump gandu ?(.*)"))
 async def _(event):
     if event.fwd_from:
@@ -47,5 +48,5 @@ async def _(event):
     from extra_util.trashguy import TrashGuy
     an = TrashGuy(event.pattern_match.group(1))
     for i in an:
-      await event.edit(i)
-      await asyncio.sleep(0.3)
+        await event.edit(i)
+        await asyncio.sleep(0.3)

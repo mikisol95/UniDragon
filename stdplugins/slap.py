@@ -69,6 +69,8 @@ HIT = [
     "smacks",
     "bashes",
 ]
+
+
 @borg.on(admin_cmd(pattern="slap ?(.*)", allow_sudo=True))
 async def who(event):
     if event.fwd_from:
@@ -83,8 +85,9 @@ async def who(event):
     try:
         await event.edit(caption)
 
-    except:
+    except BaseException:
         await event.edit("`Can't slap this nibba !!`")
+
 
 async def get_user(event):
     if event.reply_to_msg_id:
@@ -103,7 +106,9 @@ async def get_user(event):
         if event.message.entities is not None:
             probable_user_mention_entity = event.message.entities[0]
 
-            if isinstance(probable_user_mention_entity, MessageEntityMentionName):
+            if isinstance(
+                    probable_user_mention_entity,
+                    MessageEntityMentionName):
                 user_id = probable_user_mention_entity.user_id
                 replied_user = await event.client(GetFullUserRequest(user_id))
                 return replied_user
@@ -116,6 +121,7 @@ async def get_user(event):
             return None
 
     return replied_user
+
 
 async def slap(replied_user, event):
     user_id = replied_user.user.id
@@ -132,6 +138,7 @@ async def slap(replied_user, event):
     hit = random.choice(HIT)
     throw = random.choice(THROW)
 
-    caption = "@"+borg.me.username+" "+ temp.format(user2=slapped, item=item, hits=hit, throws=throw)
+    caption = "@" + borg.me.username + " " + \
+        temp.format(user2=slapped, item=item, hits=hit, throws=throw)
 
     return caption

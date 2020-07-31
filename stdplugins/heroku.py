@@ -8,20 +8,22 @@ import math
 from userbot.utils import prettyjson
 from uniborg.util import admin_cmd
 from sample_config import Config
-# ================= 
+# =================
 Heroku = heroku3.from_key(Config.HEROKU_API_KEY)
 heroku_api = "https://api.heroku.com"
 HEROKU_APP_NAME = Config.HEROKU_APP_NAME
 HEROKU_API_KEY = Config.HEROKU_API_KEY
 
 # Here lies the Magic
+
+
 @borg.on(admin_cmd(pattern=r"(set|get|del) var ?(.*)", allow_sudo=True))
 async def variable(var):
     if HEROKU_APP_NAME is not None:
         app = Heroku.app(HEROKU_APP_NAME)
     else:
         return await var.reply("`[HEROKU]:"
-                              "\nPlease setup your` **HEROKU_APP_NAME**")
+                               "\nPlease setup your` **HEROKU_APP_NAME**")
     exe = var.pattern_match.group(1)
     heroku_var = app.config()
     if exe == "get":
@@ -31,10 +33,10 @@ async def variable(var):
             variable = var.pattern_match.group(2).split()[0]
             if variable in heroku_var:
                 return await var.reply("**ConfigVars**:"
-                                      f"\n\n**{variable}** = `{heroku_var[variable]}`\n")
+                                       f"\n\n**{variable}** = `{heroku_var[variable]}`\n")
             else:
                 return await var.reply("**ConfigVars**:"
-                                      f"\n\n`Error:\n-> {variable} don't exists`")
+                                       f"\n\n`Error:\n-> {variable} don't exists`")
         except IndexError:
             configs = prettyjson(heroku_var.to_dict(), indent=2)
             with open("configs.json", "w") as fp:
@@ -82,7 +84,7 @@ async def variable(var):
         else:
             return await var.reply(f"**{variable}**  `is not exists`")
 
-        
+
 @borg.on(admin_cmd(pattern="usage ?(.*)", allow_sudo=True))
 async def _(event):
     await event.edit("`Processing...`")
@@ -92,15 +94,15 @@ async def _(event):
                  )
     u_id = Heroku.account().id
     headers = {
-     'User-Agent': useragent,
-     'Authorization': f'Bearer {HEROKU_API_KEY}',
-     'Accept': 'application/vnd.heroku+json; version=3.account-quotas',
+        'User-Agent': useragent,
+        'Authorization': f'Bearer {HEROKU_API_KEY}',
+        'Accept': 'application/vnd.heroku+json; version=3.account-quotas',
     }
     path = "/accounts/" + u_id + "/actions/get-quota"
     r = requests.get(heroku_api + path, headers=headers)
     if r.status_code != 200:
         return await event.edit("`Error: something bad happened`\n\n"
-                               f">.`{r.reason}`\n")
+                                f">.`{r.reason}`\n")
     result = r.json()
     quota = result['account_quota']
     quota_used = result['quota_used']
@@ -128,36 +130,36 @@ async def _(event):
     await asyncio.sleep(1.5)
 
     return await event.reply("**Dyno Usage**:\n\n"
-                           f" -> `Dyno usage for`  **{HEROKU_APP_NAME}**:\n"
-                           f"     •  `{AppHours}`**h**  `{AppMinutes}`**m**  "
-                           f"**|**  [`{AppPercentage}`**%**]"
-                           "\n"
-                           " -> `Dyno hours quota remaining this month`:\n"
-                           f"     •  `{hours}`**h**  `{minutes}`**m**  "
-                           f"**|**  [`{percentage}`**%**]"
-                           )
+                             f" -> `Dyno usage for`  **{HEROKU_APP_NAME}**:\n"
+                             f"     •  `{AppHours}`**h**  `{AppMinutes}`**m**  "
+                             f"**|**  [`{AppPercentage}`**%**]"
+                             "\n"
+                             " -> `Dyno hours quota remaining this month`:\n"
+                             f"     •  `{hours}`**h**  `{minutes}`**m**  "
+                             f"**|**  [`{percentage}`**%**]"
+                             )
 
-                           
-                           
+
 @borg.on(admin_cmd(pattern="logs"))
-async def _(dyno):        
-        try:
-             Heroku = heroku3.from_key(Config.HEROKU_API_KEY)                         
-             app = Heroku.app(Config.HEROKU_APP_NAME)
-        except:
-  	       return await dyno.reply(" Please make sure your Heroku API Key, Your App name are configured correctly in the heroku var")
-        await dyno.edit("Getting Logs....")
-        with open('logs.txt', 'w') as log:
-            log.write(app.get_log())
-        await dyno.client.send_file(
-            dyno.chat_id,
-            "logs.txt",
-            reply_to=dyno.id,
-            caption="logs of 100+ lines",
-        )
-        await dyno.delete()
-        return os.remove('logs.txt')
-        
+async def _(dyno):
+    try:
+        Heroku = heroku3.from_key(Config.HEROKU_API_KEY)
+        app = Heroku.app(Config.HEROKU_APP_NAME)
+    except BaseException:
+        return await dyno.reply(" Please make sure your Heroku API Key, Your App name are configured correctly in the heroku var")
+    await dyno.edit("Getting Logs....")
+    with open('logs.txt', 'w') as log:
+        log.write(app.get_log())
+    await dyno.client.send_file(
+        dyno.chat_id,
+        "logs.txt",
+        reply_to=dyno.id,
+        caption="logs of 100+ lines",
+    )
+    await dyno.delete()
+    return os.remove('logs.txt')
+
+
 @borg.on(admin_cmd(pattern="dyno (on|restart|off|cancel deploy|cancel build) ?(.*)"))
 async def dyno_manage(dyno):
     """ - Restart/Kill dyno - """
@@ -227,7 +229,7 @@ async def dyno_manage(dyno):
             dot += "."
             sleep += 1
         await dyno.respond(f"⬢**{HEROKU_APP_NAME}** `turned off...`")
-        return await dyno.delete() 
+        return await dyno.delete()
     elif exe == "cancel deploy" or exe == "cancel build":
         """ - Only cancel 1 recent builds from activity - """
         build_id = dyno.pattern_match.group(2)

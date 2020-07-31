@@ -5,11 +5,7 @@ from telethon import events
 import asyncio
 
 
-
-
-
 @borg.on(events.NewMessage(pattern=r"\.(.*)", outgoing=True))
-
 async def _(event):
 
     if event.fwd_from:
@@ -29,9 +25,9 @@ async def _(event):
         animation_chars = [
 
             "https://telegra.ph/command-list-for-BotHub-Userbot-11-08",
-            
+
             "https://github.com/ravana69/UniBorg",
-            
+
             "https://github.com/spechide/UniBorg"
         ]
 
@@ -40,8 +36,6 @@ async def _(event):
             await asyncio.sleep(animation_interval)
 
             await event.edit(animation_chars[i % 3])
-
-
 
 
 """https://telegra.ph/command-list-for-BotHub-Userbot-11-08
@@ -342,7 +336,7 @@ async def _(event):
 .tspam <text>
 .speedtest image/file/text
 .stat to know your user status
-.stt 
+.stt
 .switch
 .neofetch
 .sysd
@@ -382,7 +376,7 @@ async def _(event):
 .wttr location
 .clearwelcome
 .savewelcome
-.whatscrapp 
+.whatscrapp
 .who to know the name username and id of the chat
 .info @username
 .wikimedia query
@@ -397,7 +391,7 @@ async def _(event):
 .unbanall
 
 .kick option
-Available Options: d, y, m, w, o, q, r, p 
+Available Options: d, y, m, w, o, q, r, p
 p - reserved for channel
 e - usercount
 y - userstatusempty
@@ -421,4 +415,3 @@ d - deleted account
 .clap
 .bt
 """
-

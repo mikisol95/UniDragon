@@ -46,8 +46,6 @@ UNMUTE_RIGHTS = ChatBannedRights(until_date=None, send_messages=False)
 # ================================================
 
 
-
-
 @borg.on(events.NewMessage(pattern="^.zombies(?: |$)(.*)", outgoing=True))
 async def rm_deletedacc(show):
     """ For .zombies command, list all the ghost/deleted/zombie accounts in a chat. """
@@ -98,7 +96,6 @@ async def rm_deletedacc(show):
                 EditBannedRequest(show.chat_id, user.id, UNBAN_RIGHTS))
             del_u += 1
 
-
     if del_u > 0:
         del_status = f"Cleaned ☠️ **{del_u}** ☠️ Deleted account(s)"
 
@@ -106,15 +103,12 @@ async def rm_deletedacc(show):
         del_status = f"Cleaned **{del_u}** deleted account(s) \
         \n**{del_a}** deleted admin accounts are not removed"
 
-
     await show.edit(del_status)
     await sleep(2)
     await show.delete()
-
 
     if Config.G_BAN_LOGGER_GROUP is not None:
         await show.client.send_message(
             Config.G_BAN_LOGGER_GROUP, "#CLEANUP\n"
             f"Cleaned **{del_u}** deleted account(s) !!\
             \nCHAT: {show.chat.title}(`{show.chat_id}`)")
-

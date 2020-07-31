@@ -9,4 +9,4 @@ async def get(event):
     with open(name, "w") as f:
         f.write(m.text)
     await event.delete()
-    await borg.send_file(event.chat_id,name,force_document=True)
+    await borg.send_file(event.chat_id, name, force_document=True)

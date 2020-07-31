@@ -30,7 +30,6 @@ REDIRECT_URI = "urn:ietf:wg:oauth:2.0:oob"
 parent_id = Config.GDRIVE_FOLDER_ID
 
 
-
 @borg.on(admin_cmd(pattern="glink ?(.*)", allow_sudo=True))
 async def download(dryb):
     """ For .gdrive command, upload files to google drive. """
@@ -63,9 +62,9 @@ async def download(dryb):
                 downloaded = downloader.get_dl_size()
                 now = time.time()
                 diff = now - c_time
-                percentage = downloader.get_progress()*100
-                speed = downloader.get_speed()
-                elapsed_time = round(diff) * 1000
+                percentage = downloader.get_progress() * 100
+                downloader.get_speed()
+                round(diff) * 1000
                 progress_str = "[{0}{1}]\nProgress: {2}%".format(
                     ''.join(["●" for i in range(math.floor(percentage / 5))]),
                     ''.join(["○" for i in range(20 - math.floor(percentage / 5))]),
@@ -102,7 +101,7 @@ async def download(dryb):
                         progress(d, t, dryb, c_time, "Downloading...")
                     )
                 )
-            except Exception as e: # pylint:disable=C0103,W0703
+            except Exception as e:  # pylint:disable=C0103,W0703
                 await dryb.edit(str(e))
             else:
                 end = datetime.now()
@@ -117,11 +116,13 @@ async def download(dryb):
         if Config.AUTH_TOKEN_DATA is not None:
             with open(G_DRIVE_TOKEN_FILE, "w") as t_file:
                 t_file.write(Config.AUTH_TOKEN_DATA)
-        # Check if token file exists, if not create it by requesting authorization code
+        # Check if token file exists, if not create it by requesting
+        # authorization code
         if not os.path.isfile(G_DRIVE_TOKEN_FILE):
             storage = await create_token_file(G_DRIVE_TOKEN_FILE, dryb)
             http = authorize(G_DRIVE_TOKEN_FILE, storage)
-        # Authorize, get file parameters, upload file and print out result URL for download
+        # Authorize, get file parameters, upload file and print out result URL
+        # for download
         http = authorize(G_DRIVE_TOKEN_FILE, None)
         file_name, mime_type = file_ops(required_file_name)
         # required_file_name will have the full path
@@ -189,7 +190,8 @@ async def upload_file(http, file_path, file_name, mime_type, event):
     if parent_id:
         body["parents"] = [{"id": parent_id}]
     # Permissions body description: anyone who has link can upload
-    # Other permissions can be found at https://developers.google.com/drive/v2/reference/permissions
+    # Other permissions can be found at
+    # https://developers.google.com/drive/v2/reference/permissions
     permissions = {
         "role": "reader",
         "type": "anyone",
@@ -212,15 +214,18 @@ async def upload_file(http, file_path, file_name, mime_type, event):
     if file:
         await event.edit(file_name + " Uploaded Successfully")
     # Insert new permissions
-    drive_service.permissions().insert(fileId=response.get('id'), body=permissions).execute()
+    drive_service.permissions().insert(
+        fileId=response.get('id'),
+        body=permissions).execute()
     # Define file instance and get url for download
     file = drive_service.files().get(fileId=response.get('id')).execute()
     download_url = response.get("webContentLink")
     return download_url
 
+
 @borg.on(admin_cmd(pattern="gfolder ?(.*)", allow_sudo=True))
 async def _(event):
     if event.fwd_from:
         return
-    folder_link ="https://drive.google.com/drive/u/2/folders/"+parent_id
+    folder_link = "https://drive.google.com/drive/u/2/folders/" + parent_id
     await event.edit(f"Your current Google Drive Upload Directory : [Here]({folder_link})")

@@ -86,7 +86,14 @@ async def on_snip_save(event):
                 snip['id'] = media.id
                 snip['hash'] = media.access_hash
                 snip['fr'] = media.file_reference
-        add_filter(event.chat_id, name, snip['text'], snip['type'], snip.get('id'), snip.get('hash'), snip.get('fr'))
+        add_filter(
+            event.chat_id,
+            name,
+            snip['text'],
+            snip['type'],
+            snip.get('id'),
+            snip.get('hash'),
+            snip.get('fr'))
         await event.edit(f"filter {name} saved successfully. Get it with {name}")
     else:
         await event.edit("Reply to a message with `savefilter keyword` to save the filter")

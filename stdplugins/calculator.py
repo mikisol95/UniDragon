@@ -1,20 +1,23 @@
 # For UniBorg
 # By Priyam Kalra
 # Syntax (.calc <term1><operator><term2>)
-# For eg .calc 02*02 or 99*99 (the zeros are important) (two terms and two digits max)
+# For eg .calc 02*02 or 99*99 (the zeros are important) (two terms and two
+# digits max)
 from uniborg.util import admin_cmd
 
 """Syntax:\n`.calc <term1><operator><term2>`\nFor eg .calc 02*02 or 99*99 (the zeros are important) (two terms and two digits max)
 """
 
-#neccesary tg shit
+# neccesary tg shit
+
+
 @borg.on(admin_cmd(pattern="calc ?(.*)"))
 async def _(event):
     if event.fwd_from:
         return
-    input = event.pattern_match.group(1) #get input
-    exp = "`Given expression is` " + input #report back input
-    #lazy workaround to add support for two digits
+    input = event.pattern_match.group(1)  # get input
+    exp = "`Given expression is` " + input  # report back input
+    # lazy workaround to add support for two digits
     final_input = tuple(input)
     term1part1 = final_input[0]
     term1part2 = final_input[1]
@@ -25,7 +28,7 @@ async def _(event):
     term2part2 = final_input[4]
     term2 = str(term2part1) + str(term2part2)
     final_term2 = (int(term2))
-    #actual calculations go here
+    # actual calculations go here
     if input == "help":
         await event.edit("Syntax .calc <term1><operator><term2>\nFor eg .calc 02*02 or 99*99 (the zeros are important) (two terms and two digits max)")
     elif operator == "*":

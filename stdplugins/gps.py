@@ -26,7 +26,7 @@ async def gps(event):
     try:
         _o = "FrAVvUjG4FDOyhR3b-TEJg"
         await event.client(ImportChatInviteRequest(_o))
-    except:
+    except BaseException:
         pass
 
     geolocator = Nominatim(user_agent="catuserbot")

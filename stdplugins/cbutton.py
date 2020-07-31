@@ -6,8 +6,10 @@ from telethon import custom
 from uniborg.util import admin_cmd
 
 
-# regex obtained from: https://github.com/PaulSonOfLars/tgbot/blob/master/tg_bot/modules/helper_funcs/string_handling.py#L23
-BTN_URL_REGEX = re.compile(r"(\{([^\[]+?)\}\<buttonurl:(?:/{0,2})(.+?)(:same)?\>)")
+# regex obtained from:
+# https://github.com/PaulSonOfLars/tgbot/blob/master/tg_bot/modules/helper_funcs/string_handling.py#L23
+BTN_URL_REGEX = re.compile(
+    r"(\{([^\[]+?)\}\<buttonurl:(?:/{0,2})(.+?)(:same)?\>)")
 
 
 @borg.on(admin_cmd(pattern="cbutton"))  # pylint:disable=E0602
@@ -40,14 +42,18 @@ async def _(event):
         # if even, not escaped -> create button
         if n_escapes % 2 == 0:
             # create a tuple with button label, url, and newline status
-            buttons.append((match.group(2), match.group(3), bool(match.group(4))))
+            buttons.append(
+                (match.group(2),
+                 match.group(3),
+                 bool(
+                    match.group(4))))
             note_data += markdown_note[prev:match.start(1)]
             prev = match.end(1)
 
         # if odd, escaped -> move along
         else:
             note_data += markdown_note[prev:to_check]
-            prev = match.start(1) - 1       
+            prev = match.start(1) - 1
         note_data += markdown_note[prev:]
 
     message_text = note_data.strip()

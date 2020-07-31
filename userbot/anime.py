@@ -1,10 +1,10 @@
 # Most Thanks to @PhycoNinja13b for his Great Work :)
 import textwrap
 import bs4
-import wget
 import jikanpy
 import requests
 from html_telegraph_poster import TelegraphPoster
+
 
 def getPosterLink(mal):
     # grab poster from kitsu
@@ -39,7 +39,8 @@ def getBannerLink(mal, kitsu_search=True):
     }
     """
     data = {'query': query, 'variables': {'idMal': int(mal)}}
-    image = requests.post('https://graphql.anilist.co', json=data).json()['data']['Media']['bannerImage']
+    image = requests.post('https://graphql.anilist.co',
+                          json=data).json()['data']['Media']['bannerImage']
     if image:
         return image
     return getPosterLink(mal)
@@ -51,12 +52,14 @@ def get_anime_manga(mal_id, search_type, _user_id):
         result = jikan.anime(mal_id)
         trailer = result['trailer_url']
         if trailer:
-        	LOL = f"<a href='{trailer}'>Trailer</a>"
+            LOL = f"<a href='{trailer}'>Trailer</a>"
         else:
-        	LOL = "<code>No Trailer Available</code>"
+            LOL = "<code>No Trailer Available</code>"
         image = getBannerLink(mal_id)
-        studio_string = ', '.join(studio_info['name'] for studio_info in result['studios'])
-        producer_string = ', '.join(producer_info['name'] for producer_info in result['producers'])
+        studio_string = ', '.join(
+            studio_info['name'] for studio_info in result['studios'])
+        producer_string = ', '.join(
+            producer_info['name'] for producer_info in result['producers'])
     elif search_type == "anime_manga":
         result = jikan.manga(mal_id)
         image = result['image_url']
@@ -72,7 +75,8 @@ def get_anime_manga(mal_id, search_type, _user_id):
     if alternative_names:
         alternative_names_string = ", ".join(alternative_names)
         caption += f"\n<b>Also known as</b>: <code>{alternative_names_string}</code>"
-    genre_string = ', '.join(genre_info['name'] for genre_info in result['genres'])
+    genre_string = ', '.join(genre_info['name']
+                             for genre_info in result['genres'])
     if result['synopsis'] is not None:
         synopsis = result['synopsis'].split(" ", 60)
         try:
@@ -97,9 +101,9 @@ def get_anime_manga(mal_id, search_type, _user_id):
         🎭 <b>Genres</b>: <code>{genre_string}</code>
         🎙️ <b>Studios</b>: <code>{studio_string}</code>
         💸 <b>Producers</b>: <code>{producer_string}</code>
-        
+
         🎬 <b>Trailer:</b> {LOL}
-        
+
         📖 <b>Synopsis</b>: <code>{synopsis_string}</code> <a href='{result['url']}'>Read More</a>
         """)
     elif search_type == "anime_manga":
@@ -110,11 +114,12 @@ def get_anime_manga(mal_id, search_type, _user_id):
         📃 <b>Chapters</b>: <code>{result['chapters']}</code>
         💯 <b>Score</b>: <code>{result['score']}</code>
         🎭 <b>Genres</b>: <code>{genre_string}</code>
-        
+
         📖 <b>Synopsis</b>: <code>{synopsis_string}</code>
         """)
     return caption, image
-    
+
+
 def get_poster(query):
     url_enc_name = query.replace(' ', '+')
     # Searching for query list in imdb
@@ -123,7 +128,8 @@ def get_poster(query):
     soup = bs4.BeautifulSoup(page.content, 'lxml')
     odds = soup.findAll("tr", "odd")
     # Fetching the first post from search
-    page_link = "http://www.imdb.com/" + odds[0].findNext('td').findNext('td').a['href']
+    page_link = "http://www.imdb.com/" + \
+        odds[0].findNext('td').findNext('td').a['href']
     page1 = requests.get(page_link)
     soup = bs4.BeautifulSoup(page1.content, 'lxml')
     # Poster Link
@@ -145,4 +151,3 @@ def post_to_telegraph(anime_title, html_format_content):
         text=html_format_content
     )
     return post_page['url']
-    

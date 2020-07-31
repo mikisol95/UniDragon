@@ -18,8 +18,9 @@ from telethon.tl.types import DocumentAttributeVideo
 from telethon.tl.types import DocumentAttributeAudio
 from uniborg.util import progress, admin_cmd
 import logging
-logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
-                    level=logging.WARN)
+logging.basicConfig(
+    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
+    level=logging.WARN)
 
 thumb_image_path = Config.TMP_DOWNLOAD_DIRECTORY + "/thumb_image.jpg"
 
@@ -43,8 +44,8 @@ async def _(event):
         logger.info(lst_of_files)
         u = 0
         await event.edit(
-            "Found {} files. ".format(len(lst_of_files)) + \
-            "Uploading will start soon. " + \
+            "Found {} files. ".format(len(lst_of_files)) +
+            "Uploading will start soon. " +
             "Please wait!"
         )
         thumb = None
@@ -197,8 +198,8 @@ async def _(event):
     if os.path.exists(file_name):
         if not file_name.endswith((".mkv", ".mp4", ".mp3", ".flac")):
             await mone.edit(
-                "Sorry. But I don't think {} is a streamable file.".format(file_name) + \
-                " Please try again.\n" + \
+                "Sorry. But I don't think {} is a streamable file.".format(file_name) +
+                " Please try again.\n" +
                 "**Supported Formats**: MKV, MP4, MP3, FLAC"
             )
             return False

@@ -23,14 +23,17 @@ async def _(event):
     await event.edit("```Making a quote....```")
 
     async with borg.conversation(bot) as bot_conv:
-        if True: #lazy indentation workaround xD
+        if True:  # lazy indentation workaround xD
             if input_str:
-              response = await silently_send_message(bot_conv, quote)
+                response = await silently_send_message(bot_conv, quote)
             elif reply:
-              response = bot_conv.wait_event(events.NewMessage(incoming=True,from_users=1031952739))
-              await borg.forward_messages(bot, quote)
-              response = await response
-              response = response.message
+                response = bot_conv.wait_event(
+                    events.NewMessage(
+                        incoming=True,
+                        from_users=1031952739))
+                await borg.forward_messages(bot, quote)
+                response = await response
+                response = response.message
             if response.text.startswith("Command"):
                 await event.edit("Invalid message type.")
                 return

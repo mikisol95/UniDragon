@@ -5,6 +5,7 @@
 from telethon import events
 from telethon.tl.functions.messages import SaveDraftRequest
 
+
 @borg.on(events.NewMessage(pattern=r"\.chain", outgoing=True))
 async def _(event):
     await event.edit("Counting...")

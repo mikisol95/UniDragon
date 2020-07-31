@@ -1,16 +1,15 @@
 """File Converter
 .nfc """
-import logging
-logging.basicConfig(format='[%(levelname) 5s/%(asctime)s] %(name)s: %(message)s',
-                    level=logging.WARNING)
-import asyncio
-import os
-import time
-from datetime import datetime
-
-
-from uniborg.util import admin_cmd, progress
 from sample_config import Config
+from uniborg.util import admin_cmd, progress
+from datetime import datetime
+import time
+import os
+import asyncio
+import logging
+logging.basicConfig(
+    format='[%(levelname) 5s/%(asctime)s] %(name)s: %(message)s',
+    level=logging.WARNING)
 
 
 @borg.on(admin_cmd(pattern="nfc (.*)"))  # pylint:disable=E0602
@@ -47,7 +46,7 @@ async def _(event):
         supports_streaming = False
         if input_str == "voice":
             new_required_file_caption = downloaded_file_name[12:-4] + ".opus"
-            new_required_file_name =  new_required_file_caption
+            new_required_file_name = new_required_file_caption
             command_to_run = [
                 "ffmpeg",
                 "-i",
@@ -66,7 +65,7 @@ async def _(event):
             supports_streaming = True
         elif input_str == "mp3":
             new_required_file_caption = downloaded_file_name[12:-4] + ".mp3"
-            new_required_file_name =  new_required_file_caption
+            new_required_file_name = new_required_file_caption
             command_to_run = [
                 "ffmpeg",
                 "-i",
@@ -90,9 +89,9 @@ async def _(event):
         )
         # Wait for the subprocess to finish
         stdout, stderr = await process.communicate()
-        e_response = stderr.decode().strip()
-        t_response = stdout.decode().strip()
-        
+        stderr.decode().strip()
+        stdout.decode().strip()
+
         if os.path.exists(new_required_file_name):
             end_two = datetime.now()
             await borg.send_file(

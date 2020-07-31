@@ -9,12 +9,13 @@ import sys
 import time
 
 """
-insult: 
+insult:
 **Requested Module --> insult**
 \n\n**Detailed usage of fuction(s):**
 \n\n```.insult <optional_number_of_insults>``` [optionally as a reply to target user][default = 5]
-\nUsage: Insults target user. 
+\nUsage: Insults target user.
 """
+
 
 @borg.on(admin_cmd(pattern="insult ?(.*)"))
 async def _(event):
@@ -25,10 +26,24 @@ async def _(event):
                         "stupid", "retarded", "self conscious", "tiny"]
     adjectives_mid = ["little", "vitamin D deficient",
                       "idiotic", "incredibly stupid"]
-    nouns = ["cunt", "pig", "pedophile", "beta male", "bottom", "retard", "ass licker", "cunt nugget",
-             "PENIS", "dickhead", "flute", "idiot", "motherfucker", "loner", "creep"]
-    starts = ["You're a", "You", "Fuck off you", "Actually die you", "Listen up you",
-              "What the fuck is wrong with you, you"]
+    nouns = [
+        "cunt",
+        "pig",
+        "pedophile",
+        "beta male",
+        "bottom",
+        "retard",
+        "ass licker",
+        "cunt nugget",
+        "PENIS",
+        "dickhead",
+        "flute",
+        "idiot",
+        "motherfucker",
+        "loner",
+        "creep"]
+    starts = ["You're a", "You", "Fuck off you", "Actually die you",
+              "Listen up you", "What the fuck is wrong with you, you"]
     ends = ["!!!!", "!", ""]
     log_insults = ""
     if args:
@@ -65,13 +80,8 @@ async def _(event):
             time.sleep(2)
             status = f"Insulted [{user_id}] with:\n\n{log_insults}"
             await log(status)
-            
+
+
 async def log(text):
     LOGGER = Config.PRIVATE_GROUP_BOT_API_ID
-    await event.client.send_message(LOGGER , text)
-
-
-            
-
-       
-       
+    await event.client.send_message(LOGGER, text)

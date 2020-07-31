@@ -99,7 +99,7 @@ def ReTrieveURL(input_url):
         "X-API-Key": Config.REM_BG_API_KEY,
     }
     data = {
-      "image_url": input_url
+        "image_url": input_url
     }
     r = requests.post(
         "https://api.remove.bg/v1.0/removebg",

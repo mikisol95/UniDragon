@@ -1,7 +1,5 @@
 import asyncio
 import re
-import requests
-import aiohttp
 from uniborg.util import admin_cmd
 from userbot import AioHttp
 from uniborg import MODULE, SYNTAX
@@ -11,13 +9,27 @@ animal = r"([^.]*)$"
 ok_exts = ["jpg", "jpeg", "png"]
 
 animals_data = {
-    'dog': {'url': 'https://random.dog/woof.json', 'key': 'url'},
-    'cat': {'url': 'http://aws.random.cat/meow', 'key': 'file'},
-    'panda': {'url': 'https://some-random-api.ml/img/panda', 'key': 'link'},
-    'redpanda': {'url': 'https://some-random-api.ml/img/red_panda', 'key': 'link'},
-    'bird': {'url': 'https://some-random-api.ml/img/birb', 'key': 'link'},
-    'fox': {'url': 'https://some-random-api.ml/img/fox', 'key': 'link'},
-    'koala': {'url': 'https://some-random-api.ml/img/koala', 'key': 'link'},
+    'dog': {
+        'url': 'https://random.dog/woof.json',
+        'key': 'url'},
+    'cat': {
+        'url': 'http://aws.random.cat/meow',
+        'key': 'file'},
+    'panda': {
+        'url': 'https://some-random-api.ml/img/panda',
+        'key': 'link'},
+    'redpanda': {
+        'url': 'https://some-random-api.ml/img/red_panda',
+        'key': 'link'},
+    'bird': {
+        'url': 'https://some-random-api.ml/img/birb',
+        'key': 'link'},
+    'fox': {
+        'url': 'https://some-random-api.ml/img/fox',
+        'key': 'link'},
+    'koala': {
+        'url': 'https://some-random-api.ml/img/koala',
+        'key': 'link'},
 }
 
 animals = [x for x in animals_data]
@@ -37,8 +49,8 @@ async def prep_animal_image(animal_data):
 async def animal_image(message):
     lol = message.pattern_match.group(1)
     if not lol:
-      await message.edit("`Are you really a Human ?`")
-      return
+        await message.edit("`Are you really a Human ?`")
+        return
 
     animal_data = animals_data[lol]
     await message.delete()
@@ -75,7 +87,7 @@ async def fact(message):
         await message.edit("`Unsupported animal...`")
         await asyncio.sleep(3)
         await message.delete()
-        
+
 SYNTAX.update({
     'animals':
     ">`.animals` <dog|cat|panda|redpanda|koala|bird|fox>"

@@ -12,8 +12,9 @@ from sql_helpers.snips_sql import (add_snip, get_all_snips, get_snips,
 from uniborg.util import admin_cmd
 
 
-logging.basicConfig(format='[%(levelname) 5s/%(asctime)s] %(name)s: %(message)s',
-                    level=logging.WARNING)
+logging.basicConfig(
+    format='[%(levelname) 5s/%(asctime)s] %(name)s: %(message)s',
+    level=logging.WARNING)
 logger = logging.getLogger(__name__)
 
 
@@ -22,7 +23,7 @@ async def on_snip(event):
     name = event.pattern_match.group(1)
     snip = get_snips(name)
     if not event.is_group:
-      await event.delete()
+        await event.delete()
     reply_message = await event.get_reply_message()
     if snip:
         msg_o = await event.client.get_messages(
@@ -62,7 +63,7 @@ async def on_snip_save(event):
     name = event.pattern_match.group(1)
     msg = await event.get_reply_message()
     if not name:
-    	return await event.edit("`No Keyword Provided`")
+        return await event.edit("`No Keyword Provided`")
     if msg:
         msg_o = await event.client.forward_messages(
             entity=Config.PRIVATE_CHANNEL_BOT_API_ID,
@@ -101,7 +102,7 @@ async def on_snip_list(event):
         await event.edit(OUT_STR)
 
 
-@borg.on(admin_cmd(pattern="snipd (\S+)"))
+@borg.on(admin_cmd(pattern=r"snipd (\S+)"))
 async def on_snip_delete(event):
     name = event.pattern_match.group(1)
     remove_snip(name)

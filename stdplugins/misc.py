@@ -14,6 +14,7 @@ from telethon import version
 """
 plugs = len(borg._plugins)
 
+
 @borg.on(admin_cmd(pattern="permalink(?: |$)(.*)"))
 async def permalink(mention):
     """ For .link command, generates a link to the user's PM with a custom text. """
@@ -27,7 +28,7 @@ async def permalink(mention):
                                       "") if user.first_name else user.username
         await mention.edit(f"[{tag}](tg://user?id={user.id})")
 
-        
+
 async def get_user_from_event(event):
     """ Get the user from argument or replied message. """
     args = event.pattern_match.group(1).split(':', 1)
@@ -76,9 +77,8 @@ async def get_user_from_id(user, event):
         return None
 
     return user_obj
-        
-    
-    
+
+
 @borg.on(admin_cmd(pattern="userid"))
 async def useridgetter(target):
     """ For .userid command, returns the ID of the target user. """
@@ -98,8 +98,8 @@ async def useridgetter(target):
                 name = "*" + message.forward.sender.first_name + "*"
         await target.edit("**Name:** {} \n**User ID:** `{}`".format(
             name, user_id))
-            
-            
+
+
 @borg.on(admin_cmd(pattern="pip(?: |$)(.*)"))
 async def pipcheck(pip):
     """ For .pip command, do a pip search. """
@@ -153,4 +153,3 @@ async def amireallyalive(alive):
                      f"User: Kirito \n"
                      f"Plugins: {plugs}"
                      "`")
-            

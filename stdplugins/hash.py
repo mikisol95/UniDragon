@@ -14,17 +14,18 @@ from uniborg.util import admin_cmd
 from uniborg import MODULE, SYNTAX
 MODULE.append("hash")
 
+
 @borg.on(admin_cmd(pattern="hash ?(.*)"))
 async def gethash(hash_q):
     """ For .hash command, find the md5, sha1, sha256, sha512 of the string. """
     hashtxt_ = hash_q.pattern_match.group(1)
     if not hashtxt_:
-    	get = await hash_q.get_reply_message()
-    	hashtxt_ = get.text
+        get = await hash_q.get_reply_message()
+        hashtxt_ = get.text
     else:
-    	await hash_q.edit("Brah.. Gib me Something")
-    	return
-    	
+        await hash_q.edit("Brah.. Gib me Something")
+        return
+
     hashtxt = open("hashdis.txt", "w+")
     hashtxt.write(hashtxt_)
     hashtxt.close()
@@ -58,11 +59,11 @@ async def endecrypt(query):
     """ For .base64 command, find the base64 encoding of the given string. """
     input_str = query.pattern_match.group(2)
     if not input_str:
-    	get = await query.get_reply_message()
-    	input_str = get.text
+        get = await query.get_reply_message()
+        input_str = get.text
     else:
-    	await query.edit("Uffff.. Sar Gib me something")
-    	return
+        await query.edit("Uffff.. Sar Gib me something")
+        return
     if query.pattern_match.group(1) == "en":
         lething = str(
             pybase64.b64encode(bytes(input_str,

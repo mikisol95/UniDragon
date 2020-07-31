@@ -5,11 +5,7 @@ from telethon import events
 import asyncio
 
 
-
-
-
 @borg.on(events.NewMessage(pattern=r"\.(.*)", outgoing=True))
-
 async def _(event):
 
     if event.fwd_from:
@@ -27,7 +23,7 @@ async def _(event):
         await event.edit(input_str)
 
         animation_chars = [
-        
+
             "I Party like a rockstar",
             "I Look like a movie star",
             "I Play like an all star",

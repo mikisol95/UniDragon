@@ -11,31 +11,31 @@ async def _(event):
     url = event.pattern_match.group(1)
     if event.fwd_from:
         return
-    input_str = event.pattern_match.group(1)
-    mone = await event.edit("Processing ...")
-    start = datetime.now()
-    reply_message = await event.get_reply_message()
-    c_time = time.time()
-    downloaded_file_name = Config.TMP_DOWNLOAD_DIRECTORY
+    event.pattern_match.group(1)
+    await event.edit("Processing ...")
+    datetime.now()
+    await event.get_reply_message()
+    time.time()
+    Config.TMP_DOWNLOAD_DIRECTORY
     await event.edit("Finish downloading to my local")
     command_to_exec = f"./bin/cmrudl.py {url} -d ./ravana/"
     reply_to_id = event.message.id
     PROCESS_RUN_TIME = 100
     if event.reply_to_msg_id:
         reply_to_id = event.reply_to_msg_id
-    start_time = time.time() + PROCESS_RUN_TIME
+    time.time() + PROCESS_RUN_TIME
     process = await asyncio.create_subprocess_shell(
-        command_to_exec, 
-        stdout=asyncio.subprocess.PIPE, 
+        command_to_exec,
+        stdout=asyncio.subprocess.PIPE,
         stderr=asyncio.subprocess.PIPE
     )
     logger.info(command_to_exec)
     OUTPUT = "**Files in DOWNLOADS folder:**\n"
     stdout, stderr = await process.communicate()
-    t_response = stdout.decode().strip()
+    stdout.decode().strip()
     if len(stdout) > Config.MAX_MESSAGE_SIZE_LIMIT:
         with io.BytesIO(stdout) as out_file:
-            x = stdout.decode().strip()
+            stdout.decode().strip()
             output = stdout.decode('utf-8').splitlines()
             file_name = output[1]
             file_name = file_name.split()
@@ -51,4 +51,3 @@ async def _(event):
                 caption=f"`{full_file_name}`",
                 reply_to=reply_to_id
             )
-

@@ -37,7 +37,7 @@ async def amount_to_secs(amount: tuple) -> int:
 
 
 async def string_to_secs(string: str) -> int:
-   
+
     values = regexp.findall(string)
 
     totalValues = len(values)
@@ -107,13 +107,15 @@ unmuted_rights = ChatBannedRights(
     send_inline=False,
     embed_links=False
 )
+
+
 @borg.on(admin_cmd(pattern="(ban|unban) ?(.*)"))
 async def _(event):
     # Space weirdness in regex required because argument is optional and other
     # commands start with ".unban"
     if event.fwd_from:
         return
-    start = datetime.now()
+    datetime.now()
     to_ban_id = None
     rights = None
     input_cmd = event.pattern_match.group(1)
@@ -121,7 +123,7 @@ async def _(event):
         rights = banned_rights
     elif input_cmd == "unban":
         rights = unbanned_rights
-    
+
     input_str = event.pattern_match.group(2)
     reply_msg_id = event.reply_to_msg_id
     if reply_msg_id:
@@ -138,11 +140,12 @@ async def _(event):
     else:
         await event.edit(f"`{input_cmd}ed Successfully`")
 
+
 @borg.on(admin_cmd(pattern="mute ?(.*)"))
 async def _(event):
     if event.fwd_from:
         return
-    start = datetime.now()
+    datetime.now()
     to_ban_id = None
     rights = None
     input_cmd = "mute"
@@ -173,7 +176,7 @@ async def _(event):
 async def _(event):
     if event.fwd_from:
         return
-    start = datetime.now()
+    datetime.now()
     to_ban_id = None
     rights = None
     input_cmd = "unmute"
@@ -205,34 +208,33 @@ async def _(event):
     if event.fwd_from:
         return
 
-    start = datetime.now()
+    datetime.now()
     x = 1
     to_ban_id = None
-    rights = None
     input_cmd = "tmute"
     if input_cmd == "ban":
-        rights = 1
+        pass
     elif input_cmd == "unban":
-        rights = 2
+        pass
     elif input_cmd == "tmute":
-        rights = 2
+        pass
     period = "time=" + event.pattern_match.group(1)
     if period == "time=":
         await event.edit("`Specify the time`")
     else:
         period = await string_to_secs(period)
         if (60 <= period < 3600):
-            time = str(period//60) + " " + "minutes"
+            time = str(period // 60) + " " + "minutes"
        # nit = "minutes"
         elif (3600 <= period < 86400):
-            time = str(period//3600) + " " + "hours"
+            time = str(period // 3600) + " " + "hours"
        # unit = "hours"
         elif period >= 86400:
-            time = str(period//86400) + " " + "days"
+            time = str(period // 86400) + " " + "days"
         else:
             time = str(period) + " " + "seconds"
         if x == 1:
-            reply_msg_id = event.reply_to_msg_id
+            event.reply_to_msg_id
             r_mesg = await event.get_reply_message()
             if not r_mesg:
                 await event.edit("`Reply to a user message`")
@@ -247,34 +249,33 @@ async def _(event):
     if event.fwd_from:
         return
 
-    start = datetime.now()
+    datetime.now()
     x = 1
     to_ban_id = None
-    rights = None
     input_cmd = "tban"
     if input_cmd == "ban":
-        rights = 1
+        pass
     elif input_cmd == "unban":
-        rights = 2
+        pass
     elif input_cmd == "tban":
-        rights = 2
+        pass
     period = "time=" + event.pattern_match.group(1)
     if period == "time=":
         await event.edit("`Specify the time`")
     else:
         period = await string_to_secs(period)
         if (60 <= period < 3600):
-            time = str(period//60) + " " + "minutes"
+            time = str(period // 60) + " " + "minutes"
        # nit = "minutes"
         elif (3600 <= period < 86400):
-            time = str(period//3600) + " " + "hours"
+            time = str(period // 3600) + " " + "hours"
        # unit = "hours"
         elif period >= 86400:
-            time = str(period//86400) + " " + "days"
+            time = str(period // 86400) + " " + "days"
         else:
             time = str(period) + " " + "seconds"
         if x == 1:
-            reply_msg_id = event.reply_to_msg_id
+            event.reply_to_msg_id
             r_mesg = await event.get_reply_message()
             if not r_mesg:
                 await event.edit("`Reply to a user message`")

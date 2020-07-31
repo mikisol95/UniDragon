@@ -26,7 +26,7 @@ async def _(event):
     replied_user_profile_photos_count = "NaN"
     try:
         replied_user_profile_photos_count = replied_user_profile_photos.count
-    except AttributeError as e:
+    except AttributeError:
         pass
     user_id = replied_user.user.id
     # some people have weird HTML in their names
@@ -34,7 +34,8 @@ async def _(event):
     # https://stackoverflow.com/a/5072031/4723940
     # some Deleted Accounts do not have first_name
     if first_name is not None:
-        # some weird people (like me) have more than 4096 characters in their names
+        # some weird people (like me) have more than 4096 characters in their
+        # names
         first_name = first_name.replace("\u2060", "")
     # inspired by https://telegram.dog/afsaI181
     user_bio = replied_user.about
@@ -45,7 +46,7 @@ async def _(event):
         dc_id, location = get_input_location(replied_user.profile_photo)
     except Exception as e:
         dc_id = "Need a Profile Picture to check **this**"
-        location = str(e)
+        str(e)
     caption = """Profile Pic Grabber By @NeoMatrix90
 
 Rendi: <a href='tg://user?id={}'>{}</a>
@@ -102,7 +103,9 @@ async def get_full_user(event):
         if event.message.entities is not None:
             mention_entity = event.message.entities
             probable_user_mention_entity = mention_entity[0]
-            if isinstance(probable_user_mention_entity, MessageEntityMentionName):
+            if isinstance(
+                    probable_user_mention_entity,
+                    MessageEntityMentionName):
                 user_id = probable_user_mention_entity.user_id
                 replied_user = await event.client(GetFullUserRequest(user_id))
                 return replied_user, None

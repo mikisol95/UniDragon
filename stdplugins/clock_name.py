@@ -8,6 +8,7 @@ from uniborg.util import admin_cmd
 
 DEL_TIME_OUT = 140
 
+
 @borg.on(admin_cmd(pattern="cname"))  # pylint:disable=E0602
 async def _(event):
     if event.fwd_from:
@@ -19,7 +20,7 @@ async def _(event):
         logger.info(name)
         try:
             await borg(functions.account.UpdateProfileRequest(  # pylint:disable=E0602
-                last_name = name
+                last_name=name
             ))
         except FloodWaitError as ex:
             logger.warning(str(e))

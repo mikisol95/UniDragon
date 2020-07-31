@@ -16,6 +16,7 @@ from uniborg.util import admin_cmd
 
 CARBONLANG = "auto"
 
+
 @borg.on(admin_cmd(pattern="crblang ?(.*)"))
 async def setlang(prog):
     global CARBONLANG
@@ -63,10 +64,11 @@ async def carbon_api(e):
             'downloadPath': download_path
         }
     }
-    command_result = driver.execute("send_command", params)
-    driver.find_element_by_xpath('//*[@id="__next"]/main/div[3]/div[2]/div[1]/div[1]/div/span[2]').click()
+    driver.execute("send_command", params)
+    driver.find_element_by_xpath(
+        '//*[@id="__next"]/main/div[3]/div[2]/div[1]/div[1]/div/span[2]').click()
     driver.find_element_by_id("export-menu").click()
-    #driver.find_element_by_xpath("//button[contains(text(),'Export')]").click()
+    # driver.find_element_by_xpath("//button[contains(text(),'Export')]").click()
     driver.find_element_by_xpath("//button[contains(text(),'4x')]").click()
     driver.find_element_by_xpath("//button[contains(text(),'PNG')]").click()
     await e.edit("`Processing..\n75%`")
@@ -89,4 +91,3 @@ async def carbon_api(e):
     driver.quit()
     # Removing carbon.png after uploading
     await e.delete()  # Deleting msg
-

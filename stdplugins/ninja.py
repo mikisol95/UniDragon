@@ -7,6 +7,7 @@ from telethon import events
 import telethon.utils
 from uniborg import util
 
+
 async def get_target_message(event):
     if event.is_reply and (await event.get_reply_message()).from_id == borg.uid:
         return await event.get_reply_message()
@@ -14,6 +15,7 @@ async def get_target_message(event):
             await event.get_input_chat(), limit=20):
         if message.out:
             return message
+
 
 async def await_read(chat, message):
     chat = telethon.utils.get_peer_id(chat)
@@ -28,9 +30,10 @@ async def await_read(chat, message):
         return
 
     await fut
-    
+
+
 @borg.on(util.admin_cmd(pattern="(del)(?:ete)?$"))
-@borg.on(util.admin_cmd(pattern="(edit)(?:\s+(.*))?$"))
+@borg.on(util.admin_cmd(pattern=r"(edit)(?:\s+(.*))?$"))
 async def delete(event):
     await event.delete()
     command = event.pattern_match.group(1)

@@ -26,5 +26,5 @@ async def _(event):
             while not r.media.value == required_number:
                 await r.delete()
                 r = await reply_message.reply(file=InputMediaDice(emoticon=emoticon))
-        except:
+        except BaseException:
             pass

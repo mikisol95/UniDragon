@@ -5,21 +5,22 @@ import asyncio
 import time
 from uniborg.util import admin_cmd
 import logging
-logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
-                    level=logging.WARN)
+logging.basicConfig(
+    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
+    level=logging.WARN)
+
 
 @borg.on(admin_cmd(pattern="exec ?(.*)"))
 async def _(event):
     if event.fwd_from or event.via_bot_id:
         return
-    DELAY_BETWEEN_EDITS = 0.3
     PROCESS_RUN_TIME = 100
     await event.edit("`Processing...`")
     cmd = event.pattern_match.group(1)
     reply_to_id = event.message.id
     if event.reply_to_msg_id:
         reply_to_id = event.reply_to_msg_id
-    start_time = time.time() + PROCESS_RUN_TIME
+    time.time() + PROCESS_RUN_TIME
     process = await asyncio.create_subprocess_shell(
         cmd, stdout=asyncio.subprocess.PIPE, stderr=asyncio.subprocess.PIPE
     )

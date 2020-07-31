@@ -33,6 +33,7 @@ OLDEXCEPT = False
 PARSE = False
 # ================================================
 
+
 async def get_spotify_token():
     sptoken = st.start_session(USERNAME, PASSWORD)
     access_token = sptoken[0]
@@ -104,6 +105,7 @@ async def dirtyfix():
     await sleep(4)
     await update_spotify_info()
 
+
 @borg.on(events.NewMessage(pattern=r"\.enablespotify ?(.*)", outgoing=True))
 async def set_biostgraph(setstbio):
     setrecursionlimit(700000)
@@ -114,6 +116,7 @@ async def set_biostgraph(setstbio):
         await dirtyfix()
     else:
         await setstbio.edit(SPO_BIO_RUNNING)
+
 
 @borg.on(events.NewMessage(pattern=r"\.disablespotify ?(.*)", outgoing=True))
 async def set_biodgraph(setdbio):

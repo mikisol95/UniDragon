@@ -5,6 +5,7 @@ from telethon import events
 from telethon.tl.types import User
 from telethon.utils import get_display_name
 
+
 @borg.on(events.NewMessage(pattern=r'\.id(?: (.+))?', outgoing=True))
 async def get_id(e):
     custom = e.pattern_match.group(1)

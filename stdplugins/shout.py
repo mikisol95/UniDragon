@@ -22,7 +22,4 @@ async def shout(args):
         result[0] = text[0]
         result = "".join(result)
         msg = "\n" + result
-        await args.edit("`"+msg+"`")
-        
-    
-    
+        await args.edit("`" + msg + "`")

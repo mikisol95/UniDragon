@@ -15,7 +15,7 @@ from telethon import functions, __version__
 from uniborg.util import admin_cmd
 
 
-@borg.on(admin_cmd(pattern="info ?(.*)", allow_sudo=True)) 
+@borg.on(admin_cmd(pattern="info ?(.*)", allow_sudo=True))
 async def _(event):
     if event.fwd_from:
         return
@@ -27,14 +27,11 @@ async def _(event):
     help_string = """@UniBorg ( **Custom Built By** @NeoMatrix90 ) \n**Verified Account**: ✅\n**DESCRIPTION**: https://alamtd.wordpress.com\n
 Python {}
 Telethon {}
- 
-**Custom Built Fork**: https://github.com/prono69/PepeBot """.format(
-        sys.version,
-        __version__
-    )
-    tgbotusername = Config.TG_BOT_USER_NAME_BF_HER 
+
+**Custom Built Fork**: https://github.com/prono69/PepeBot """.format(sys.version, __version__)
+    tgbotusername = Config.TG_BOT_USER_NAME_BF_HER
     if tgbotusername is not None:
-        results = await borg.inline_query(  
+        results = await borg.inline_query(
             tgbotusername,
             help_string + "\n\n" + s_help_string
         )
@@ -49,7 +46,7 @@ Telethon {}
         await event.delete()
 
 
-@borg.on(admin_cmd(pattern="dc")) 
+@borg.on(admin_cmd(pattern="dc"))
 async def _(event):
     if event.fwd_from:
         return
@@ -63,7 +60,7 @@ async def _(event):
 async def _(event):
     if event.fwd_from:
         return
-    result = await borg(functions.help.GetConfigRequest()) 
+    result = await borg(functions.help.GetConfigRequest())
     result = result.stringify()
     logger.info(result)  # pylint:disable=E0602
     await event.edit("""Telethon UserBot powered by @UniBorg""")

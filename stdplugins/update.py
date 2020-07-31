@@ -18,42 +18,28 @@
    this is a Hugh fix thanks to @SpEcHiDe and @devpatel_73
 """
 
-from os import remove, execle, path, makedirs, getenv, environ
-from shutil import rmtree
+from os import environ, execle, path, remove
 import asyncio
 import sys
 
 from git import Repo
 from git.exc import GitCommandError, InvalidGitRepositoryError, NoSuchPathError
 from os import remove
-from os import execl
 import sys
 
-import heroku3
-import git
 from git import Repo
 from git.exc import GitCommandError
 from git.exc import InvalidGitRepositoryError
 from git.exc import NoSuchPathError
 
 import asyncio
-import random
-import re
-import time
 
-from collections import deque
 
-import requests
 
-from telethon.tl.functions.users import GetFullUserRequest
-from telethon.tl.types import MessageEntityMentionName
-from telethon import events
 
 from uniborg.util import admin_cmd
 
 
-from contextlib import suppress
-import os
 import sys
 import asyncio
 
@@ -61,7 +47,8 @@ from sample_config import Config
 
 #
 # ===============================Basic Constants=============================
-# UPSTREAM_REPO_URL is as same as below. "https://github.com/prono69/PepeBot.git"
+# UPSTREAM_REPO_URL is as same as below.
+# "https://github.com/prono69/PepeBot.git"
 UPSTREAM_REPO_URL = Config.UPSTREAM_REPO_URL
 # REPO_LINK is as same as below. "https://github.com/prono69/PepeBot.git"
 REPO_LINK = Config.REPO_LINK
@@ -69,7 +56,7 @@ REPO_LINK = Config.REPO_LINK
 HEROKU_API_KEY = Config.HEROKU_API_KEY
 # provide your HEROKU_APP_NAME in place of this value.
 HEROKU_APP_NAME = Config.HEROKU_APP_NAME
-#heroku memes
+# heroku memes
 HEROKU_MEMEZ = Config.HEROKU_MEMEZ
 # getting you git repo name is also needed
 GIT_REPO_NAME = Config.GIT_REPO_NAME
@@ -233,13 +220,10 @@ async def upstream(ups):
             ups_rem.pull(ac_br)
         except GitCommandError:
             repo.git.reset("--hard", "FETCH_HEAD")
-        reqs_upgrade = await updateme_requirements()
+        await updateme_requirements()
         await ups.edit('`Successfully Updated!\n'
                        'Bot is restarting... Wait for a second!`')
         # Spin a new instance of bot
         args = [sys.executable, "-m", "stdborg"]
         execle(sys.executable, *args, environ)
         return
-
-
-     

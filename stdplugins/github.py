@@ -3,6 +3,7 @@ Syntax: .github USERNAME"""
 import requests
 from uniborg.util import admin_cmd
 
+
 @borg.on(admin_cmd(pattern="github (.*)"))
 async def _(event):
     if event.fwd_from:

@@ -20,7 +20,8 @@ else:
         from config import Development as Config
     else:
         logging.warning("No config.py Found!")
-        logging.info("Please run the command, again, after creating config.py similar to README.md")
+        logging.info(
+            "Please run the command, again, after creating config.py similar to README.md")
         sys.exit(1)
 
 

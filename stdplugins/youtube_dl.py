@@ -20,11 +20,12 @@ if Config.TG_BOT_USER_NAME_BF_HER is not None and tgbot is not None:
     ))
     async def on_plug_in_callback_query_handler(event):
         if event.query.user_id == borg.uid:  # pylint:disable=E0602
-            ctc, tg_send_type, ytdl_format_code, ytdl_extension = event.query.data.decode("UTF-8").split("|")
+            ctc, tg_send_type, ytdl_format_code, ytdl_extension = event.query.data.decode(
+                "UTF-8").split("|")
             try:
                 with open(Config.TMP_DOWNLOAD_DIRECTORY + "/" + "YouTubeDL.json", "r", encoding="utf8") as f:
                     response_json = json.load(f)
-            except FileNotFoundError as e:
+            except FileNotFoundError:
                 await event.edit("Something Bad Happened")
                 return False
             custom_file_name = str(response_json.get("title")) + \
@@ -78,9 +79,12 @@ if Config.TG_BOT_USER_NAME_BF_HER is not None and tgbot is not None:
                 return False
             if t_response:
                 # logger.info(t_response)
-                os.remove(Config.TMP_DOWNLOAD_DIRECTORY + "/" + "YouTubeDL.json")
+                os.remove(
+                    Config.TMP_DOWNLOAD_DIRECTORY +
+                    "/" +
+                    "YouTubeDL.json")
                 end_one = datetime.now()
-                time_taken_for_download = (end_one -start).seconds
+                time_taken_for_download = (end_one - start).seconds
                 await event.edit(f"Downloaded to `{download_directory}` in {time_taken_for_download} seconds")
             else:
                 await event.delete()

@@ -15,7 +15,7 @@ import sys
 async def _(event):
     if event.fwd_from:
         return
-    
+
     await event.edit("`Bye... *windows XP shut down sound*`")
     await asyncio.sleep(10)
     await event.edit("`Me Back! Try .on`")
@@ -33,7 +33,8 @@ async def _(event):
     await asyncio.sleep(3)
     await event.edit("❌🔒🔒🔒🔒🔒🔒🔒")
     await borg.disconnect()
-   
+
+
 async def restart():
     await borg.disconnect()
     os.execl(sys.executable, sys.executable, *sys.argv)

@@ -16,8 +16,9 @@ from hachoir.metadata import extractMetadata
 from hachoir.parser import createParser
 from uniborg.util import admin_cmd, progress
 
-logging.basicConfig(format='[%(levelname) 5s/%(asctime)s] %(name)s: %(message)s',
-                    level=logging.WARNING)
+logging.basicConfig(
+    format='[%(levelname) 5s/%(asctime)s] %(name)s: %(message)s',
+    level=logging.WARNING)
 logger = logging.getLogger(__name__)
 
 

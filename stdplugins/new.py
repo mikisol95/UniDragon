@@ -18,9 +18,10 @@ BYTE_LEN_MAX = 64
 def parse_pre(text):
     text = text.strip()
     return (
-        text,
-        [MessageEntityPre(offset=0, length=len(add_surrogate(text)), language='potato')]
-    )
+        text, [
+            MessageEntityPre(
+                offset=0, length=len(
+                    add_surrogate(text)), language='potato')])
 
 
 def yaml_format(obj, indent=0):

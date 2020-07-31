@@ -10,6 +10,7 @@ from uniborg.util import admin_cmd
 
 TMP_DOWNLOAD_DIRECTORY = "./"
 
+
 @borg.on(admin_cmd(pattern="wh ?(.*)", allow_sudo=True))
 async def _(event):
     if event.fwd_from:
@@ -64,6 +65,7 @@ async def get_user(event):
 
     return replied_user
 
+
 async def fetch_info(replied_user, event):
     """ Get details from the User object. """
     replied_user_profile_photos = await event.client(
@@ -74,7 +76,7 @@ async def fetch_info(replied_user, event):
     replied_user_profile_photos_count = "NaN."
     try:
         replied_user_profile_photos_count = replied_user_profile_photos.count
-    except AttributeError as e:
+    except AttributeError:
         pass
     user_id = replied_user.user.id
     first_name = replied_user.user.first_name
@@ -83,15 +85,15 @@ async def fetch_info(replied_user, event):
         dc_id, location = get_input_location(replied_user.profile_photo)
     except Exception as e:
         dc_id = "Need a Profile Picture to check DC ID!"
-        location = str(e)
+        str(e)
     common_chat = replied_user.common_chats_count
     username = replied_user.user.username
     user_bio = replied_user.about
-    is_bot = replied_user.user.bot
-    restricted = replied_user.user.restricted
-    verified = replied_user.user.verified
+    replied_user.user.bot
+    replied_user.user.restricted
+    replied_user.user.verified
     photo = await event.client.download_profile_photo(user_id,
-                                        TMP_DOWNLOAD_DIRECTORY +
+                                                      TMP_DOWNLOAD_DIRECTORY +
                                                       str(user_id) + ".jpg",
                                                       download_big=True)
     first_name = html.escape(replied_user.user.first_name)
@@ -107,8 +109,7 @@ async def fetch_info(replied_user, event):
     else:
         common_chat = "I've seen them in... Wow. Are they stalking me? "
         common_chat += "They're in all the same places I am... oh. It's me."
-        
-    
+
     caption = "<b>General Info OF:</b> \n"
     caption += f"<a href=\"tg://user?id={user_id}\">{first_name}</a> \n"
     caption += f"<b>First Name</b>: {first_name} \n"

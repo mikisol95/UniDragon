@@ -9,7 +9,7 @@ from telethon import events, custom
 from uniborg.util import admin_cmd, humanbytes
 
 
-@borg.on(admin_cmd(  
+@borg.on(admin_cmd(
     pattern="ib (.[^ ]*) (.*)"
 ))
 async def _(event):
@@ -38,7 +38,7 @@ async def _(event):
             `{}`".format(bot_username, search_query, str(e)))
 
 
-@borg.on(admin_cmd( 
+@borg.on(admin_cmd(
     pattern="icb (.[^ ]*) (.[^ ]*) (.*)"
 ))
 async def _(event):
@@ -59,7 +59,7 @@ async def _(event):
 
 
 if Config.TG_BOT_USER_NAME_BF_HER is not None and tgbot is not None:
-    @tgbot.on(events.InlineQuery) 
+    @tgbot.on(events.InlineQuery)
     async def inline_handler(event):
         builder = event.builder
         result = None
@@ -108,7 +108,9 @@ if Config.TG_BOT_USER_NAME_BF_HER is not None and tgbot is not None:
                 t_response = stdout.decode().strip()
                 logger.info(command_to_exec)
                 if e_response:
-                    error_message = e_response.replace("please report this issue on https://yt-dl.org/bug . Make sure you are using the latest version; see  https://yt-dl.org/update  on how to update. Be sure to call youtube-dl with the --verbose flag and include its complete output.", "")
+                    error_message = e_response.replace(
+                        "please report this issue on https://yt-dl.org/bug . Make sure you are using the latest version; see  https://yt-dl.org/update  on how to update. Be sure to call youtube-dl with the --verbose flag and include its complete output.",
+                        "")
                     # throw error
                     result = builder.article(
                         "YTDL Errors © @UniBorg",
@@ -138,13 +140,14 @@ if Config.TG_BOT_USER_NAME_BF_HER is not None and tgbot is not None:
                             format_ext = formats.get("ext")
                             approx_file_size = ""
                             if "filesize" in formats:
-                                approx_file_size = humanbytes(formats["filesize"])
+                                approx_file_size = humanbytes(
+                                    formats["filesize"])
                             cb_string_video = "ytdl|{}|{}|{}".format(
                                 "video", format_id, format_ext)
                             if format_string is not None:
                                 ikeyboard = [
                                     custom.Button.inline(
-                                        " " + format_ext  + " video [" + format_string +
+                                        " " + format_ext + " video [" + format_string +
                                         "] ( " +
                                         approx_file_size + " )",
                                         data=(cb_string_video)
@@ -160,9 +163,12 @@ if Config.TG_BOT_USER_NAME_BF_HER is not None and tgbot is not None:
                                 ]
                             inline_keyboard.append(ikeyboard)
                         if duration is not None:
-                            cb_string_64 = "ytdl|{}|{}|{}".format("audio", "64k", "mp3")
-                            cb_string_128 = "ytdl|{}|{}|{}".format("audio", "128k", "mp3")
-                            cb_string = "ytdl|{}|{}|{}".format("audio", "320k", "mp3")
+                            cb_string_64 = "ytdl|{}|{}|{}".format(
+                                "audio", "64k", "mp3")
+                            cb_string_128 = "ytdl|{}|{}|{}".format(
+                                "audio", "128k", "mp3")
+                            cb_string = "ytdl|{}|{}|{}".format(
+                                "audio", "320k", "mp3")
                             inline_keyboard.append([
                                 custom.Button.inline(
                                     "MP3 " + "(" + "64 kbps" + ")", data=cb_string_64
@@ -192,7 +198,7 @@ if Config.TG_BOT_USER_NAME_BF_HER is not None and tgbot is not None:
                         text=f"{ytdl_url} powered by @PepeB0t",
                         buttons=inline_keyboard,
                         link_preview=True
-                    )     
+                    )
         else:
             result = builder.article(
                 "© @UniBorg",
@@ -200,30 +206,44 @@ if Config.TG_BOT_USER_NAME_BF_HER is not None and tgbot is not None:
 **Verified Account:** ✅
 **Official Website:** https://prono69.github.io/PepeBot/
 
-**Pithun 3.8.2 (default, Apr 29 2020, 09:19:52)** 
+**Pithun 3.8.2 (default, Apr 29 2020, 09:19:52)**
 **[GCC 7.4.0]**
 **Talethrun 1.13.2**
 
 **Custom Built Fork:** https://github.com/prono69/PepeBot""",
                 buttons=[
-                    [custom.Button.url("👤Contact Creator👤", "https://telegram.dog/kirito6969"), custom.Button.url(
-                        "📼Ravana Audio Memes📼", "https://t.me/tgaudiomemes")],
-                    [custom.Button.url("👨‍💻Source Code👨‍💻", "https://github.com/prono69/PepeBot"), custom.Button.url(
-                        "❕❗Deploy Me❗❕", "https://dashboard.heroku.com/new?button-url=https%3A%2F%2Fgithub.com%2Fravana69%2FPornHub%2F&template=https%3A%2F%2Fgithub.com%2Fravana69%2FPornHub%2F")],
-                    [custom.Button.url("🔰Update Fork🔰", "tg://need_update_for_some_feature"), custom.Button.url(
-                        "✳️Fork Boost✳️", "tg://some_unsupported_feature"), custom.Button.url(
-                        "♻️Refresh Heroku♻️", "tg://chutiya")]
-                ],
-                link_preview=True
-            )
+                    [
+                        custom.Button.url(
+                            "👤Contact Creator👤",
+                            "https://telegram.dog/kirito6969"),
+                        custom.Button.url(
+                            "📼Ravana Audio Memes📼",
+                            "https://t.me/tgaudiomemes")],
+                    [
+                        custom.Button.url(
+                            "👨‍💻Source Code👨‍💻",
+                            "https://github.com/prono69/PepeBot"),
+                        custom.Button.url(
+                            "❕❗Deploy Me❗❕",
+                            "https://dashboard.heroku.com/new?button-url=https%3A%2F%2Fgithub.com%2Fravana69%2FPornHub%2F&template=https%3A%2F%2Fgithub.com%2Fravana69%2FPornHub%2F")],
+                    [
+                        custom.Button.url(
+                            "🔰Update Fork🔰",
+                            "tg://need_update_for_some_feature"),
+                        custom.Button.url(
+                            "✳️Fork Boost✳️",
+                            "tg://some_unsupported_feature"),
+                        custom.Button.url(
+                            "♻️Refresh Heroku♻️",
+                            "tg://chutiya")]],
+                link_preview=True)
         await event.answer([result] if result else None)
 
-
-    @tgbot.on(events.callbackquery.CallbackQuery(  
-        data=re.compile(b"helpme_next\((.+?)\)")
+    @tgbot.on(events.callbackquery.CallbackQuery(
+        data=re.compile(rb"helpme_next\((.+?)\)")
     ))
     async def on_plug_in_callback_query_handler(event):
-        if event.sender_id == borg.uid:  
+        if event.sender_id == borg.uid:
             current_page_number = int(
                 event.data_match.group(1).decode("UTF-8"))
             buttons = paginate_help(
@@ -234,12 +254,11 @@ if Config.TG_BOT_USER_NAME_BF_HER is not None and tgbot is not None:
             reply_pop_up_alert = "⚠️ Warning: Don't Press Any Buttons ⚠️\n\n\nNote: Bas kar BetiChod, Maa Ke Laude, Madarchod"
             await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
 
-
-    @tgbot.on(events.callbackquery.CallbackQuery( 
-        data=re.compile(b"helpme_prev\((.+?)\)")
+    @tgbot.on(events.callbackquery.CallbackQuery(
+        data=re.compile(rb"helpme_prev\((.+?)\)")
     ))
     async def on_plug_in_callback_query_handler(event):
-        if event.query.user_id == borg.uid:  
+        if event.query.user_id == borg.uid:
             current_page_number = int(
                 event.data_match.group(1).decode("UTF-8"))
             buttons = paginate_help(
@@ -253,8 +272,7 @@ if Config.TG_BOT_USER_NAME_BF_HER is not None and tgbot is not None:
             reply_pop_up_alert = "Please get your own @PepeBot, and don't edit my messages!"
             await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
 
-
-    @tgbot.on(events.callbackquery.CallbackQuery( 
+    @tgbot.on(events.callbackquery.CallbackQuery(
         data=re.compile(b"ub_plugin_(.*)")
     ))
     async def on_plug_in_callback_query_handler(event):

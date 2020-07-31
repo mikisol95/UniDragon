@@ -5,8 +5,9 @@ from telethon import events
 from uniborg import MODULE
 MODULE.append("song1")
 
-logging.basicConfig(format='[%(levelname) 5s/%(asctime)s] %(name)s: %(message)s',
-                    level=logging.WARNING)
+logging.basicConfig(
+    format='[%(levelname) 5s/%(asctime)s] %(name)s: %(message)s',
+    level=logging.WARNING)
 logger = logging.getLogger(__name__)
 
 
@@ -105,7 +106,8 @@ async def _(event):
                 await j.delete()
                 await k.edit("`Error Sar`")
                 break
-              
+
+
 @borg.on(admin_cmd(pattern="ad ?(.*)"))
 async def _(event):
     if event.fwd_from:
@@ -118,7 +120,7 @@ async def _(event):
         await event.edit("```reply to media message```")
         return
     chat = "@audiotubebot"
-    sender = reply_message.sender
+    reply_message.sender
     if reply_message.sender.bot:
         await event.edit("```Reply to actual users message.```")
         return
@@ -134,4 +136,3 @@ async def _(event):
             return
         await event.delete()
         await event.client.send_file(event.chat_id, response.message.media)
- 
