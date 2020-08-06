@@ -59,7 +59,6 @@ async def _(event):
                 k = await event.respond(j)
                 await j.delete()
                 await k.edit("`Error Sar`")
-                break
 
             elif "(MP3_320)" in song_result[res].title:
 
@@ -67,7 +66,6 @@ async def _(event):
                 k = await event.respond(j)
                 await j.delete()
                 await k.edit("`Error Sar`")
-                break
 
             elif "(MP3_128)" in song_result[res].title:
 
@@ -75,7 +73,6 @@ async def _(event):
                 k = await event.respond(j)
                 await j.delete()
                 await k.edit("`Error Sar`")
-                break
 
     elif msg:
 
@@ -89,7 +86,6 @@ async def _(event):
                 k = await event.respond(j)
                 await j.delete()
                 await k.edit("`Error Sar`")
-                break
 
             elif "(MP3_320)" in song_result[res].title:
 
@@ -97,7 +93,6 @@ async def _(event):
                 k = await event.respond(j)
                 await j.delete()
                 await k.edit("`Error Sar`")
-                break
 
             elif "(MP3_128)" in song_result[res].title:
 
@@ -105,7 +100,6 @@ async def _(event):
                 k = await event.respond(j)
                 await j.delete()
                 await k.edit("`Error Sar`")
-                break
 
 
 @borg.on(admin_cmd(pattern="ad ?(.*)"))

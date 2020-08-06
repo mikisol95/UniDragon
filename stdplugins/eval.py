@@ -52,7 +52,7 @@ async def _(event):
 
     if len(final_output) > Config.MAX_MESSAGE_SIZE_LIMIT:
         with io.BytesIO(str.encode(final_output)) as out_file:
-            out_file.name = "eval.text"
+            out_file.name = "eval.txt"
             await borg.send_file(
                 event.chat_id,
                 out_file,

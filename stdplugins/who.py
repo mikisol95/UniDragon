@@ -1,7 +1,7 @@
 # This Source Code Form is subject to the terms of the Mozilla Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
-"""TYPE: .uwu
+"""TYPE: .iwho
          .members"""
 import html
 import asyncio
@@ -32,7 +32,7 @@ def split_message(text, length=4096, offset=200):
                                                                                                                                                          length)]
 
 
-@borg.on(events.NewMessage(pattern=r"\.uwu", outgoing=True))
+@borg.on(events.NewMessage(pattern=r"\.iwho", outgoing=True))
 async def _(event):
     if not event.message.is_reply:
         who = await event.get_chat()

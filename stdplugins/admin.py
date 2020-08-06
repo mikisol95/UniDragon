@@ -695,8 +695,8 @@ async def pinmessage(eventPinMessage):
             )
 
 
-@borg.on(admin_cmd(pattern=f"{borg.me.id}ikick(?: |$)(.*)", allow_sudo=True))
-@borg.on(events.NewMessage(outgoing=True, pattern="^.ikick(?: |$)(.*)"))
+@borg.on(admin_cmd(pattern=f"{borg.me.id}kick(?: |$)(.*)", allow_sudo=True))
+@borg.on(events.NewMessage(outgoing=True, pattern="^.kick(?: |$)(.*)"))
 async def kick(eventKickUser):
     if not eventKickUser.text[0].isalpha(
     ) and eventKickUser.text[0] not in ("/", "#", "@", "!"):

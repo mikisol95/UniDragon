@@ -16,8 +16,8 @@ from telethon.tl.functions.users import GetFullUserRequest
 from telethon.tl.types.messages import ChatFull
 from telethon.tl.types import Channel, User, ChatInviteExported
 
-from userbot.utils import parse_arguments, list_admins, inline_mention, list_bots, get_chat_from_event
-from uniborg.util import admin_cmd
+from userbot.utils import list_admins, inline_mention, list_bots, get_chat_from_event
+from uniborg.util import admin_cmd, parse_arguments
 from userbot.tgdoc import *
 
 
@@ -35,7 +35,7 @@ async def chat_info(e):
     else:
         full_chat: ChatFull = await get_chat_from_event(e, **args)
 
-        await e.edit("**Fetching chat info...**")
+        await e.edit("`Fetching chat info...`")
         response = await fetch_info(e, full_chat, **args)
 
     await e.edit(str(response))
@@ -52,10 +52,10 @@ async def fetch_info(event, full_chat, **kwargs):
     is_private = False
     if isinstance(chat, Channel) and chat.username:
         chat.title if chat.title else chat.username
-        title = Bold("Chat Informations")
+        title = Bold("〽 Chat Informations:")
     elif chat.title:
         is_private = True
-        title = Bold("Chat Informations")
+        title = Bold("〽️ Chat Informations:")
     else:
         is_private = True
         title = Bold(f"Chat {chat.id}")
@@ -75,26 +75,26 @@ async def fetch_info(event, full_chat, **kwargs):
             exported_invite, ChatInviteExported) else None
         admin_count = full_chat.full_chat.admins_count or len(admin_list)
 
-        general = SubSection(KeyValueItem("   \tChat Id",
+        general = SubSection(KeyValueItem("   \t**Chat Id**",
                                           Code(str(f"-100{chat.id}"))),
-                             KeyValueItem("Title",
+                             KeyValueItem("**Title**",
                                           f"[{chat.title}](t.me/{chat.username})"),
-                             KeyValueItem("Private",
+                             KeyValueItem("**Private**",
                                           Code(str(is_private))),
-                             KeyValueItem("Invite Link",
+                             KeyValueItem("**Invite Link**",
                                           Link(invite_link.split('/')[-1],
                                                invite_link)) if invite_link else None,
-                             KeyValueItem("Admins",
+                             KeyValueItem("**Admins**",
                                           Code(str(admin_count))),
-                             KeyValueItem("Online",
+                             KeyValueItem("**Online**",
                                           Code(str(full_chat.full_chat.online_count))),
-                             KeyValueItem("Total",
+                             KeyValueItem("**Total**",
                                           Code(str(full_chat.full_chat.participants_count))))
     else:
         general = None
 
     if show_admins:
-        admins = SubSection(Bold("Admins"))
+        admins = SubSection(Bold("🧍Admins🧍"))
         for admin in admin_list:
             admins.items.append(String(inline_mention(admin)))
         if not admins:
@@ -102,7 +102,7 @@ async def fetch_info(event, full_chat, **kwargs):
 
     if show_bots:
         bots_list = await list_bots(event)
-        bots = SubSection(Bold("Bots"))
+        bots = SubSection(Bold("🤖Bots🤖"))
         for bot in bots_list:
             bots.items.append(String(inline_mention(bot)))
         if not bots:
@@ -112,9 +112,3 @@ async def fetch_info(event, full_chat, **kwargs):
                          general if show_general else None,
                          admins if show_admins else None,
                          bots if show_bots else None))
-
-
-# add_help_item(
-#    "chatinfo",
-#    "Admin",
-#    "Returns stats for the current chat",

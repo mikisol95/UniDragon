@@ -15,7 +15,7 @@ from telethon import version
 plugs = len(borg._plugins)
 
 
-@borg.on(admin_cmd(pattern="permalink(?: |$)(.*)"))
+@borg.on(admin_cmd(pattern="permalink ?(.*)"))
 async def permalink(mention):
     """ For .link command, generates a link to the user's PM with a custom text. """
     user, custom = await get_user_from_event(mention)

@@ -2,6 +2,7 @@
 Commands:
 .cwelcome
 .swelcome
+.lwelcome
 """
 
 from telethon import events
@@ -43,11 +44,13 @@ async def _(event):
             update_previous_welcome(event.chat_id, current_message.id)
 
 
-@borg.on(admin_cmd(pattern="swelcome"))  # pylint:disable=E0602
+@borg.on(admin_cmd(pattern="swelcome ?(.*)"))  # pylint:disable=E0602
 async def _(event):
     if event.fwd_from:
         return
     msg = await event.get_reply_message()
+    if not msg:
+      msg = event.pattern_match.group(1)
     if msg:
         msg_o = await event.client.forward_messages(
             entity=Config.PRIVATE_CHANNEL_BOT_API_ID,
@@ -72,3 +75,18 @@ async def _(event):
             cws.f_mesg_id
         )
     )
+
+@borg.on(admin_cmd(pattern="lwelcome"))  # pylint:disable=E0602
+async def _(event):
+    if event.fwd_from:
+        return
+    cws = get_current_welcome_settings(event.chat_id)
+    if hasattr(cws, 'custom_welcome_message'):
+        await event.edit(
+            "Welcome note found. " + \
+        "Your welcome message is\n\n`{}`.".format(cws.custom_welcome_message)
+    )
+    else:
+        await event.edit(
+            "No Welcome Message found"
+        )

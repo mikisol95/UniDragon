@@ -10,7 +10,7 @@ from uniborg.util import admin_cmd
 
 # ================= CONSTANT =================
 RENDISTR = [
-    "`I Know Uh ez Rendi Bhay Dont show Your Randi Pesa Here`",
+    "`I Know Uh ez Rendi Bhay Dont show Your Randi_Pana Here`",
     "`Jag Suna suna laage Sab #maderchod bhay`",
     "`you talking behind meh wew uh iz my fan now bhay`",
     "`Wanna pass in Life Goto BRAZZER.CAM BHAY`",
@@ -342,7 +342,7 @@ CRI = [
 ]
 
 DISABLE_ROON = False
-# ===========================================
+# ===================End of Constant========================
 
 
 @borg.on(events.NewMessage(outgoing=True, pattern="^:/$"))
@@ -519,15 +519,15 @@ async def hoi(hello):
         await hello.edit(random.choice(HELLOSTR))
 
 
-@borg.on(admin_cmd(pattern="irand", outgoing=True))
+@borg.on(admin_cmd(pattern="rand", outgoing=True))
 async def irand(randi):
-    """ur a Randi! """
+    """u r a Randi! """
     if not randi.text[0].isalpha() and randi.text[0] not in (
             "/", "#", "@", "!"):
         await randi.edit(random.choice(RENDISTR))
 
 
-@borg.on(admin_cmd(pattern="owo(?: |$)(.*)", outgoing=True))
+@borg.on(admin_cmd(pattern="uwu(?: |$)(.*)", outgoing=True))
 async def faces(owo):
     """ UwU """
     if not owo.text[0].isalpha() and owo.text[0] not in ("/", "#", "@", "!"):

@@ -19,27 +19,27 @@ SPO_BIO_RUNNING = "```Spotify Current Music to Bio already running.```"
 SPO_BIO_CONFIG_ERROR = "```Error.```"
 ERROR_MSG = "```Module halted, Unexpected error.```"
 
-USERNAME = Config.SPOTIFY_USERNAME
-PASSWORD = Config.SPOTIFY_PASS
-
+sp_dc = Config.SPOTIFY_DC
+sp_key = Config.SPOTIFY_KEY
+ 
 ARTIST = 0
 SONG = 0
-
-BIOPREFIX = Config.SPOTIFY_BIO_PREFIX
-
+ 
+BIOPREFIX = "Now Playing.."
+ 
 SPOTIFYCHECK = False
 RUNNING = False
 OLDEXCEPT = False
 PARSE = False
 # ================================================
-
-
+ 
+ 
 async def get_spotify_token():
-    sptoken = st.start_session(USERNAME, PASSWORD)
+    sptoken = st.start_session(sp_dc, sp_key)
     access_token = sptoken[0]
     environ["spftoken"] = access_token
-
-
+ 
+ 
 async def update_spotify_info():
     global ARTIST
     global SONG
@@ -89,24 +89,24 @@ async def update_spotify_info():
         await sleep(2)
         await dirtyfix()
     RUNNING = False
-
-
+ 
+ 
 async def update_token():
-    sptoken = st.start_session(USERNAME, PASSWORD)
+    sptoken = st.start_session(sp_dc, sp_key)
     access_token = sptoken[0]
     environ["spftoken"] = access_token
     environ["errorcheck"] = "1"
     await update_spotify_info()
-
-
+ 
+ 
 async def dirtyfix():
     global SPOTIFYCHECK
     SPOTIFYCHECK = True
     await sleep(4)
     await update_spotify_info()
-
-
-@borg.on(events.NewMessage(pattern=r"\.enablespotify ?(.*)", outgoing=True))
+ 
+ 
+@borg.on(admin_cmd(pattern="enablespotify ?(.*)"))  # pylint:disable=E0602
 async def set_biostgraph(setstbio):
     setrecursionlimit(700000)
     if not SPOTIFYCHECK:
@@ -116,9 +116,9 @@ async def set_biostgraph(setstbio):
         await dirtyfix()
     else:
         await setstbio.edit(SPO_BIO_RUNNING)
-
-
-@borg.on(events.NewMessage(pattern=r"\.disablespotify ?(.*)", outgoing=True))
+ 
+ 
+@borg.on(admin_cmd(pattern="disablespotify ?(.*)"))  # pylint:disable=E0602
 async def set_biodgraph(setdbio):
     global SPOTIFYCHECK
     global RUNNING

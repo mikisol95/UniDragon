@@ -1,7 +1,7 @@
+from sql_helpers import BASE, SESSION
 from sqlalchemy import Boolean, Column, String
-from sql_helpers import SESSION, BASE
-
-
+ 
+ 
 class Locks(BASE):
     __tablename__ = "locks"
     chat_id = Column(String(14), primary_key=True)
@@ -11,7 +11,7 @@ class Locks(BASE):
     email = Column(Boolean, default=False)
     forward = Column(Boolean, default=False)
     url = Column(Boolean, default=False)
-
+ 
     def __init__(self, chat_id):
         self.chat_id = str(chat_id)  # ensure string
         self.bots = False
@@ -19,11 +19,11 @@ class Locks(BASE):
         self.email = False
         self.forward = False
         self.url = False
-
-
+ 
+ 
 Locks.__table__.create(checkfirst=True)
-
-
+ 
+ 
 def init_locks(chat_id, reset=False):
     curr_restr = SESSION.query(Locks).get(str(chat_id))
     if reset:
@@ -33,8 +33,8 @@ def init_locks(chat_id, reset=False):
     SESSION.add(restr)
     SESSION.commit()
     return restr
-
-
+ 
+ 
 def update_lock(chat_id, lock_type, locked):
     curr_perm = SESSION.query(Locks).get(str(chat_id))
     if not curr_perm:
@@ -51,8 +51,8 @@ def update_lock(chat_id, lock_type, locked):
         curr_perm.url = locked
     SESSION.add(curr_perm)
     SESSION.commit()
-
-
+ 
+ 
 def is_locked(chat_id, lock_type):
     curr_perm = SESSION.query(Locks).get(str(chat_id))
     SESSION.close()
@@ -68,10 +68,11 @@ def is_locked(chat_id, lock_type):
         return curr_perm.forward
     elif lock_type == "url":
         return curr_perm.url
-
-
+ 
+ 
 def get_locks(chat_id):
     try:
         return SESSION.query(Locks).get(str(chat_id))
     finally:
         SESSION.close()
+ 

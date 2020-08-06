@@ -28,7 +28,8 @@ async def variable(var):
     heroku_var = app.config()
     if exe == "get":
         await var.edit("`Getting information Bish...`")
-        await asyncio.sleep(1.5)
+        await asyncio.sleep(2)
+        await var.delete()
         try:
             variable = var.pattern_match.group(2).split()[0]
             if variable in heroku_var:

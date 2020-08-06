@@ -72,7 +72,7 @@ async def _(event):
         file_ext_ns_ion = "AnimatedSticker.tgs"
         uploaded_sticker = await borg.upload_file(file, file_name=file_ext_ns_ion)
         packname = "nikal_lawde_AnimatedStickers"
-        packshortname = "kirito6969_Animated"  # format: Uni_Borg_userid
+        packshortname = "kirito6969_Animated"  # format: Uni_Borg_userid_as
     elif not is_message_image(reply_message):
         await event.edit("Invalid message type")
         return
@@ -100,7 +100,7 @@ async def _(event):
             if not response.text.startswith("Alright!"):
                 await event.edit(f"**FAILED**! @Stickers replied: {response.text}")
                 return
-            w = await bot_conv.send_file(
+            await bot_conv.send_file(
                 file=uploaded_sticker,
                 allow_cache=False,
                 force_document=True
@@ -120,7 +120,12 @@ async def _(event):
         else:
             await silently_send_message(bot_conv, "/cancel")
             await silently_send_message(bot_conv, "/addsticker")
-            await silently_send_message(bot_conv, packshortname)
+            esnopre = await silently_send_message(bot_conv, packshortname)
+            if "Alright!" not in esnopre.text:
+                await event.edit(
+                    f"**FAILED**! @Stickers replied: {esnopre.text}"
+                )
+                return
             await bot_conv.send_file(
                 file=uploaded_sticker,
                 allow_cache=False,
@@ -144,6 +149,7 @@ async def _(event):
         await event.edit("Reply to any sticker to get it's pack info.")
         return
     rep_msg = await event.get_reply_message()
+    await event.edit("`Getting this Sticker Pack information...`")
     if not rep_msg.document:
         await event.edit("Reply to any sticker to get it's pack info.")
         return

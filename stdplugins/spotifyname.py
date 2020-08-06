@@ -8,12 +8,9 @@ from json import loads
 from json.decoder import JSONDecodeError
 from os import environ
 from sys import setrecursionlimit
-
 from requests import get
 from telethon import events
 from telethon.tl.functions.account import UpdateProfileRequest
-
-
 import spotify_token as st
 from sample_config import Config
 
@@ -24,27 +21,25 @@ SPO_BIO_RUNNING = "```Spotify Current Music to Name already running.```"
 SPO_BIO_CONFIG_ERROR = "```Error.```"
 ERROR_MSG = "```Module halted, Unexpected error.```"
 
-USERNAME = Config.SPOTIFY_USERNAME
-PASSWORD = Config.SPOTIFY_PASS
-
+sp_dc = Config.SPOTIFY_DC
+sp_key = Config.SPOTIFY_KEY
+ 
 ARTIST = 0
 SONG = 0
-
-BIOPREFIX = Config.SPOTIFY_BIO_PREFIX
-
+ 
 SPOTIFYCHECK = False
 RUNNING = False
 OLDEXCEPT = False
 PARSE = False
 # ================================================
-
-
+ 
+ 
 async def get_spotify_token():
-    sptoken = st.start_session(USERNAME, PASSWORD)
+    sptoken = st.start_session(sp_dc, sp_key)
     access_token = sptoken[0]
     environ["spftoken"] = access_token
-
-
+ 
+ 
 async def update_spotify_info():
     global ARTIST
     global SONG
@@ -69,7 +64,7 @@ async def update_spotify_info():
             if song != oldsong and artist != oldartist:
                 oldartist = artist
                 environ["oldsong"] = song
-                spobio = BIOPREFIX + " 🎧: " + artist + " - " + song
+                spobio = " 🎧: " + artist + " - " + song
                 await borg(UpdateProfileRequest(first_name=spobio))
                 environ["errorcheck"] = "0"
         except KeyError:
@@ -94,23 +89,23 @@ async def update_spotify_info():
         await sleep(2)
         await dirtyfix()
     RUNNING = False
-
-
+ 
+ 
 async def update_token():
-    sptoken = st.start_session(USERNAME, PASSWORD)
+    sptoken = st.start_session(sp_dc, sp_key)
     access_token = sptoken[0]
     environ["spftoken"] = access_token
     environ["errorcheck"] = "1"
     await update_spotify_info()
-
-
+ 
+ 
 async def dirtyfix():
     global SPOTIFYCHECK
     SPOTIFYCHECK = True
     await sleep(4)
     await update_spotify_info()
-
-
+ 
+ 
 @borg.on(events.NewMessage(pattern=r"\.ensp ?(.*)", outgoing=True))
 async def set_biostgraph(setstbio):
     setrecursionlimit(700000)
@@ -121,8 +116,8 @@ async def set_biostgraph(setstbio):
         await dirtyfix()
     else:
         await setstbio.edit(SPO_BIO_RUNNING)
-
-
+ 
+ 
 @borg.on(events.NewMessage(pattern=r"\.disp ?(.*)", outgoing=True))
 async def set_biodgraph(setdbio):
     global SPOTIFYCHECK
@@ -131,3 +126,4 @@ async def set_biodgraph(setdbio):
     RUNNING = False
     await borg(UpdateProfileRequest(first_name=Config.DEFAULT_NAME))
     await setdbio.edit(SPO_BIO_DISABLED)
+ 

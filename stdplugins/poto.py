@@ -16,8 +16,7 @@ logger = logging.getLogger(__name__)
 
 if 1 == 1:
     name = "Profile Photos"
-    client = borg
-
+    
     @borg.on(admin_cmd(pattern="poto ?(.*)"))
     async def potocmd(event):
         """Gets the profile photos of replied users, channels or chats"""

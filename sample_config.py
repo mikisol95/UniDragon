@@ -75,9 +75,6 @@ class Config(object):
     # Remove This To Make Them Work But Would Make Bot Unstable AF...⚡
     NO_LOAD = [
         "pmpermit",
-        "blacklist",
-        "locks",
-        "antiflood"
     ]
     # Get your own API key from https://www.remove.bg/ or
     # feel free to use http://telegram.dog/Remove_BGBot
@@ -173,9 +170,8 @@ class Config(object):
     RAVANA_LEELA = os.environ.get("RAVANA_LEELA", None)
     # spotify stuff
     DEFAULT_BIO = os.environ.get("DEFAULT_BIO", None)
-    SPOTIFY_BIO_PREFIX = os.environ.get("SPOTIFY_BIO_PREFIX", None)
-    SPOTIFY_PASS = os.environ.get("SPOTIFY_PASS", None)
-    SPOTIFY_USERNAME = os.environ.get("SPOTIFY_USERNAME", None)
+    SPOTIFY_KEY = os.environ.get("SPOTIFY_KEY", None)
+    SPOTIFY_DC = os.environ.get("SPOTIFY_DC", None)
     DEFAULT_NAME = os.environ.get("DEFAULT_NAME", None)
     # MongoDB
     MONGO_URI = os.environ.get("MONGO_URI", None)
@@ -200,9 +196,7 @@ class Config(object):
     WATCH_COUNTRY = os.environ.get("WATCH_COUNTRY", None)
     # Deeer ARL Token
     DEEZER_ARL_TOKEN = os.environ.get("DEEZER_ARL_TOKEN", None)
-    ZIP_DOWNLOAD_DIRECTORY = os.environ.get("ZIP_DOWNLOAD_DIRECTORY", "./zips")
     LOGSPAMMER = sb(os.environ.get("LOGSPAMMER", "True"))
-    BOTLOG_CHATID = int(os.environ.get("BOTLOG_CHATID", None))
     BOTLOOG = sb(os.environ.get("BOTLOOG", "True"))
     # SpamWatch Api
     SPAM_WATCH_API = os.environ.get("SPAM_WATCH_API", None)
