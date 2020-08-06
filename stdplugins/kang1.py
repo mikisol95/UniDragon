@@ -1,6 +1,5 @@
 import io
 import math
-import os
 import random
 import emoji
 import urllib.request
@@ -91,7 +90,7 @@ async def kang(args):
                 return
         elif len(splat) == 2:
             if char_is_emoji(splat[1]):
-            	emoji = splat[1]
+                emoji = splat[1]
             else:
                 pack = splat[1]
 
