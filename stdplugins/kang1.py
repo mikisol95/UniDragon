@@ -90,8 +90,8 @@ async def kang(args):
                 await args.edit("`Nikal Lawde`")
                 return
         elif len(splat) == 2:
-            if char_is_emoji(splat[1])
-            emoji = splat[1]
+            if char_is_emoji(splat[1]):
+            	emoji = splat[1]
             else:
                 pack = splat[1]
 
