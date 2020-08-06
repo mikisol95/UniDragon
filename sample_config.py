@@ -4,7 +4,9 @@
 import os
 
 
-class Config(object):
+
+
+class Config((object)):
     LOGGER = True
     # Get this value from my.telegram.org! Please do not steal
     APP_ID = int(os.environ.get("APP_ID", 6))
@@ -62,10 +64,10 @@ class Config(object):
     # TG API limit. A message can have maximum 4096 characters!
     MAX_MESSAGE_SIZE_LIMIT = 4095
     # set blacklist_chats where you do not want userbot's features
-    UB_BLACK_LIST_CHAT = set(int(x) for x in os.environ.get(
-        "UB_BLACK_LIST_CHAT",
-        ""
-    ).split())
+    UB_BLACK_LIST_CHAT = {int(x) for x in os.environ.get(
+            "UB_BLACK_LIST_CHAT",
+            ""
+        ).split()}
     # specify LOAD and NO_LOAD
     LOAD = []
     # foloowing plugins won't work on Heroku,
@@ -92,9 +94,7 @@ class Config(object):
     # specify list of users allowed to use bot
     # WARNING: be careful who you grant access to your bot.
     # malicious users could do ".exec rm -rf /*"
-    SUDO_USERS = list(set(
-        int(x) for x in os.environ.get("SUDO_USERS", "").split()
-    ))
+    SUDO_USERS = list({int(x) for x in os.environ.get("SUDO_USERS", "").split()})
     # VeryStream only supports video formats
     VERY_STREAM_LOGIN = os.environ.get("VERY_STREAM_LOGIN", None)
     VERY_STREAM_KEY = os.environ.get("VERY_STREAM_KEY", None)
@@ -147,6 +147,7 @@ class Config(object):
         "STICKERS_TGS_SHORT_NAME",
         "Uni_Borg_7351948_as"
     )
+
 
 
 class Production(Config):
