@@ -182,7 +182,10 @@ async def is_admin(client, chat_id, user_id):
             user_id=user_id
         ))
         chat_participant = req_jo.participant
-        if isinstance(chat_participant, (ChannelParticipantCreator, ChannelParticipantAdmin)):
+        if isinstance(
+            chat_participant,
+            (ChannelParticipantCreator,
+             ChannelParticipantAdmin)):
             return True
     except Exception:
         return False

@@ -2,20 +2,21 @@
 Available Commands: .lock <option>, .unlock <option>, .locks
 API Options: msg, media, sticker, gif, gamee, ainline, gpoll, adduser, cpin, changeinfo
 DB Options: bots, commands, email, forward, url"""
- 
+
 import logging
- 
+
 from telethon import events, functions, types
- 
+
 from sample_config import Config
 from uniborg.util import admin_cmd
- 
-logging.basicConfig(format='[%(levelname) 5s/%(asctime)s] %(name)s: %(message)s',
-                    level=logging.WARNING)
+
+logging.basicConfig(
+    format='[%(levelname) 5s/%(asctime)s] %(name)s: %(message)s',
+    level=logging.WARNING)
 logger = logging.getLogger(__name__)
- 
- 
-@borg.on(admin_cmd(pattern="lock( (?P<target>\S+)|$)"))
+
+
+@borg.on(admin_cmd(pattern=r"lock( (?P<target>\S+)|$)"))
 async def _(event):
     # Space weirdness in regex required because argument is optional and other
     # commands start with ".lock"
@@ -93,8 +94,8 @@ async def _(event):
             await event.edit(
                 "Current Chat Default Permissions Changed Successfully, in API"
             )
- 
- 
+
+
 @borg.on(admin_cmd(pattern="unlock ?(.*)"))
 async def _(event):
     if event.fwd_from:
@@ -116,8 +117,8 @@ async def _(event):
         await event.edit(
             "Use `.lock` without any parameters to unlock API locks"
         )
- 
- 
+
+
 @borg.on(admin_cmd(pattern="curenabledlocks"))
 async def _(event):
     if event.fwd_from:
@@ -157,8 +158,8 @@ async def _(event):
         res += "👉 `cpin`: `{}`\n".format(current_api_locks.pin_messages)
         res += "👉 `changeinfo`: `{}`\n".format(current_api_locks.change_info)
     await event.edit(res)
- 
- 
+
+
 @borg.on(events.MessageEdited())
 @borg.on(events.NewMessage())
 async def check_incoming_messages(event):
@@ -217,7 +218,10 @@ async def check_incoming_messages(event):
         is_url = False
         if entities:
             for entity in entities:
-                if isinstance(entity, (types.MessageEntityTextUrl, types.MessageEntityUrl)):
+                if isinstance(
+                    entity,
+                    (types.MessageEntityTextUrl,
+                     types.MessageEntityUrl)):
                     is_url = True
         if is_url:
             try:
@@ -228,8 +232,8 @@ async def check_incoming_messages(event):
                         str(e))
                 )
                 update_lock(peer_id, "url", False)
- 
- 
+
+
 @borg.on(events.ChatAction())
 async def _(event):
     try:
@@ -273,4 +277,3 @@ async def _(event):
                     "!warn [user](tg://user?id={}) Please Do Not Add BOTs to this chat.".format(
                         users_added_by)
                 )
- 

@@ -11,7 +11,6 @@ from telethon import events
 import asyncio
 
 
-
 @borg.on(events.NewMessage(outgoing=True, pattern=r'^\.(q?w)char'))
 async def timer_blankx(e):
 

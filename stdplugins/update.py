@@ -35,8 +35,6 @@ from git.exc import NoSuchPathError
 import asyncio
 
 
-
-
 from uniborg.util import admin_cmd
 
 

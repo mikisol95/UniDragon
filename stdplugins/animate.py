@@ -1238,7 +1238,6 @@ async def _(event):
 
         return
 
-
     animation_ttl = range(0, 17)
 
     input_str = event.pattern_match.group(1)

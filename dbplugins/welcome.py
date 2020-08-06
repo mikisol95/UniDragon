@@ -50,7 +50,7 @@ async def _(event):
         return
     msg = await event.get_reply_message()
     if not msg:
-      msg = event.pattern_match.group(1)
+        msg = event.pattern_match.group(1)
     if msg:
         msg_o = await event.client.forward_messages(
             entity=Config.PRIVATE_CHANNEL_BOT_API_ID,
@@ -76,6 +76,7 @@ async def _(event):
         )
     )
 
+
 @borg.on(admin_cmd(pattern="lwelcome"))  # pylint:disable=E0602
 async def _(event):
     if event.fwd_from:
@@ -83,9 +84,9 @@ async def _(event):
     cws = get_current_welcome_settings(event.chat_id)
     if hasattr(cws, 'custom_welcome_message'):
         await event.edit(
-            "Welcome note found. " + \
-        "Your welcome message is\n\n`{}`.".format(cws.custom_welcome_message)
-    )
+            "Welcome note found. " +
+            "Your welcome message is\n\n`{}`.".format(cws.custom_welcome_message)
+        )
     else:
         await event.edit(
             "No Welcome Message found"

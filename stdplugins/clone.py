@@ -1,34 +1,29 @@
 """Get Telegram Profile Picture and other information
 and set as own profile.
 Syntax: .clone @username"""
-#Copy That Plugin by @ViperAdnan and @mrconfused
-#Give credit if you are going to kang it.
+# Copy That Plugin by @ViperAdnan and @mrconfused
+# Give credit if you are going to kang it.
 
 import html
-import os
 from asyncio import sleep
 from telethon.tl.functions.users import GetFullUserRequest
 from telethon.tl.types import MessageEntityMentionName
-from telethon.utils import get_input_location
 from telethon.tl import functions
-from telethon import events
 from uniborg.util import admin_cmd
-from telethon.errors import ImageProcessFailedError, PhotoCropSizeSmallError
 from telethon.errors.rpcerrorlist import (PhotoExtInvalidError,
                                           UsernameOccupiedError)
 from telethon.tl.functions.account import (UpdateProfileRequest,
                                            UpdateUsernameRequest)
-from telethon.tl.functions.channels import GetAdminedPublicChannelsRequest
 from telethon.tl.functions.photos import (DeletePhotosRequest,
                                           GetUserPhotosRequest,
                                           UploadProfilePhotoRequest)
-from telethon.tl.types import InputPhoto, MessageMediaPhoto, User, Chat, Channel
 
 DEFAULTUSER = "꧁🐉 пιĸιтa 🐉"
 LAST = " #F_Society #CatGang #LazyAF_Geng"
 DEFAULTUSERBIO = "Bio hi padhna tha to science le lete... Expected an intented Block"
 BOTLOG_CHATID = Config.PM_LOGGR_BOT_API_ID
 BOTLOG = True
+
 
 @borg.on(admin_cmd(pattern="clone ?(.*)"))
 async def _(event):
@@ -46,7 +41,8 @@ async def _(event):
     # https://stackoverflow.com/a/5072031/4723940
     # some Deleted Accounts do not have first_name
     if first_name is not None:
-        # some weird people (like me) have more than 4096 characters in their names
+        # some weird people (like me) have more than 4096 characters in their
+        # names
         first_name = first_name.replace("\u2060", "")
     last_name = replied_user.user.last_name
     # last_name is not Manadatory in @Telegram
@@ -54,7 +50,7 @@ async def _(event):
         last_name = html.escape(last_name)
         last_name = last_name.replace("\u2060", "")
     if last_name is None:
-      last_name = "⁪⁬⁮⁮⁮⁮ ‌‌‌‌"
+        last_name = "⁪⁬⁮⁮⁮⁮ ‌‌‌‌"
     # inspired by https://telegram.dog/afsaI181
     user_bio = replied_user.about
     if user_bio is not None:
@@ -68,20 +64,20 @@ async def _(event):
     await borg(functions.account.UpdateProfileRequest(
         about=user_bio
     ))
-    n = 1
-    pfile = await borg.upload_file(profile_pic)  # pylint:disable=E060      
+    pfile = await borg.upload_file(profile_pic)  # pylint:disable=E060
     await borg(functions.photos.UploadProfilePhotoRequest(  # pylint:disable=E0602
         pfile
     ))
     await event.delete()
     await borg.send_message(
-      event.chat_id,
-      "**Hehe Boi 🌚**",
-      reply_to=reply_message
-      )
+        event.chat_id,
+        "**Hehe Boi 🌚**",
+        reply_to=reply_message
+    )
     if BOTLOG:
         await event.client.send_message(BOTLOG_CHATID, f"#CLONED\nSuccesfulley cloned [{first_name}](tg://user?id={user_id })")
-    
+
+
 @borg.on(admin_cmd(pattern="revert$"))
 async def _(event):
     if event.fwd_from:
@@ -89,7 +85,7 @@ async def _(event):
     name = f"{DEFAULTUSER}"
     bio = f"{DEFAULTUSERBIO}"
     n = 1
-    await borg(functions.photos.DeletePhotosRequest(await event.client.get_profile_photos("me", limit= n)))
+    await borg(functions.photos.DeletePhotosRequest(await event.client.get_profile_photos("me", limit=n)))
     await borg(functions.account.UpdateProfileRequest(about=bio))
     await borg(functions.account.UpdateProfileRequest(first_name=name))
     await borg(functions.account.UpdateProfileRequest(last_name=LAST))
@@ -97,8 +93,9 @@ async def _(event):
     await sleep(3)
     await event.delete()
     if BOTLOG:
-        await event.client.send_message(BOTLOG_CHATID, f"#REVERT\nSuccesfully reverted back to your profile")    
-    
+        await event.client.send_message(BOTLOG_CHATID, f"#REVERT\nSuccesfully reverted back to your profile")
+
+
 async def get_full_user(event):
     if event.reply_to_msg_id:
         previous_message = await event.get_reply_message()
@@ -110,10 +107,10 @@ async def get_full_user(event):
             )
             return replied_user, None
         replied_user = await event.client(
-                GetFullUserRequest(
-                    previous_message.from_id
-                )
+            GetFullUserRequest(
+                previous_message.from_id
             )
+        )
         return replied_user, None
     input_str = None
     try:

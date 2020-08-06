@@ -24,8 +24,7 @@ KANGING_STR = [
     "Roses are red violets are blue, kanging this sticker so my pacc looks cool",
     "Imprisoning this sticker...",
     "Mr.Steal Your Sticker is stealing this sticker... ",
-    "Aaja Bsdk aa Sala Kurkure..."
-]
+    "Aaja Bsdk aa Sala Kurkure..."]
 
 
 @borg.on(admin_cmd(pattern="kung ?(.*)"))
@@ -59,7 +58,7 @@ async def kang(args):
         elif "tgsticker" in message.media.document.mime_type:
             await args.edit(f"`{random.choice(KANGING_STR)}`")
             await borg.download_file(message.media.document,
-                                    'AnimatedSticker.tgs')
+                                     'AnimatedSticker.tgs')
 
             attributes = message.media.document.attributes
             for attribute in attributes:
@@ -79,7 +78,7 @@ async def kang(args):
         splat = args.text.split()
         if not emojibypass:
             emoji = "🤖"
-        pack = 1    
+        pack = 1
         if len(splat) == 3:
             if char_is_emoji(splat[1]):
                 pack = splat[2]  # User sent both
@@ -92,10 +91,10 @@ async def kang(args):
                 return
         elif len(splat) == 2:
             if char_is_emoji(splat[1])
-                emoji = splat[1]
+            emoji = splat[1]
             else:
                 pack = splat[1]
-                
+
         packname = f"faketexi_gengbeng69"
         packnick = f"@{user.username}'s Layer"
         cmd = '/newpack'
@@ -240,6 +239,7 @@ async def kang(args):
         await args.edit(f"`This Sticker is Ripped & added to Moi Collection! Ploxx Save This Sticker` [HERE](t.me/addstickers/{packname})",
                         parse_mode='md')
 
+
 async def resize_photo(photo):
     """ Resize the given photo to 512x512 """
     image = Image.open(photo)
@@ -264,8 +264,10 @@ async def resize_photo(photo):
 
     return image
 
+
 def char_is_emoji(character):
     return character in emoji.UNICODE_EMOJI
+
 
 @borg.on(admin_cmd(pattern="stkrinfo ?(.*)"))
 async def get_pack_info(event):
