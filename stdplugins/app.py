@@ -10,7 +10,7 @@ from uniborg.util import admin_cmd
 async def apk(e):
     try:
         app_name = e.pattern_match.group(1)
-        await e.edit("`Hold on! Searching...`")
+        await e.edit("searching app.")
         remove_space = app_name.split(' ')
         final_name = '+'.join(remove_space)
         page = requests.get(
@@ -44,7 +44,7 @@ async def apk(e):
             " out of ", "/").replace(" stars", "", 1).replace(" stars", "⭐ ").replace("five", "5")
         app_details += "\n<code>Features :</code> <a href='" + \
             app_link + "'>View in Play Store</a>"
-        app_details += "\n\n===> @kirito6969 <==="
+        app_details += "\n\n**Unidragon**"
         await e.edit(app_details, link_preview=True, parse_mode='HTML')
     except IndexError:
         await e.edit("No result found in search. Please enter **Valid app name**")
