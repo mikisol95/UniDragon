@@ -63,7 +63,7 @@ async def _(event):
         nurl = f"https://del.dog/v/{r['key']}"
         await event.edit("Dogged to {} in {} seconds. GoTo Original URL: {}".format(url, ms, nurl))
     else:
-        await event.edit("`Pasted Successfully!..` \n[Here you Go BSDK]({})\n__Link Generated In__ **{}** __seconds__".format(url, ms))
+        await event.edit("**Pasted successfully**\n[Link]({})\n**Link generated in {}**".format(url, ms))
 
 
 @borg.on(admin_cmd(pattern="getp(?: |$)(.*)"))
