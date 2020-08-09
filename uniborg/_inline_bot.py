@@ -114,7 +114,7 @@ if Config.TG_BOT_USER_NAME_BF_HER is not None and tgbot is not None:
                     # throw error
                     result = builder.article(
                         "YTDL Errors © @UniBorg",
-                        text=f"{error_message} Powered by @PepeBot",
+                        text=f"{error_message} Powered by @RealNinja",
                         link_preview=False
                     )
                 elif t_response:
@@ -202,41 +202,35 @@ if Config.TG_BOT_USER_NAME_BF_HER is not None and tgbot is not None:
         else:
             result = builder.article(
                 "© @UniBorg",
-                text="""@PepeB0t **( Custom Built By** @kirito6969 **)
-**Verified Account:** ✅
-**Official Website:** https://prono69.github.io/PepeBot/
-
-**Pithun 3.8.2 (default, Apr 29 2020, 09:19:52)**
-**[GCC 7.4.0]**
-**Talethrun 1.13.2**
-
-**Custom Built Fork:** https://github.com/prono69/PepeBot""",
+                text="""**Python: 3.8.2 
+GCC 7.4.0]
+Telethon: 1.13.2""",
                 buttons=[
                     [
                         custom.Button.url(
-                            "👤Contact Creator👤",
+                            "",
                             "https://telegram.dog/kirito6969"),
                         custom.Button.url(
-                            "📼Ravana Audio Memes📼",
-                            "https://t.me/tgaudiomemes")],
+                            "User",
+                            "https://t.me/Realnjnja")],
                     [
                         custom.Button.url(
-                            "👨‍💻Source Code👨‍💻",
-                            "https://github.com/prono69/PepeBot"),
+                            "Source Code",
+                            "https://github.com/xaleb1370/alphaa"),
                         custom.Button.url(
-                            "❕❗Deploy Me❗❕",
+                            "",
                             "https://dashboard.heroku.com/new?button-url=https%3A%2F%2Fgithub.com%2Fravana69%2FPornHub%2F&template=https%3A%2F%2Fgithub.com%2Fravana69%2FPornHub%2F")],
                     [
                         custom.Button.url(
-                            "🔰Update Fork🔰",
+                            "Update Fork",
                             "tg://need_update_for_some_feature"),
                         custom.Button.url(
-                            "✳️Fork Boost✳️",
+                            "Fork Boost",
                             "tg://some_unsupported_feature"),
                         custom.Button.url(
-                            "♻️Refresh Heroku♻️",
+                            "",
                             "tg://chutiya")]],
-                link_preview=True)
+                link_preview=False)
         await event.answer([result] if result else None)
 
     @tgbot.on(events.callbackquery.CallbackQuery(
