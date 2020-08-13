@@ -245,7 +245,7 @@ Telethon: 1.13.2""",
             # https://t.me/TelethonChat/115200
             await event.edit(buttons=buttons)
         else:
-            reply_pop_up_alert = "⚠️ Warning: Don't Press Any Buttons"
+            reply_pop_up_alert = "Warning: Don't Press Any Buttons"
             await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
 
     @tgbot.on(events.callbackquery.CallbackQuery(
