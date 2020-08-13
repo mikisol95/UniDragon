@@ -201,6 +201,8 @@ class Config(object):
     # SpamWatch Api
     SPAM_WATCH_API = os.environ.get("SPAM_WATCH_API", None)
     SPAM_WATCHAPI = os.environ.get("SPAM_WATCHAPI", None)
+    #
+    OWNER_USER = os.environ.get("OWNER_USER", None)
 
 
 class Production(Config):
