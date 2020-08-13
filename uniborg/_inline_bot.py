@@ -69,7 +69,7 @@ if Config.TG_BOT_USER_NAME_BF_HER is not None and tgbot is not None:
             buttons = paginate_help(0, borg._plugins, "helpme")
             result = builder.article(
                 "© @UniBorg",
-                text="{}\nCurrently Loaded Plugins: {}".format(
+                text="{}\nLoaded Plugins: {}".format(
                     query, len(borg._plugins)),
                 buttons=buttons,
                 link_preview=True
@@ -245,7 +245,7 @@ Telethon: 1.13.2""",
             # https://t.me/TelethonChat/115200
             await event.edit(buttons=buttons)
         else:
-            reply_pop_up_alert = "⚠️ Warning: Don't Press Any Buttons ⚠️\n\n\nNote: Bas kar BetiChod, Maa Ke Laude, Madarchod"
+            reply_pop_up_alert = "⚠️ Warning: Don't Press Any Buttons"
             await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
 
     @tgbot.on(events.callbackquery.CallbackQuery(
@@ -263,7 +263,7 @@ Telethon: 1.13.2""",
             # https://t.me/TelethonChat/115200
             await event.edit(buttons=buttons)
         else:
-            reply_pop_up_alert = "Please get your own @PepeBot, and don't edit my messages!"
+            reply_pop_up_alert = "Kaleb"
             await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
 
     @tgbot.on(events.callbackquery.CallbackQuery(
@@ -289,7 +289,7 @@ def paginate_help(page_number, loaded_plugins, prefix):
             helpable_plugins.append(p)
     helpable_plugins = sorted(helpable_plugins)
     modules = [custom.Button.inline(
-        "{} {}".format("✅", x),
+        "{} {}".format("🐉", x),
         data="ub_plugin_{}".format(x))
         for x in helpable_plugins]
     pairs = list(zip(modules[::number_of_cols], modules[1::number_of_cols]))
