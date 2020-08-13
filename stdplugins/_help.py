@@ -24,12 +24,11 @@ async def _(event):
         s_help_string = borg._plugins[splugin_name].__doc__
     else:
         s_help_string = ""
-    help_string = """
-Base Code by: @UniBorg
-Python: {}
-Telethon: {}
-User: @Xaleb
-Owner: @Xaleb""".format(sys.version, __version__)
+    help_string = """@UniBorg
+🔼 Python: {}
+🔼 Telethon: {}
+🔼 User: @Xaleb
+🔼 Owner: @Xaleb""".format(sys.version, __version__)
     tgbotusername = Config.TG_BOT_USER_NAME_BF_HER
     if tgbotusername is not None:
         results = await borg.inline_query(
