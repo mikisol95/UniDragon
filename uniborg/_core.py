@@ -64,7 +64,7 @@ async def send_plug_in(event):
         the_plugin_file,
         force_document=True,
         allow_cache=False,
-        caption="Plugin uploaded by {Config.USER}",
+        caption="",
         reply_to=message_id
     )
     end = datetime.now()
@@ -86,7 +86,7 @@ async def install_plug_in(event):
             )
             if "(" not in downloaded_file_name:
                 borg.load_plugin_from_file(downloaded_file_name)
-                await event.edit("Installed temp Plugin `{}`".format(os.path.basename(downloaded_file_name)))
+                await event.edit("Installed temp plugin `{}`".format(os.path.basename(downloaded_file_name)))
             else:
                 os.remove(downloaded_file_name)
                 await event.edit("`Abe Sale ! Plugin already exists, Can't instll`")
