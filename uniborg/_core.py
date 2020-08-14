@@ -9,6 +9,8 @@ import traceback
 from datetime import datetime
 from uniborg import util
 
+USER = Config.USER
+
 logging.basicConfig(
     format='[%(levelname) 5s/%(asctime)s] %(name)s: %(message)s',
     level=logging.WARNING)
@@ -62,7 +64,7 @@ async def send_plug_in(event):
         the_plugin_file,
         force_document=True,
         allow_cache=False,
-        caption="©️ @LazyAF_Pepe",
+        caption="Plugin uploaded by {Config.USER}",
         reply_to=message_id
     )
     end = datetime.now()
