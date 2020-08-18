@@ -1,15 +1,13 @@
-### ⚠️Warning: // **Multiple accounts are getting banned, // Hence, Use it at your own RISK .** :( /
+⚠️Warning: // **Multiple accounts are getting banned, // Hence, Use it at your own RISK .** :( /
 
-#click_the_pepe_photo_below_to_deploy_or_the_deploy_button
+#Click the ninja image below to deploy yo heroku.
 
 [![Build](https://github.com/prono69/PepeBot/workflows/FailedChecker/badge.svg?branch=master)](https://github.com/prono69/PepeBot/actions "Build")
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/61152ca51cc6417bb9866562f3dfbf76)](https://app.codacy.com/manual/prono69/PepeBot?utm_source=github.com&utm_medium=referral&utm_content=prono69/PepeBot&utm_campaign=Badge_Grade_Settings)
-[![Deploy](https://telegra.ph/file/aab0b657924e806b0c6c8.jpg)](https://heroku.com/deploy?template=https://github.com/prono69/PepeBot/tree/master)
+[![Deploy](https://telegra.ph/file/4cb73b43c6a190638071a.jpg)](https://heroku.com/deploy?template=https://github.com/prono69/PepeBot/tree/master)
 
 
-DIS DEPLOY BUTTON...........
-
-
+This deploy button
 
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
 
